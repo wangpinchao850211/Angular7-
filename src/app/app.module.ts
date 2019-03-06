@@ -15,12 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { Code404Component } from './code404/code404.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [ // 只能声明组件，指令，管道，相当于vue的components（引入组件）
-    AppComponent, NavbarComponent, FooterComponent, SearchComponent, CarouselComponent, ProductComponent, StarsComponent
+    AppComponent, NavbarComponent, FooterComponent, SearchComponent, CarouselComponent, ProductComponent, StarsComponent, ProductdetailComponent, Code404Component
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块

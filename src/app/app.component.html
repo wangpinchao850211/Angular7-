@@ -9,14 +9,17 @@
         <div nz-col nzSpan="6">
           <app-search></app-search>
         </div>
-        <div nz-col nzSpan="18">
-            <div nz-row>
-              <app-carousel></app-carousel>
-            </div>
-            <div nz-row>
-              <app-product></app-product>
-            </div>
-        </div>
+        <!-- <a [router-link]="['']"></a> -->
+        <router-outlet>
+          <div nz-col nzSpan="18">
+              <div nz-row>
+                <app-carousel></app-carousel>
+              </div>
+              <div nz-row>
+                <app-product></app-product>
+              </div>
+          </div>
+      </router-outlet>
       </div>
   </nz-layout>
   <nz-footer>
