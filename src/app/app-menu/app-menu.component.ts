@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuserviceService } from '../services/menuservice.service';
 import { Menu } from '../interface/menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -16,6 +17,7 @@ export class AppMenuComponent implements OnInit {
 
   constructor(
     // private menu: MenuserviceService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,10 @@ export class AppMenuComponent implements OnInit {
 
   toggleCollapsed(): void {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  menuClick(rootName, name) {
+    this.router.navigate([`/${rootName}/${name}`]);
   }
 
 }

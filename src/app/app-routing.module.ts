@@ -1,13 +1,45 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { LayoutComponent } from './app-main/layout/layout.component';
+import { HomeComponent } from './app-main/angular_home/home/home.component';
+import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
+import { HerosComponent } from './app-main/angular_basic/heros/heros.component';
+import { FormComponent } from './app-main/angular_basic/form/form.component';
+import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { Code404Component } from './code404/code404.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
-  {path:'home', component: AppComponent},
-  {path:'product', component: ProductdetailComponent},
-  {path:'**', component: Code404Component} // 一定要放在路由的最后面
+  // Main redirect
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+  // App views
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+    ]
+  },
+  // { path: 'AngularBasic', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'AngularBasic',
+    component: LayoutComponent,
+    // redirectTo: '/heros',可使用空路径实现默认组件的应用
+    children: [
+      { path: '', component: LifeCycleComponent},
+      { path: 'lifecycle', component: LifeCycleComponent },
+      { path: 'heros', component: HerosComponent },
+      { path: 'communication', component: CommunicationComponent },
+      { path: 'form', component: FormComponent },
+    ]
+  },
+
+  // {path:'product', component: ProductdetailComponent},
+  // Handle all other routes
+  {path: '**', component: Code404Component} // 一定要放在路由的最后面
 ];
 
 @NgModule({

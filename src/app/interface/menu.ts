@@ -9,9 +9,11 @@ export interface Menu { // 接口只能作为类型导出使用，而enum是作�
 // }
 
 export const Menu = {
-    Angular_Basic: [
-        'Angular_Basic',
-        'HeroList',
+    AngularBasic: [
+        'heros',
+        'communication',
+        'heros',
+        'form',
     ],
     AngularRxjs: ['AngularRxjs'],
     AngularAnimate: ['AngularAnimate'],

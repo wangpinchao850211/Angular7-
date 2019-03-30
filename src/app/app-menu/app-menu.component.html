@@ -15,7 +15,10 @@
           <span>{{item}}</span>
         </span>
         <ul>
-          <li nz-menu-item *ngFor="let i of angularMenuObj[item]">{{i}}</li>
+          <li nz-menu-item *ngFor="let i of angularMenuObj[item]">
+            <!-- <a [routerLink]="[`/item/i`]">{{i}}</a> 没找到写法 -->
+            <a (click)="menuClick(item, i)">{{i}}</a>
+          </li>
         </ul>
       </li>
     </ul>
