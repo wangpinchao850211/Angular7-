@@ -1,28 +1,11 @@
 <!-- NG-ZORRO -->
 <nz-layout class="layout">
-  <nz-header>
-    <!-- <div class="logo"></div> -->
-    <app-navbar></app-navbar>
+  <nz-header style="height: 60px;">
   </nz-header>
-  <nz-layout>
-      <div nz-row>
-        <div nz-col nzSpan="6">
-          <app-search></app-search>
-        </div>
-        <!-- <a [router-link]="['']"></a> -->
-        <router-outlet>
-          <div nz-col nzSpan="18">
-              <div nz-row>
-                <app-carousel></app-carousel>
-              </div>
-              <div nz-row>
-                <app-product></app-product>
-              </div>
-          </div>
-      </router-outlet>
-      </div>
-  </nz-layout>
-  <nz-footer>
-    <app-footer></app-footer>
-  </nz-footer>
+  <div nz-row class="main-layout">
+    <div nz-col nzSpan="6">
+      <app-menu></app-menu>
+    </div>
+    <div nz-col nzSpan="18"></div>
+  </div>
 </nz-layout>
