@@ -12,7 +12,7 @@ export const Menu = {
     AngularBasic: [
         'heros',
         'communication',
-        'heros',
+        'directivesOrpip',
         'form',
     ],
     AngularRxjs: ['AngularRxjs'],
