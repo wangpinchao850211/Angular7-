@@ -24,6 +24,8 @@ import { HerosComponent } from './app-main/angular_basic/heros/heros.component';
 import { FormComponent } from './app-main/angular_basic/form/form.component';
 import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
 import { LayoutComponent } from './app-main/layout/layout.component';
+import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
+import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 
 registerLocaleData(zh);
 
@@ -45,12 +47,14 @@ registerLocaleData(zh);
     FormComponent,
     CommunicationComponent,
     LayoutComponent,
+    HerosEditorComponent,
+    HeroDetailComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
     AppRoutingModule,
     NgZorroAntdModule,
-    FormsModule,
+    FormsModule, // 添加这个可以使用ngModule
     HttpClientModule,
     BrowserAnimationsModule // 路由模块
   ],
