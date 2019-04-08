@@ -5,8 +5,10 @@ import { LayoutComponent } from './app-main/layout/layout.component';
 import { HomeComponent } from './app-main/angular_home/home/home.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
 import { HerosComponent } from './app-main/angular_basic/heros/heros.component';
+import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
 import { FormComponent } from './app-main/angular_basic/form/form.component';
 import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
+import { ProductComponent } from './product/product.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { Code404Component } from './code404/code404.component';
 import { from } from 'rxjs';
@@ -32,12 +34,17 @@ const routes: Routes = [
       { path: '', component: LifeCycleComponent},
       { path: 'lifecycle', component: LifeCycleComponent },
       { path: 'heros', component: HerosComponent },
+      { path: 'routers',
+        component: RoutesComponent,
+        children: [
+          {path:'product/:id', component: ProductComponent},
+          {path:'productdetail', component: ProductdetailComponent}, // 传递参数直接在routerLink增加参数即可
+        ]
+      },
       { path: 'communication', component: CommunicationComponent },
       { path: 'form', component: FormComponent },
     ]
   },
-
-  // {path:'product', component: ProductdetailComponent},
   // Handle all other routes
   {path: '**', component: Code404Component} // 一定要放在路由的最后面
 ];

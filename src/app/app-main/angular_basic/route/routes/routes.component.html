@@ -1,0 +1,7 @@
+<a [routerLink]="['/AngularBasic/routers/product/1']">主页</a>
+<!-- 下面是第一种传参，第二种传参是在路由配置path中声明定义传参，然后直接在下面routerLink中增加参数即可 -->
+<!-- 下面是直接在路由传参，问号形式，在跳转组件里接受传递的参数，下面这种传参不需router配置里定义 -->
+<a [routerLink]="['/AngularBasic/routers/productdetail']" [queryParams]="{id:1}">商品详情</a>
+
+<input type="button" value="商品详情" (click)="goToProductdetail()">
+<router-outlet></router-outlet>

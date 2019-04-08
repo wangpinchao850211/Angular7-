@@ -32,6 +32,7 @@ export class AppMenuComponent implements OnInit {
   }
 
   menuClick(rootName, name) {
+    // 同a标签使用routerLink参数相同
     this.router.navigate([`/${rootName}/${name}`]);
   }
 

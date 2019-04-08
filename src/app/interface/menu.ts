@@ -11,6 +11,7 @@ export interface Menu { // 接口只能作为类型导出使用，而enum是作�
 export const Menu = {
     AngularBasic: [
         'heros',
+        'routers',
         'communication',
         'directivesOrpip',
         'form',

@@ -16,7 +16,7 @@
         </span>
         <ul>
           <li nz-menu-item *ngFor="let i of angularMenuObj[item]">
-            <!-- <a [routerLink]="[`/item/i`]">{{i}}</a> 没找到写法 -->
+            <!-- <a [routerLink]="[`/item/i`]">{{i}}</a> 没找到写法 routerLink应用在a标签上-->
             <a (click)="menuClick(item, i)">{{i}}</a>
           </li>
         </ul>

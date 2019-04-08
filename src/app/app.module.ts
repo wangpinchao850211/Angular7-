@@ -26,6 +26,7 @@ import { CommunicationComponent } from './app-main/angular_basic/communication/c
 import { LayoutComponent } from './app-main/layout/layout.component';
 import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
 import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
+import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
 
 registerLocaleData(zh);
 
@@ -49,6 +50,7 @@ registerLocaleData(zh);
     LayoutComponent,
     HerosEditorComponent,
     HeroDetailComponent,
+    RoutesComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
