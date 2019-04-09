@@ -37,6 +37,7 @@ const routes: Routes = [
       { path: 'routers',
         component: RoutesComponent,
         children: [
+          // {path:'', component: xxxx}, 这种就是子路由的空路径的配置，跳转时a标签[routerLink]="['./']"设置成这样
           {path:'product/:id', component: ProductComponent},
           {path:'productdetail', component: ProductdetailComponent}, // 传递参数直接在routerLink增加参数即可
         ]

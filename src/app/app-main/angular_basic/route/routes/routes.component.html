@@ -3,5 +3,8 @@
 <!-- 下面是直接在路由传参，问号形式，在跳转组件里接受传递的参数，下面这种传参不需router配置里定义 -->
 <a [routerLink]="['/AngularBasic/routers/productdetail']" [queryParams]="{id:1}">商品详情</a>
 
+<!-- 下面这种是跳转当前路由的子路由为空路径的表达方式 -->
+<!-- <a [routerLink]="['./']"></a> -->
+
 <input type="button" value="商品详情" (click)="goToProductdetail()">
 <router-outlet></router-outlet>
