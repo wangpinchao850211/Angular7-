@@ -12,6 +12,9 @@ import { ProductComponent } from './product/product.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { Code404Component } from './code404/code404.component';
 import { from } from 'rxjs';
+import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
+import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
+import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 
 const routes: Routes = [
   // Main redirect
@@ -31,15 +34,25 @@ const routes: Routes = [
     component: LayoutComponent,
     // redirectTo: '/heros',可使用空路径实现默认组件的应用
     children: [
-      { path: '', component: LifeCycleComponent},
+      { path: '', component: LifeCycleComponent },
       { path: 'lifecycle', component: LifeCycleComponent },
-      { path: 'heros', component: HerosComponent },
-      { path: 'routers',
+      {
+        path: 'heros',
+        component: HerosComponent,
+        // redirectTo: '/dashboard',
+        children: [
+          { path: 'dashboard', component: HerodashboardComponent },
+          { path: 'herolist', component: HerosEditorComponent },
+          { path: 'detail/:id', component: HeroDetailComponent },
+        ]
+      },
+      {
+        path: 'routers',
         component: RoutesComponent,
         children: [
           // {path:'', component: xxxx}, 这种就是子路由的空路径的配置，跳转时a标签[routerLink]="['./']"设置成这样
-          {path:'product/:id', component: ProductComponent},
-          {path:'productdetail', component: ProductdetailComponent}, // 传递参数直接在routerLink增加参数即可
+          { path: 'product/:id', component: ProductComponent },
+          { path: 'productdetail', component: ProductdetailComponent }, // 传递参数直接在routerLink增加参数即可
         ]
       },
       { path: 'communication', component: CommunicationComponent },
@@ -47,7 +60,7 @@ const routes: Routes = [
     ]
   },
   // Handle all other routes
-  {path: '**', component: Code404Component} // 一定要放在路由的最后面
+  { path: '**', component: Code404Component } // 一定要放在路由的最后面
 ];
 
 @NgModule({

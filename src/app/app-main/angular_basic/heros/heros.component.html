@@ -1,4 +1,12 @@
 <div class="heros">
   <h1>{{title}}</h1>
-  <app-heros-editor></app-heros-editor>
+  <nav>
+    <!-- 未实现a标签 -->
+    <!-- <a routerLink="['/dashboard']">Dashboard</a>
+    <a routerLink="['/herolist']">Heroes</a> -->
+    <a (click)="goToPath('dashboard')">Dashboard</a>
+    <a style="margin-left: 50px" (click)="goToPath('herolist')">Heroes</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <app-herosmessages></app-herosmessages>
 </div>

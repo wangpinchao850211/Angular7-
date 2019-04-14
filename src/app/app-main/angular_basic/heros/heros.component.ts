@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heros',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HerosComponent implements OnInit {
 
   title = 'Tour of Heroes';
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goToPath(str) {
+    this.router.navigate([`/AngularBasic/heros/${str}`]);
+  }
 }

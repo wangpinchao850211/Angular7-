@@ -27,6 +27,8 @@ import { LayoutComponent } from './app-main/layout/layout.component';
 import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
 import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
+import { HerosmessagesComponent } from './app-main/angular_basic/herosmessages/herosmessages.component';
+import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
 
 registerLocaleData(zh);
 
@@ -51,6 +53,8 @@ registerLocaleData(zh);
     HerosEditorComponent,
     HeroDetailComponent,
     RoutesComponent,
+    HerosmessagesComponent,
+    HerodashboardComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
