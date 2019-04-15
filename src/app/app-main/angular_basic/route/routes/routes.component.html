@@ -7,4 +7,10 @@
 <!-- <a [routerLink]="['./']"></a> -->
 
 <input type="button" value="商品详情" (click)="goToProductdetail()">
+<br>
+<!-- 辅助路由跳转，aux映射组件即可，无需写跳转路径，即会跳到aux路由插座下 -->
+<a [routerLink]="[{outlets: {aux: ['fuzuluyouO']}}]">辅助路由1</a>
+<a [routerLink]="[{outlets: {aux: ['fuzuluyouT']}}]">辅助路由2</a>
 <router-outlet></router-outlet>
+<!-- 辅助路由 -->
+<router-outlet name="aux"></router-outlet>

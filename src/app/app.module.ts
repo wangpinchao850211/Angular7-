@@ -29,6 +29,8 @@ import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-d
 import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
 import { HerosmessagesComponent } from './app-main/angular_basic/herosmessages/herosmessages.component';
 import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
+import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
+import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
 
 registerLocaleData(zh);
 
@@ -55,6 +57,8 @@ registerLocaleData(zh);
     RoutesComponent,
     HerosmessagesComponent,
     HerodashboardComponent,
+    FuzuluyouOComponent,
+    FuzuluyouTComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
