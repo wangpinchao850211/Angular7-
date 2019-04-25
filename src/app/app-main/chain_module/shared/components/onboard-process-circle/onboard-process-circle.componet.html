@@ -1,0 +1,12 @@
+<div *ngIf="circleStep && circleStep.show && (!!circleStep.step || !circleStep.step)">
+    <div style="display:-webkit-inline-box">
+        <div class="rounded-circle" [ngClass]="{'circle-done': circleStep.done, 'circle-todo': !circleStep.done}">
+            {{circleStep?.title}}
+        </div>
+        <div *ngIf="!isLast" [ngClass]="{'line-done': circleStep.done, 'line-todo': !circleStep.done}"></div>
+    </div>
+    <div class="item" *ngIf="circleStep.done">
+        <div class="date">{{circleStep.step?.UpdateAt | date: 'dd-MMM-yyyy'}}</div>
+        {{circleStep?.intro}}
+    </div>
+</div>

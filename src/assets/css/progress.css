@@ -1,0 +1,73 @@
+.pro-bar-container {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 3%;
+  height: 6px;
+  margin: 0 0 20px 0;
+  border: 2px solid #222;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #222;
+  overflow: hidden;
+}
+
+.pro-bar-container.color-belize-hole	{ border-color: #ffffff; background: #2980b9; }
+
+.pro-bar {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100%;
+  height: 15px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #444;
+}
+
+.pro-bar.color-peter-river		{ background: #3498db; }
+
+.pro-bar-candy {
+  width: 100%;
+  height: 15px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+  background-repeat: repeat-x;
+  background-size: 30px 30px;
+}
+
+.pro-bar-candy.candy-ltr {
+  -webkit-animation: progressStripeLTR .6s linear infinite;
+  -moz-animation: progressStripeLTR .6s linear infinite;
+  -ms-animation: progressStripeLTR .6s linear infinite;
+  -o-animation: progressStripeLTR .6s linear infinite;
+  animation: progressStripeLTR .6s linear infinite;
+}
+
+@-webkit-keyframes progressStripeLTR {
+  to { background-position: 30px 0; }
+}
+
+@-moz-keyframes progressStripeLTR {
+  to { background-position: 30px 0; }
+}
+
+@-ms-keyframes progressStripeLTR {
+  to { background-position: 30px 0; }
+}
+
+@-o-keyframes progressStripeLTR {
+  to { background-position: 30px 0; }
+}
+
+@keyframes progressStripeLTR {
+  to { background-position: 30px 0; }
+}

@@ -1,0 +1,84 @@
+<ng-container *ngIf="historyList">
+  <div *ngFor="let history of historyList" class="collapse hover_pointer"
+    [ngClass]="{'subCollapse': history.show}">
+    <div (click)="history.show = !history.show">
+      <i class="material-icons" style="float: right" *ngIf="history.show">expand_more</i>
+      <i class="material-icons" style="float: right" *ngIf="!history.show">chevron_right</i>
+      <div class="row">
+        <div class="col-2">
+          <label style="font-weight: bold;font-size: 1.25rem">
+            {{history.date | date: 'dd-MMM-yyyy'}}
+          </label>
+        </div>
+        <div class="col-4">
+          <label style="font-weight: bold;font-size: 1.25rem">
+            {{history.typeInfo}}
+          </label>
+        </div>
+        <div class="col-6"></div>
+      </div>
+      <div class="row">
+        <div class="col-2" style="width: 98%">
+          <label>
+            {{history.date | date: 'hh:mm:ss'}}
+          </label>
+        </div>
+        <div class="col-3 labelCss">
+          <label>
+            {{history.type}}&nbsp;&nbsp;&nbsp;&nbsp;{{history.supplierUser}}
+          </label>
+        </div>
+        <div class="col-7">
+          <label>
+            Transaction Hash Code&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-weight: bold">{{history.txId}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  <div class="form" *ngIf="history.show">
+    <div *ngFor="let item of history.value" class="row">
+      <div class="col-2"></div>
+      <div class="col-10 labelLine">
+        <div class="row">
+
+          <div class="col-12 labelCss">
+            <label style="font-weight: bold">
+              {{item.title}}
+            </label>
+          </div>
+        </div>
+        <div class="row" *ngIf="history.IsUpdate">
+
+          <div class="col-12 labelCss"  *ngIf = "!item.isFile">
+            <label style="text-decoration:line-through;font-style: oblique;">
+              {{item.oldValue | blank}}
+            </label>
+          </div>
+          <div class="col-12 labelCss" *ngIf = "item.isFile">
+            <div *ngFor="let file of item.oldFiles">
+                <label style="text-decoration:line-through;font-style: oblique;" (click)="downloadFile(file.path)" class="hover_pointer">
+                    {{file.name}}
+                </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-12 labelCss" *ngIf = "!item.isFile">
+            <label>
+              {{item.newValue}}
+            </label>
+          </div>
+          <div class="col-12 labelCss" *ngIf = "item.isFile">
+            <div *ngFor="let file of item.newFiles">
+                <label (click)="downloadFile(file.path)" class="hover_pointer">
+                    {{file.name}}
+                </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-container>

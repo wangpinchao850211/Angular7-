@@ -18,6 +18,7 @@ export const Menu = {
     ],
     AngularRxjs: ['AngularRxjs'],
     AngularAnimate: ['AngularAnimate'],
+    chain_shared: ['CommonComponent'],
     [Symbol.iterator]() { // 有ts校验，未循未成
         let index = 0;
         const arr = [...this.AngularBasic, ...this.AngularRxjs, ...this.Angular_Animate];

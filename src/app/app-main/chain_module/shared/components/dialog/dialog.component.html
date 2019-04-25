@@ -1,0 +1,22 @@
+<div [ngClass]="{'ui-dialog ui-dialog-content ui-corner-all ui-shadow':true}" [@dialogState]="visible ? 'visible' : 'hidden'"
+  [style.display]="visible ? 'block' : 'none'" (mousedown)="moveOnTop()" class="flex-column" style="display:flex; width:33rem">
+  <div style="text-align: center">
+    <span class="rounded-circle header-icon" [ngClass]="headerIconClass">
+      <i style="font-size:60px;" class="material-icons">{{headerIcon}}</i>
+    </span>
+  </div>
+  <div class="header text-center">
+    <h3>
+      {{header}}
+    </h3>
+  </div>
+  <div class="content">
+    <span [innerHTML]="message | safeHtml"></span>
+  </div>
+  <div>
+    <div class="text-center">
+      <app-button *ngFor="let item of buttons" [text]="item.label" [iconPosition]="'right'" [icon]="item.icon" [isPrimary]="false" [isSecondary]="true" (click)="click(item)"
+        [iconPosition]="'left'" [isWhite]="item.iswhite" [weight]="'100'"></app-button>
+    </div>
+  </div>
+</div>

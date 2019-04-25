@@ -1,0 +1,22 @@
+<div #dropPanel>
+    <div class="form-control" (click)="swapPanel()">
+        <input type="text" [value]="selectedValue" class="multi-drop-input" disabled /><i class="material-icons icon-drop-arrow">expand_more</i>
+    </div>
+    <div *ngIf="showPanel" class="multi-drop-panel" [ngStyle]="{ 'width': width }">
+        <div class="search_bg">
+            <i class="material-icons icon-drop">search</i>
+            <input type="text" class="search-box" [(ngModel)]="searchText"/>
+        </div>
+        <div class="multi-drop-panel-cont">
+            <div *ngFor="let kv of bind" class="line-drop">
+                <label *ngIf="isMultiple" class="rc-container label-drop">
+                    {{kv[displayMember]}}
+                    <input type="checkbox" [disabled]="kv.disabled" [checked]="kv.checked" ([ngModel])="kv.checked" (change)="checkedChanged($event, kv)"><span class="checkmark"></span>
+                </label>
+                <div *ngIf="!isMultiple" (click)="selectSingle(kv)">
+                    {{kv[displayMember]}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

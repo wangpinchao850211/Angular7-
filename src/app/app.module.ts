@@ -31,6 +31,8 @@ import { HerosmessagesComponent } from './app-main/angular_basic/herosmessages/h
 import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
 import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
+import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
+import { CommonComponentComponent } from './app-main/chain_module/common-component/common-component.component';
 
 registerLocaleData(zh);
 
@@ -59,6 +61,8 @@ registerLocaleData(zh);
     HerodashboardComponent,
     FuzuluyouOComponent,
     FuzuluyouTComponent,
+    ChainLayoutComponent,
+    CommonComponentComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块

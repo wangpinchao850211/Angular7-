@@ -1,0 +1,55 @@
+.ui-overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .ui-dialog-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .ui-widget-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: .85;
+  }
+  
+  .reject-dialog {
+    width: 33rem;
+    position: fixed;
+    padding: 1.4rem;
+    border: 1px solid #D5D5D5;
+    background: #fcfcfc;
+  }
+  
+  .dialog-header-icon {
+    border: 2px solid #fcfcfc;
+    margin-top:-60px;
+    display:inline-block;
+    background:#ffffff;
+    vertical-align: middle;
+  }
+  
+  .dialog-header-icon.warning {
+    color:#ef7575;
+  }
+  
+  .dialog-header-icon.question {
+    color:#fcb944;
+  }
+  
+  .dialog-header-icon.success {
+    color: #67c18f;
+  }
+  
+  .dialog-header-text {
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .rounded-circle {
+    border-radius: 50%!important;
+}

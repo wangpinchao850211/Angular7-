@@ -1,0 +1,199 @@
+.body_container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.page-padding {
+    padding: 2.1rem;
+}
+.page-padding-x {
+    padding: 0 2.1rem;
+}
+.page-padding-y {
+    padding: 2.1rem 0;
+}
+.page-padding-left {
+    padding-left: 2.1rem;
+}
+.page-padding-right {
+    padding-right: 2.1rem;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.transparent {
+    color: transparent;
+}
+.blue-gradient {
+    background: -webkit-linear-gradient(left, #06CAC6 , #3F72D2); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #06CAC6 , #3F72D2); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #06CAC6 , #3F72D2); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #06CAC6 , #3F72D2); /* standard */
+}
+/*Show hand cursor when hover*/
+.hover_pointer {
+    cursor: pointer;
+}
+/*Remove textbox, dropdown and textarea blue border when focus in Chrome*/
+input, select, textarea {
+    outline: none
+}
+/*Drop shadow*/
+.drop_shadow {
+    -webkit-box-shadow: 0px 0px 3px 3px rgba(204, 204, 204, 0.4);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 0px 0px 3px 3px rgba(204, 204, 204, 0.4);  /* Firefox 3.5 - 3.6 */
+    box-shadow: 0px 0px 3px 3px rgba(204, 204, 204, 0.4);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+/*Set text right aligned*/
+.text-right {
+    text-align: right;
+}
+
+.main_bg {
+    flex-grow: 1;
+    background: #f1f1f1;
+    position: relative;
+}
+
+.main_bg .tabs { 
+    right: 2.1rem;
+    /* top: 3rem;  */
+    padding-bottom: 2rem;
+}
+.main_bg .tabs label {
+    margin-left: 2rem;
+    color: #4e4e87;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+.main_bg .tabs label.active {
+    border-bottom: #4e4e87 2px solid;
+}
+
+.main_container {
+    background: #fff;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 2.1rem;
+    position: relative;
+}
+.main_container .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #666;
+}
+.main_container .title .material-icons {
+    font-size: 2.5rem;
+}
+.main_container .tabs { 
+    position: absolute;
+    right: 2.1rem;
+    top: 2rem; 
+}
+.main_container .tabs label {
+    margin-left: 2rem;
+    color: #4e4e87;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+.main_container .tabs label.active {
+    border-bottom: #4e4e87 2px solid;
+}
+.main_container .collapse {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: #ccc 1px solid;
+    color: #666;
+}
+/*Card*/
+.card {
+    background: #fcfcfc;
+    margin: 1.6rem;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+.card .status .status-border {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-top: 2.25rem solid #478bb6;
+}
+
+.card .status .completed {
+    background: #89C6A9 !important;
+}
+
+.card .status .completed-border {
+    border-top: 2.25rem solid #639F84 !important;
+}
+
+.card .status .status-value {
+    background: #55bded;
+    padding: 0 .75rem;
+    color: #fff;
+}
+.card .status .status-value .material-icons {
+    font-size: 1.25rem;
+    margin-right: .4rem;
+}
+.card .title {
+    padding: 1.8rem 1.8rem 0.5rem;
+    font-size: 1.5rem;
+}
+.card .basic_info, .card .detail_info {
+    line-height: 1.5;
+    color: #333;
+}
+.card ul {
+    padding: 1rem 1.8rem .5rem;
+    width: 27rem;
+}
+.card ul label {
+    width: 9rem;
+    color: #666;
+}
+.card .logo {
+    text-align: center;
+}
+.card .logo img {
+    width: 3rem;
+}
+.card .detail_info {
+    border-bottom-right-radius: 2rem;
+    background: #f2f2f2;
+    padding-bottom: 10px;
+}
+
+.card .detail_info li {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.card li label.header {
+    width: 150px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: transform 0.5s;
+}
+.invalid {
+    border: solid 1.5px #F3BCDA !important;
+}
+::-webkit-input-placeholder {
+    color:#999;
+    font-style: italic;
+}
+.my-pagination {
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.my-pagination .ngx-pagination .current {
+    background: #55bded;
+}

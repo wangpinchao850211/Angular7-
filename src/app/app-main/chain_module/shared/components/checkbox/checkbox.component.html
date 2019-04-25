@@ -1,0 +1,8 @@
+<label class="rc-container">
+  {{title}} -- {{disabled}}
+  <input [disabled]="disabled" type="checkbox" 
+    [checked]="checked" 
+    (click)="check_change()"
+    [ngClass]="{'invalid': invalid}">
+  <span class="checkmark" [ngClass]="{'disabled': disabled}"></span>
+</label>

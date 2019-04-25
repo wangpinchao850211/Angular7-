@@ -1,0 +1,9 @@
+<button type="button" (click)="buttonClick()" 
+  class="btn Graphik-Medium-Web py-1 btn-small" 
+  [ngStyle]="{'font-weight': weight}"
+  [ngClass]="{'btn-icon-left': icon && (iconPosition === 'left'), 'btn-icon-right': icon && (iconPosition === 'right'), 'btn-primary': isPrimary, 'btn-secondary': isSecondary, 'btn-primary-gray': isPrimaryGray , 'btn-transparent': isTransparent,'btn-primary-light':isPrimaryLight, 'disabled': isDisabled, 'btn-white': isWhite}">
+
+    <i class="material-icons mr-2" [ngClass]="{'outline-icon-white-primary-disabled': (icon === 'insert_drive_file') && isDisabled, 'outline-icon-white-primary': (icon === 'insert_drive_file') && !isDisabled, 'bar-icon': (icon === 'equalizer' && !isDisabled),  'bar-icon-disabled': (icon === 'equalizer' && isDisabled)}" *ngIf="icon && (iconPosition === 'left')">{{icon}}</i>
+    {{text}}
+    <i class="material-icons ml-2" [ngClass]="{'outline-icon-white-primary-disabled': (icon === 'insert_drive_file') && isDisabled, 'outline-icon-white-primary': (icon === 'insert_drive_file') && !isDisabled, 'bar-icon': (icon === 'equalizer' && !isDisabled),  'bar-icon-disabled': (icon === 'equalizer' && isDisabled)}" *ngIf="icon && (iconPosition === 'right')">{{icon}}</i>
+  </button>

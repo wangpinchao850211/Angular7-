@@ -17,6 +17,8 @@ import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/h
 import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
+import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
+import { CommonComponentComponent } from './app-main/chain_module/common-component/common-component.component';
 
 const routes: Routes = [
   // Main redirect
@@ -64,6 +66,13 @@ const routes: Routes = [
       },
       { path: 'communication', component: CommunicationComponent },
       { path: 'form', component: FormComponent },
+    ]
+  },
+  {
+    path: 'chain_shared',
+    component: ChainLayoutComponent,
+    children: [
+      { path: 'CommonComponent', component: CommonComponentComponent },
     ]
   },
   // Handle all other routes
