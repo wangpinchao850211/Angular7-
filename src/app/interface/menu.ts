@@ -15,6 +15,7 @@ export const Menu = {
         'communication',
         'directivesOrpip',
         'form',
+        'dependencyinjection'
     ],
     AngularRxjs: ['AngularRxjs'],
     AngularAnimate: ['AngularAnimate'],

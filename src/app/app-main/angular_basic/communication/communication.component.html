@@ -1,3 +1,25 @@
 <p>
-  communication works!
+  <nz-collapse>
+    <nz-collapse-panel
+      *ngFor="let panel of panels; let i = index"
+      [nzHeader]="panel.name"
+      [nzActive]="panel.active"
+      [nzDisabled]="panel.disabled"
+    >
+      <p style="margin:0;" *ngIf="i===0">
+        input 绑定Dom value 和 html属性 <br>
+        HTML 属性 和 Dom 属性的关系：<br>
+        少量html属性和Dom属性之间有1：1的映射，如id <br>
+        有些html属性没有对应的Dom属性，如colspan <br>
+        有些Dom属性没有对应的html属性，如textContent <br>
+        就算名字相同，html属性和dom属性也不是同一样东西 <br>
+        html的值指定的是初始的值，Dom属性的值指的是当前的值。
+        html属性的值不可改变，Dom属性的值可以改变 <br>
+        模板绑定是通过Dom属性和事件来工作的，而不是html属性
+        <input type="text" value="Tom" (input)="doOnInput($event)">
+        <!-- 只要加上了disabled属性，html的初始化值就是禁用状态,哪怕设置为false -->
+        <button disabled="false">disabled属性</button>
+      </p>
+    </nz-collapse-panel>
+  </nz-collapse>
 </p>

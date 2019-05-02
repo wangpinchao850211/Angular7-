@@ -33,6 +33,9 @@ import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
 import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
 import { CommonComponentComponent } from './app-main/chain_module/common-component/common-component.component';
+import { Product1Component } from './app-main/angular_basic/DependencyInjection/product1/product1.component';
+import { Product2Component } from './app-main/angular_basic/DependencyInjection/product2/product2.component';
+import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
 
 registerLocaleData(zh);
 
@@ -63,6 +66,9 @@ registerLocaleData(zh);
     FuzuluyouTComponent,
     ChainLayoutComponent,
     CommonComponentComponent,
+    Product1Component,
+    Product2Component,
+    DeplayoutComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块

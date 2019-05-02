@@ -19,6 +19,7 @@ import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
 import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
 import { CommonComponentComponent } from './app-main/chain_module/common-component/common-component.component';
+import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
 
 const routes: Routes = [
   // Main redirect
@@ -66,6 +67,7 @@ const routes: Routes = [
       },
       { path: 'communication', component: CommunicationComponent },
       { path: 'form', component: FormComponent },
+      { path: 'dependencyinjection', component: DeplayoutComponent },
     ]
   },
   {
