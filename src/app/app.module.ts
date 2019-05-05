@@ -10,7 +10,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -36,6 +36,8 @@ import { CommonComponentComponent } from './app-main/chain_module/common-compone
 import { Product1Component } from './app-main/angular_basic/DependencyInjection/product1/product1.component';
 import { Product2Component } from './app-main/angular_basic/DependencyInjection/product2/product2.component';
 import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
+import { MultiplePipe } from './pipe/multiple.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
 
 registerLocaleData(zh);
 
@@ -69,12 +71,15 @@ registerLocaleData(zh);
     Product1Component,
     Product2Component,
     DeplayoutComponent,
+    MultiplePipe,
+    FilterPipe,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
     AppRoutingModule,
     NgZorroAntdModule,
     FormsModule, // 添加这个可以使用ngModule
+    FormControl,
     HttpClientModule,
     BrowserAnimationsModule // 路由模块
   ],

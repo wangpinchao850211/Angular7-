@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -9,10 +11,19 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class ProductComponent implements OnInit {
 
   private routerId: number
+  private keyWord: string
+  private titleFilter: FormControl = new FormControl()
   private products: Array<Product>;
   constructor(
     private routeInfo: ActivatedRoute
-  ) { }
+  ) {
+    // 输入框值发生变化触发这个valueChanges事件，订阅
+    this.titleFilter.valueChanges
+    .pipe(debounceTime(500))
+    .subscribe(
+      value => this.keyWord = value
+    )
+  }
 
   ngOnInit() {
     this.products = [

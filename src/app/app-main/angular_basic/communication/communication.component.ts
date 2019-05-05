@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommunicationComponent implements OnInit {
 
+  birthday: Date = new Date()
+  pi: number = 3.1415926
+  size: number = 9
   panels = [
     {
       active: true,

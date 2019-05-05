@@ -20,6 +20,13 @@
         <!-- 只要加上了disabled属性，html的初始化值就是禁用状态,哪怕设置为false -->
         <button disabled="false">disabled属性</button>
       </p>
+      <div style="margin:0;" *ngIf="i===1">
+        <p>管道Demo</p>
+        <p>我的生日是{{birthday | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
+        <p>圆周率是{{pi | number: '2.1-3'}}</p>
+        <!-- '2.1-3' 第一个2是指小数点前的位数，后面2-2是指小数点后最少是1位数，最多是3位数-->
+        <p>试试我自己写的管道{{size | multiple: '3'}}</p>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
 </p>
