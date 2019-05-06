@@ -10,9 +10,9 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class ProductComponent implements OnInit {
 
-  private routerId: number
-  private keyWord: string
-  private titleFilter: FormControl = new FormControl()
+  private routerId: number;
+  private keyWord: string;
+  private titleFilter: FormControl = new FormControl();
   private products: Array<Product>;
   constructor(
     private routeInfo: ActivatedRoute
@@ -21,8 +21,11 @@ export class ProductComponent implements OnInit {
     this.titleFilter.valueChanges
     .pipe(debounceTime(500))
     .subscribe(
-      value => this.keyWord = value
-    )
+      (value) => {
+        console.log(value);
+        this.keyWord = value;
+      }
+    );
   }
 
   ngOnInit() {

@@ -6,7 +6,8 @@
     <input nz-input class="pipeFilter" [formControl]="titleFilter" placeholder="请输入商品名称">
   </div>
   <div nz-row>
-    <div *ngFor="let product of products | filter:'title',keyWord" class="thumbnail"  nz-col nzSpan="8">
+    <!-- *ngFor中使用第二个参数，没弄透 -->
+    <div *ngFor="let product of (products | filter:keyWord)" class="thumbnail"  nz-col nzSpan="8">
       <img src="http://placehold.it/320x150" alt="">
       <div class="caption">
         <h4 class="pull-right">{{product.price}}</h4>

@@ -10,7 +10,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { FormsModule, FormControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -78,8 +78,8 @@ registerLocaleData(zh);
     BrowserModule, // 必选的浏览器模块
     AppRoutingModule,
     NgZorroAntdModule,
-    FormsModule, // 添加这个可以使用ngModule
-    FormControl,
+    FormsModule, // 添加这个可以使用ngModule (模板式表单)
+    ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
     BrowserAnimationsModule // 路由模块
   ],
