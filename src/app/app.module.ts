@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
+import { MatTabsModule, MatRadioModule, MatIconModule, MatButtonModule, MatDatepickerModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +40,8 @@ import { Product2Component } from './app-main/angular_basic/DependencyInjection/
 import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
 import { MultiplePipe } from './pipe/multiple.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
+import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
+import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
 
 registerLocaleData(zh);
 
@@ -73,6 +77,8 @@ registerLocaleData(zh);
     DeplayoutComponent,
     MultiplePipe,
     FilterPipe,
+    MaterialLayoutComponent,
+    MaterialComcomponentComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
@@ -81,7 +87,8 @@ registerLocaleData(zh);
     FormsModule, // 添加这个可以使用ngModule (模板式表单)
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
-    BrowserAnimationsModule // 路由模块
+    BrowserAnimationsModule, // 路由模块
+    MatTabsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件

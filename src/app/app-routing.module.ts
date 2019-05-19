@@ -20,6 +20,8 @@ import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/
 import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
 import { CommonComponentComponent } from './app-main/chain_module/common-component/common-component.component';
 import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
+import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
+import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
 
 const routes: Routes = [
   // Main redirect
@@ -75,6 +77,13 @@ const routes: Routes = [
     component: ChainLayoutComponent,
     children: [
       { path: 'CommonComponent', component: CommonComponentComponent },
+    ]
+  },
+  {
+    path: 'Angular_Material',
+    component: MaterialLayoutComponent,
+    children: [
+      { path: 'AngularMaterial', component: MaterialComcomponentComponent },
     ]
   },
   // Handle all other routes
