@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
 import { MatTabsModule, MatRadioModule, MatIconModule, MatButtonModule, MatDatepickerModule } from '@angular/material';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -88,7 +89,11 @@ registerLocaleData(zh);
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
     BrowserAnimationsModule, // 路由模块
-    MatTabsModule
+    MatTabsModule,
+    // ScrollingModule // 没有引用CDK到项目中！！！
+  ],
+  exports: [
+    // ScrollingModule // 没有引用CDK到项目中！！！
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
