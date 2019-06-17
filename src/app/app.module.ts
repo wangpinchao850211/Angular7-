@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatRadioModule, MatIconModule, MatButtonModule, MatDatepickerModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -89,7 +89,13 @@ registerLocaleData(zh);
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
     BrowserAnimationsModule, // 路由模块
-    MatTabsModule,
+    MatTabsModule, // 引入tab
+    MatExpansionModule, // 引入panel
+    MatIconModule, // 引入icon
+    MatFormFieldModule, // 引入formField
+    MatInputModule, // 需引入这个，否则报错 mat-form-field must contain a MatFormFieldControl.
+    MatNativeDateModule, // 引入下面的datePicker不好使报错，需引入这个是对的
+    MatDatepickerModule // 引入datePicker
     // ScrollingModule // 没有引用CDK到项目中！！！
   ],
   exports: [
