@@ -25,4 +25,7 @@ export class MaterialComcomponentComponent implements OnInit {
   prevStep() {
     this.step--;
   }
+  openAll() {
+    console.log('iiiiiiii')
+  }
 }

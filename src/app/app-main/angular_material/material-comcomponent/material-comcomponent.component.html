@@ -1,7 +1,11 @@
 <h2>Material introduction to Use:</h2>
-<mat-accordion class="example-headers-align">
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+<!-- mat-accordion 多个扩展面板可以组合成一个手风琴。multi=“true”输入允许独立设置扩展状态。当multi=“false”（默认）时，一次只能展开一个面板 -->
+<mat-accordion class="example-headers-align" MatAccordionDisplayMode multi openAll="openAll()">
+  <!-- displayMode面板间无间距；MatAccordionDisplayMode有间距 -->
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle multi="false">
+    <!-- hideToggle是否隐藏右侧的三角箭头 -->
     <mat-expansion-panel-header>
+      <!-- 扩展面板标题是按钮。用户可以使用键盘激活扩展面板标题，在展开状态和折叠状态之间切换。由于标题用作按钮，因此不应将其他交互元素放在标题内。 -->
       <mat-panel-title>
         Personal data
       </mat-panel-title>
@@ -24,7 +28,8 @@
     </mat-action-row>
   </mat-expansion-panel>
 
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+  <!-- disabled可以禁用用户切换，但是扔可以实现编程式切换 -->
+  <mat-expansion-panel [disabled]="isDisabled" [expanded]="step === 1" (opened)="setStep(1)" hideToggle multi="false">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Destination
@@ -45,7 +50,7 @@
     </mat-action-row>
   </mat-expansion-panel>
 
-  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle multi>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Day of the trip
@@ -66,6 +71,7 @@
       <button mat-button color="primary" (click)="nextStep()">End</button>
     </mat-action-row>
   </mat-expansion-panel>
+
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -73,11 +79,10 @@
       </mat-panel-title>
       <mat-panel-description>
         checkBox Used
-        <mat-icon>date_range</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <mat-action-row>
-      
+
     </mat-action-row>
   </mat-expansion-panel>
 
