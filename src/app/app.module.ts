@@ -43,6 +43,7 @@ import { MultiplePipe } from './pipe/multiple.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
 import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
+import { MaterialCheckboxComponent } from './app-main/angular_material/material-checkbox/material-checkbox.component';
 
 registerLocaleData(zh);
 
@@ -80,6 +81,7 @@ registerLocaleData(zh);
     FilterPipe,
     MaterialLayoutComponent,
     MaterialComcomponentComponent,
+    MaterialCheckboxComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
