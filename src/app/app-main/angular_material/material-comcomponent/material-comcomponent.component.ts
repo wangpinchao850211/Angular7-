@@ -12,7 +12,7 @@ export class MaterialComcomponentComponent implements OnInit {
   ngOnInit() {
   }
 
-  step = 0;
+  step = 3;
 
   setStep(index: number) {
     this.step = index;
@@ -26,6 +26,12 @@ export class MaterialComcomponentComponent implements OnInit {
     this.step--;
   }
   openAll() {
-    console.log('iiiiiiii')
+    console.log('iiiiiiii');
+  }
+  closeAll() {
+    console.log('eeeeeeeeeee');
+  }
+  closed() {
+    console.log('rrrrrr');
   }
 }

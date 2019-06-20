@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -97,7 +97,8 @@ registerLocaleData(zh);
     MatFormFieldModule, // 引入formField
     MatInputModule, // 需引入这个，否则报错 mat-form-field must contain a MatFormFieldControl.
     MatNativeDateModule, // 引入下面的datePicker不好使报错，需引入这个是对的
-    MatDatepickerModule // 引入datePicker
+    MatDatepickerModule, // 引入datePicker
+    MatCheckboxModule // 引入checkbox
     // ScrollingModule // 没有引用CDK到项目中！！！
   ],
   exports: [
