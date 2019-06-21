@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaterialCheckboxComponent implements OnInit {
 
+  checked = false;
+  indeterminate = false;
+  labelPosition = 'after';
+  disabled = false;
   constructor() { }
 
   ngOnInit() {
+  }
+  change() {
+    // check change方法
   }
 
 }

@@ -98,7 +98,8 @@ registerLocaleData(zh);
     MatInputModule, // 需引入这个，否则报错 mat-form-field must contain a MatFormFieldControl.
     MatNativeDateModule, // 引入下面的datePicker不好使报错，需引入这个是对的
     MatDatepickerModule, // 引入datePicker
-    MatCheckboxModule // 引入checkbox
+    MatCheckboxModule, // 引入checkbox
+    MatRadioModule // 引入单选按钮
     // ScrollingModule // 没有引用CDK到项目中！！！
   ],
   exports: [

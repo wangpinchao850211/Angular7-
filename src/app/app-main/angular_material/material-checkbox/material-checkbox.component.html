@@ -1,19 +1,21 @@
 <div class="checkbox-wrapper">
-    <mat-checkbox [labelPosition]="before" [color]="blue">Check me!</mat-checkbox>
-    <!-- labelPosition 和 color都没好使 -->
-    <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
-    <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
-    <br>
-    <label class="example-margin">Align:</label>
-      <mat-radio-group [(ngModel)]="labelPosition">
-        <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
-        <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
-      </mat-radio-group>
-    <br>
-    <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
-    <br>
+    <div class="example-section">
+      <mat-checkbox class="example-margin" [labelPosition]="before" [color]="blue">Check me!</mat-checkbox>
+      <!-- labelPosition 和 color都没好使 -->
+      <mat-checkbox class="example-margin" [(ngModel)]="checked" (click)="$event.stopPropagation();" (change)="change();">Checked</mat-checkbox>
+      <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+    </div> 
+    <div class="example-section">
+        <label class="example-margin">Align:</label>
+        <mat-radio-group [(ngModel)]="labelPosition">
+          <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
+          <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="example-section">
+        <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+    </div>
     <h2 class="example-h2">Result</h2>
-
     <section class="example-section">
       <mat-checkbox
           class="example-margin"
