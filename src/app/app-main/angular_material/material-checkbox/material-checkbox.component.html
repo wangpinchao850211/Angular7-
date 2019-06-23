@@ -1,16 +1,19 @@
 <div class="checkbox-wrapper">
     <div class="example-section">
-      <mat-checkbox class="example-margin" [labelPosition]="before" [color]="blue">Check me!</mat-checkbox>
-      <!-- labelPosition 和 color都没好使 -->
+      <mat-checkbox class="example-margin" [labelPosition]="labelPosition"  [color]="color">Check me!</mat-checkbox>
+      <!-- labelPosition 需要绑定一个变量，具体的值不好用 color需要引入主题库才好使 -->
       <mat-checkbox class="example-margin" [(ngModel)]="checked" (click)="$event.stopPropagation();" (change)="change();">Checked</mat-checkbox>
       <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
-    </div> 
+    </div>
     <div class="example-section">
         <label class="example-margin">Align:</label>
-        <mat-radio-group [(ngModel)]="labelPosition">
-          <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
-          <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
+        <mat-radio-group [(ngModel)]="labelPosition" (ngModelChange)="ngModelChange()">
+          <mat-radio-button class="example-margin" value="after" [color]="color" (focus)="radioFocus()">After</mat-radio-button>
+          <mat-radio-button class="example-margin" value="before" (change)="radioChange()">Before</mat-radio-button>
         </mat-radio-group>
+    </div>
+    <div class="example-section">
+      <p>radio同样具备：disabled，labelPosition，required。change方法</p>
     </div>
     <div class="example-section">
         <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
@@ -26,5 +29,8 @@
         I'm a checkbox
       </mat-checkbox>
     </section>
+    <div class="example-section">
+      <app-checkbox  class="example-margin" (checkedChange)="checkedChange()" (click)="click()" [checked]="checked" [title]="title"></app-checkbox>
+    </div>
 </div>
 

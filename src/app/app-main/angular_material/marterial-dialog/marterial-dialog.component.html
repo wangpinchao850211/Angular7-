@@ -1,0 +1,19 @@
+<div class="startnewcase-popup-wrap">
+  <div class="startnewcase-popup-box">
+      <ng-container *ngIf="config.Title || config.Title.length > 0">
+          <div class="startnewcase-popup-head">
+              <span class="material-icons ie-checkCircle" *ngIf="isIcon">{{ config.titleIcon ||'exit_to_app'}}</span>
+              <span *ngIf="isTitle" [innerHtml]="config.Title"></span>
+          </div>
+      </ng-container>
+      <ng-container *ngIf="config.Content || config.Content.length > 0">
+          <div class="startnewcase-popup-cont" [ngClass]="{'popup-onlycontent': config.Title.length == 0}">
+              <div class="confirm_content confirm_conent_line" [innerHtml]="config.Content | safehtml"></div>
+          </div>
+      </ng-container>
+      <div class="startnewcase-popup-cont-ctrl">
+          <button class="bip-ctrl-btnno mgl15" [ngClass]="{'red': (config.buttons[1] != 'Save&Continue' && config.buttons[0] != 'Delete')}" [mat-dialog-close]="false" *ngIf="config.buttons[1]">{{ config.buttons[1] || 'No' }}</button>
+          <button class="bip-ctrl-btnyes" [ngClass]="{'red': config.changeColor == 'change'}" [mat-dialog-close]="true" *ngIf="config.buttons[0]">{{ config.buttons[0] || 'Yes' }}</button>
+      </div>
+  </div>
+</div>

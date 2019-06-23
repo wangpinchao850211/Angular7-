@@ -22,6 +22,7 @@ export class CheckboxComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.title);
   }
 
   check_change() {

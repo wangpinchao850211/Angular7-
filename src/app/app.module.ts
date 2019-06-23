@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -44,6 +44,12 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
 import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
 import { MaterialCheckboxComponent } from './app-main/angular_material/material-checkbox/material-checkbox.component';
+import { SharedModule } from './app-main/chain_module/shared/shared.module';
+import { MaterialSelectComponent } from './app-main/angular_material/material-select/material-select.component';
+import { MarterialDialogComponent } from './app-main/angular_material/marterial-dialog/marterial-dialog.component';
+
+import { matDialogConfirmService } from './services/mat-dialog.service';
+import { SafehtmlPipe } from './pipe/safehtml.pipe';
 
 registerLocaleData(zh);
 
@@ -82,6 +88,12 @@ registerLocaleData(zh);
     MaterialLayoutComponent,
     MaterialComcomponentComponent,
     MaterialCheckboxComponent,
+    MarterialDialogComponent,
+    MaterialSelectComponent,
+    SafehtmlPipe,
+  ],
+  entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！
+      MarterialDialogComponent
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
@@ -99,13 +111,15 @@ registerLocaleData(zh);
     MatNativeDateModule, // 引入下面的datePicker不好使报错，需引入这个是对的
     MatDatepickerModule, // 引入datePicker
     MatCheckboxModule, // 引入checkbox
-    MatRadioModule // 引入单选按钮
+    MatRadioModule, // 引入单选按钮
+    MatDialogModule, // 引入material的dialog
     // ScrollingModule // 没有引用CDK到项目中！！！
+    SharedModule // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
+  providers: [matDialogConfirmService, { provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })
 export class AppModule { }

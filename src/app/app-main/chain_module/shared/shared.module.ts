@@ -29,6 +29,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { HistoryComponent } from './components/history/history.component'
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component'
 import { PrivacyStatementPoppageComponent } from './components/privacy-statement-poppage/privacy-statement-poppage.component'
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 @NgModule({
   declarations: [
     TextboxComponent,
@@ -55,7 +56,8 @@ import { PrivacyStatementPoppageComponent } from './components/privacy-statement
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule
   ],
   exports: [
     TextboxComponent, DropdownComponent, ButtonComponent, CheckboxComponent,

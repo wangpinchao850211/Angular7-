@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { matDialogConfirmService } from 'src/app/services/mat-dialog.service';
 
 @Component({
   selector: 'app-material-comcomponent',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaterialComcomponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(public confirm: matDialogConfirmService) { }
 
   ngOnInit() {
   }
 
-  step = 3;
+  step = 4;
 
   setStep(index: number) {
     this.step = index;
@@ -33,5 +34,14 @@ export class MaterialComcomponentComponent implements OnInit {
   }
   closed() {
     console.log('rrrrrr');
+  }
+  openDialog() {
+    this.confirm.confirm({
+        Content: '<b>Are you sure you want to remove this<br> &prime;Supporting Requester&prime;?</b>',
+        buttons: ['YES', 'NO'],
+        Title: '',
+    }).subscribe(res => {
+        console.log(res);
+    });
   }
 }
