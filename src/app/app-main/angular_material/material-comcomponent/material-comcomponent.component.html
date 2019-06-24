@@ -115,7 +115,7 @@
     <!-- panel content end -->
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Select

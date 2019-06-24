@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -92,7 +92,7 @@ registerLocaleData(zh);
     MaterialSelectComponent,
     SafehtmlPipe,
   ],
-  entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！
+  entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
   ],
   imports: [ // 运转需要的依赖模块
@@ -113,6 +113,8 @@ registerLocaleData(zh);
     MatCheckboxModule, // 引入checkbox
     MatRadioModule, // 引入单选按钮
     MatDialogModule, // 引入material的dialog
+    MatSelectModule, // 引入下拉框option
+    MatCardModule, // 引入card
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
   ],
