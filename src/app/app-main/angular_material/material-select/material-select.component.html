@@ -6,7 +6,8 @@
         <mat-form-field>
           <mat-label>Favorite food</mat-label>
           <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
+            <mat-option *ngFor="let food of foods" [value]="food.value" (onSelectionChange)="onSelectionChange(food.viewValue)">
+              <!--SelectionChange方法 Event emitted when the selected value has been changed by the user. -->
               {{food.viewValue}}
             </mat-option>
           </mat-select>

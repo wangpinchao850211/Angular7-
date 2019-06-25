@@ -67,5 +67,8 @@ export class MaterialSelectComponent implements OnInit {
 
   ngOnInit() {
   }
+  onSelectionChange(op) {
+      console.log(op);
+  }
 
 }

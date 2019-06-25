@@ -13,7 +13,7 @@ export class MaterialComcomponentComponent implements OnInit {
   ngOnInit() {
   }
 
-  step = 5;
+  step = 7;
 
   setStep(index: number) {
     this.step = index;

@@ -1,0 +1,36 @@
+<div class="autocomponentwrapper">
+    <mat-card class="example-card">
+        <mat-card-content>
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" >
+                <!-- input 得[matAutocomplete]值要与 <mat-autocomplete> 得#auto名称一样-->
+                <mat-autocomplete isOpen="www" showPanel="true" panelOpen="true" #auto="matAutocomplete" [panelWidth]="200" [classList]="wpc-autocomplete"  [displayWith]="displayUser" (optionSelected)="selectPat()">
+                  <!-- panelWidth可以设置下拉框宽度 -->
+                  <!-- matAutocompletePosition, panelOpen, isOpen, classList都没找到使用方法 -->
+                  <!-- diaplayWidth:如果希望选项的控件值（保存在表单中的值）与选项的显示值（显示在文本字段中的值）不同，则需要在autocomplete元素上设置displaywith属性。如果您希望将数据保存为对象，但只显示选项的字符串属性之一，则可能是这种情况的常见用例。要使此工作正常，请在组件类上创建一个函数，该函数将控件值映射到所需的显示值。然后将其绑定到自动完成的DisplayWith属性 -->
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card">
+        <mat-card-content>
+          <form [formGroup]="stateForm">
+              <mat-form-field>
+                <input type="text" matInput placeholder="States Group" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
+                  <mat-autocomplete #autoGroup="matAutocomplete">
+                    <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+                      <mat-option *ngFor="let name of group.names" [value]="name">
+                        {{name}}
+                      </mat-option>
+                  </mat-optgroup>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

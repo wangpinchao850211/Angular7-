@@ -128,7 +128,20 @@
     <app-material-select></app-material-select>
     <!-- panel content end -->
   </mat-expansion-panel>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Autocomplete
+        </mat-panel-title>
+        <mat-panel-description>
+          Autocomplete Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start -->
+      <app-material-autocomponent></app-material-autocomponent>
+      <!-- panel content end -->
+    </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 7" (opened)="setStep(7)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Tab
@@ -143,6 +156,58 @@
       <mat-tab label="Second"> Content 2 </mat-tab>
       <mat-tab label="Third"> Content 3 </mat-tab>
     </mat-tab-group>
+    <!-- panel content end -->
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 8" (opened)="setStep(8)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Grid List
+      </mat-panel-title>
+      <mat-panel-description>
+        Grid List Used
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- panel content start -->
+    <app-material-gridcomponent></app-material-gridcomponent>
+    <!-- panel content end -->
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 9" (opened)="setStep(9)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Progress spinner & bar
+      </mat-panel-title>
+      <mat-panel-description>
+        Progress Used
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- panel content start -->
+    <app-progresscomponent></app-progresscomponent>
+    <!-- panel content end -->
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 10" (opened)="setStep(10)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        paginator
+      </mat-panel-title>
+      <mat-panel-description>
+        paginator Used
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- panel content start -->
+    <app-paginatorcomponent></app-paginatorcomponent>
+    <!-- panel content end -->
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="step === 11" (opened)="setStep(11)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Table
+      </mat-panel-title>
+      <mat-panel-description>
+        Table Used
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- panel content start -->
+    <app-tablecomponent></app-tablecomponent>
     <!-- panel content end -->
   </mat-expansion-panel>
 </mat-accordion>
