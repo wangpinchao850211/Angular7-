@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -126,6 +126,12 @@ registerLocaleData(zh);
     MatSelectModule, // 引入下拉框option
     MatCardModule, // 引入card
     MatAutocompleteModule, // 引入autocomponent
+    MatButtonModule,
+    MatGridListModule, // 引入grid
+    MatProgressSpinnerModule, // 引入loading
+    MatProgressBarModule, // 引入loadingBar
+    MatSliderModule, // 引入slider
+    MatPaginatorModule, // 引入paginator
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
   ],
