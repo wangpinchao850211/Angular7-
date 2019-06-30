@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkTableModule} from '@angular/cdk/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -132,11 +133,14 @@ registerLocaleData(zh);
     MatProgressBarModule, // 引入loadingBar
     MatSliderModule, // 引入slider
     MatPaginatorModule, // 引入paginator
+    MatTableModule, // 一直也没引入成功报错
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！
+    CdkTableModule,
+    // MatTableModule 一直也没引入成功报错
   ],
   providers: [matDialogConfirmService, { provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
