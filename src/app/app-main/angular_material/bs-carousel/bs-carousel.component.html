@@ -1,3 +1,17 @@
-<p>
-  bs-carousel works!
-</p>
+<carousel [noPause]="false" pauseOnFocus="true" [noWrap]="noWrapSlides" [showIndicators]="showIndicator" [interval]="myInterval" [(activeSlide)]="activeSlideIndex" (activeSlideChange)="logSlideChange($event)">
+  <!--  [interval]="false" 停止轮播: 要清除定时器 -->
+  <slide>
+    <img src="assets/images/accenture_logo.svg" alt="First slide" style="display: block; width: 30%; height: 40%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </slide>
+  <slide>
+    <img src="assets/images/B4P logo.png" alt="Second slide" style="display: block; width: 30%;height: 40%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </slide>
+</carousel>
