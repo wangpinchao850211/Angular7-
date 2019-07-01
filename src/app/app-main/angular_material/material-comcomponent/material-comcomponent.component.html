@@ -227,8 +227,8 @@
         Table Used
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <app-tablecomponent></app-tablecomponent>
+    <!-- panel content start 还未实现-->
+    <!-- <app-tablecomponent></app-tablecomponent> -->
     <!-- panel content end -->
   </mat-expansion-panel>
 </mat-accordion>
@@ -236,3 +236,37 @@
 <!-- ro使用的是 ngx-bootstrap accordion -->
 
 <h2>ngx-bootstrap introduction to Use:</h2>
+<mat-radio-group [(ngModel)]="bsAccordionDisable" (ngModelChange)="ngModelChange()">
+  <mat-radio-button class="example-margin" value="Disable">Disable</mat-radio-button>
+  <mat-radio-button class="example-margin" value="unDisable">unDisable</mat-radio-button>
+</mat-radio-group>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" [(ngModel)]="oneAtATime">
+    Open only one at a time
+  </label>
+</div>
+<accordion isAnimated="true" [closeOthers]="oneAtATime">
+  <!-- isAnimated作为输入属性会报错，直接绑定即可 -->
+  <!-- closeOthers是否只能打开一个 -->
+  <accordion-group heading="Group without isOpenChange event listener" [isDisabled]="bsAccordionDisable==='Disable'">
+    <p>Some content</p>
+  </accordion-group>
+  <accordion-group heading="Group with isOpenChange event listener" (isOpenChange)="log($event)" [isOpen]="true" [panelClass]="customClass">
+    <!-- [isOpen]设置开始默认打开accordion -->
+    <button type="button" class="btn btn-primary btn-sm" (click)="addGroupItem()">
+      Add Group Item
+    </button>
+  </accordion-group>
+  <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event)" [panelClass]="getCustomClass(i)">
+    <div class="wrapper" [ngSwitch]="i">
+         <app-bs-carousel *ngSwitchCase="0"></app-bs-carousel>
+         <app-bs-dropdown *ngSwitchCase="1"></app-bs-dropdown>
+         <app-bs-datepicker *ngSwitchCase="2"></app-bs-datepicker>
+         <app-bs-timepicker *ngSwitchCase="3"></app-bs-timepicker>
+         <app-bs-pagination *ngSwitchCase="4"></app-bs-pagination>
+         <app-bs-tooltip *ngSwitchCase="5"></app-bs-tooltip>
+         <p *ngSwitchDefault>{{ group?.content }}</p>
+    </div>
+  </accordion-group>
+</accordion>

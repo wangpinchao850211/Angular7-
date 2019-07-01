@@ -13,6 +13,25 @@
   align-items: center;
 }
 
-mat-form-field {
+.mat-form-field {
   margin-right: 12px;
+}
+
+/deep/ .panel-success{ // 没引成，自定义(scss里使用deep好使，host没生效)
+  background: red;
+}
+/deep/ .panel-primary{
+  background: lightblue!important; 
+}
+/deep/ .panel-info{
+  background: rosybrown; 
+}
+/deep/ .panel-warning{
+  background: #fcf8e3;
+}
+/deep/ .panel-danger{
+  background: #f2dede;
+}
+/deep/ .card-header{ // 可以实现相应的样式
+  // background: rgb(154, 156, 153);
 }

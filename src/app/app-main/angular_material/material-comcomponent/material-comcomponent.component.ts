@@ -14,12 +14,45 @@ export class MaterialComcomponentComponent implements OnInit {
   tabs = ['First', 'Second', 'Third'];
   public colorToggle:ThemePalette = 'accent';
   public backgroundColorToggle:ThemePalette = 'primary';
+  // bs start
+  groups = [
+    {
+      title: 'carousel',
+      content: 'carousel'
+    },
+    {
+      title: 'dropdown',
+      content: 'dropdown'
+    },
+    {
+      title: 'datepicker',
+      content: 'datepicker'
+    },
+    {
+      title: 'timepicker',
+      content: 'timepicker'
+    },
+    {
+      title: 'pagination',
+      content: 'pagination'
+    },
+    {
+      title: 'tooltip',
+      content: 'tooltip'
+    },
+    {
+      title: 'ngSwitchDefault',
+      content: 'ngSwitchDefault'
+    }
+  ];
+  oneAtATime: boolean = true;
+  customClass = 'panel panel-success'; // 可以定义类，自己自定义样式。可选类有panel-primary, panel-info, panel-warning,panel-danger
   constructor(public confirm: matDialogConfirmService) { }
 
   ngOnInit() {
   }
 
-  step = 11;
+  step = -1;
 
   setStep(index: number) {
     this.step = index;
@@ -66,5 +99,36 @@ export class MaterialComcomponentComponent implements OnInit {
   }
   tabChange(e) {
     console.log(e);
+  }
+  // bs accordion start
+  log(event: boolean) {
+    console.log(`Accordion has been ${event ? 'opened' : 'closed'}`);
+  }
+  addGroupItem() {
+    this.groups.push({
+      title: `Dynamic Group Header - ${this.groups.length + 1}`,
+      content: `Dynamic Group Body - ${this.groups.length + 1}`
+    });
+  }
+  getCustomClass(i){
+    // console.log(i);
+    let classV = '';
+    switch(i%4) {
+      case 0: 
+        classV = 'panel panel-primary';
+        break;
+      case 1:
+        classV = 'panel panel-info';
+        break;
+      case 2: 
+        classV = 'panel panel-warning';
+        break;
+      case 3:
+        classV = 'panel panel-danger';
+        break;
+      default:
+        break;
+    }
+    return classV;
   }
 }

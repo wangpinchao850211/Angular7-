@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule } from '@angular/material';
-import {ScrollingModule} from '@angular/cdk/scrolling';
-import {CdkTableModule} from '@angular/cdk/table';
+import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
+import {CdkTableModule} from '@angular/cdk/table'; 
+
+import { TooltipModule, AccordionModule  } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,6 +58,12 @@ import { MaterialGridcomponentComponent } from './app-main/angular_material/mate
 import { ProgresscomponentComponent } from './app-main/angular_material/progresscomponent/progresscomponent.component';
 import { PaginatorcomponentComponent } from './app-main/angular_material/paginatorcomponent/paginatorcomponent.component';
 import { TablecomponentComponent } from './app-main/angular_material/tablecomponent/tablecomponent.component';
+import { BsCarouselComponent } from './app-main/angular_material/bs-carousel/bs-carousel.component';
+import { BsDatepickerComponent } from './app-main/angular_material/bs-datepicker/bs-datepicker.component';
+import { BsDropdownComponent } from './app-main/angular_material/bs-dropdown/bs-dropdown.component';
+import { BsPaginationComponent } from './app-main/angular_material/bs-pagination/bs-pagination.component';
+import { BsTimepickerComponent } from './app-main/angular_material/bs-timepicker/bs-timepicker.component';
+import { BsTooltipComponent } from './app-main/angular_material/bs-tooltip/bs-tooltip.component';
 
 registerLocaleData(zh);
 
@@ -102,6 +110,12 @@ registerLocaleData(zh);
     ProgresscomponentComponent,
     PaginatorcomponentComponent,
     TablecomponentComponent,
+    BsCarouselComponent,
+    BsDatepickerComponent,
+    BsDropdownComponent,
+    BsPaginationComponent,
+    BsTimepickerComponent,
+    BsTooltipComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
@@ -135,7 +149,10 @@ registerLocaleData(zh);
     MatPaginatorModule, // 引入paginator
     MatTableModule, // 一直也没引入成功报错
     // ScrollingModule // 没有引用CDK到项目中！！！
-    SharedModule // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
+    SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
+    BrowserAnimationsModule,
+    TooltipModule.forRoot(),
+    AccordionModule.forRoot(),
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！
