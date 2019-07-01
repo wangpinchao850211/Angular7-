@@ -1,5 +1,9 @@
 <carousel [noPause]="false" pauseOnFocus="true" [noWrap]="noWrapSlides" [showIndicators]="showIndicator" [interval]="myInterval" [(activeSlide)]="activeSlideIndex" (activeSlideChange)="logSlideChange($event)">
-  <!--  [interval]="false" 停止轮播: 要清除定时器 -->
+  <!-- noPause设置成false，当你hover时自动停止 -->
+  <!-- pauseOnFocus又是一个不能作为输入属性绑定 -->
+  <!-- noWrap设置为true禁止大图滚动 -->
+  <!-- showIndicators是否显示下面翻页器 -->
+  <!--  [interval]="false" 停止轮播: 还可以接受数字，设定轮播时间，要清除定时器 -->
   <slide>
     <img src="assets/images/accenture_logo.svg" alt="First slide" style="display: block; width: 30%; height: 40%;">
     <div class="carousel-caption d-none d-md-block">
