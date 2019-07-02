@@ -5,7 +5,7 @@ import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFo
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
 import {CdkTableModule} from '@angular/cdk/table'; 
 
-import { TooltipModule, AccordionModule, CarouselModule  } from 'ngx-bootstrap';
+import { TooltipModule, AccordionModule, CarouselModule, BsDropdownModule  } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -153,7 +153,8 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！
