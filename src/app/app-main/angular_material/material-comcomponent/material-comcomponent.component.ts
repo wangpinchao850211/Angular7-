@@ -45,6 +45,7 @@ export class MaterialComcomponentComponent implements OnInit {
       content: 'ngSwitchDefault'
     }
   ];
+  emitchildclear: number;
   oneAtATime: boolean = true;
   customClass = 'panel panel-success'; // 可以定义类，自己自定义样式。可选类有panel-primary, panel-info, panel-warning,panel-danger
   constructor(public confirm: matDialogConfirmService) { }
@@ -101,8 +102,9 @@ export class MaterialComcomponentComponent implements OnInit {
     console.log(e);
   }
   // bs accordion start
-  log(event: boolean) {
-    console.log(`Accordion has been ${event ? 'opened' : 'closed'}`);
+  log(event: boolean, i:number) {
+    console.log(`Accordion has been ${event ? 'opened' : 'closed'}, ${i}`);
+    this.emitchildclear = i;
   }
   addGroupItem() {
     this.groups.push({
