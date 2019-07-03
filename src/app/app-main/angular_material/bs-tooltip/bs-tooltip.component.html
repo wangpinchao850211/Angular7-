@@ -1,3 +1,51 @@
-<p>
-  bs-tooltip works!
+<button type="button" class="btn btn-default btn-secondary mb-2"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        placement="top" container="body">
+  Tooltip on top
+</button>
+<ng-template #tolTemplate>Just another: {{content}}</ng-template>
+<!-- 注意使用ng-template时tooltip要使用输入属性[]-->
+<!-- container="body" tooltip显示在body下 -->
+<button type="button" class="btn btn-default btn-secondary mb-2"
+        [tooltip]="tolTemplate"
+        placement="right">
+  Tooltip on right(use ng-template show tooltip)
+</button>
+ 
+<button type="button" class="btn btn-default btn-secondary mb-2"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        placement="auto" adaptivePosition="false" triggers="focus" containerClass="customClass">
+        <!-- [adaptivePosition]="false" 设置禁用自适应位置： 又是一个不可使用输入属性的额-->
+        focus Show Tooltip auto
+</button>
+ 
+<button type="button" class="btn btn-default btn-secondary mb-2"
+        tooltip="{{contentMouseenterClick}}"
+        placement="left" triggers="mouseenter:click">
+        <!-- triggers="mouseenter:click" 可以定义显示出发事件 -->
+  Tooltip on left (use Text interpolation)
+</button>
+ 
+<button type="button" class="btn btn-default btn-secondary mb-2"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        placement="bottom" containerClass="customClass">
+        <!-- containerClass="customClass"可自定义样式类，但是在bottom有问题，箭头颜色更改不了 -->
+        <!-- 还有一个tooltipClass可待研究 -->
+        <!-- [delay]="500" 延迟显示 使用这个就卡死了！！！ -->
+  Tooltip on bottom
+</button>
+<p style="margin-top: 60px;">
+  <span tooltip="Hello there! I was triggered manually"
+        triggers="" #pop="bs-tooltip" containerClass="customClass">
+  This text has attached tooltip
+  </span>
 </p>
+<button type="button" class="btn btn-success" (click)="pop.show()">
+  Show
+</button>
+<button type="button" class="btn btn-warning" (click)="pop.hide()">
+  Hide
+</button>
+<button type="button" class="btn btn-info" (click)="pop.toggle()">
+  Toggle
+</button>

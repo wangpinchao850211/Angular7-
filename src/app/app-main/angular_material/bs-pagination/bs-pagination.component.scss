@@ -1,0 +1,10 @@
+.pager li.btn:active { 
+    box-shadow: none;
+    background: red;
+}
+/deep/.page-item.active .page-link {
+    z-index: 1;
+    color: blue;
+    background-color: red;
+    border-color: red;
+}

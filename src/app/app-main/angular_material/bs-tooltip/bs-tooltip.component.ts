@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BsTooltipComponent implements OnInit {
 
+  content: string = 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.';
+  contentMouseenterClick: string = 'enter or click to show';
   constructor() { }
 
   ngOnInit() {

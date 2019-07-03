@@ -1,4 +1,10 @@
-<div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="false">
+<div class="wrapper">
+<div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="false" [isDisabled]="disabled"  (isOpenChange)="onOpenChange($event)" isOpen="true" [placement]="left">
+  <!-- [autoClose]="true" toggle,show,hide方法都不好使了,应该是设置成自动打开关闭了，就不好使了 -->
+  <!-- [isDisabled]="disabled" 是否禁用下拉-->
+  <!-- [dropup]="isDropup" 是否向上展开 -->
+  <!-- isOpen是否是打开 -->
+  <!-- placement设置位置"top", "bottom", "left", "right" -->
     <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
       Button dropdown <span class="caret"></span>
     </button>
@@ -12,6 +18,10 @@
       <li class="divider dropdown-divider"></li>
     </ul>
   </div>
-  <button type="button" class="btn btn-primary" (click)="dropdown.toggle(true)">Toggle</button>
-  <button type="button" class="btn btn-primary" (click)="dropdown.show()">Show</button>
-  <button type="button" class="btn btn-primary" (click)="dropdown.hide()">Hide</button>
+<div class="dropdownControl">
+  <button type="button" class="btn btn-primary" (click)="downToggle(dropdown)">Toggle</button>
+  <button type="button" class="btn btn-primary" (click)="downShow(dropdown)">Show</button>
+  <button type="button" class="btn btn-primary" (click)="downHide(dropdown)">Hide</button>
+  <button type="button" class="btn btn-primary" (click)="DisableOrE()">Enable/Disable</button>
+</div>
+</div>

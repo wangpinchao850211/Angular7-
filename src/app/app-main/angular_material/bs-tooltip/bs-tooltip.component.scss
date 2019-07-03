@@ -1,0 +1,62 @@
+/deep/.btn{
+    // 必须要使用deep，但是现在的效果是自己定义的，所以要看scss引入！！！
+    margin-left: 10px;
+}
+// 注意点1、 可更改tooltip样式，但是在scss文件使用host未生效，要使用deep
+// :host >>> .tooltip-inner {
+//     background-color: #009688;
+//     color: #fff;
+// }
+// :host >>> .tooltip.top .tooltip-arrow:before,
+// :host >>> .tooltip.top .tooltip-arrow {
+//     border-top-color: #009688;
+// }
+// 注意点2、还是要使用containerClass，bs提供的api，否则还是不生效
+/deep/.customClass .tooltip-inner {
+    background-color: #009688;
+    color: #fff;
+}
+// 第一种这个还是不全
+/deep/.customClass .tooltip-arrow:before,
+/deep/.customClass .tooltip-arrow {
+    border-top-color: #009688!important;
+}
+
+/deep/.customClass .tooltip.top .tooltip-arrow:before,
+/deep/.customClass .tooltip.top .tooltip-arrow {
+    border-top-color: #009688!important;
+}
+
+/deep/.customClass .tooltip.bottom .tooltip-arrow:before,
+/deep/.customClass .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #009688!important;
+}
+
+/deep/.customClass .tooltip.right .tooltip-arrow:before,
+/deep/.customClass .tooltip.right .tooltip-arrow {
+    border-right-color: #009688!important;
+}
+
+/deep/.customClass .tooltip.left .tooltip-arrow:before,
+/deep/.customClass .tooltip.left .tooltip-arrow {
+    border-left-color: #009688!important;
+}
+
+// 最终用下面这四种好使了！！！
+/deep/.bs-tooltip-auto[x-placement^=bottom] .arrow::before, 
+/deep/.bs-tooltip-bottom .arrow::before {
+    border-bottom-color: #009688!important;
+}
+// 这有个问题，如何使用customClass来控制局部箭头颜色
+/deep/.bs-tooltip-auto[x-placement^=left] .arrow::before, 
+/deep/.bs-tooltip-left .arrow::before{
+    border-left-color: #009688!important;
+}
+// /deep/.bs-tooltip-auto[x-placement^=top] .arrow::before, 
+// /deep/.bs-tooltip-top .arrow::before{
+//     border-top-color: #009688!important;
+// }
+// /deep/.bs-tooltip-auto[x-placement^=right] .arrow::before, 
+// /deep/.bs-tooltip-right .arrow::before {
+//     border-right-color: #009688!important;
+// }

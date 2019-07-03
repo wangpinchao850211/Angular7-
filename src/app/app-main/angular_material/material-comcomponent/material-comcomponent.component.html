@@ -258,15 +258,18 @@
       Add Group Item
     </button>
   </accordion-group>
-  <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event, i)" [panelClass]="getCustomClass(i)" [isOpen]="i===1? true: false">
+  <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event, i)" [panelClass]="getCustomClass(i)" [isOpen]="i===4? true: false">
     <div class="wrapper" [ngSwitch]="i">
         <!-- <ng-container *ngIf="i===0"> 注意啊，switch下的组件是随父组件同时init的-->
          <app-bs-carousel *ngSwitchCase="0" [showFlag]="emitchildclear"></app-bs-carousel>
         <!-- </ng-container> -->
+        <!-- bs-dropdown用处不是特别大，也可以使用api还是比较好用的 -->
          <app-bs-dropdown *ngSwitchCase="1"></app-bs-dropdown>
          <app-bs-datepicker *ngSwitchCase="2"></app-bs-datepicker>
          <app-bs-timepicker *ngSwitchCase="3"></app-bs-timepicker>
+         <!-- 分页还可以可以使用 -->
          <app-bs-pagination *ngSwitchCase="4"></app-bs-pagination>
+         <!-- tooltip使用[delay]="500" #pop="bs-tooltip" 就卡死了，没查到原因使用tootip就会卡死，这个bs-ui挺垃圾！！！-->
          <app-bs-tooltip *ngSwitchCase="5"></app-bs-tooltip>
          <p *ngSwitchDefault>{{ group?.content }}</p>
     </div>

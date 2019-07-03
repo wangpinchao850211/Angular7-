@@ -1,3 +1,39 @@
-<p>
-  bs-pagination works!
-</p>
+<pagination [boundaryLinks]="true" [totalItems]="77"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+</pagination>
+
+<div class="row">
+  <div class="col-xs-12 col-12">
+    <pagination [boundaryLinks]="showBoundaryLinks" [totalItems]="55" (pageChanged)="pageChanged($event)"></pagination>
+  </div>
+</div>
+<!-- boundaryLinks操作按钮是否被隐藏 -->
+<!-- disabled可以控制是否禁用 -->
+<!-- totalItems所有页面中的项目总数 -->
+<!-- rotate 如果为真，则当前页面将位于页面列表中间-->
+  
+<button type="button" class="btn btn-info" (click)="showBoundaryLinks = !showBoundaryLinks">Hide/show boundary links</button>
+<!-- 下面这个时重点 -->
+<div class="row">
+    <div class="col-xs-12 col-12">
+      <pagination
+        [directionLinks]="false"
+        [totalItems]="totalItems"
+        [(ngModel)]="currentPage"
+        (numPages)="smallnumPages = $event">
+      </pagination>
+    </div>
+  </div>
+   <!-- pageBtnClass可以设置样式 -->
+  <div class="row">
+    <div class="col-xs-12 col-12">
+      <pager
+        [totalItems]="totalItems"
+        [(ngModel)]="currentPage"
+        (pageChanged)="pageChanged($event)"
+        pageBtnClass="btn"
+        [itemsPerPage]="10"
+        class="pull-left">
+      </pager>
+    </div>
+  </div>
