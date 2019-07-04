@@ -1,0 +1,192 @@
+// 变量设置
+$ground-width: 100%;
+$num-font-size: 5.3vh;
+$comma-font-size: 5vh;
+
+// 宽度设置
+$width_time: 3.2%;
+$width_colon: 1.3%;
+
+// 高度设置
+$full_height: 100%;
+$height_colon:10.2%;
+
+// 颜色
+$color-white: #fff;
+$color-lighter-blue:#01E0D1;
+$color-orange:#fca403;
+$color-red:#ff0844;
+$color-blue:#004EFF;
+// 字体大小
+$font-size-t: 1.85vh;
+$font-size-z: 3.15vh;
+$font-size-v: 2.4vh;
+$font-size-l: 1.67vh;
+$font-size-n: 1.67vh;
+$font-size-m: 1.11vh;
+
+@for $i from 1 through 100 {
+  .w-#{$i} { width:$i*1%!important; }
+  .h-#{$i} { height:$i*1%!important; }
+  .m-left-#{$i} { margin-left:$i*1%!important; }
+  .m-right-#{$i} { margin-right:$i*1%!important; }
+  .m-top-#{$i} { margin-top:$i*1%!important; }
+  .m-bottom-#{$i} { margin-bottom:$i*1%!important; }
+}
+
+// 这里开始写scss的方法，如何引用详见教程
+$--color-success: #B8E986 !default; // 默认变量，在引入使用时可直接赋值覆盖这个位置定义的值
+$width: 500;
+$paddings: 5px 10px 5px 10px;
+$maps: (color: red, borderColor: blue);
+$className: container;
+body {
+  $color: red !global; // 这样写下面作用域也能访问到
+  $ver: '嵌入其中'; // 可在多处复用
+  color: $color;
+  font-size: $--color-success;
+  // 引用父选择器
+  a {
+    color: $color;
+    &:hover{
+      color: blue;
+    }
+    &.content{
+      color: green;
+    }
+    // 跳出深层嵌套
+    @at-root .container{
+      width: 1024px;
+    }
+    // 使用变量来定义内容
+    &:before{
+      content: "hello,#{$ver}"
+    }
+  }
+  /*
+  默认@at-root只会跳出选择器嵌套，而不能跳出@media或@support，如果要跳出这两种，则需使用@at-root (without: media)，@at-root (without: support)。这个语法的关键词有四个：
+  1、all（表示所有）
+  2、rule（表示常规css）
+  3、media（表示media）
+  4、support（表示support，因为@support目前还无法广泛使用，所以在此不表）。
+  */
+  @media screen and (max-width:600px) {
+    @at-root (without: media rule) {
+      .container{
+        background: lightgreen;
+      }
+    }
+  }
+  div{
+    // 有round函数
+    width: round($width/2)
+  }
+}
+header{
+  background-color: $color;
+  padding: $paddings;
+  padding-left: nth($paddings, 1) // 这样就取到第一个值为左内边距赋上值了，下标是从1开始的
+}
+
+footer{
+  background-color: map-get($maps, color);
+  border-color: map-get($maps, borderColor);
+}
+.#{$className}{
+  width: 50px;
+  height: 100px;
+}
+// 属性嵌套
+section{
+  background: {
+    color: yellow;
+    size: 100% 50%;
+  }
+}
+// 继承（下面使用%，时占位选择器，可写公共样式，使用时才会渲染有，不使用是不会有效果的）
+%head { // 可以写公共样式
+  background-attachment: fixed;
+}
+.head span {
+  @extend %head; // 继承多项可使用逗号分隔
+  color: red;
+}
+// 多继承(链式继承)，存在+和包含选择器，伪类都不可继承
+.one{
+  border: 1px solid gray;
+}
+.two{
+  @extend .one;
+  color: black;
+}
+.three{
+  @extend .two;
+  border-radius: 4px;
+}
+// 交叉继承(选择器选择多个，会出现混乱状态，避免使用)
+
+// 计算应用（在webContent有使用）
+$flag: true;
+div{
+ @if $flag == true {
+   color: goldenrod;
+ }
+}
+
+// 混合
+@mixin cont($bgcolor: red) {
+  color: $bgcolor;
+}
+p{ // 使用
+  @include cont(#fff);
+}
+// 多参数混合
+@mixin muti($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+}
+.multiple{
+  @include muti(0px 4px 3px #888, 3px 3px 9px #6dd9ee);
+}
+// 兼容手机
+@mixin style-for-iphone {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+    @content;
+  }
+}
+@include style-for-iphone{
+  font-size: 12px;
+}
+
+// scss里有几个内置函数
+//自定义函数
+@function double($width){
+  @return $width*2
+};
+// 下面调用使用
+span{
+  display: inline-block;
+  width: double(10px);
+}
+
+// 简单应用栅格不布局（使用自定义函数和@each）
+@function buildLayout($num: 5) {
+  $map: (defaultValue: 0);
+  $rate: percentage(1 / $num); // percentage()转成百分数方法
+  @for $i from 1 through $num {
+    $tmpMap: (col#{$i}: $rate * $i);
+    $map: map-merge($map, $tmpMap);
+  }
+  $map: map-remove($map, defaultValue);
+  @return $map;
+}
+
+@mixin buildLayout($num: 5) {
+  $map: buildLayout($num);
+  @each $key, $value in $map {
+    .#{key} {
+      width: $value;
+    }
+  }
+}
+@include buildLayout();

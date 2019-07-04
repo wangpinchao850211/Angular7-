@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "src/wpcScss.scss"; // 引入scss文件进行使用
+
 @import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
 @import "./assets/css/site.css";
 @import "./assets/css/common.css";
@@ -10,5 +12,8 @@
 @import "./assets/css/dialog.css";
 @import "./assets/css/progress.css";
 
-
-@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+// 直接在这个里引入，即可，无需再angular.json引入避免混乱
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css";
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss";

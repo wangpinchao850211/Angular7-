@@ -1,3 +1,30 @@
+@import "src/wpcScss.scss";
+$basic-width: 100%; 
+// 使用scss实现隐藏，小用一下
+@mixin blockOrHidden($boolean:true) {
+  @if $boolean {
+    @debug "$boolean is #{$boolean}";//debug输出信息
+      display: block;
+    }
+    @else {
+      @debug "$boolean is #{$boolean}";
+      display: none;
+    }
+}
+
+.wpcSass {
+  @include blockOrHidden;
+}
+
+.hiddenWpcSass{
+  @include blockOrHidden(false);
+}
+// 直接使用上面变量及好使
+.useScss{
+  border: 1px solid red;
+  display: block;
+  width: $ground-width;
+}
 :host ::ng-deep .mat-tab-label:focus:not(.mat-tab-disabled){
   opacity: 1;
   color: blue;

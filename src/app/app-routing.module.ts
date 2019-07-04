@@ -22,6 +22,7 @@ import { CommonComponentComponent } from './app-main/chain_module/common-compone
 import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
 import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
+import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
 
 const routes: Routes = [
   // Main redirect
@@ -84,6 +85,13 @@ const routes: Routes = [
     component: MaterialLayoutComponent,
     children: [
       { path: 'AngularMaterial', component: MaterialComcomponentComponent },
+    ]
+  },
+  {
+    path: 'Angular_Scss',
+    component: MaterialLayoutComponent,
+    children: [
+      { path: 'AngularScss', component: AngularScssComponent },
     ]
   },
   // Handle all other routes

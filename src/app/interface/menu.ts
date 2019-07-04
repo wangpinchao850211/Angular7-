@@ -21,6 +21,7 @@ export const Menu = {
     AngularAnimate: ['AngularAnimate'],
     chain_shared: ['CommonComponent'],
     Angular_Material: ['AngularMaterial'],
+    Angular_Scss: ['AngularScss'],
     [Symbol.iterator]() { // 有ts校验，未循未成
         let index = 0;
         const arr = [...this.AngularBasic, ...this.AngularRxjs, ...this.Angular_Animate];

@@ -64,6 +64,7 @@ import { BsDropdownComponent } from './app-main/angular_material/bs-dropdown/bs-
 import { BsPaginationComponent } from './app-main/angular_material/bs-pagination/bs-pagination.component';
 import { BsTimepickerComponent } from './app-main/angular_material/bs-timepicker/bs-timepicker.component';
 import { BsTooltipComponent } from './app-main/angular_material/bs-tooltip/bs-tooltip.component';
+import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
 
 registerLocaleData(zh);
 
@@ -116,6 +117,7 @@ registerLocaleData(zh);
     BsPaginationComponent,
     BsTimepickerComponent,
     BsTooltipComponent,
+    AngularScssComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
