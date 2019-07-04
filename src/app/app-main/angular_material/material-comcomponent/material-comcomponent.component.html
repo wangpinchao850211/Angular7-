@@ -258,7 +258,7 @@
       Add Group Item
     </button>
   </accordion-group>
-  <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event, i)" [panelClass]="getCustomClass(i)" [isOpen]="i===4? true: false">
+  <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event, i)" [panelClass]="getCustomClass(i)" [isOpen]="i===3? true: false">
     <div class="wrapper" [ngSwitch]="i">
         <!-- <ng-container *ngIf="i===0"> 注意啊，switch下的组件是随父组件同时init的-->
          <app-bs-carousel *ngSwitchCase="0" [showFlag]="emitchildclear"></app-bs-carousel>

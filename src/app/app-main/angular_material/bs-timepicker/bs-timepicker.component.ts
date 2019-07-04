@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bs-timepicker.component.scss']
 })
 export class BsTimepickerComponent implements OnInit {
+  mytime: Date = new Date();
 
   constructor() { }
 
