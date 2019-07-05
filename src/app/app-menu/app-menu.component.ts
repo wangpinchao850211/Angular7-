@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuserviceService } from '../services/menuservice.service';
 import { Menu } from '../interface/menu';
 import { Router } from '@angular/router';
+import { HttpServiceService } from '../services/http-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +18,8 @@ export class AppMenuComponent implements OnInit {
 
   constructor(
     // private menu: MenuserviceService
-    private router: Router
+    private router: Router,
+    private http: HttpServiceService
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,13 @@ export class AppMenuComponent implements OnInit {
     console.log(rootName);
     console.log(name);
     // 同a标签使用routerLink参数相同
-    this.router.navigate([`/${rootName}/${name}`]);
+    // loading start
+    this.http.loading();
+    setTimeout(() => {
+      this.router.navigate([`/${rootName}/${name}`]);
+      this.http.loading();
+      // loading end
+    },1000)
   }
 
 }

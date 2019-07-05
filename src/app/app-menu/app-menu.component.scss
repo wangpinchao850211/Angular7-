@@ -1,0 +1,23 @@
+.menuUl{
+    border: 1px solid yellowgreen;
+    max-height: calc(100vh - 180px); 
+    overflow-y: auto;
+}
+// 如何让全局都实现这种滚动条！！！！
+.menuUl::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+  
+.menuUl::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
+    background-color: #F5F5F5;
+}
+  
+.menuUl::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background: rgba(0,0,0,.26);
+}
