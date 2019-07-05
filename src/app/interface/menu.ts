@@ -17,8 +17,8 @@ export const Menu = {
         'form',
         'dependencyinjection'
     ],
-    AngularRxjs: ['AngularRxjs'],
-    AngularAnimate: ['AngularAnimate'],
+    AngularRxjs: ['rxRoot'],
+    AngularAnimate: ['animateRoot'],
     chain_shared: ['CommonComponent'],
     Angular_Material: ['AngularMaterial'],
     Angular_Scss: ['AngularScss'],

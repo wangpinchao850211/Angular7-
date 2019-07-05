@@ -65,6 +65,9 @@ import { BsPaginationComponent } from './app-main/angular_material/bs-pagination
 import { BsTimepickerComponent } from './app-main/angular_material/bs-timepicker/bs-timepicker.component';
 import { BsTooltipComponent } from './app-main/angular_material/bs-tooltip/bs-tooltip.component';
 import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
+import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
+import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
+import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
 
 registerLocaleData(zh);
 
@@ -118,6 +121,9 @@ registerLocaleData(zh);
     BsTimepickerComponent,
     BsTooltipComponent,
     AngularScssComponent,
+    DirectivePipeComponent,
+    NgxFunctionComponent,
+    AngularAnimateComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent

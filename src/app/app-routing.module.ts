@@ -23,6 +23,9 @@ import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
 import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
 import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
+import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
+import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
+import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
 
 const routes: Routes = [
   // Main redirect
@@ -71,6 +74,21 @@ const routes: Routes = [
       { path: 'communication', component: CommunicationComponent },
       { path: 'form', component: FormComponent },
       { path: 'dependencyinjection', component: DeplayoutComponent },
+      { path: 'directivesOrpip', component: DirectivePipeComponent },
+    ]
+  },
+  {
+    path: 'AngularRxjs',
+    component: NgxFunctionComponent,
+    children: [
+      { path: 'rxRoot', component: NgxFunctionComponent },
+    ]
+  },
+  {
+    path: 'AngularAnimate',
+    component: AngularAnimateComponent,
+    children: [
+      { path: 'animateRoot', component: AngularAnimateComponent },
     ]
   },
   {
