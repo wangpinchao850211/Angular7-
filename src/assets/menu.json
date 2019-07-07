@@ -1,0 +1,15 @@
+{
+  "AngularBasic": [
+      "heros",
+      "routers",
+      "communication",
+      "directivesOrpip",
+      "form",
+      "dependencyinjection"
+  ],
+  "AngularRxjs": ["rxjsBasic"],
+  "AngularAnimate": ["animateBasic"],
+  "chain_shared": ["CommonComponent"],
+  "Angular_Material": ["AngularMaterial"],
+  "Angular_Scss": ["AngularScss"]
+}

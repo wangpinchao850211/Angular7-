@@ -81,14 +81,14 @@ const routes: Routes = [
     path: 'AngularRxjs',
     component: NgxFunctionComponent,
     children: [
-      { path: 'rxRoot', component: NgxFunctionComponent },
+      { path: 'rxjsBasic', component: NgxFunctionComponent },
     ]
   },
   {
     path: 'AngularAnimate',
     component: AngularAnimateComponent,
     children: [
-      { path: 'animateRoot', component: AngularAnimateComponent },
+      { path: 'animateBasic', component: AngularAnimateComponent },
     ]
   },
   {

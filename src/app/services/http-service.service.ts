@@ -1,5 +1,5 @@
 import { Injectable, Injector, Inject, Optional, InjectionToken } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpHandler, HttpInterceptor } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders, HttpHandler, HttpInterceptor } from '@angular/common/http';
 import { LoaderInterceptor } from './loadingInterceptor';
 
 export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HTTP_DYNAMIC_INTERCEPTORS');
@@ -8,12 +8,13 @@ export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HT
 })
 export class HttpServiceService extends HttpClient  {
 
+  public configUrl = 'assets/menu.json';
   constructor(public http: HttpClient,
                 private httpHandler: HttpHandler,
                 private injector: Injector,
                 @Optional() @Inject(HTTP_DYNAMIC_INTERCEPTORS) private interceptors: HttpInterceptor[] = []) {
       super(httpHandler);
-  
+
       if (!this.interceptors) {
         // Configure default interceptors that can be disabled here
         this.interceptors = [
@@ -22,6 +23,10 @@ export class HttpServiceService extends HttpClient  {
         ];
       }
     }
+
+  getMenu() { // 获取菜单列表
+    return this.http.get(this.configUrl);
+  }
   GetPromise<T>(url): Promise<T> {
     return this.http.get<T>(url).toPromise()
   }
