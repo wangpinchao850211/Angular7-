@@ -68,6 +68,7 @@ import { AngularScssComponent } from './app-main/angular-scss/angular-scss.compo
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
 import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
+import { ScrollDirectiveDirective } from './directive/scroll-directive.directive';
 
 registerLocaleData(zh);
 
@@ -124,6 +125,7 @@ registerLocaleData(zh);
     DirectivePipeComponent,
     NgxFunctionComponent,
     AngularAnimateComponent,
+    ScrollDirectiveDirective,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
