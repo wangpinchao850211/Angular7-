@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivePipeComponent implements OnInit {
 
+  public arr = [];
   constructor() { }
 
   ngOnInit() {
+    for (let index = 0; index < 100; index++) {
+      this.arr.push(index);
+      
+    }
   }
 
 }
