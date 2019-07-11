@@ -167,7 +167,8 @@
       <!-- <ng-template matTabContent></ng-template> 可实现懒加载 -->
       <!-- headerPosition: above,  below -->
       <!-- mat-align-tabs: center, start end -->
-      <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+      <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab"
+      [disabled]="disabled">
         Contents for {{tab}} tab
         <button mat-raised-button
               class="example-delete-tab-button"

@@ -14,6 +14,7 @@ export class MaterialComcomponentComponent implements OnInit {
   tabs = ['First', 'Second', 'Third'];
   public colorToggle:ThemePalette = 'accent';
   public backgroundColorToggle:ThemePalette = 'primary';
+  public disabled = true;
   // bs start
   groups = [
     {
@@ -97,6 +98,7 @@ export class MaterialComcomponentComponent implements OnInit {
   }
   removeTab(i) {
     this.tabs.splice(i, 1);
+    this.disabled = false; // mat-tab解除禁用
   }
   tabChange(e) {
     console.log(e);
