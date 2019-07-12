@@ -1,12 +1,14 @@
-<div class="scrollwrapper">
+<div #ScrollWrapper class="scrollwrapper" appScrollDirective  [scrollTarget]="ScrollWrapper" (changeHeight)="changecontentHeight($event)">
   <div class="clickOutSideWrapper">
-      <input class="click-outside-input" type="text" [(ngModel)]="clickOutsideInputValue" (ngModelChange)="ngModelChange(clickOutsideInputValue)"
+      <label for="testSelect">测试select打开关闭</label>
+      <br>
+      <input id="testSelect" class="click-outside-input" type="text" [(ngModel)]="clickOutsideInputValue" (ngModelChange)="ngModelChange(clickOutsideInputValue)" (click)="asyncClick()"
       (keyup.enter)="setInfo()" #input >
-      <ul *ngIf="showUl">
+      <ul *ngIf="showUl" appClickOutside (clickOutside)="onClickOutside($event)">
         <li *ngFor="let i of arr">{{i}}</li>
       </ul>
   </div>
-  <p *ngFor="let i of arr">
+  <p *ngFor="let i of arr" >
     人同意同意同意
   </p>
 </div>
