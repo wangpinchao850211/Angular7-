@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivePipeComponent implements OnInit {
 
+  public clickOutsideInputValue: string;
+  public showUl = false;
   public arr = [];
   constructor() { }
 
@@ -16,5 +18,17 @@ export class DirectivePipeComponent implements OnInit {
       
     }
   }
+  ngModelChange(value) {
+    console.log(value);
+    console.log(this.clickOutsideInputValue);
+    if (this.clickOutsideInputValue.trim().length > 0) {
+      this.showUl = true;
+    } else {
+      this.showUl = false;
+    }
+  }
 
+  setInfo() {
+    
+  }
 }

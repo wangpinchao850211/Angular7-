@@ -1,4 +1,11 @@
 <div class="scrollwrapper">
+  <div class="clickOutSideWrapper">
+      <input class="click-outside-input" type="text" [(ngModel)]="clickOutsideInputValue" (ngModelChange)="ngModelChange(clickOutsideInputValue)"
+      (keyup.enter)="setInfo()" #input >
+      <ul *ngIf="showUl">
+        <li *ngFor="let i of arr">{{i}}</li>
+      </ul>
+  </div>
   <p *ngFor="let i of arr">
     人同意同意同意
   </p>
