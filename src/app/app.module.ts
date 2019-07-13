@@ -70,6 +70,8 @@ import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.compo
 import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
 import { ScrollDirectiveDirective } from './directive/scroll-directive.directive';
 import { ClickOutsideDirective } from './directive/click-outside.directive';
+import { SliceEmailPipe } from './pipe/slice-email.pipe';
+import { DateFormatPipe } from './pipe/date-format.pipe';
 
 registerLocaleData(zh);
 
@@ -128,6 +130,8 @@ registerLocaleData(zh);
     AngularAnimateComponent,
     ScrollDirectiveDirective,
     ClickOutsideDirective,
+    SliceEmailPipe,
+    DateFormatPipe,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
