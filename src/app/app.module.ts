@@ -72,6 +72,7 @@ import { ScrollDirectiveDirective } from './directive/scroll-directive.directive
 import { ClickOutsideDirective } from './directive/click-outside.directive';
 import { SliceEmailPipe } from './pipe/slice-email.pipe';
 import { DateFormatPipe } from './pipe/date-format.pipe';
+import { EmailvalidDirective } from './directive/emailvalid.directive';
 
 registerLocaleData(zh);
 
@@ -132,6 +133,7 @@ registerLocaleData(zh);
     ClickOutsideDirective,
     SliceEmailPipe,
     DateFormatPipe,
+    EmailvalidDirective,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
