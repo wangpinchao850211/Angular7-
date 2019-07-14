@@ -1,0 +1,7 @@
+// 容器宽度，高度，内外边距rem值变量
+$full-width: 100%;
+// 颜色变量
+// scss应用于rem布局（fe有rem值定义）
+.container-layout{
+   width: $full-width;
+}

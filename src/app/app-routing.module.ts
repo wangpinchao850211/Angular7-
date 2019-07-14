@@ -26,6 +26,7 @@ import { AngularScssComponent } from './app-main/angular-scss/angular-scss.compo
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
 import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
+import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 
 const routes: Routes = [
   // Main redirect
@@ -111,6 +112,11 @@ const routes: Routes = [
     children: [
       { path: 'AngularScss', component: AngularScssComponent },
     ]
+  },
+  { // rem 流式布局页面，使用了一下辅助路由
+    path: 'remlayout',
+    component: RemlayoutComponent,
+    // outlet: 'remaux', 使用了变量控制这个组件的显示隐藏，并且路由跳转
   },
   // Handle all other routes
   { path: '**', component: Code404Component } // 一定要放在路由的最后面
