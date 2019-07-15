@@ -1,7 +1,69 @@
-// 容器宽度，高度，内外边距rem值变量
-$full-width: 100%;
-// 颜色变量
-// scss应用于rem布局（fe有rem值定义）
+@import '~src/assets/base.scss';
+
 .container-layout{
    width: $full-width;
+   height: 100vh;
+}
+.asild-menu{
+   // display: inline-block;
+   float: left;
+   width: $menu-width;
+   height: 100%;
+   background: $color-blue-pearl;
+}
+.main{
+   // display: inline-block;
+   float: left;
+   width: calc(#{$full-width} - #{$menu-width}); // calc里使用变量需使用#{}插值写法
+   height: 100%;
+   background: $color-grey-blue;
+}
+.main-content{
+   height: calc(100% - 1rem);
+   width: 100%;
+   background: $color-blush;
+}
+.main-header, .main-footer{
+   height: .5rem;
+   background: $color-super-light-grey;
+}
+.title {
+   // display: inline-block;
+   font-size: .25rem;
+   line-height: .5rem;
+   // border: 1px solid $color-blush;
+   color: $color-regular;
+   text-align: center;
+}
+.content-describe{
+   font-size: .2rem;
+   color: $color-black;
+   width: calc(100% - 1.6rem);
+   height: calc(100% - .75rem);
+   margin: 0 .8rem .25rem;
+   border: 1px solid $color-grey;
+   background: $color-powder-blue;
+}
+.menu{
+   width: 1.5rem;
+   border: 1px solid black;
+   margin: 0 auto;
+   li {
+      width: 100%;
+      height: .5rem;
+      line-height: .5rem;
+      text-align: center;
+      font-size: .3rem;
+      color: $color-black;
+      list-style: none;
+   }
+   .menuActive{
+      background: $color-honey;
+      color: $color-blush;
+   }
+   & > li:hover{
+      cursor: pointer;
+      background: $color-super-light-grey;
+      color: $color-purple;
+   }
 }

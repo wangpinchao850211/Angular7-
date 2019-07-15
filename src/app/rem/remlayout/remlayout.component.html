@@ -1,16 +1,31 @@
 <div class="container-layout">
   <aside class="asild-menu">
-    我是左侧菜单
+    <p class="title">
+        我是左侧菜单
+    </p>
+    <ul class="menu">
+      <li *ngFor="let list of tabs" (click)="menuclick(list)" [ngClass]="{'menuActive':list.active}">{{list.title}}</li>
+    </ul>
   </aside>
   <section class="main">
     <header class="main-header">
-      我是头部
+      <p class="title">
+        我是头部
+      </p>
     </header>
     <section class="main-content">
-      我是主要内容区
+      <p class="title">
+          我是主要内容区
+      </p>
+      <div class="content-describe">
+        我的宽度是{{contentWidth}}, 我的高度是{{contentHeight}},
+        我的内边距是{{contentPadding}}, 我的外边距是{{contentMargin}},
+      </div>
     </section>
     <footer class="main-footer">
-      我是页脚
+      <p class="title">
+          我是页脚
+      </p>
     </footer>
   </section>
 </div>
