@@ -38,11 +38,17 @@
 .content-describe{
    font-size: .2rem;
    color: $color-black;
-   width: calc(100% - 1.6rem);
-   height: calc(100% - .75rem);
+   width: calc(100% - 1.6rem); // padding属于其内部，不需要减
+   height: calc(100% - .75rem); // padding属于其内部，不需要减
    margin: 0 .8rem .25rem;
+   padding: .5rem .6rem .8rem 1rem;
    border: 1px solid $color-grey;
-   background: $color-powder-blue;
+   background-clip: content-box;
+   background-color: $color-powder-blue;
+}
+.everyDesc{
+   color: black;
+   font-size: .3rem;
 }
 .menu{
    width: 1.5rem;
