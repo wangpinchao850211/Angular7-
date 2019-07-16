@@ -1,13 +1,27 @@
 <div class="container-layout">
-  <aside class="asild-menu">
-    <p class="title">
+  <aside class="asild-menu" [ngClass]="{'asild-menu':fold, 'fold-asild-menu': !fold}">
+    <p class="title" *ngIf="fold">
         我是左侧菜单
     </p>
-    <ul class="menu">
+    <ul class="menu" *ngIf="fold">
       <li *ngFor="let list of tabs" (click)="menuclick(list)" [ngClass]="{'menuActive':list.active}">{{list.title}}</li>
     </ul>
+    <ul class="menu-mini" *ngIf="!fold">
+      <li *ngFor="let list of iconTabs" (click)="menuclick(list)" [ngClass]="{'menuActive':list.active}">{{list.title}}</li>
+    </ul>
+    <span class="fold" *ngIf="fold" (click)="folding()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18.656" height="15" viewBox="0 0 18.656 15">
+          <path id="Path_649" data-name="Path 649" d="M-4.125-16.172a1.085,1.085,0,0,1,.8-.328,1.085,1.085,0,0,1,.8.328L-1.5-15.094a1.085,1.085,0,0,1,.328.8.938.938,0,0,1-.328.75L-6-9l4.5,4.5a1.085,1.085,0,0,1,.328.8,1.085,1.085,0,0,1-.328.8L-2.531-1.828a1.085,1.085,0,0,1-.8.328,1.085,1.085,0,0,1-.8-.328L-10.5-8.2a1.085,1.085,0,0,1-.328-.8,1.085,1.085,0,0,1,.328-.8ZM-19.5-8.2a1.085,1.085,0,0,1-.328-.8,1.085,1.085,0,0,1,.328-.8l6.375-6.375a1.085,1.085,0,0,1,.8-.328,1.085,1.085,0,0,1,.8.328l1.031,1.078a1.085,1.085,0,0,1,.328.8,1.085,1.085,0,0,1-.328.8L-15-9l4.5,4.5a1.085,1.085,0,0,1,.328.8,1.085,1.085,0,0,1-.328.8l-1.031,1.078a1.085,1.085,0,0,1-.8.328,1.085,1.085,0,0,1-.8-.328Z" transform="translate(19.828 16.5)" fill="#2776bb"/>
+        </svg>
+    </span>
+    <span class="fold" *ngIf="!fold" (click)="unfolding()">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="18.656" height="15" viewBox="0 0 18.656 15">
+          <path id="Path_655" data-name="Path 655" d="M-16.875-1.828a1.085,1.085,0,0,1-.8.328,1.085,1.085,0,0,1-.8-.328L-19.5-2.906a1.085,1.085,0,0,1-.328-.8,1.085,1.085,0,0,1,.328-.8L-15-9l-4.5-4.5a1.085,1.085,0,0,1-.328-.8,1.085,1.085,0,0,1,.328-.8l1.031-1.078a1.085,1.085,0,0,1,.8-.328,1.085,1.085,0,0,1,.8.328L-10.5-9.8a1.085,1.085,0,0,1,.328.8,1.085,1.085,0,0,1-.328.8ZM-1.5-9.8a1.085,1.085,0,0,1,.328.8,1.085,1.085,0,0,1-.328.8L-7.875-1.828a1.085,1.085,0,0,1-.8.328,1.085,1.085,0,0,1-.8-.328L-10.5-2.906a1.085,1.085,0,0,1-.328-.8,1.085,1.085,0,0,1,.328-.8L-6-9l-4.5-4.547a.938.938,0,0,1-.328-.75,1.085,1.085,0,0,1,.328-.8l1.031-1.078a1.085,1.085,0,0,1,.8-.328,1.085,1.085,0,0,1,.8.328Z" transform="translate(19.828 16.5)" fill="#2776bb"/>
+        </svg>
+    </span>
   </aside>
-  <section class="main">
+  <section class="main" [ngClass]="{'main':fold, 'fold-main': !fold}">
     <header class="main-header">
       <p class="title">
         我是头部

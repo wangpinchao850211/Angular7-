@@ -16,6 +16,15 @@ export class RemlayoutComponent implements OnInit {
 		{ id: 6, title: 'menu6', active: false },
     { id: 7, title: 'menu7', active: false }
   ];
+  public iconTabs = [
+		{ id: 1, title: 'a', active: true },
+		{ id: 2, title: 'b', active: false },
+		{ id: 3, title: 'c', active: false },
+		{ id: 4, title: 'd', active: false },
+		{ id: 5, title: 'e', active: false },
+		{ id: 6, title: 'f', active: false },
+    { id: 7, title: 'g', active: false }
+  ];
   contentWidth: string;
   contentHeight: string;
   contentPaddingLeft: string;
@@ -27,6 +36,7 @@ export class RemlayoutComponent implements OnInit {
   contentMarginTop: string;
   contentMarginBottom: string;
   contentMargin: string;
+  fold: boolean = true;
   @HostListener('window:resize')
   onWindowResize() {
      this.getStryle();
@@ -35,6 +45,14 @@ export class RemlayoutComponent implements OnInit {
 
   ngOnInit() {
     this.getStryle();
+  }
+  folding() {
+    this.fold = false;
+    console.log(this.fold);
+  }
+  unfolding() {
+    this.fold = true;
+    console.log(this.fold);
   }
 
   getStryle() {

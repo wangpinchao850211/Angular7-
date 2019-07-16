@@ -10,11 +10,37 @@
    width: $menu-width;
    height: 100%;
    background: $color-blue-pearl;
+   position: relative;
+}
+.fold-asild-menu{
+   float: left;
+   width: $fold-menu-width;
+   height: 100%;
+   background: $color-blue-pearl;
+   position: relative;
+}
+.fold{
+   position: absolute;
+   right: 5%;
+   bottom: .5rem;
+   width: .3rem;
+   height: .3rem;
+   cursor: pointer;
+   svg {
+      position: absolute;
+      top: 0;
+   }
 }
 .main{
    // display: inline-block;
    float: left;
    width: calc(#{$full-width} - #{$menu-width}); // calc里使用变量需使用#{}插值写法
+   height: 100%;
+   background: $color-grey-blue;
+}
+.fold-main{
+   float: left;
+   width: calc(#{$full-width} - #{$fold-menu-width});
    height: 100%;
    background: $color-grey-blue;
 }
@@ -55,6 +81,29 @@
    border: 1px solid black;
    margin: 0 auto;
    li {
+      width: 100%;
+      height: .5rem;
+      line-height: .5rem;
+      text-align: center;
+      font-size: .3rem;
+      color: $color-black;
+      list-style: none;
+   }
+   .menuActive{
+      background: $color-honey;
+      color: $color-blush;
+   }
+   & > li:hover{
+      cursor: pointer;
+      background: $color-super-light-grey;
+      color: $color-purple;
+   }
+}
+.menu-mini{
+   width: 100%;
+   margin-top: .5rem;
+   li {
+      margin: 0;
       width: 100%;
       height: .5rem;
       line-height: .5rem;

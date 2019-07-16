@@ -8,6 +8,7 @@ $full-width: 19.2rem;
 // link2: https://codepen.io/jakealbaugh/post/css4-variables-and-sass
 $full-height: 9.37rem; // 没想出高度的各种自适应，要不就媒体查询高度，还是先使用100%高度布局，也没有实现，js更改scss变量，使用百分比，可以使用js控制一下根节点高度
 $menu-width: 3rem;
+$fold-menu-width: .7rem;
 // 颜色变量
 $color-azure-blue: #2473C3;
 $color-white: #fff;
