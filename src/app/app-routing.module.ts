@@ -27,6 +27,7 @@ import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
 import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
 import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
+import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 
 const routes: Routes = [
   // Main redirect
@@ -82,7 +83,7 @@ const routes: Routes = [
     path: 'AngularRxjs',
     component: NgxFunctionComponent,
     children: [
-      { path: 'rxjsBasic', component: NgxFunctionComponent },
+      { path: 'rxjsBasic', component: NgrxBasicUsingComponent },
     ]
   },
   {

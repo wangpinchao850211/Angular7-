@@ -74,6 +74,7 @@ import { SliceEmailPipe } from './pipe/slice-email.pipe';
 import { DateFormatPipe } from './pipe/date-format.pipe';
 import { EmailvalidDirective } from './directive/emailvalid.directive';
 import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
+import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 
 registerLocaleData(zh);
 
@@ -136,6 +137,7 @@ registerLocaleData(zh);
     DateFormatPipe,
     EmailvalidDirective,
     RemlayoutComponent,
+    NgrxBasicUsingComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
