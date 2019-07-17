@@ -22,12 +22,12 @@
     </span>
   </aside>
   <section class="main" [ngClass]="{'main':fold, 'fold-main': !fold}">
-    <header class="main-header">
+    <header class="main-header" *ngIf="showHeader">
       <p class="title">
         我是头部
       </p>
     </header>
-    <section class="main-content">
+    <section class="main-content" [ngStyle]="{'height': !showHeader ? '100%' : 'calc(100% - 1rem)'}">
       <p class="title">
           我是主要内容区
       </p>
@@ -44,7 +44,7 @@
         <p class="everyDesc">我的下外边距是{{contentMarginBottom}},</p> 
       </div>
     </section>
-    <footer class="main-footer">
+    <footer class="main-footer" *ngIf="showFooter">
       <p class="title">
           我是页脚
       </p>

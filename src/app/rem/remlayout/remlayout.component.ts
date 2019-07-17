@@ -37,22 +37,35 @@ export class RemlayoutComponent implements OnInit {
   contentMarginBottom: string;
   contentMargin: string;
   fold: boolean = true;
+  showHeader: boolean = true;
+  showFooter: boolean = true;
   @HostListener('window:resize')
   onWindowResize() {
      this.getStryle();
+     const bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
+     if (bodyWidth < 960) {
+        this.getMiniStyle();
+     } else {
+        this.getCommonStyle();
+     }
   }
   constructor() { }
 
   ngOnInit() {
     this.getStryle();
+    // 初始化布局页面
+    const bodyWidth = document.getElementsByTagName('body')[0].offsetWidth;
+     if (bodyWidth < 960) {
+        this.getMiniStyle();
+     } else {
+        this.getCommonStyle();
+     }
   }
   folding() {
     this.fold = false;
-    console.log(this.fold);
   }
   unfolding() {
     this.fold = true;
-    console.log(this.fold);
   }
 
   getStryle() {
@@ -78,6 +91,16 @@ export class RemlayoutComponent implements OnInit {
     this.contentMarginTop = window.getComputedStyle(desc,null).marginTop;
     this.contentMarginRight = window.getComputedStyle(desc,null).marginRight;
     this.contentMarginBottom = window.getComputedStyle(desc,null).marginBottom;
+  }
+  getMiniStyle() {
+    this.fold = false;
+    this.showHeader = false;
+    this.showFooter = false;
+  }
+  getCommonStyle() {
+    this.fold = true;
+    this.showHeader = true;
+    this.showFooter = true;
   }
 
   menuclick(i) {
