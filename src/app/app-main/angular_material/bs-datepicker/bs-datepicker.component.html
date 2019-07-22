@@ -10,10 +10,12 @@
       <input type="text"
              placeholder="Datepicker"
              class="form-control"
-             #dp="bsDatepicker"
+             #dp1="bsDatepicker"
+             placement="bottom"
              bsDatepicker
              formControlName="dateYMD"
              [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'YYYY-MM-DD' }">
+             <!-- [bsConfig]="{ isAnimated: true, adaptivePosition: false, dateInputFormat: 'YYYY-MM-DD' }"> -->
              <!-- adaptivePosition设置是否自适应位置 -->
              <!-- #dp="bsDatepicker"可将ref datepicker倒出到任何位置调用 -->
              <!--formControlName="dateYMD" dateInputFormat: 'YYYY-MM-DD' 可设置日期格式 -->
@@ -22,7 +24,7 @@
              <!-- BsLocaleService可以转换不同语言，见官网有介绍 -->
     </div>
     <div class="col-xs-12 col-12 col-md-3 form-group">
-        <button class="btn btn-success" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen">Date Picker</button>
+        <button class="btn btn-success" (click)="dp1.toggle()" [attr.aria-expanded]="dp1.isOpen">Date Picker1</button>
     </div>
 </div>
 
@@ -31,7 +33,7 @@
     <div class="col-xs-12 col-12 col-md-4 col-lg-4 form-group">
       <select
         class="custom-select form-control"
-        [(ngModel)]="colorTheme" (ngModelChange)="applyTheme(dp);">
+        [(ngModel)]="colorTheme" (ngModelChange)="applyTheme(dp2);">
         <option value="theme-default">default</option>
         <option value="theme-green">green</option>
         <option value="theme-blue">blue</option>
@@ -50,7 +52,7 @@
           <input type="text" 
           class="form-control" 
           bsDatepicker 
-          #dp="bsDatepicker" 
+          #dp2="bsDatepicker" 
           [bsConfig]="bsConfig"
           [minDate]="minDate"
           [maxDate]="maxDate"
@@ -61,7 +63,7 @@
            <!-- daysDisabled 禁用一周中的某些天-->
            <!-- [datesDisabled]="disabledDates" 是一个数组，填入要禁用的那些天 -->
           <div class="input-group-btn">
-            <button class="btn btn-success" (click)="dp.show()" [attr.aria-expanded]="dp.isOpen">Open</button>
+            <button class="btn btn-success" (click)="dp2.show()" [attr.aria-expanded]="dp2.isOpen">Open</button>
           </div>
         </div>
       </div>
@@ -74,24 +76,24 @@
       <input type="text"
               class="form-control"
               [bsConfig]="bsConfig"
-              #dp="bsDatepicker"
+              #dp3="bsDatepicker"
               bsDatepicker 
               [(bsValue)]="bsValue"
               placement="right"
               (onShown)="handler('onShown')"
               (onHidden)="handler('onHidden')"
               (bsValueChange)="onValueChange($event)"
-              [outsideClick]="false"
-              triggers="mouseenter:click">
+              [outsideClick]="true"
+              triggers="dblclick:click">
               <!-- [isDisabled]直接可设置日期是否可选择 -->
               <!-- placement="right" 依然设置位置 -->
               <!-- selectWeek: true, 选择周第一天 selectFromOtherMonth: true 选择其他月-->
               <!-- [outsideClick]="false" 点击外部不关闭 -->
               <!-- [isOpen]="isOpen" 是否打开属性 -->
-              <!-- triggers="mouseenter:click"可设置打开触发方式 有triggers="keydown:click" triggers="dblclick:click"-->
+              <!-- triggers="mouseenter:click"可设置打开触发方式 有triggers="keydown:click" triggers="dblclick:click" triggers="mouseenter:click"-->
     </div>
     <div class="col-xs-12 col-12 col-md-3 form-group">
-      <button class="btn btn-success" (click)="dp.toggle()">Date Picker</button>
+      <button class="btn btn-success" (click)="dp3.toggle()">Date Picker2</button>
     </div>
   </div>
   <br>
@@ -115,7 +117,6 @@
       <input class="form-control"
               placeholder="Daterangepicker"
               ngModel
-              bsDaterangepicker
-              >
+              bsDaterangepicker>
     </div>
   </div>

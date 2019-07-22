@@ -27,7 +27,7 @@ export class BsDatepickerComponent implements OnInit {
   // 设置成显示年的形式
   bsValue: Date = new Date(2017, 7);
   minMode: BsDatepickerViewMode = 'month';
-  @ViewChild('dp') datepicker: BsDaterangepickerDirective;
+  @ViewChild('dp2') datepicker: BsDaterangepickerDirective;
   dateCustomClasses: any;
   constructor() {
     // 设置最大最小日期
@@ -38,7 +38,8 @@ export class BsDatepickerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bsConfig = Object.assign({}, { containerClass: this.colorTheme, minMode : this.minMode }); // 初始设置为深蓝色, 设置为年
+    // this.bsConfig = Object.assign({}, { containerClass: this.colorTheme, minMode : this.minMode }); // 初始设置为深蓝色, 设置为年
+    this.bsConfig = Object.assign({}, { containerClass: this.colorTheme});
     // 设置颜色日期
     const now = new Date();
     const twoDaysAhead = new Date();
@@ -66,9 +67,9 @@ export class BsDatepickerComponent implements OnInit {
     this.bsConfig = Object.assign({}, { minDate: this.minDate });
     this.datepicker.setConfig();
  
-    setTimeout(() => {
-      this.datepicker.toggle();
-    });
+    // setTimeout(() => {
+    //   this.datepicker.toggle();
+    // });
   }
   // 日期方法
   handler(value: string): void {}

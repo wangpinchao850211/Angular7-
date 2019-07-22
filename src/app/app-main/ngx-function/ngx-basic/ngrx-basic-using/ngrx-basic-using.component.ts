@@ -10,23 +10,28 @@ import { switchMap, debounceTime, distinctUntilChanged, map, filter, catchError,
 export class NgrxBasicUsingComponent implements OnInit {
 
   refreshNotif = new BehaviorSubject("");
-  subscription: Subscription;
+  subscription: Subscription; // 订阅
   private searchTerms = new Subject<string>();
   public timerVal: number = 0;
 
   get sss() {
     return this.timerVal;
   }
-  constructor() { }
+  constructor() {
+    // 概念: 观察者(Observer) 可观察对象(Observable) Subscription (订阅)
+    // 观察者只是一组回调函数的集合
+    // 可观察对象(Observable)是一个惰性推送集合,即:要调用Observable并看到这些值,需要订阅Observable:observable.subscribe()
+    // 当你订阅了 Observable，你会得到一个 Subscription ，它表示进行中的执行。只要调用 unsubscribe()方法就可以取消执行。
+  }
 
   ngOnInit() {
     // Create an observable from a counter
     const secondsCounter = interval(1000);
-    secondsCounter.subscribe((n) => {
+    const CounterSubscription = secondsCounter.subscribe((n) => {
       console.log(`It's been ${n} seconds since subscribing!`)
-      // if (n > 10) { 没找到关闭方法，有一个timer可使用下
-      //   secondsCounter.unsubscribe();
-      // }
+      if (n > 10) { // 没找到关闭方法，有一个timer可使用下(找到了方法,定义一个CounterSubscription订阅者, 方可调用取消执行的方法)
+        CounterSubscription.unsubscribe();
+      }
     });
     // timer to use
     const _timer = timer(1000).subscribe(() => {
@@ -89,7 +94,5 @@ export class NgrxBasicUsingComponent implements OnInit {
       // }
     });
   }
-
-  use
 
 }
