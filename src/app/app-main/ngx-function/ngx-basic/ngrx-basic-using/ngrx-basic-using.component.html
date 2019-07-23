@@ -1,7 +1,7 @@
 <h2>去抖请求</h2>
-<button type="button" class="btn btn-primary btn-sm">去抖点击</button>
+<button appDebouncEvent type="button" class="btn btn-primary btn-sm" (debounceClick)="sendRequest($event)">去抖点击</button>
 
-<div style="margin-top: 20px;">
+<div style="margin-top: 20px;" id="my-element">
 <p><strong>什么是观察者?</strong></p>
 <ol>
 <li>观察者是有Observable(可观察对象)发送值的消费者</li>

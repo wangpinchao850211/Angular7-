@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from } from 'rxjs';
+import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from, Observable } from 'rxjs';
 import { switchMap, debounceTime, distinctUntilChanged, map, filter, catchError, mergeMap } from 'rxjs/operators';
 
 @Component({
@@ -14,6 +14,7 @@ export class NgrxBasicUsingComponent implements OnInit {
   private searchTerms = new Subject<string>();
   public timerVal: number = 0;
 
+  private count = 0;
   get sss() {
     return this.timerVal;
   }
@@ -25,7 +26,7 @@ export class NgrxBasicUsingComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Create an observable from a counter
+    //1、 Create an observable from a counter
     const secondsCounter = interval(1000);
     const CounterSubscription = secondsCounter.subscribe((n) => {
       console.log(`It's been ${n} seconds since subscribing!`)
@@ -33,15 +34,14 @@ export class NgrxBasicUsingComponent implements OnInit {
         CounterSubscription.unsubscribe();
       }
     });
-    // timer to use
+    //2、 timer to use
     const _timer = timer(1000).subscribe(() => {
-        console.log('9999999999');
         this.timerVal = 1;
     });
     if (this.sss > 0) {
       _timer.unsubscribe();
     }
-    // Create an observable from an event
+    //3、 Create an observable from an event
     const el = document.getElementById('my-element');
  
     // Create an Observable that will publish mouse movements
@@ -50,7 +50,7 @@ export class NgrxBasicUsingComponent implements OnInit {
     // Subscribe to start listening for mouse-move events
     const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
       // Log coords of mouse movements
-      console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+      // console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
     
       // When the mouse is over the upper-left of the screen,
       // unsubscribe to stop listening for mouse movements
@@ -58,7 +58,7 @@ export class NgrxBasicUsingComponent implements OnInit {
         subscription.unsubscribe();
       }
     });
-    // search
+    // 4、search
     this.searchTerms.pipe(
         filter(param => param.length > 3),
         debounceTime(300), // 流更新结束后 0.3s 才会通知观察者 
@@ -83,7 +83,7 @@ export class NgrxBasicUsingComponent implements OnInit {
         console.log(result);
     });
 
-    // Ro Web Main
+    //5、 Ro Web Main
     this.subscription = timer(300000, 300000).subscribe(() => {
       // if (this.authenticationService.IsTokenExpired(20)) {
       //   console.log("Renewing Token...")
@@ -95,4 +95,11 @@ export class NgrxBasicUsingComponent implements OnInit {
     });
   }
 
+  sendRequest(evt) {
+    //步骤3、 
+    this.count++;
+    console.log('ssssssss');
+    console.log(evt); // emit传出来了，使用$event接
+    console.log(`这是第${this.count}次调用`);
+  }
 }
