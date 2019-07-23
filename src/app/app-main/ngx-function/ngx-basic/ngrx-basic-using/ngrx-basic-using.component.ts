@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from, Observable } from 'rxjs';
-import { switchMap, debounceTime, distinctUntilChanged, map, filter, catchError, mergeMap } from 'rxjs/operators';
+import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-ngrx-basic-using',

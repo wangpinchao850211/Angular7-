@@ -10,7 +10,7 @@ export class DebouncEventDirective {
   @Input() debouncetime = 500;
 
   @Output() debounceClick = new EventEmitter();
-  private clicks = new Subject<any>(); // 创建 Subject 主题(被观察者) 对象 （Suject继承于Observable ）
+  private clicks = new Subject<any>(); // 创建 Subject 主题(被观察者) 对象 （Suject继承于Observable ）(它允许将值多播给多个观察者,Subjects 是将任意 Observable 执行共享给多个观察者的唯一方式。还有一些特殊类型的 Subject：BehaviorSubject、ReplaySubject 和 AsyncSubject。) 
   // 1、Subject 既是 Observable 对象，又是 Observer 对象
   // 2、当有新消息时，Subject 会对内部的 observers 列表进行组播 (multicast)
   private subscription: Subscription; // 订阅了Observable，你会得到一个Subscription
