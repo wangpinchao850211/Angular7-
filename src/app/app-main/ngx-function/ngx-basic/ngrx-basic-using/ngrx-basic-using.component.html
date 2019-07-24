@@ -1,6 +1,11 @@
 <h2>去抖请求</h2>
 <button appDebouncEvent type="button" class="btn btn-primary btn-sm" (debounceClick)="sendRequest($event)">去抖点击</button>
 
+<ng-container *ngFor="let i of tabs">
+    <input type="text" [(ngModel)]="i.title" name="" id="" (Change)="ngModelChange(i)">
+</ng-container>
+
+
 <div style="margin-top: 20px;" id="my-element">
 <p><strong>什么是观察者?</strong></p>
 <ol>

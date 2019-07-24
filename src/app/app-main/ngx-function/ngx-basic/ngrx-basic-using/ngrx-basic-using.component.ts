@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from, Observable } from 'rxjs';
 import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap } from 'rxjs/operators';
+// 操作符分为实例操作符（Observable 实例上的方法，方法内部使用this）和静态操作符（内部不使用this），常见的静态操作符如创建操作符Rx.Observable.interval(1000 /* 毫秒数 */);
+import * as Rx from 'rxjs';
+// Rx.of(1,2,3) 直接可使用
+// Rx.Observable
 
 @Component({
   selector: 'app-ngrx-basic-using',
@@ -9,6 +13,10 @@ import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filte
 })
 export class NgrxBasicUsingComponent implements OnInit {
 
+  public tabs = [
+		{ id: 1, title: 'menu1', active: true },
+		{ id: 2, title: 'menu2', active: false },
+  ];
   refreshNotif = new BehaviorSubject("");
   subscription: Subscription; // 订阅
   private searchTerms = new Subject<string>();
@@ -23,6 +31,23 @@ export class NgrxBasicUsingComponent implements OnInit {
     // 观察者只是一组回调函数的集合
     // 可观察对象(Observable)是一个惰性推送集合,即:要调用Observable并看到这些值,需要订阅Observable:observable.subscribe()
     // 当你订阅了 Observable，你会得到一个 Subscription ，它表示进行中的执行。只要调用 unsubscribe()方法就可以取消执行。
+
+    // 创建，转换成 observables
+
+    // 来自一个或多个值
+    Rx.of('foo', 'bar');
+
+    // 来自数组
+    const inputObservable = Rx.from(this.tabs);
+    inputObservable.subscribe((v) => {
+      console.log(v);
+    });
+
+    // 来自事件
+    Rx.fromEvent(document.querySelector('button'), 'click');
+
+    // 来自 Promise
+    // Rx.fromPromise(fetch('/users')); 使用的fetch api
   }
 
   ngOnInit() {
@@ -101,5 +126,8 @@ export class NgrxBasicUsingComponent implements OnInit {
     console.log('ssssssss');
     console.log(evt); // emit传出来了，使用$event接
     console.log(`这是第${this.count}次调用`);
+  }
+  ngModelChange(i) {
+    console.log(i);
   }
 }
