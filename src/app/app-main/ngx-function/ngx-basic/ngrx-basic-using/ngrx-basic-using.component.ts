@@ -17,6 +17,10 @@ export class NgrxBasicUsingComponent implements OnInit {
 		{ id: 1, title: 'menu1', active: true },
 		{ id: 2, title: 'menu2', active: false },
   ];
+  get getResponseTab() {
+    console.log('ppppppppp');
+    return this.tabs;
+  }
   refreshNotif = new BehaviorSubject("");
   subscription: Subscription; // 订阅
   private searchTerms = new Subject<string>();

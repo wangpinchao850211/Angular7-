@@ -2,7 +2,7 @@
 <button appDebouncEvent type="button" class="btn btn-primary btn-sm" (debounceClick)="sendRequest($event)">去抖点击</button>
 
 <ng-container *ngFor="let i of tabs">
-    <input type="text" [(ngModel)]="i.title" name="" id="" (Change)="ngModelChange(i)">
+    <input type="text" [(ngModel)]="i.title" name="" id="responseData" (ngModelChange)="ngModelChange(i)">
 </ng-container>
 
 
