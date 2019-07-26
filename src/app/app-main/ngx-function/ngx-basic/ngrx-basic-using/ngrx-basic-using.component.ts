@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from, Observable } from 'rxjs';
-import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap } from 'rxjs/operators';
+import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap, delay, take, takeUntil, pluck, pairwise, distinct, scan } from 'rxjs/operators';
 // 操作符分为实例操作符（Observable 实例上的方法，方法内部使用this）和静态操作符（内部不使用this），常见的静态操作符如创建操作符Rx.Observable.interval(1000 /* 毫秒数 */);
 import * as Rx from 'rxjs';
 // Rx.of(1,2,3) 直接可使用
@@ -18,7 +18,8 @@ export class NgrxBasicUsingComponent implements OnInit {
 		{ id: 2, title: 'menu2', active: false },
   ];
   get getResponseTab() {
-    console.log('ppppppppp');
+    // 要实现对象属性的监听
+    // console.log('ppppppppp');
     return this.tabs;
   }
   refreshNotif = new BehaviorSubject("");
@@ -122,6 +123,75 @@ export class NgrxBasicUsingComponent implements OnInit {
       //   console.log("Token Valid")
       // }
     });
+
+    //一、 控制流
+    // 输入 "hello world"
+    var inputObservables = fromEvent(document.getElementById('flowControl'), 'change');
+
+    // 过滤掉小于3个字符长度的目标值
+    inputObservables.pipe(
+      filter(event => `${event.target}`.length > 3),
+      map(event => event.target)
+      )
+      .subscribe(value => console.log(value)); // 输入框的值
+
+    // 延迟事件
+    inputObservables.pipe(
+      delay(200),
+      map(event => event.target)
+    ).subscribe(value => console.log(value)); // "h" -200ms-> "e" -200ms-> "l" ...
+
+    // 每200ms只能通过一个事件
+    inputObservables.pipe(
+      throttleTime(200),
+      map(event => event.target)
+    ).subscribe(value => console.log(value)); // "h" -200ms-> "w"
+
+    // 停止输入后200ms方能通过最新的那个事件
+    inputObservables.pipe(
+      debounceTime(200),
+      map(event => event.target)
+    ).subscribe(value => console.log(value)); // "o" -200ms-> "d"
+
+    // 在3次事件后停止事件流
+    inputObservables.pipe(
+      take(3),
+      map(event => event.target)
+    ).subscribe(value => console.log(value)); // "hel"
+
+    // 直到其他 observable 触发事件才停止事件流
+    var stopStream = fromEvent(document.querySelector('button'), 'click');
+    inputObservables.pipe(
+      takeUntil(stopStream),
+      map(event => event.target)
+    ).subscribe(value => console.log(value)); // "hello" (点击才能看到)
+    //二、 产生值
+    // 通过提取属性传递一个新的值
+    inputObservables.pipe(
+      pluck('target', 'value')
+    ).subscribe(value => console.log(value)); // "h"
+
+    // 传递之前的两个值
+    inputObservables.pipe(
+      pluck('target', 'value'),
+      pairwise()
+    ).subscribe(value => console.log(value)); // ["h", "he"]
+
+    // 只会通过唯一的值
+    inputObservables.pipe(
+      pluck('data'),
+      distinct()
+    ).subscribe(value => console.log(value)); // "helo wrd"
+
+    // 不会传递重复的值
+    inputObservables.pipe(
+      pluck('data'),
+      distinctUntilChanged(),
+      // 对流进行 scan (reduce) 操作，以获取 count 的值
+      scan(count => count + 1, 0)
+    ).subscribe(value => console.log(value)); // "helo world"
+
+    // 3、待实现状态更新
   }
 
   sendRequest(evt) {
@@ -132,6 +202,8 @@ export class NgrxBasicUsingComponent implements OnInit {
     console.log(`这是第${this.count}次调用`);
   }
   ngModelChange(i) {
+    // 1、待实现数据监听
     console.log(i);
   }
+  folwChange() {}
 }

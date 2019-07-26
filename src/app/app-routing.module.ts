@@ -28,6 +28,7 @@ import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.compo
 import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
 import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
+import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
 
 const routes: Routes = [
   // Main redirect
@@ -84,6 +85,7 @@ const routes: Routes = [
     component: NgxFunctionComponent,
     children: [
       { path: 'rxjsBasic', component: NgrxBasicUsingComponent },
+      { path: 'rxjsStateStore', component: NgxStateStoreComponent },
     ]
   },
   {

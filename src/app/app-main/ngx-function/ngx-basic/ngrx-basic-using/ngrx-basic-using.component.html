@@ -1,10 +1,12 @@
 <h2>去抖请求</h2>
 <button appDebouncEvent type="button" class="btn btn-primary btn-sm" (debounceClick)="sendRequest($event)">去抖点击</button>
 
-<ng-container *ngFor="let i of tabs">
-    <input type="text" [(ngModel)]="i.title" name="" id="responseData" (ngModelChange)="ngModelChange(i)">
+<ng-container *ngFor="let i of tabs; let ind = index">
+    <input type="text" [(ngModel)]="i.title" name="" id="responseData+{{ind}}" (ngModelChange)="ngModelChange(i)">
 </ng-container>
-
+<br/>
+<label for="flowControl">测试流控制</label>
+<input type="text" name="" id="flowControl" [(ngModel)]="tabs[0].title" (change)="folwChange()">
 
 <div style="margin-top: 20px;" id="my-element">
 <p><strong>什么是观察者?</strong></p>

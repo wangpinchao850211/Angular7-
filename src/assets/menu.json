@@ -7,7 +7,10 @@
       "form",
       "dependencyinjection"
   ],
-  "AngularRxjs": ["rxjsBasic"],
+  "AngularRxjs": [
+    "rxjsBasic",
+    "rxjsStateStore"
+  ],
   "AngularAnimate": ["animateBasic"],
   "chain_shared": ["CommonComponent"],
   "Angular_Material": ["AngularMaterial"],

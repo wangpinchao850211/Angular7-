@@ -76,6 +76,7 @@ import { EmailvalidDirective } from './directive/emailvalid.directive';
 import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 import { DebouncEventDirective } from './directive/debounc-event.directive';
+import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
 
 registerLocaleData(zh);
 
@@ -140,6 +141,7 @@ registerLocaleData(zh);
     RemlayoutComponent,
     NgrxBasicUsingComponent,
     DebouncEventDirective,
+    NgxStateStoreComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
