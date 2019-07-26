@@ -1,124 +1,155 @@
 @import '~src/assets/base.scss';
 
 .container-layout{
-   width: $full-width;
-   height: 100vh;
+    width: $full-width;
+    height: $full-height;
+    .asild-menu{
+        float: left;
+        width: $menu-width;
+        height: 100%;
+        background: $color-blue-pearl;
+        position: relative;
+        .menu{
+            width: 1.5rem;
+            border: 1px solid black;
+            margin: 0 auto;
+            li {
+               width: 100%;
+               height: .5rem;
+               line-height: .5rem;
+               text-align: center;
+               font-size: .3rem;
+               color: $color-black;
+               list-style: none;
+            }
+            .menuActive{
+               background: $color-honey;
+               color: $color-blush;
+            }
+            & > li:hover{
+               cursor: pointer;
+               background: $color-super-light-grey;
+               color: $color-purple;
+            }
+        }
+        .fold{
+            position: absolute;
+            right: 5%;
+            bottom: .5rem;
+            width: .3rem;
+            height: .3rem;
+            cursor: pointer;
+            svg {
+               position: absolute;
+               top: 0;
+            }
+        }
+    }
+    .fold-asild-menu{
+        float: left;
+        width: $fold-menu-width;
+        height: 100%;
+        background: $color-blue-pearl;
+        position: relative;
+        .menu-mini{
+            width: 100%;
+            margin-top: .5rem;
+            li {
+               margin: 0;
+               width: 100%;
+               height: .5rem;
+               line-height: .5rem;
+               text-align: center;
+               font-size: .16rem;
+               color: $color-black;
+               list-style: none;
+            }
+            .menuActive{
+               background: $color-honey;
+               color: $color-blush;
+            }
+            & > li:hover{
+               cursor: pointer;
+               background: $color-super-light-grey;
+               color: $color-purple;
+            }
+        }
+        .fold{
+            position: absolute;
+            right: 5%;
+            bottom: .5rem;
+            width: .3rem;
+            height: .3rem;
+            cursor: pointer;
+            svg {
+               position: absolute;
+               top: 0;
+            }
+        }
+    }
+    .main{
+        float: left;
+        width: calc(#{$full-width} - #{$menu-width});
+        height: 100%;
+        background: $color-grey-blue;
+        .main-content{
+            height: calc(100% - 1rem);
+            width: 100%;
+            background: $color-blush;
+            .content-describe{
+                font-size: .2rem;
+                color: $color-black;
+                width: calc(100% - 3.2rem);
+                height: calc(100% - 2.05rem - 2px);
+                margin: 0 .8rem .25rem;
+                padding: .5rem .6rem .8rem 1rem;
+                border: 1px solid $color-grey;
+                background-clip: content-box;
+                background-color: $color-powder-blue;
+            }
+            .everyDesc{
+                color: black;
+                font-size: .3rem;
+            }
+        }
+        .main-header, .main-footer{
+            width: 100%;
+            height: .5rem;
+            background: $color-super-light-grey;
+        }
+    }
+    .fold-main{
+        float: left;
+        width: calc(#{$full-width} - #{$fold-menu-width});
+        height: 100%;
+        background: $color-grey-blue;
+        .main-content{
+            height: calc(100% - 1rem);
+            width: 100%;
+            background: $color-blush;
+            .content-describe{
+                font-size: .2rem;
+                color: $color-black;
+                width: calc(100% - 3.2rem);
+                height: calc(100% - 2.05rem - 2px);
+                margin: 0 .8rem .25rem;
+                padding: .5rem .6rem .8rem 1rem;
+                border: 1px solid $color-grey;
+                background-clip: content-box;
+                background-color: $color-powder-blue;
+            }
+            .everyDesc{
+                color: black;
+                font-size: .16rem;
+            }
+        }
+    }
 }
-.asild-menu{
-   // display: inline-block;
-   float: left;
-   width: $menu-width;
-   height: 100%;
-   background: $color-blue-pearl;
-   position: relative;
-}
-.fold-asild-menu{
-   float: left;
-   width: $fold-menu-width;
-   height: 100%;
-   background: $color-blue-pearl;
-   position: relative;
-}
-.fold{
-   position: absolute;
-   right: 5%;
-   bottom: .5rem;
-   width: .3rem;
-   height: .3rem;
-   cursor: pointer;
-   svg {
-      position: absolute;
-      top: 0;
-   }
-}
-.main{
-   // display: inline-block;
-   float: left;
-   width: calc(#{$full-width} - #{$menu-width}); // calc里使用变量需使用#{}插值写法
-   height: 100%;
-   background: $color-grey-blue;
-}
-.fold-main{
-   float: left;
-   width: calc(#{$full-width} - #{$fold-menu-width});
-   height: 100%;
-   background: $color-grey-blue;
-}
-.main-content{
-   height: calc(100% - 1rem);
-   width: 100%;
-   background: $color-blush;
-}
-.main-header, .main-footer{
-   height: .5rem;
-   background: $color-super-light-grey;
-}
+
 .title {
-   // display: inline-block;
    font-size: .25rem;
    line-height: .5rem;
-   // border: 1px solid $color-blush;
    color: $color-regular;
    text-align: center;
 }
-.content-describe{
-   font-size: .2rem;
-   color: $color-black;
-   width: calc(100% - 1.6rem); // padding属于其内部，不需要减
-   height: calc(100% - .75rem); // padding属于其内部，不需要减
-   margin: 0 .8rem .25rem;
-   padding: .5rem .6rem .8rem 1rem;
-   border: 1px solid $color-grey;
-   background-clip: content-box;
-   background-color: $color-powder-blue;
-}
-.everyDesc{
-   color: black;
-   font-size: .3rem;
-}
-.menu{
-   width: 1.5rem;
-   border: 1px solid black;
-   margin: 0 auto;
-   li {
-      width: 100%;
-      height: .5rem;
-      line-height: .5rem;
-      text-align: center;
-      font-size: .3rem;
-      color: $color-black;
-      list-style: none;
-   }
-   .menuActive{
-      background: $color-honey;
-      color: $color-blush;
-   }
-   & > li:hover{
-      cursor: pointer;
-      background: $color-super-light-grey;
-      color: $color-purple;
-   }
-}
-.menu-mini{
-   width: 100%;
-   margin-top: .5rem;
-   li {
-      margin: 0;
-      width: 100%;
-      height: .5rem;
-      line-height: .5rem;
-      text-align: center;
-      font-size: .3rem;
-      color: $color-black;
-      list-style: none;
-   }
-   .menuActive{
-      background: $color-honey;
-      color: $color-blush;
-   }
-   & > li:hover{
-      cursor: pointer;
-      background: $color-super-light-grey;
-      color: $color-purple;
-   }
-}
+
