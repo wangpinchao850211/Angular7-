@@ -10,7 +10,7 @@ import { ThemePalette } from '@angular/material' // 引入主题
 })
 export class MaterialComcomponentComponent implements OnInit {
 
-  public selectedItem = new FormControl(1);
+  public selectedItem = new FormControl(1); // 传入参数是初始值设定
   tabs = ['First', 'Second', 'Third'];
   public colorToggle:ThemePalette = 'accent';
   public backgroundColorToggle:ThemePalette = 'primary';
@@ -118,13 +118,13 @@ export class MaterialComcomponentComponent implements OnInit {
     // console.log(i);
     let classV = '';
     switch(i%4) {
-      case 0: 
+      case 0:
         classV = 'panel panel-primary';
         break;
       case 1:
         classV = 'panel panel-info';
         break;
-      case 2: 
+      case 2:
         classV = 'panel panel-warning';
         break;
       case 3:
