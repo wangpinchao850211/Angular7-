@@ -63,21 +63,28 @@
       <!-- 应用angular校验器 -->
         <label for="username">用户名</label>
         <input type="text" name="" id="username" formControlName="username">
+        <!-- <p class="errormsg" [hidden]="!formValidModel.hasError('required', 'username')">请输入用户名</p> -->
+        <p class="errormsg" [hidden]="!formValidModel.hasError('minlength', 'username')">用户名最小长度是6</p>
     </div>
     <div class="validform">
         <label for="mobile">手机号</label>
         <input type="text" name="" id="mobile" formControlName="mobile">
+        <p class="errormsg" [hidden]="!formValidModel.hasError('mobile', 'mobile')">请输入正确手机号</p>
     </div>
     <div formGroupName="passwordGroup">
         <div class="validform">
             <label for="passwordValid">密码</label>
             <input type="text" name="" id="passwordValid" formControlName="passwordValid">
+            <!-- 校验嵌套字段 -->
+            <p class="errormsg" [hidden]="!formValidModel.hasError('equal', ['passwordGroup', 'passwordValid'])">密码最小长度是8</p>
         </div>
         <div class="validform">
             <label for="Cpassword">确认密码</label>
             <input type="text" name="" id="Cpassword" formControlName="confirmPasswordValid">
         </div>
+        <p class="errormsg" [hidden]="!formValidModel.hasError('equal', 'passwordGroup')">{{formValidModel.getError('equal', 'passwordGroup')?.errdesc}}</p>
     </div>
+    <div>{{formValidModel.status}}</div>
     <p>
       <button type="submit">响应注册校验</button>
     </p>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { retry } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form',
@@ -26,8 +27,10 @@ export class FormComponent implements OnInit {
     let myreq = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
     let mobileVaild = myreq.test(control.value);
     console.log(mobileVaild);
-    // 校验通过不返回任何值，否则返回一个对象
+    // 校验通过不返回任何值，否则返回一个对象（mobile是hasError返回的key）
     return mobileVaild ? null : {mobile: true};
+    // 校验器可以作为异步校验器，使用如下，然后将新的校验器名填入formValidModel使用对应字段的第三个参数
+    // return of(mobileVaild ? null : {mobile: true}).pipe(delay(1000));
   }
   passwordVaild(group: FormGroup): any { // 注意groupVaild使用加入的位置
     let password = group.get('passwordValid') as FormControl;
@@ -36,7 +39,7 @@ export class FormComponent implements OnInit {
     // console.log(Cpassword);
     let valid:boolean = (password.value === Cpassword.value);
     console.log(valid);
-    return valid?null:{equal: true}
+    return valid?null:{equal: {errdesc: '密码与确认密码不匹配'}} // 校验器可返回错误信息，避免html硬编码
   }
 
   // 表单校验模型
@@ -49,7 +52,7 @@ export class FormComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       mobile: ['', this.mobileVaild],
       passwordGroup: fb.group({
-        passwordValid: [''],
+        passwordValid: ['', Validators.minLength(8)],
         confirmPasswordValid: [''],
       }, {validators: this.passwordVaild}) // 注意使用添加位置
     })
