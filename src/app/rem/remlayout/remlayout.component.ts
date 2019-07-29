@@ -25,6 +25,7 @@ export class RemlayoutComponent implements OnInit {
 		{ id: 6, title: 'f', active: false },
     { id: 7, title: 'g', active: false }
   ];
+  fontSize: string;
   contentWidth: string;
   contentHeight: string;
   contentPaddingLeft: string;
@@ -81,6 +82,8 @@ export class RemlayoutComponent implements OnInit {
     // console.log(window.getComputedStyle(desc,null).paddingTop);
     // console.log(window.getComputedStyle(desc,null).paddingRight);
     // console.log(window.getComputedStyle(desc,null).paddingBottom);
+    const everyDesc = <HTMLElement>document.getElementsByClassName('everyDesc')[0];
+    this.fontSize = window.getComputedStyle(everyDesc,null).fontSize;
     this.contentWidth = `${desc.offsetWidth}px`;
     this.contentHeight = `${desc.offsetWidth}px`;
     this.contentPaddingLeft = window.getComputedStyle(desc,null).paddingLeft;

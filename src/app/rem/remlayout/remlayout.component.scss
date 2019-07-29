@@ -1,159 +1,117 @@
 @import '~src/assets/base.scss';
 
-.container-layout{
+// scss混合
+@mixin menuBase($menuWidth: $menu-width) {
+    width: $menuWidth;
+    background: $color-grey-blue;
+    position: relative;
+}
+
+@mixin liBase($fontSize:0.3rem, $height:0.8rem) {
     width: $full-width;
-    height: $full-height;
-    .asild-menu{
-        float: left;
-        width: $menu-width;
-        height: 100%;
-        background: $color-blue-pearl;
-        position: relative;
-        .menu{
-            width: 1.5rem;
-            border: 1px solid black;
-            margin: 0 auto;
+    height: $height;
+    line-height: $height;
+    text-align: center;
+    font-size: $fontSize;
+    color: $color-black;
+    list-style: none;
+}
+
+@mixin liHover {
+    cursor: pointer;
+    background: $color-super-light-grey;
+    color: $color-purple;
+}
+
+@mixin mainBase {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: $color-grey-blue;
+}
+
+.container-layout {
+    display: flex;
+    min-height: $full-height;
+    .asild-menu {
+        @include menuBase();
+        .menu {
+            width: $full-width;
             li {
-               width: 100%;
-               height: .5rem;
-               line-height: .5rem;
-               text-align: center;
-               font-size: .3rem;
-               color: $color-black;
-               list-style: none;
+                @include liBase();
             }
-            .menuActive{
-               background: $color-honey;
-               color: $color-blush;
-            }
-            & > li:hover{
-               cursor: pointer;
-               background: $color-super-light-grey;
-               color: $color-purple;
-            }
-        }
-        .fold{
-            position: absolute;
-            right: 5%;
-            bottom: .5rem;
-            width: .3rem;
-            height: .3rem;
-            cursor: pointer;
-            svg {
-               position: absolute;
-               top: 0;
+            &>li:hover {
+                @include liHover;
             }
         }
     }
-    .fold-asild-menu{
-        float: left;
-        width: $fold-menu-width;
-        height: 100%;
-        background: $color-blue-pearl;
-        position: relative;
-        .menu-mini{
-            width: 100%;
+    .fold-asild-menu {
+        @include menuBase($fold-menu-width);
+        .menu-mini {
+            width: $full-width;
             margin-top: .5rem;
             li {
-               margin: 0;
-               width: 100%;
-               height: .5rem;
-               line-height: .5rem;
-               text-align: center;
-               font-size: .16rem;
-               color: $color-black;
-               list-style: none;
+                @include liBase(0.16rem, 0.5rem);
             }
-            .menuActive{
-               background: $color-honey;
-               color: $color-blush;
-            }
-            & > li:hover{
-               cursor: pointer;
-               background: $color-super-light-grey;
-               color: $color-purple;
+            &>li:hover {
+                @include liHover;
             }
         }
-        .fold{
+    }
+    .menuActive {
+        background: $color-honey;
+        color: $color-blush;
+    }
+    .fold {
+        // 折叠按钮
+        position: absolute;
+        right: 5%;
+        bottom: .5rem;
+        width: .3rem;
+        height: .3rem;
+        cursor: pointer;
+        img {
             position: absolute;
-            right: 5%;
-            bottom: .5rem;
-            width: .3rem;
-            height: .3rem;
-            cursor: pointer;
-            svg {
-               position: absolute;
-               top: 0;
-            }
+            top: 0;
+            width: $full-width;
+            height: $full-height;
         }
     }
-    .main{
-        float: left;
-        width: calc(#{$full-width} - #{$menu-width});
-        height: 100%;
-        background: $color-grey-blue;
-        .main-content{
-            height: calc(100% - 1rem);
-            width: 100%;
-            background: $color-blush;
-            .content-describe{
+    .title {
+        font-size: .25rem;
+        line-height: .5rem;
+        color: $color-regular;
+        text-align: center;
+    }
+    .main {
+        @include mainBase;
+        @at-root .main-content {
+            // 主要内容区 (跳出选择器嵌套)
+            flex: 1;
+            background: $color-blue-pearl;
+            .content-describe {
                 font-size: .2rem;
                 color: $color-black;
-                // 这个项目不能减掉内边距
-                width: calc(100% - 1.6rem); 
-                height: calc(100% - 0.75rem - 2px);
-                // angular框架项目必须要减内边距
-                // width: calc(100% - 3.2rem); 
-                // height: calc(100% - 2.05rem - 2px);
+                // height: calc(#{$full-height} - 2.05rem - 2px); angular项目使用这个
+                height: calc(#{$full-height} - 0.75rem - 2px);
                 margin: 0 .8rem .25rem;
                 padding: .5rem .6rem .8rem 1rem;
                 border: 1px solid $color-grey;
                 background-clip: content-box;
                 background-color: $color-powder-blue;
             }
-            .everyDesc{
-                color: black;
-                font-size: .3rem;
-            }
         }
-        .main-header, .main-footer{
-            width: 100%;
-            height: .5rem;
-            background: $color-super-light-grey;
+        @at-root .everyDesc {
+            color: $color-black;
+            font-size: .3rem;
         }
     }
-    .fold-main{
-        float: left;
-        width: calc(#{$full-width} - #{$fold-menu-width});
-        height: 100%;
-        background: $color-grey-blue;
-        .main-content{
-            height: calc(100% - 1rem);
-            width: 100%;
-            background: $color-blush;
-            .content-describe{
-                font-size: .2rem;
-                color: $color-black;
-                width: calc(100% - 3.2rem);
-                height: calc(100% - 2.05rem - 2px);
-                margin: 0 .8rem .25rem;
-                padding: .5rem .6rem .8rem 1rem;
-                border: 1px solid $color-grey;
-                background-clip: content-box;
-                background-color: $color-powder-blue;
-            }
-            .everyDesc{
-                color: black;
-                font-size: .16rem;
-            }
-        }
+    .fold-main {
+        @include mainBase;
+    }
+    .main-header,
+    .main-footer {
+        height: .5rem;
+        background: $color-super-light-grey;
     }
 }
-
-.title {
-   font-size: .25rem;
-   line-height: .5rem;
-   color: $color-regular;
-   text-align: center;
-}
-
