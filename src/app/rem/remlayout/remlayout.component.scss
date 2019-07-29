@@ -99,8 +99,12 @@
             .content-describe{
                 font-size: .2rem;
                 color: $color-black;
-                width: calc(100% - 3.2rem);
-                height: calc(100% - 2.05rem - 2px);
+                // 这个项目不能减掉内边距
+                width: calc(100% - 1.6rem); 
+                height: calc(100% - 0.75rem - 2px);
+                // angular框架项目必须要减内边距
+                // width: calc(100% - 3.2rem); 
+                // height: calc(100% - 2.05rem - 2px);
                 margin: 0 .8rem .25rem;
                 padding: .5rem .6rem .8rem 1rem;
                 border: 1px solid $color-grey;
