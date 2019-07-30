@@ -49,6 +49,10 @@ export class AppMenuComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed;
   }
 
+  goToHomePage() {
+    this.router.navigate(['/home']);
+  }
+
   menuClick(rootName, name) {
     console.log(rootName);
     console.log(name);

@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public greeting = 'green';
   constructor() { }
 
   ngOnInit() {
   }
 
+  updateGreeting() {
+    this.greeting = 'yellow';
+  }
 }

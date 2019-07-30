@@ -5,7 +5,8 @@
       "communication",
       "directivesOrpip",
       "form",
-      "dependencyinjection"
+      "dependencyinjection",
+      "lifecycle"
   ],
   "AngularRxjs": [
     "rxjsBasic",

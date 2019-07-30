@@ -1,3 +1,9 @@
-<p>
-  ngx-state-store works!
-</p>
+<div>
+  <button id="increase">增加</button>
+  <button id="decrease">减少</button>
+  <label for="input">输入值</label>
+  <input [(ngModel)]="watchObj.title" type="text" name="" id="input">
+  <!-- <ng-container *ngFor="let i of watchObj; let ind = index">
+      <input type="text" [(ngModel)]="i.title" name="" id="responseData+{{ind}}" (ngModelChange)="ngModelChange(i)">
+  </ng-container> -->
+</div>

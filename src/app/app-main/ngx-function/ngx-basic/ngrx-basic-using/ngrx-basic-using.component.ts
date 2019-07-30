@@ -17,11 +17,7 @@ export class NgrxBasicUsingComponent implements OnInit {
 		{ id: 1, title: 'menu1', active: true },
 		{ id: 2, title: 'menu2', active: false },
   ];
-  get getResponseTab() {
-    // 要实现对象属性的监听
-    // console.log('ppppppppp');
-    return this.tabs;
-  }
+
   refreshNotif = new BehaviorSubject("");
   subscription: Subscription; // 订阅
   private searchTerms = new Subject<string>();
@@ -44,7 +40,7 @@ export class NgrxBasicUsingComponent implements OnInit {
 
     // 来自数组
     const inputObservable = Rx.from(this.tabs);
-    inputObservable.subscribe((v) => {
+    inputObservable.subscribe((v) => { // 需要有事件流触发，并不能实现defineProtype
       console.log(v);
     });
 
@@ -190,8 +186,6 @@ export class NgrxBasicUsingComponent implements OnInit {
       // 对流进行 scan (reduce) 操作，以获取 count 的值
       scan(count => count + 1, 0)
     ).subscribe(value => console.log(value)); // "helo world"
-
-    // 3、待实现状态更新
   }
 
   sendRequest(evt) {
@@ -200,10 +194,6 @@ export class NgrxBasicUsingComponent implements OnInit {
     console.log('ssssssss');
     console.log(evt); // emit传出来了，使用$event接
     console.log(`这是第${this.count}次调用`);
-  }
-  ngModelChange(i) {
-    // 1、待实现数据监听
-    console.log(i);
   }
   folwChange() {}
 }
