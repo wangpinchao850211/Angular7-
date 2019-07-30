@@ -63,13 +63,18 @@
       <!-- 应用angular校验器 -->
         <label for="username">用户名</label>
         <input type="text" name="" id="username" formControlName="username">
-        <!-- <p class="errormsg" [hidden]="!formValidModel.hasError('required', 'username')">请输入用户名</p> -->
-        <p class="errormsg" [hidden]="!formValidModel.hasError('minlength', 'username')">用户名最小长度是6</p>
+        <div [hidden]="!formValidModel.get('username').valid || formValidModel.get('username').untouched">
+           <!-- <p class="errormsg" [hidden]="!formValidModel.hasError('required', 'username')">请输入用户名</p> -->
+            <p class="errormsg" [hidden]="!formValidModel.hasError('minlength', 'username')">用户名最小长度是6</p>
+        </div>
     </div>
     <div class="validform">
         <label for="mobile">手机号</label>
         <input type="text" name="" id="mobile" formControlName="mobile">
-        <p class="errormsg" [hidden]="!formValidModel.hasError('mobile', 'mobile')">请输入正确手机号</p>
+        <div [hidden]="!formValidModel.get('mobile').valid || formValidModel.get('mobile').pristine">
+          <p class="errormsg" [hidden]="!formValidModel.hasError('mobile', 'mobile')">请输入正确手机号</p>
+        </div>
+        <div [hidden]="!formValidModel.get('mobile').pending">正在校验手机合法性</div>
     </div>
     <div formGroupName="passwordGroup">
         <div class="validform">
