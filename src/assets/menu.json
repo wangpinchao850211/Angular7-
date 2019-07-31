@@ -10,7 +10,7 @@
   ],
   "AngularRxjs": [
     "rxjsBasic",
-    "rxjsStateStore"
+    "ngrxStore"
   ],
   "AngularAnimate": ["animateBasic"],
   "chain_shared": ["CommonComponent"],

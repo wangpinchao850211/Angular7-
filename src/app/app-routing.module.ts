@@ -85,7 +85,7 @@ const routes: Routes = [
     component: NgxFunctionComponent,
     children: [
       { path: 'rxjsBasic', component: NgrxBasicUsingComponent },
-      { path: 'rxjsStateStore', component: NgxStateStoreComponent },
+      { path: 'ngrxStore', component: NgxStateStoreComponent },
     ]
   },
   {

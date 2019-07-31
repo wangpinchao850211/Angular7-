@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store'; // 导入store并使用
+import { INCREMENT, DECREMENT, RESET } from 'src/app/store/counter';
 import { fromEvent  } from 'rxjs';
 import { map, scan  } from 'rxjs/operators';
 import * as Rx from 'rxjs';
+
+// 使用store
+interface AppState {
+  count: number;
+}
 
 @Component({
   selector: 'app-ngx-state-store',
@@ -26,7 +33,25 @@ export class NgxStateStoreComponent implements OnInit {
     this.tabs = value;
     console.log('tabs set to :', value);
   }
-  constructor() { }
+  count$: Rx.Observable<number>;
+  constructor(
+    private store: Store<AppState> // 注入store
+  ) { 
+    this.count$ = store.pipe(select('count')); // 从app.module.ts中获取count状态流
+  }
+
+  // 更新store值
+  increment() {
+    this.store.dispatch({ type: INCREMENT });
+  }
+
+  decrement() {
+    this.store.dispatch({ type: DECREMENT });
+  }
+
+  reset() {
+    this.store.dispatch({ type: RESET });
+  }
 
   // 1、状态存储
   ngOnInit() {
