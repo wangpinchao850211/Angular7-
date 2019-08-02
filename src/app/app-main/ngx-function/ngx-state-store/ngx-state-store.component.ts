@@ -43,14 +43,18 @@ export class NgxStateStoreComponent implements OnInit {
   // 更新store值
   increment() {
     this.store.dispatch({ type: INCREMENT });
+    console.log(this.store);
+    console.log(this.count$);
   }
 
   decrement() {
     this.store.dispatch({ type: DECREMENT });
+    console.log(this.count$);
   }
 
   reset() {
     this.store.dispatch({ type: RESET });
+    console.log(this.count$);
   }
 
   // 1、状态存储
