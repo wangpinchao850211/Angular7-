@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from, Observable } from 'rxjs';
 import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap, delay, take, takeUntil, pluck, pairwise, distinct, scan } from 'rxjs/operators';
 // 操作符分为实例操作符（Observable 实例上的方法，方法内部使用this）和静态操作符（内部不使用this），常见的静态操作符如创建操作符Rx.Observable.interval(1000 /* 毫秒数 */);
 import * as Rx from 'rxjs';
+import { NavigationStart, Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 // Rx.of(1,2,3) 直接可使用
 // Rx.Observable
 
@@ -11,7 +12,7 @@ import * as Rx from 'rxjs';
   templateUrl: './ngrx-basic-using.component.html',
   styleUrls: ['./ngrx-basic-using.component.scss']
 })
-export class NgrxBasicUsingComponent implements OnInit {
+export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
 
   public tabs = [
 		{ id: 1, title: 'menu1', active: true },
@@ -27,7 +28,15 @@ export class NgrxBasicUsingComponent implements OnInit {
   get sss() {
     return this.timerVal;
   }
-  constructor() {
+
+  private routerEventDestroy = null; // use this identifier to clear router.events (observable)
+  private navStart: Observable<NavigationStart>;
+
+  constructor(
+    private router: Router,
+    // ActivatedRoute 是一个可注入的路由器服务，它使用可观察对象来获取关于路由路径和路由参数的信息。比如，ActivateRoute.url 包含一个用于汇报路由路径的可观察对象。
+    private activatedRoute: ActivatedRoute
+    ) {
     // 概念: 观察者(Observer) 可观察对象(Observable) Subscription (订阅)
     // 观察者只是一组回调函数的集合
     // 可观察对象(Observable)是一个惰性推送集合,即:要调用Observable并看到这些值,需要订阅Observable:observable.subscribe()
@@ -49,6 +58,18 @@ export class NgrxBasicUsingComponent implements OnInit {
 
     // 来自 Promise
     // Rx.fromPromise(fetch('/users')); 使用的fetch api
+
+    // 路由使用2
+    this.navStart = this.router.events.pipe(
+      filter(evt => evt instanceof NavigationStart)
+    ) as Observable<NavigationStart>;
+    this.navStart.subscribe(evt => console.log('Navigation Started!'));
+    // 路由使用3 （使用结束有打印，上面的start就没有，估测上面的更快）
+    this.routerEventDestroy = this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+        console.log(event.url.indexOf('askAQuestion') === -1);
+    });
   }
 
   ngOnInit() {
@@ -75,6 +96,8 @@ export class NgrxBasicUsingComponent implements OnInit {
     
     // Subscribe to start listening for mouse-move events
     const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
+      // 注意: 键盘事件用KeyboardEvent，鼠标事件用MouseEvent
+
       // Log coords of mouse movements
       // console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
     
@@ -151,13 +174,14 @@ export class NgrxBasicUsingComponent implements OnInit {
 
     // 在3次事件后停止事件流
     inputObservables.pipe(
-      take(3),
+      take(3), 
       map(event => event.target)
     ).subscribe(value => console.log(value)); // "hel"
 
     // 直到其他 observable 触发事件才停止事件流
     var stopStream = fromEvent(document.querySelector('button'), 'click');
     inputObservables.pipe(
+      // takeUtil：该 Observable 第一次发出值会使 takeUntil 的 输出 Observable 停止发出由源 Observable 所发出的值。
       takeUntil(stopStream),
       map(event => event.target)
     ).subscribe(value => console.log(value)); // "hello" (点击才能看到)
@@ -186,8 +210,20 @@ export class NgrxBasicUsingComponent implements OnInit {
       // 对流进行 scan (reduce) 操作，以获取 count 的值
       scan(count => count + 1, 0)
     ).subscribe(value => console.log(value)); // "helo world"
+
+    // this.route.events.pipe()使用
+    // 使用1：(拿到constructor里了，否则没效果在Init之后)
+    
+    // 使用2：
+    this.activatedRoute.url
+      .subscribe(url => console.log('The URL changed to: ' + url));
+    // 使用3：Ro项目(拿到constructor里了，否则没效果在Init之后)
+
   }
 
+  ngOnDestroy() { // 销毁
+		this.routerEventDestroy.unsubscribe();
+	}
   sendRequest(evt) {
     //步骤3、 
     this.count++;
@@ -196,4 +232,21 @@ export class NgrxBasicUsingComponent implements OnInit {
     console.log(`这是第${this.count}次调用`);
   }
   folwChange() {}
+
+// angular中的可观察对象
+//1、 EventEmitter 类派生自 Observable。class EventEmitter<T> extends Subject
+//2、 HTTP 模块使用可观察对象来处理 AJAX 请求和响应。
+//3、 路由器和表单模块使用可观察对象来监听对用户输入事件的响应。
+
+//EventEmitter : Angular 提供了一个 EventEmitter 类，它用来从组件的 @Output() 属性中发布一些值。EventEmitter 扩展了 Observable，并添加了一个 emit() 方法，这样它就可以发送任意值了。当你调用 emit() 时，就会把所发送的值传给订阅上来的观察者的 next() 方法。
+
+// Angular 的 HttpClient 从 HTTP 方法调用中返回了可观察对象。例如，http.get(‘/api’) 就会返回可观察对象。相对于基于承诺（Promise）的 HTTP API，它有一系列优点：
+
+//优点1、 可观察对象不会修改服务器的响应（和在承诺上串联起来的 .then() 调用一样）。反之，你可以使用一系列操作符来按需转换这些值。
+//优点2、  HTTP 请求是可以通过 unsubscribe() 方法来取消的。(http请求是通过subscribe调用，并不是http.get/post的方法！！！)
+//优点3、  请求可以进行配置，以获取进度事件的变化。
+//优点4、  失败的请求很容易重试。
+// 指数化退避 是官网http请求的一个好例子
+
+// 路由见上面例子
 }
