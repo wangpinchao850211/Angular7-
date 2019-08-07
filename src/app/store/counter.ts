@@ -1,7 +1,7 @@
 // 配置： counter.ts,一般需要将state,action,reducer进行文件拆分
 import { Action } from '@ngrx/store';
 export interface IAction extends Action {
-    payload?: any; // dispatch数据载体,可有可无,继承Action的type属性
+    payload?: any; // dispatch数据载体,可有可无,继承Action的type属性(可传递要保存或更新的值)
 }
 
 export const INCREMENT = 'INCREMENT';

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store'; // 导入store并使用
 import { INCREMENT, DECREMENT, RESET } from 'src/app/store/counter';
-import { fromEvent  } from 'rxjs';
+import { fromEvent, Subscription  } from 'rxjs';
 import { map, scan  } from 'rxjs/operators';
 import * as Rx from 'rxjs';
 
@@ -15,7 +15,7 @@ interface AppState {
   templateUrl: './ngx-state-store.component.html',
   styleUrls: ['./ngx-state-store.component.scss']
 })
-export class NgxStateStoreComponent implements OnInit {
+export class NgxStateStoreComponent implements OnInit, OnDestroy {
 
   // public tabs = [
 	// 	{ id: 1, title: 'menu1', active: true },
@@ -33,7 +33,11 @@ export class NgxStateStoreComponent implements OnInit {
     this.tabs = value;
     console.log('tabs set to :', value);
   }
-  count$: Rx.Observable<number>;
+
+  // ngrx/store使用
+  count$: Rx.Observable<number>; // 必须传教一个Ovservable的对象属性
+  currentCount: number;
+  private countStateSubscription: Subscription; // 可以销毁订阅对象
   constructor(
     private store: Store<AppState> // 注入store
   ) { 
@@ -57,8 +61,20 @@ export class NgxStateStoreComponent implements OnInit {
     console.log(this.count$);
   }
 
+  ngOnDestroy() {
+    this.countStateSubscription.unsubscribe();
+  }
+
   // 1、状态存储
   ngOnInit() {
+    // store 通过订阅来获取store数据值的更新
+    this.countStateSubscription = this.count$.subscribe((count) => {
+      console.log(count);
+      this.currentCount = count; // 获取到全局store的值 (考虑一下，我要获取其他全局对象来判断要如何处理)
+      // 操作store页面更改count，回到home页会获取到最新的count值。关于上面的问题，考虑需要使用的对象都放到一个reducer的state下，便于使用和统一管理。如果互相不关联可以启单独的reducer
+      // 详细使用见pet-tags-ngrx项目
+    })
+
     const increaseButton = document.querySelector('#increase');
     const decreaseButton = document.querySelector('#decrease');
     const inputElement = document.querySelector('#input');
