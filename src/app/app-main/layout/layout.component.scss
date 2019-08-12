@@ -1,5 +1,5 @@
-#mainlayout{
-    background: rgba(214, 214, 15, .2);
+#mainLayout{
+    // background: rgba(214, 214, 15, .2);
     height: calc(100vh - 66px);
     // max-height: calc(100vh - 66px); // 这样就不出滚动条了，还是有问题，需要调整
     overflow-y: auto; // 使主要内容去产生滚动条

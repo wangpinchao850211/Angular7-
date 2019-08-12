@@ -1,15 +1,18 @@
 <!-- NG-ZORRO -->
 <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
-<nz-layout class="layout" *ngIf="!remS.showrem" id="theme-wrapper">
-  <nz-header style="height: 60px;" [ngClass]="{'headLight': !theme, 'headark': theme}">
-    <input #colorSelector type="color">
-    <button (click)="changeToRed(colorSelector.value)">改变颜色</button>
+<nz-layout class="layout theme-wrapper" *ngIf="!remS.showrem" id="theme-wrapper" [ngClass]="{'headlight': theme, 'headark': !theme}">
+  <nz-header style="height: 60px;" >
+    <span style="float: right">
+      <input #colorSelector type="color">
+      <button class="btn btn-primary" (click)="changeToRed(colorSelector.value)">切换主题</button>
+    </span>
   </nz-header>
   <div nz-row class="main-layout">
     <div nz-col nzSpan="4">
       <app-menu [theme]="theme"></app-menu>
     </div>
-    <div nz-col nzSpan="20">
+    <div nz-col nzSpan="20" id="mainlayout">
+      <!-- id="mainlayout" 在子组件里，使用var()函数没能更改，要研究一下使用:host-content() -->
       <app-layout></app-layout>
     </div>
   </div>

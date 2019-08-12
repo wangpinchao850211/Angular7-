@@ -1,29 +1,33 @@
-$lightBackgroundColor: lightgrey;
-$darkBackgroundColor: #333;
-
-
 // 主题样式
-.theme-wrapper {
-  --lightBackgroundColor: $lightBackgroundColor;
-  --darkBackgroundColor: $darkBackgroundColor;
+.theme-wrapper { // 注意再来一层变量，就不ok了！！！，躺坑(上面定义变量拿下来不行的！！！，并且这个class要写在模板的外层才好使)
+  --lightBackgroundColor: lightgrey;
+  --darkBackgroundColor: #333;
   --cardColor: #ffffff;
+  --mainLightBackgroundColor: lightyellow;
+  --mainDarkBackgroundColor: darkgoldenrod;
+  --customBackgroundColor: lightgreen;
+  
 }
+
 
 $variables: (
   --cardColor: var(--cardColor),
   --lightBackgroundColor: var(--lightBackgroundColor),
   --darkBackgroundColor: var(--darkBackgroundColor),
+  --mainDarkBackgroundColor: var(mainDarkBackgroundColor),
+  --mainLightBackgroundColor: var(mainLightBackgroundColor),
 );
 
 
-@function var($variable) {
+@function myVar($variable) {
   @return map-get($variables, $variable); // 获取到函数里面参数的哪个值
 }
 
-.card {
-  background-color: var(--lightBackgroundColor);
-  color: var(--cardColor);
-  height: 200px;
-  width: 200px;
-  margin: 10px auto;
-}
+// 用例
+// .card {
+//   background-color: var(--lightBackgroundColor);
+//   color: var(--cardColor);
+//   height: 200px;
+//   width: 200px;
+//   margin: 10px auto;
+// }

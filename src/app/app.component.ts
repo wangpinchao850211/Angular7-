@@ -20,7 +20,7 @@ export class AppComponent {
   changeToRed(color: any) {
     this.theme = !this.theme;
     const themeWrapper = document.getElementById('theme-wrapper');
-    // themeWrapper.style.setProperty('--cardBackgroundColor', color);
+    themeWrapper.style.setProperty('--customBackgroundColor', color); // 自定义设置全局颜色
   }
 
 }

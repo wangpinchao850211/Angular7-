@@ -1,23 +1,7 @@
 @import "../assets/theme.scss";
+
 body{
   color: black;
-  // & *::-webkit-scrollbar-track{
-  //   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  //   border-radius: 10px;
-  //   background-color: #F5F5F5;
-  // }
-
-  // & *::-webkit-scrollbar{
-  //   width: 4px;
-  //   height: 4px;
-  //   background-color: #F5F5F5;
-  // }
-
-  // & *::-webkit-scrollbar-thumb{
-  //   border-radius: 10px;
-  //   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  //   background: rgba(0,0,0,.26);
-  // }
 }
 .logo {
   width: 120px;
@@ -29,6 +13,7 @@ body{
 .layout{
   height: 100vh;
   overflow-y: hidden;
+  background-color: var(--customBackgroundColor);
 }
 .main-layout{
   max-height: calc(100% - 66px);
@@ -36,13 +21,22 @@ body{
 }
 // 主题定制
 .headark{
-  background-color: var(--darkBackgroundColor)
+  .ant-layout-header{
+    background-color: myVar(--darkBackgroundColor);
+  }
+  #mainlayout{// 这个地方使用var才好使
+    background-color: var(--mainDarkBackgroundColor);
+  }
 }
 
-.headLight{
-  background-color: var(--lightBackgroundColor)
+.headlight{
+  .ant-layout-header{
+    background-color: myVar(--lightBackgroundColor);
+  }
+  #mainlayout{ // 这个地方使用var才好使
+    background-color: var(--mainLightBackgroundColor);
+  }
 }
-
 
 // 如何让全局都实现这种自定义滚动条！！！
 .wpc::-webkit-scrollbar-track{
