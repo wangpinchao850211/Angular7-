@@ -1,0 +1,29 @@
+$lightBackgroundColor: lightgrey;
+$darkBackgroundColor: #333;
+
+
+// 主题样式
+.theme-wrapper {
+  --lightBackgroundColor: $lightBackgroundColor;
+  --darkBackgroundColor: $darkBackgroundColor;
+  --cardColor: #ffffff;
+}
+
+$variables: (
+  --cardColor: var(--cardColor),
+  --lightBackgroundColor: var(--lightBackgroundColor),
+  --darkBackgroundColor: var(--darkBackgroundColor),
+);
+
+
+@function var($variable) {
+  @return map-get($variables, $variable); // 获取到函数里面参数的哪个值
+}
+
+.card {
+  background-color: var(--lightBackgroundColor);
+  color: var(--cardColor);
+  height: 200px;
+  width: 200px;
+  margin: 10px auto;
+}

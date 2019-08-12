@@ -1,11 +1,13 @@
 <!-- NG-ZORRO -->
 <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
-<nz-layout class="layout" *ngIf="!remS.showrem">
-  <nz-header style="height: 60px;">
+<nz-layout class="layout" *ngIf="!remS.showrem" id="theme-wrapper">
+  <nz-header style="height: 60px;" [ngClass]="{'headLight': !theme, 'headark': theme}">
+    <input #colorSelector type="color">
+    <button (click)="changeToRed(colorSelector.value)">改变颜色</button>
   </nz-header>
   <div nz-row class="main-layout">
     <div nz-col nzSpan="4">
-      <app-menu></app-menu>
+      <app-menu [theme]="theme"></app-menu>
     </div>
     <div nz-col nzSpan="20">
       <app-layout></app-layout>

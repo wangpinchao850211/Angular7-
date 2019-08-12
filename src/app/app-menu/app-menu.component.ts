@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { MenuserviceService } from '../services/menuservice.service';
 import { Menu, menu } from '../interface/Menu';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class AppMenuComponent implements OnInit {
   // 接收错误请求信息
   error: any;
 
+  @Input() theme: boolean;
 
   @HostListener('scroll', ['$event'])
   onscroll(event: any) {

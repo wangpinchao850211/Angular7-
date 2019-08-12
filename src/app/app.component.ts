@@ -8,12 +8,19 @@ import { RemserviceService } from 'src/app/services/remservice.service';
 })
 export class AppComponent {
   title = 'My First Angular App!';
+  theme = false;
   constructor(private remS: RemserviceService) {
     if (sessionStorage.getItem('rem') === 'true') {
       this.remS.showrem = true;
     } else {
       this.remS.showrem = false;
     }
+  }
+
+  changeToRed(color: any) {
+    this.theme = !this.theme;
+    const themeWrapper = document.getElementById('theme-wrapper');
+    // themeWrapper.style.setProperty('--cardBackgroundColor', color);
   }
 
 }
