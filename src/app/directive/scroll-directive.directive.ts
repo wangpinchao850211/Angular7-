@@ -51,7 +51,7 @@ export class ScrollDirectiveDirective {
   changeDom() {
     const el = <HTMLElement>document.getElementsByClassName('wpc')[0];
     console.log(el.scrollTop);
-    const scrollel = <HTMLElement>document.querySelector('.wpc::-webkit-scrollbar'); // 貌似获取不到滚动条，因为不是元素，只是伪类(可以考虑使用js设置伪类样式)
+    const scrollel = <HTMLElement>document.querySelector('.wpc::-webkit-scrollbar'); // 貌似获取不到滚动条，因为不是元素，只是伪类(可以考虑使用js设置伪类样式) 最后使用scss mixin 实现了，详见iCompliance项目
     console.log(scrollel);
     if (el.scrollTop > 1000) {
       console.log('滚动太大');
