@@ -13,14 +13,14 @@
       <input type="text" ngModel name="phoneNumber" id="phoneNumber">
     </li>
     <div ngModelGroup="passwordsGroup">
-    <li>
-      <label for="password">密码</label>
-      <input type="password" ngModel name="password" id="password">
-    </li>
-    <li>
-      <label for="surePassword">确认密码</label>
-      <input type="password" ngModel name="surePassword" id="surePassword">
-    </li>
+      <li>
+        <label for="password">密码</label>
+        <input type="password" ngModel name="password" id="password">
+      </li>
+      <li>
+        <label for="surePassword">确认密码</label>
+        <input type="password" ngModel name="surePassword" id="surePassword">
+      </li>
     </div>
     <li>
       <button type="submit">提交</button>
@@ -28,13 +28,9 @@
   </ul>
 </form>
 <p>会获取到form标签内使用ngModel绑定的表单字段的值</p>
-<div>
-{{myForm.value | json}}
-</div>
-<!-- 使用模板变量，显示值 -->
-<div>
-{{username.value}}
-</div>
+<div>上面表单存储值为:{{myForm.value | json}}</div>
+<p>使用模板变量，显示值 如下:</p>
+<p>{{username.value}}</p>
 <!-- 还有一个指令是ngModleGroup可包含几个表单字段，形成form数据的嵌套 -->
 <h2>二、响应式表单</h2>
 <!-- <input type="text" name="" id="" [formControl]="userName"> 在formGroup外不受对象模型包含，直接使用formControl指令绑定即可，但是如果拿到formGroup内部就要使用formControlName指令了 -->

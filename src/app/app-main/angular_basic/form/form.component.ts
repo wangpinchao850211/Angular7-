@@ -60,7 +60,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
   }
-  ngSubmit(value) {
+  ngSubmit(value) { // 模板表单提交值
     console.log(value);
   }
   reativeSubmit() {
