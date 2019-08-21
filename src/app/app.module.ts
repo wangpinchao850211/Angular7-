@@ -157,7 +157,7 @@ registerLocaleData(zh);
     FormsModule, // 添加这个可以使用ngModule (模板式表单)
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
-    BrowserAnimationsModule, // 路由模块
+    
     MatTabsModule, // 引入tab
     MatExpansionModule, // 引入panel
     MatIconModule, // 引入icon
@@ -180,14 +180,14 @@ registerLocaleData(zh);
     MatTableModule, // 一直也没引入成功报错
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
-    BrowserAnimationsModule,
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Store, select } from '@ngrx/store'; // 导入store并使用
 import * as Rx from 'rxjs';
+import { slideToRight, slideToBottom } from '../../../animation/router.anim';
 
 // 使用store
 interface AppState {
@@ -10,10 +11,11 @@ interface AppState {
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [slideToBottom],
 })
 export class HomeComponent implements OnInit {
-
+  @HostBinding('@routeAnim') state; // 动画路由直接写这个绑定的这个组件类上，不能写在标签的指令上
   public greeting = 'green';
   count$: Rx.Observable<number>;
   constructor(

@@ -32,20 +32,36 @@ $color-regular: #4D5D72;
 $color-grey: #65758B;
 // scss应用于rem布局（fe有rem值定义）
 
-html{
-    font-size: 100px;
+// html{
+//     font-size: 100px;
+// }
+// *{
+//     margin: 0;
+//     padding: 0;
+// }
+// body{
+//     font-size: 1rem;
+//     color: #000;
+//     width: 100%;
+//     height: 100%;
+// }
+@mixin mixin-min-scroll {
+    &::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar{
+        width: 4px;
+        height: 4px;
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background: rgba(0,0,0,.26);
+    }
 }
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    font-size: 1rem;
-    color: #000;
-    width: 100%;
-    height: 100%;
-}
-
 // @media only screen and (max-width: 1920px) and (min-width:1680px) {
 //     html,body {
 //     font-size:55px;
