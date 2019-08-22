@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
 import {CdkTableModule} from '@angular/cdk/table'; 
 
@@ -178,6 +178,7 @@ registerLocaleData(zh);
     MatSliderModule, // 引入slider
     MatPaginatorModule, // 引入paginator
     MatTableModule, // 一直也没引入成功报错
+    MatTooltipModule, // 测试mat tooltip
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
     TooltipModule.forRoot(),
@@ -197,4 +198,5 @@ registerLocaleData(zh);
   providers: [matDialogConfirmService, { provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })
+
 export class AppModule { }
