@@ -3,12 +3,15 @@ import { HttpClient, HttpClientModule, HttpHeaders, HttpHandler, HttpInterceptor
 import { LoaderInterceptor } from './loadingInterceptor';
 
 export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HTTP_DYNAMIC_INTERCEPTORS');
+import { tap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServiceService extends HttpClient  {
 
   public configUrl = 'assets/menu.json';
+  public menulist = {};
   constructor(public http: HttpClient,
                 private httpHandler: HttpHandler,
                 private injector: Injector,
@@ -25,7 +28,9 @@ export class HttpServiceService extends HttpClient  {
     }
 
   getMenu() { // 获取菜单列表
-    return this.http.get(this.configUrl);
+    return this.http.get(this.configUrl).pipe(tap((d) => {
+      this.menulist = {...d}; // tap 代替 do操作符，存一下数据
+    }));
   }
   GetPromise<T>(url): Promise<T> {
     return this.http.get<T>(url).toPromise()

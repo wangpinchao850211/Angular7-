@@ -18,7 +18,7 @@ export enum AngularAnimate {
 //     let list: Array<string> = [1,2,3]
 // }
 
-export const menu = {
+export const menu = { // 导出对象
     AngularBasic: [
         'heros',
         'routers',
@@ -32,25 +32,8 @@ export const menu = {
     chain_shared: ['CommonComponent'],
     Angular_Material: ['AngularMaterial'],
     Angular_Scss: ['AngularScss'],
-    [Symbol.iterator]() { // 有ts校验，未循未成
-        let index = 0;
-        const arr = [...this.AngularBasic, ...this.AngularRxjs, ...this.Angular_Animate];
-        const len = arr.length;
-        return {
-            next() {
-                if (index < len) {
-                    return {
-                        value: arr[index++],
-                        done: false
-                    };
-                } else {
-                    return {
-                        value: arr[++index],
-                        done: true
-                    };
-                }
-            }
-        }
-    }
 };
 
+export enum MenuToTab {
+    
+}

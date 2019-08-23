@@ -9,6 +9,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了�
 import {CdkTableModule} from '@angular/cdk/table'; 
 
 import { TooltipModule, AccordionModule, CarouselModule, BsDropdownModule, BsDatepickerModule, PaginationModule, TimepickerModule  } from 'ngx-bootstrap';
+import { NzIconModule } from 'ng-zorro-antd';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -189,6 +190,7 @@ registerLocaleData(zh);
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
+    NzIconModule, // ant icon
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！

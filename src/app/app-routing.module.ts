@@ -129,9 +129,10 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(
       routes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only，打印路由跳转变化
       )
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

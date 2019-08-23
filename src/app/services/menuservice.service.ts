@@ -8,7 +8,7 @@ export class MenuserviceService {
 
   menuList: Menu;
 
-  private Menu = {
+  public menu = {
     Angular_Basic: [
         'Angular_Basic',
         'HeroList',
@@ -38,9 +38,12 @@ export class MenuserviceService {
   };
 
   constructor() {
-    // for (const iterator of Menu) { // 不好使
-    //   console.log(iterator);
+    // for (const item of this.menu) { // iterator还是 不好使，只能换成entries来遍历了
+    //   console.log(item);
     // }
+    for (const [key, value] of Object.entries(this.menu)) {
+      console.log(`${key}:${value}`);
+    }
   }
 
 

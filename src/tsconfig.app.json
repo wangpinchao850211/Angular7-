@@ -2,6 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
+    "downlevelIteration": true,
     "types": []
   },
   "exclude": [
@@ -9,3 +10,4 @@
     "**/*.spec.ts"
   ]
 }
+

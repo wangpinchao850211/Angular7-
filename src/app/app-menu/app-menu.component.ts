@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-import { MenuserviceService } from '../services/menuservice.service';
+
 import { Menu, menu } from '../interface/Menu';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../services/http-service.service';
@@ -26,7 +26,6 @@ export class AppMenuComponent implements OnInit {
     console.log(event);
   }
   constructor(
-    // private menu: MenuserviceService
     private router: Router,
     private http: HttpServiceService
   ) { }
@@ -60,11 +59,12 @@ export class AppMenuComponent implements OnInit {
     // 同a标签使用routerLink参数相同
     // loading start
     // this.http.loading();
-    setTimeout(() => {
+    // setTimeout(() => {
+      console.log(`/${rootName}/${name}`);
       this.router.navigate([`/${rootName}/${name}`]);
       // this.http.loading();
       // loading end
-    },1000)
+    // },1000)
   }
 
 }
