@@ -29,6 +29,8 @@ import { AngularAnimateComponent } from './app-main/angular-animate/angular-anim
 import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
+import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.component';
+import { H5Css3LayoutComponent } from './app-main/mvcH5Css3/h5-css3-layout/h5-css3-layout.component';
 
 const routes: Routes = [
   // Main redirect
@@ -114,6 +116,13 @@ const routes: Routes = [
     component: MaterialLayoutComponent,
     children: [
       { path: 'AngularScss', component: AngularScssComponent },
+    ]
+  },
+  {
+    path: 'Mvc_Use_h5_Css3',
+    component: H5Css3LayoutComponent,
+    children: [
+      { path: 'MvcUseH5Css3', component: HostUseComponent },
     ]
   },
   { // rem 流式布局页面，使用了一下辅助路由

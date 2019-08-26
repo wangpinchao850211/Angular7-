@@ -15,5 +15,6 @@
   "AngularAnimate": ["animateBasic"],
   "chain_shared": ["CommonComponent"],
   "Angular_Material": ["AngularMaterial"],
-  "Angular_Scss": ["AngularScss"]
+  "Angular_Scss": ["AngularScss"],
+  "Mvc_Use_h5_Css3": ["MvcUseH5Css3"]
 }

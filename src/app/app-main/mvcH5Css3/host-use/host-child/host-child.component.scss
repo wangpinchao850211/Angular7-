@@ -1,0 +1,12 @@
+.childwarpper{
+    border: 2px dotted red;
+}
+
+:host-context(.styled-component) {
+    border: 1px solid gray;
+    display:block;
+}
+
+:host ::ng-deep p {
+    background-color: yellow;
+}
