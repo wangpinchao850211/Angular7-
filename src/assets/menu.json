@@ -6,7 +6,8 @@
       "directivesOrpip",
       "form",
       "dependencyinjection",
-      "lifecycle"
+      "lifecycle",
+      "ngContent"
   ],
   "AngularRxjs": [
     "rxjsBasic",

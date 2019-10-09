@@ -35,7 +35,7 @@ export class NgxStateStoreComponent implements OnInit, OnDestroy {
   }
 
   // ngrx/store使用
-  count$: Rx.Observable<number>; // 必须传教一个Ovservable的对象属性
+  count$: Rx.Observable<number>; // 必须传教一个Observable的对象属性
   currentCount: number;
   private countStateSubscription: Subscription; // 可以销毁订阅对象
   constructor(

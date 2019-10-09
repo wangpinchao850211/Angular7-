@@ -84,6 +84,10 @@ import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/
 import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.component';
 import { HostChildComponent } from './app-main/mvcH5Css3/host-use/host-child/host-child.component';
 import { H5Css3LayoutComponent } from './app-main/mvcH5Css3/h5-css3-layout/h5-css3-layout.component';
+import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-content.component';
+import { NgContentChildrenComponent } from './app-main/angular_basic/ng-content/ng-content-children/ng-content-children.component';
+import { NgContentExampleComponent } from './app-main/angular_basic/ng-content/ng-content-example/ng-content-example.component';
+import { NgContentUnnamedComponent } from './app-main/angular_basic/ng-content/ng-content-unnamed/ng-content-unnamed.component';
 
 registerLocaleData(zh);
 
@@ -152,6 +156,10 @@ registerLocaleData(zh);
     HostUseComponent,
     HostChildComponent,
     H5Css3LayoutComponent,
+    NgContentComponent,
+    NgContentChildrenComponent,
+    NgContentExampleComponent,
+    NgContentUnnamedComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent

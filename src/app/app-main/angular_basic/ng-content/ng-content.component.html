@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <app-ng-content-example>
+    <h3 class="title">这是插槽内部：蓝色为插槽外部插入组件，包括这个title是插入的元素</h3>
+    <app-ng-content-children name="child"></app-ng-content-children>
+    <ng-container  ngProjectAs="div">
+        <p>这里是被圈起来的一段element:</p>
+        <h1>标题1</h1>
+        <h2>标题2</h2>
+        <h3>标题3</h3>
+        <h4>标题4</h4>
+    </ng-container>
+    <app-ng-content-unnamed></app-ng-content-unnamed>
+  </app-ng-content-example>
+</div>
