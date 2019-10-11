@@ -1,0 +1,51 @@
+<h2>angular响应式表单校验</h2>
+<!-- 表单校验 -->
+<form [formGroup]="formValidModel" (ngSubmit)="onSubmit()">
+    <div class="validform">
+      <!-- 应用angular校验器 -->
+        <label for="username">用户名</label>
+        <input type="text" name="" id="username" formControlName="username">
+        <div [hidden]="!formValidModel.get('username').valid || formValidModel.get('username').untouched">
+          <!-- <p class="errormsg" [hidden]="!formValidModel.hasError('required', 'username')">请输入用户名</p> -->
+            <p class="errormsg" [hidden]="!formValidModel.hasError('minlength', 'username')">用户名最小长度是6</p>
+        </div>
+        <!-- 下面是获取验证的另一种形式 -->
+        <div *ngIf="">{{formValidModel.controls['username'].errors | json}}</div>
+    </div>
+    <div class="validform">
+        <label for="mobile">手机号</label>
+        <input type="text" name="" id="mobile" formControlName="mobile">
+        <div [hidden]="!formValidModel.get('mobile').valid || formValidModel.get('mobile').pristine">
+          <p class="errormsg" [hidden]="!formValidModel.hasError('mobile', 'mobile')">请输入正确手机号</p>
+        </div>
+        <div [hidden]="!formValidModel.get('mobile').pending">正在校验手机合法性</div>
+    </div>
+    <div formGroupName="passwordGroup">
+        <div class="validform">
+            <label for="passwordValid">密码</label>
+            <input type="text" name="" id="passwordValid" formControlName="passwordValid">
+            <!-- 校验嵌套字段 -->
+            <p class="errormsg" [hidden]="!formValidModel.hasError('equal', ['passwordGroup', 'passwordValid'])">密码最小长度是8</p>
+        </div>
+        <div class="validform">
+            <label for="Cpassword">确认密码</label>
+            <input type="text" name="" id="Cpassword" formControlName="confirmPasswordValid">
+        </div>
+        <p class="errormsg" [hidden]="!formValidModel.hasError('equal', 'passwordGroup')">{{formValidModel.getError('equal', 'passwordGroup')?.errdesc}}</p>
+    </div>
+    <div>{{formValidModel.status}}</div>
+    <p>
+      <button type="submit">响应注册校验</button>
+    </p>
+</form>
+
+<form #f="ngForm">
+    <!-- 1\使用ngModule必须要，在表单控件上声明name属性，相当于声明formControlName，因为form标签在angular里自动会填上ngForm这个指令到form标签上.如果让其变为原生form 可直接添加ngNoForm指令到form标签上 -->
+    <input [(ngModel)]="desc" name="desc" required/>
+    <br>
+    <!-- 2\ngModule作用如下解释：下面写法同上面相同 -->
+    <input [ngModel]="desc" (ngModuleChange)="desc=$event" name="desc" required/>
+    <div *ngIf="!f.valid">不能为空哦</div>
+</form>
+<p>表单数据：{{f.value | json}}</p>
+<p>表单验证状态：{{f.valid | json}}</p>

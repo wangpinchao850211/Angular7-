@@ -1,92 +1,69 @@
-<p>
-  angular中使用原生的form，会为这个标签自动填上ngForm指令（可使用在form标签以外的其他标签上，添加这个指令后，如同写一个form标签），原生的action，和method属性都会失效。使用type="submit"不好使。意在angular接管form表单提交。如果不想angular接管可在form标签上添加ngNoForm指令。
-</p>
-<h2>一、模板表单</h2>
-<form #myForm="ngForm" (ngSubmit)="ngSubmit(myForm.value)">
-  <ul>
-    <li>
-      <label for="userName">用户名</label>
-      <input type="text" #username="ngModel" ngModel name="userName" id="userName">
-    </li>
-    <li>
-      <label for="phoneNumber">手机号</label>
-      <input type="text" ngModel name="phoneNumber" id="phoneNumber">
-    </li>
-    <div ngModelGroup="passwordsGroup">
-      <li>
-        <label for="password">密码</label>
-        <input type="password" ngModel name="password" id="password">
-      </li>
-      <li>
-        <label for="surePassword">确认密码</label>
-        <input type="password" ngModel name="surePassword" id="surePassword">
-      </li>
-    </div>
-    <li>
-      <button type="submit">提交</button>
-    </li>
-  </ul>
-</form>
-<p>会获取到form标签内使用ngModel绑定的表单字段的值</p>
-<div>上面表单存储值为:{{myForm.value | json}}</div>
-<p>使用模板变量，显示值 如下:</p>
-<p>{{username.value}}</p>
-<!-- 还有一个指令是ngModleGroup可包含几个表单字段，形成form数据的嵌套 -->
-<h2>二、响应式表单</h2>
-<!-- <input type="text" name="" id="" [formControl]="userName"> 在formGroup外不受对象模型包含，直接使用formControl指令绑定即可，但是如果拿到formGroup内部就要使用formControlName指令了 -->
-<form [formGroup]="formModel" (ngSubmit)="reativeSubmit()">
-   <div formGroupName="dateRange">
-     <label for="start-date">起始日期</label>
-     <input type="date" name="" id="start-date" formControlName="from">
-     <label for="end-date">结束日期</label>
-     <input type="date" name="" id="end-date" formControlName="to">
-   </div>
-   <ul formArrayName="emails">
-     <li *ngFor="let e of this.formModel.get('emails').controls; let i = index;">
-       <label for="email+{{i}}"></label>
-       <input type="text" name="" id="email+{{i}}" [formControlName]="i">
-     </li>
-   </ul>
-   <button type="button" (click)="addEmail()">增加email</button>
-   <p>
-     <button type="submit">保存</button>
-   </p>
-</form>
-<h2>三、angular响应式表单校验</h2>
-<!-- 表单校验 -->
-<form [formGroup]="formValidModel" (ngSubmit)="onSubmit()">
-    <div class="validform">
-      <!-- 应用angular校验器 -->
-        <label for="username">用户名</label>
-        <input type="text" name="" id="username" formControlName="username">
-        <div [hidden]="!formValidModel.get('username').valid || formValidModel.get('username').untouched">
-           <!-- <p class="errormsg" [hidden]="!formValidModel.hasError('required', 'username')">请输入用户名</p> -->
-            <p class="errormsg" [hidden]="!formValidModel.hasError('minlength', 'username')">用户名最小长度是6</p>
+<div class="formWarpper">
+  <nz-tabset [nzSize]="size" style=" width: 90%; margin: 10px auto;background: lightgray;">
+    <nz-tab nzTitle="表单基础">
+      <p style="text-indent: 20px;">
+        angular中使用原生的form，会为这个标签自动填上ngForm指令（可使用在form标签以外的其他标签上，添加这个指令后，如同写一个form标签），原生的action，和method属性都会失效。使用type="submit"不好使。意在angular接管form表单提交。如果不想angular接管可在form标签上添加ngNoForm指令。
+      </p>
+      <h2>一、模板表单</h2>
+      <form #myForm="ngForm" (ngSubmit)="ngSubmit(myForm.value)">
+        <ul>
+          <li>
+            <label for="userName">用户名</label>
+            <input type="text" #username="ngModel" ngModel name="userName" id="userName">
+          </li>
+          <li>
+            <label for="phoneNumber">手机号</label>
+            <input type="text" ngModel name="phoneNumber" id="phoneNumber">
+          </li>
+          <div ngModelGroup="passwordsGroup">
+            <li>
+              <label for="password">密码</label>
+              <input type="password" ngModel name="password" id="password">
+            </li>
+            <li>
+              <label for="surePassword">确认密码</label>
+              <input type="password" ngModel name="surePassword" id="surePassword">
+            </li>
+          </div>
+          <li>
+            <button type="submit">提交</button>
+          </li>
+        </ul>
+      </form>
+      <p>会获取到form标签内使用ngModel绑定的表单字段的值</p>
+      <div>上面表单存储值为:{{myForm.value | json}}</div>
+      <p>使用模板变量，用户名显示值 如下:</p>
+      <p>{{username.value}}</p>
+      <!-- 还有一个指令是ngModleGroup可包含几个表单字段，形成form数据的嵌套 -->
+      <h2>二、响应式表单</h2>
+      <!-- <input type="text" name="" id="" [formControl]="userName"> 在formGroup外不受对象模型包含，直接使用formControl指令绑定即可，但是如果拿到formGroup内部就要使用formControlName指令了 -->
+      <form style="margin-bottom: 50px;" [formGroup]="formModel" (ngSubmit)="reativeSubmit()">
+        <div formGroupName="dateRange">
+          <label for="start-date">起始日期</label>
+          <input type="date" name="" id="start-date" formControlName="from">
+          <label for="end-date">结束日期</label>
+          <input type="date" name="" id="end-date" formControlName="to">
         </div>
-    </div>
-    <div class="validform">
-        <label for="mobile">手机号</label>
-        <input type="text" name="" id="mobile" formControlName="mobile">
-        <div [hidden]="!formValidModel.get('mobile').valid || formValidModel.get('mobile').pristine">
-          <p class="errormsg" [hidden]="!formValidModel.hasError('mobile', 'mobile')">请输入正确手机号</p>
-        </div>
-        <div [hidden]="!formValidModel.get('mobile').pending">正在校验手机合法性</div>
-    </div>
-    <div formGroupName="passwordGroup">
-        <div class="validform">
-            <label for="passwordValid">密码</label>
-            <input type="text" name="" id="passwordValid" formControlName="passwordValid">
-            <!-- 校验嵌套字段 -->
-            <p class="errormsg" [hidden]="!formValidModel.hasError('equal', ['passwordGroup', 'passwordValid'])">密码最小长度是8</p>
-        </div>
-        <div class="validform">
-            <label for="Cpassword">确认密码</label>
-            <input type="text" name="" id="Cpassword" formControlName="confirmPasswordValid">
-        </div>
-        <p class="errormsg" [hidden]="!formValidModel.hasError('equal', 'passwordGroup')">{{formValidModel.getError('equal', 'passwordGroup')?.errdesc}}</p>
-    </div>
-    <div>{{formValidModel.status}}</div>
-    <p>
-      <button type="submit">响应注册校验</button>
-    </p>
-</form>
+        <ul formArrayName="emails">
+          <li *ngFor="let e of this.formModel.get('emails').controls; let i = index;">
+            <label for="email+{{i}}"></label>
+            <input type="text" name="" id="email+{{i}}" [formControlName]="i">
+          </li>
+        </ul>
+        <button type="button" (click)="addEmail()">增加email</button>
+        <p>
+          <button type="submit">保存</button>
+        </p>
+      </form>    
+    </nz-tab>
+    <nz-tab nzTitle="formArray应用">
+      <app-form-array></app-form-array>
+    </nz-tab>
+    <nz-tab nzTitle="表单验证">
+      <app-form-validator></app-form-validator>
+    </nz-tab>
+    <nz-tab nzTitle="动态表单实战问卷">
+      <app-form-dynamic-questionnaire></app-form-dynamic-questionnaire>
+    </nz-tab>
+  </nz-tabset>
+</div>

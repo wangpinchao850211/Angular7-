@@ -88,6 +88,9 @@ import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-conte
 import { NgContentChildrenComponent } from './app-main/angular_basic/ng-content/ng-content-children/ng-content-children.component';
 import { NgContentExampleComponent } from './app-main/angular_basic/ng-content/ng-content-example/ng-content-example.component';
 import { NgContentUnnamedComponent } from './app-main/angular_basic/ng-content/ng-content-unnamed/ng-content-unnamed.component';
+import { FormArrayComponent } from './app-main/angular_basic/form/form-array/form-array.component';
+import { FormValidatorComponent } from './app-main/angular_basic/form/form-validator/form-validator.component';
+import { FormDynamicQuestionnaireComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/form-dynamic-questionnaire.component';
 
 registerLocaleData(zh);
 
@@ -160,6 +163,9 @@ registerLocaleData(zh);
     NgContentChildrenComponent,
     NgContentExampleComponent,
     NgContentUnnamedComponent,
+    FormArrayComponent,
+    FormValidatorComponent,
+    FormDynamicQuestionnaireComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent

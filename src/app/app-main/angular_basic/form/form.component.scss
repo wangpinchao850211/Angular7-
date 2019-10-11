@@ -1,3 +1,7 @@
+.formWarpper{
+  width: 100%;
+}
+
 form{
   width: 100%;
   ul{
@@ -15,17 +19,5 @@ form{
         text-align: center;
       }
     }
-  }
-}
-
-.validform{
-  label{
-    width: 16%;
-    margin-right: 8px;
-    text-align: center;
-  }
-  .errormsg{
-    color: red;
-    font-size: 12px;
   }
 }
