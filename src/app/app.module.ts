@@ -91,6 +91,14 @@ import { NgContentUnnamedComponent } from './app-main/angular_basic/ng-content/n
 import { FormArrayComponent } from './app-main/angular_basic/form/form-array/form-array.component';
 import { FormValidatorComponent } from './app-main/angular_basic/form/form-validator/form-validator.component';
 import { FormDynamicQuestionnaireComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/form-dynamic-questionnaire.component';
+import { PeekABooComponent } from './app-main/angular_basic/peek-a-boo/peek-a-boo.component';
+import { PeekbooDirective } from './app-main/angular_basic/peekboo.directive';
+import { SpyComponent } from './app-main/angular_basic/peek-a-boo/spy/spy.component';
+import { SpyParentComponent } from './app-main/angular_basic/peek-a-boo/spy-parent/spy-parent.component';
+import { AfterViewComponent } from './app-main/angular_basic/peek-a-boo/after-view/after-view.component';
+import { ChildComponent } from './app-main/angular_basic/peek-a-boo/child/child.component';
+import { AfterContentParentComponent } from './app-main/angular_basic/peek-a-boo/after-content-parent/after-content-parent.component';
+import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after-content/after-content.component';
 
 registerLocaleData(zh);
 
@@ -166,6 +174,14 @@ registerLocaleData(zh);
     FormArrayComponent,
     FormValidatorComponent,
     FormDynamicQuestionnaireComponent,
+    PeekABooComponent,
+    PeekbooDirective,
+    SpyComponent,
+    SpyParentComponent,
+    AfterViewComponent,
+    ChildComponent,
+    AfterContentParentComponent,
+    AfterContentComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent

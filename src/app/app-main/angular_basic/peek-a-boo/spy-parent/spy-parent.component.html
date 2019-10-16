@@ -1,0 +1,11 @@
+<div class="spy-parent-wrapper">
+  <h1 style="margin-bottom: 5px;"> Spy Directive</h1>
+  <input type="text" name="hero" [(ngModel)]="addHero">
+  <button style="margin: 5px;" (click)="addhero()">Add Hero</button>
+  <button (click)="resethero()">Reset Hero</button>
+  <app-spy [heroes]="heroes"></app-spy>
+  <h3>--Spy Lifecycle Hook Log</h3>
+  <ul *ngIf="loggers" style="list-style: none;margin-bottom: 60px;">
+    <li *ngFor="let i of loggers">{{i}}</li>
+  </ul>
+</div>

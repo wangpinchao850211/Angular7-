@@ -32,6 +32,7 @@ import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/
 import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.component';
 import { H5Css3LayoutComponent } from './app-main/mvcH5Css3/h5-css3-layout/h5-css3-layout.component';
 import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-content.component';
+import { PeekABooComponent } from './app-main/angular_basic/peek-a-boo/peek-a-boo.component';
 
 const routes: Routes = [
   // Main redirect
@@ -53,6 +54,7 @@ const routes: Routes = [
     children: [
       { path: '', component: LifeCycleComponent },
       { path: 'lifecycle', component: LifeCycleComponent },
+      { path: 'peekboo', component: PeekABooComponent },
       {
         path: 'heros',
         component: HerosComponent,
