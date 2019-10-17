@@ -13,9 +13,10 @@
     <!-- 自己应用radio到formControl -->
     <ng-container *ngSwitchCase="'radio'">
       <input [formControlName]="question.key"
-            [id]="question.key" type="radio" value="男生" name="gender" (click)="choose('男生')">
+            [id]="question.key" type="radio" value="男生" name="{{question.key}}" (click)="choose('男生')">
       <input [formControlName]="question.key"
-              [id]="question.key" type="radio" value="女生" name="gender" (click)="choose('女生')">  
+              [id]="question.key" type="radio" value="女生" name="{{question.key}}" (click)="choose('女生')">
+                
     </ng-container>
   </div> 
  
