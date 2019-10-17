@@ -99,6 +99,7 @@ import { AfterViewComponent } from './app-main/angular_basic/peek-a-boo/after-vi
 import { ChildComponent } from './app-main/angular_basic/peek-a-boo/child/child.component';
 import { AfterContentParentComponent } from './app-main/angular_basic/peek-a-boo/after-content-parent/after-content-parent.component';
 import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after-content/after-content.component';
+import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 
 registerLocaleData(zh);
 
@@ -182,6 +183,7 @@ registerLocaleData(zh);
     ChildComponent,
     AfterContentParentComponent,
     AfterContentComponent,
+    AppQuestionComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent

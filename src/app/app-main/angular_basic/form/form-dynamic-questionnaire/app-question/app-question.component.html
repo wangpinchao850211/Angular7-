@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+  <label [attr.for]="question.key">{{question.label}}</label>
+ 
+  <div [ngSwitch]="question.controlType">
+ 
+    <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type">
+ 
+    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+    <!-- 自己应用radio到formControl -->
+    <ng-container *ngSwitchCase="'radio'">
+      <input [formControlName]="question.key"
+            [id]="question.key" type="radio" value="男生" name="gender" (click)="choose('男生')">
+      <input [formControlName]="question.key"
+              [id]="question.key" type="radio" value="女生" name="gender" (click)="choose('女生')">  
+    </ng-container>
+  </div> 
+ 
+  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+</div>

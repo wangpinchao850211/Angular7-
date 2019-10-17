@@ -1,3 +1,16 @@
-<p>
-  动态表单实战问卷：写个demo，然后是questionaier
-</p>
+<div class="wrapper">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+ 
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+ 
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+ 
+  <div *ngIf="payLoad" class="show-form-value">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
