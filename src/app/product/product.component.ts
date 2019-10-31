@@ -38,8 +38,12 @@ export class ProductComponent implements OnInit {
       new Product(6, "第六个商品", 6.99, 1.4,"慕课网angular实战", ["电子商品", "硬件设备"]),
     ]
     // this.routerId = this.routeInfo.snapshot.params["id"]; // 这种是参数快照的方法，当此组件已被渲染，路由传参变化时并不会触发重新复制的过程，需要是用如下的参数订阅的方法
-    this.routeInfo.params.subscribe((param: Params) => this.routerId = param['id']) // 可以查看传递不同参数依然可以实现页面的变更. 注意：这种一般处理特殊的情况，如自身组件跳转到自身，会出现组件不会渲染，但是参数变化的现象
-    console.log(this.routerId)
+    this.routeInfo.params.subscribe((param: Params) => {
+      this.routerId = param['id'];
+      console.log(`params传递参数订阅`);
+      console.log(this.routerId)
+    }) // 可以查看传递不同参数依然可以实现页面的变更. 注意：这种一般处理特殊的情况，如自身组件跳转到自身，会出现组件不会渲染，但是参数变化的现象
+    
   }
 
 }

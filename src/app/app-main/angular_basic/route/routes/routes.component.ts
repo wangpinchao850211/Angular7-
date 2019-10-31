@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -11,7 +11,8 @@ export class RoutesComponent implements OnInit {
 
   private routerEventDestroy = null; // use this identifier to clear router.events (observable),存放返回路由订阅者
   constructor(
-    private router: Router
+    private router: Router,
+    private routeInfo: ActivatedRoute
   ) {
     this.routerEventDestroy = router.events.pipe(
         filter(event => event instanceof NavigationEnd)
@@ -27,5 +28,8 @@ export class RoutesComponent implements OnInit {
 
   goToProductdetail() {
     this.router.navigate(['/AngularBasic/routers/product', 2]); // 传递了不同的参数，可在接受组件product进行查看
+  }
+  navigateTransQueryParams() {
+    this.router.navigate(['/AngularBasic/routers/productdetail'], {queryParams: {id: 1}, relativeTo: this.routeInfo})
   }
 }
