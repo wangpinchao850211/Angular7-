@@ -33,6 +33,7 @@ import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.compone
 import { H5Css3LayoutComponent } from './app-main/mvcH5Css3/h5-css3-layout/h5-css3-layout.component';
 import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-content.component';
 import { PeekABooComponent } from './app-main/angular_basic/peek-a-boo/peek-a-boo.component';
+import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 
 const routes: Routes = [
   // Main redirect
@@ -83,7 +84,8 @@ const routes: Routes = [
       { path: 'form', component: FormComponent },
       { path: 'dependencyinjection', component: DeplayoutComponent },
       { path: 'directivesOrpip', component: DirectivePipeComponent },
-      { path: 'ngContent', component: NgContentComponent }
+      { path: 'ngContent', component: NgContentComponent },
+      { path: 'showWorkMemberList', component: WorkMemberListComponent }
     ]
   },
   {

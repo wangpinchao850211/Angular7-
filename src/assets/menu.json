@@ -8,7 +8,8 @@
       "dependencyinjection",
       "lifecycle",
       "peekboo",
-      "ngContent"
+      "ngContent",
+      "showWorkMemberList"
   ],
   "AngularRxjs": [
     "rxjsBasic",
