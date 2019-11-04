@@ -6,7 +6,7 @@ import { format } from "date-fns";
 export class DateFormatPipe implements PipeTransform {
 
   transform(
-    date: string | number | Date,
+    date: number | Date,
     dtformat?: string
   ): any {
     if(date == null){

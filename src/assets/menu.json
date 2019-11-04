@@ -9,7 +9,8 @@
       "lifecycle",
       "peekboo",
       "ngContent",
-      "showWorkMemberList"
+      "showWorkMemberList",
+      "fileUpload"
   ],
   "AngularRxjs": [
     "rxjsBasic",

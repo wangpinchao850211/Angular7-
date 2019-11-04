@@ -101,6 +101,10 @@ import { AfterContentParentComponent } from './app-main/angular_basic/peek-a-boo
 import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after-content/after-content.component';
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
+import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
+
+// primeng modle
+import {FileUploadModule} from 'primeng/fileupload';
 
 registerLocaleData(zh);
 
@@ -186,6 +190,7 @@ registerLocaleData(zh);
     AfterContentComponent,
     AppQuestionComponent,
     WorkMemberListComponent,
+    UploadFileComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
@@ -231,6 +236,7 @@ registerLocaleData(zh);
     TimepickerModule.forRoot(),
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
+    FileUploadModule,
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！

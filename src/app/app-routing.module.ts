@@ -34,6 +34,7 @@ import { H5Css3LayoutComponent } from './app-main/mvcH5Css3/h5-css3-layout/h5-cs
 import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-content.component';
 import { PeekABooComponent } from './app-main/angular_basic/peek-a-boo/peek-a-boo.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
+import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
 
 const routes: Routes = [
   // Main redirect
@@ -85,7 +86,8 @@ const routes: Routes = [
       { path: 'dependencyinjection', component: DeplayoutComponent },
       { path: 'directivesOrpip', component: DirectivePipeComponent },
       { path: 'ngContent', component: NgContentComponent },
-      { path: 'showWorkMemberList', component: WorkMemberListComponent }
+      { path: 'showWorkMemberList', component: WorkMemberListComponent },
+      { path: 'fileUpload', component: UploadFileComponent }
     ]
   },
   {
