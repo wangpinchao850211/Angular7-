@@ -1,3 +1,16 @@
-<p>
-  work-member-list works!
-</p>
+<div class="col-xs-12 col-12 col-md-4 form-group">
+  <input type="text"
+             placeholder="please choose date"
+             class="form-control"
+             #dp1="bsDatepicker"
+             placement="right"
+             bsDatepicker
+             (bsValueChange)="onValueChange($event)"
+             [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'YYYY-MM-DD' }">
+</div>
+<p>当前日期:{{todayDate}}</p>
+<p>已选日期:{{currentDate}}</p>
+<p>已选日期工作人员名单:</p>
+<ul>
+  <li *ngFor="let i of currentWorkList">{{i}}</li>
+</ul>

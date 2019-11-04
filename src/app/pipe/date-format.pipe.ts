@@ -14,5 +14,4 @@ export class DateFormatPipe implements PipeTransform {
     }
     return format(date, dtformat);
   }
-
 }
