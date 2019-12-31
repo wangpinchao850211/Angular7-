@@ -35,6 +35,8 @@ import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-conte
 import { PeekABooComponent } from './app-main/angular_basic/peek-a-boo/peek-a-boo.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
+import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
+import { EditorComponent } from './app-main/angular_editor/editorLayout';
 
 const routes: Routes = [
   // Main redirect
@@ -124,6 +126,13 @@ const routes: Routes = [
     component: MaterialLayoutComponent,
     children: [
       { path: 'AngularScss', component: AngularScssComponent },
+    ]
+  },
+  {
+    path: 'Angular_Editor',
+    component: EditorComponent,
+    children: [
+      { path: 'CKEditor', component: CkeditorComponent },
     ]
   },
   {

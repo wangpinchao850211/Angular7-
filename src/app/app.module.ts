@@ -106,6 +106,10 @@ import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload
 // primeng modle
 import {FileUploadModule} from 'primeng/fileupload';
 
+// CKeditor
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { EditorComponent } from './app-main/angular_editor/editorLayout';
+import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -191,6 +195,8 @@ registerLocaleData(zh);
     AppQuestionComponent,
     WorkMemberListComponent,
     UploadFileComponent,
+    EditorComponent,
+    CkeditorComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
@@ -237,6 +243,9 @@ registerLocaleData(zh);
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
     FileUploadModule,
+
+    // CKeditor
+    CKEditorModule
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！
