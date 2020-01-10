@@ -54,7 +54,9 @@
         <p>
           <button type="submit">保存</button>
         </p>
-      </form>    
+      </form>   
+      <h2>解决input和ngModelChange事件比ngModel双向绑定快的问题</h2> 
+      <input style="margin-bottom: 100px;" type="text" [(ngModel)]="wpcVar" (keypress)="wpcChange($event)">
     </nz-tab>
     <nz-tab nzTitle="formArray应用">
       <app-form-array></app-form-array>

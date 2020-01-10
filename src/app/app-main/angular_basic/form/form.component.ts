@@ -10,6 +10,7 @@ import { delay } from 'rxjs/operators';
 })
 export class FormComponent implements OnInit {
 
+  wpcVar = '';
 
   formModel:FormGroup = new FormGroup({
     userName: new FormControl(),
@@ -26,6 +27,11 @@ export class FormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+  }
+  wpcChange(ev) {
+    console.log(ev);
+    // js使用正则去掉空格的方法
+    console.log(this.wpcVar = ev.target.value.replace(/\s+/g,""));
   }
   ngSubmit(value) { // 模板表单提交值
     console.log(value);
