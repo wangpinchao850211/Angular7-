@@ -42,7 +42,7 @@ $maps: (color: red, borderColor: blue);
 $className: container;
 body {
   $color: red !global; // 这样写下面作用域也能访问到
-  $ver: '嵌入其中'; // 可在多处复用
+  $var: '嵌入其中'; // 可在多处复用
   color: $color;
   font-size: $--color-success;
   // 引用父选择器
@@ -60,7 +60,7 @@ body {
     }
     // 使用变量来定义内容
     &:before{
-      content: "hello,#{$ver}"
+      content: "hello,#{$var}"
     }
   }
   /*

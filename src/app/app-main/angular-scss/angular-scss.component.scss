@@ -1,0 +1,75 @@
+// 简单应用栅格布局（使用自定义函数和@each）
+@function buildLayout($num: 5) {
+    $map: (defaultValue: 0);
+    $rate: percentage(1 / $num); // percentage()转成百分数方法
+    @for $i from 1 through $num {
+      $tmpMap: (#{$i}: $rate * $i);
+      $map: map-merge($map, $tmpMap);
+    }
+    $map: map-remove($map, defaultValue);
+    @return $map;
+  }
+  
+  @mixin buildLayout($num: 5) {
+    $map: buildLayout($num);
+    @debug $map;
+    @each $key, $value in $map {
+      .#{key} {
+        width: $value;
+      }
+    };
+    @debug $map;
+  }
+
+  @include buildLayout(24);
+
+@function column-width($col, $total) {
+    @return percentage($col/$total);
+}
+
+.wrapper{
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
+    // &.#{@include buildLayout(12)};
+}
+
+@each $key, $value in buildLayout(24) {
+    @debug $key;
+    .col-#{key} {
+        width: $value;
+    }
+}
+
+// .inner:nth-child(1){
+//     display: inline-block;
+//     height: 100%;
+//     border: 1px solid blue;
+//     width: map-get(buildLayout(24), col1);
+//     // @include buildLayout(12);
+//     // width: column-width(1, 5);
+// }
+// .inner:nth-child(2){
+//     display: inline-block;
+//     height: 100%;
+//     border: 1px solid blue;
+//     width: map-get(buildLayout(24), col3);
+// }
+// .inner:nth-child(3){
+//     display: inline-block;
+//     height: 100%;
+//     border: 1px solid blue;
+//     width: map-get(buildLayout(24), col4);
+// }
+// .inner:nth-child(4){
+//     display: inline-block;
+//     height: 100%;
+//     border: 1px solid blue;
+//     width: map-get(buildLayout(24), col7);
+// }
+// .inner:nth-child(5){
+//     display: inline-block;
+//     height: 100%;
+//     border: 1px solid blue;
+//     width: map-get(buildLayout(24), col9);
+// }
