@@ -1,6 +1,9 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-
-import { Menu, menu } from '../interface/Menu';
+import { Store, select } from '@ngrx/store'; // 导入store并使用
+import { addTab, removeTab } from '../store/tab-reducer';
+import { Menu, menu, MenuTab } from '../interface/Menu';
+import { getNameByUrl } from '../utils/tabNameMapping';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../services/http-service.service';
 
@@ -11,6 +14,8 @@ import { HttpServiceService } from '../services/http-service.service';
 })
 export class AppMenuComponent implements OnInit {
 
+  // add tabs
+  tabs$: Observable<MenuTab>
   isCollapsed = false;
 
   angularMenuObj = {};
@@ -26,9 +31,12 @@ export class AppMenuComponent implements OnInit {
     console.log(event);
   }
   constructor(
+    private store: Store<{tab: MenuTab}>,
     private router: Router,
     private http: HttpServiceService
-  ) { }
+  ) {
+    this.tabs$ = this.store.pipe(select('tab')); // 从app.module.ts中获取tab状态流
+  }
 
   ngOnInit() {
     // 通过http请求菜单列表, Menu是定义数据类型（描述返回的数据结构）
@@ -54,17 +62,20 @@ export class AppMenuComponent implements OnInit {
   }
 
   menuClick(rootName, name) {
-    console.log(rootName);
-    console.log(name);
+    // console.log(rootName);
+    // console.log(name);
     // 同a标签使用routerLink参数相同
-    // loading start
-    // this.http.loading();
-    // setTimeout(() => {
-      console.log(`/${rootName}/${name}`);
-      this.router.navigate([`/${rootName}/${name}`]);
-      // this.http.loading();
-      // loading end
-    // },1000)
+    const currentRoutUrRl = `/${rootName}/${name}`;
+    console.log(currentRoutUrRl);
+    this.router.navigate([currentRoutUrRl]);
+    // 添加store tab
+    const tabName = getNameByUrl(currentRoutUrRl);
+    const storeTab = {
+      url: currentRoutUrRl,
+      title: tabName,
+      isSelect: true
+    };
+    this.store.dispatch({ type: addTab, payload: storeTab });
   }
 
 }

@@ -15,10 +15,10 @@
       <!-- id="mainlayout" 在子组件里，使用var()函数没能更改，要研究一下使用:host-content() -->
       <!-- 添加tabs -->
       <nz-tabset [nzType]="'card'" [nzSelectedIndex]="index">
-        <nz-tab *ngFor="let tab of tabs; let i = index;" [nzTitle]="titleTemplate" (nzClick)="activeTab(tab, i)">
+        <nz-tab *ngFor="let tab of tabs; let i = index;" [nzTitle]="titleTemplate" (nzClick)="activeTab(tab.title, i)">
           <ng-template #titleTemplate>
-            <div>{{ tab }}
-              <span style="display: inline-block; width: 20px; height: 20px;" (click)="closeTab(tab)">
+            <div>{{ tab.title }}
+              <span style="display: inline-block; width: 30px; height: 100%;" (click)="$event.stopPropagation(); closeTab(tab)">
                  X
               </span>
             </div>

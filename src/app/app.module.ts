@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 // 注册store
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter';
+import { tabReducer } from './store/tab-reducer';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
@@ -203,7 +204,10 @@ registerLocaleData(zh);
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
-    StoreModule.forRoot({ count: counterReducer }), // 注册store
+    StoreModule.forRoot({ 
+      count: counterReducer,
+      tab: tabReducer 
+    }), // 注册store
     AppRoutingModule,
     NgZorroAntdModule,
     FormsModule, // 添加这个可以使用ngModule (模板式表单)

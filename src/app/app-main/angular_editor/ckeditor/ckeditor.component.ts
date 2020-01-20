@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import * as ClassicEditor from '../ckeditor.js';
+// import * as ClassicEditor from '../ckeditor.js';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 @Component({
@@ -54,10 +55,10 @@ export class CkeditorComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // 编辑器销毁
-    this.ckeditorInstance.destroy()
-    .catch( error => {
-        console.log( error );
-    } );
+    // this.ckeditorInstance.destroy()
+    // .catch( error => {
+    //     console.log( error );
+    // } );
   }
 
 }
