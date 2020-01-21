@@ -1,28 +1,27 @@
-// 简单应用栅格布局（使用自定义函数和@each）
+// 1、简单应用栅格不布局（使用自定义函数和@each）
 @function buildLayout($num: 5) {
-    $map: (defaultValue: 0);
-    $rate: percentage(1 / $num); // percentage()转成百分数方法
-    @for $i from 1 through $num {
-      $tmpMap: (#{$i}: $rate * $i);
-      $map: map-merge($map, $tmpMap);
+  $map: (defaultValue: 0);
+  $rate: percentage(1 / $num); // percentage()转成百分数方法
+  @for $i from 1 through $num {
+    $tmpMap: (col#{$i}: $rate * $i);
+    $map: map-merge($map, $tmpMap);
+  }
+  $map: map-remove($map, defaultValue);
+  @return $map;
+}
+
+@mixin buildLayout($num: 5) {
+  $map: buildLayout($num);
+  @each $key, $value in $map {
+    .#{$key} {
+      width: $value;
     }
-    $map: map-remove($map, defaultValue);
-    @return $map;
   }
-  
-  @mixin buildLayout($num: 5) {
-    $map: buildLayout($num);
-    @debug $map;
-    @each $key, $value in $map {
-      .#{key} {
-        width: $value;
-      }
-    };
-    @debug $map;
-  }
+}
+@debug buildLayout(24);
+@include buildLayout(24);
 
-  @include buildLayout(24);
-
+// 2、通过份数，设置占用宽度
 @function column-width($col, $total) {
     @return percentage($col/$total);
 }
@@ -31,15 +30,30 @@
     width: 100%;
     height: 200px;
     border: 1px solid black;
-    // &.#{@include buildLayout(12)};
+}
+.wpc{
+  display: inline-block;
+  height: 100%;
+  border: 1px solid blue;
 }
 
-@each $key, $value in buildLayout(24) {
-    @debug $key;
-    .col-#{key} {
-        width: $value;
-    }
-}
+// 循环可以生成class
+// @each $key, $value in buildLayout(24) {
+//     @debug $key;
+//     @debug $value;
+//     .#{$key} {
+//         width: $value;
+//     }
+// }
+
+/*
+buildLayout(24) 就是下面得变量(col1: 4.16667%, col2: 8.33333%, col3: 12.5%, col4: 16.66667%, col5: 20.83333%, col6: 25%, col7: 29.16667%, col8: 33.33333%, col9: 37.5%, col10: 41.66667%, col11: 45.83333%, col12: 50%, col13: 54.16667%, col14: 58.33333%, col15: 62.5%, col16: 66.66667%, col17: 70.83333%, col18: 75%, col19: 79.16667%, col20: 83.33333%, col21: 87.5%, col22: 91.66667%, col23: 95.83333%, col24: 100%)，
+
+获取具体变量的值使用：map-get(buildLayout(24), col3);
+
+Maps可视为键值对的集合，键被用于定位值 在css种没有对应的概念。 和Lists不同Maps必须被圆括号包围，键值对被都好分割 。 Maps中的keys和values可以是sassscript的任何对象。（包括任意的sassscript表达式 arbitrary SassScript expressions） 和Lists一样Maps主要为sassscript函数服务，如 map-get函数用于查找键值，map-merge函数用于map和新加的键值融合，@each命令可添加样式到一个map中的每个键值对。
+*/
+
 
 // .inner:nth-child(1){
 //     display: inline-block;

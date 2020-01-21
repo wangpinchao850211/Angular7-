@@ -184,9 +184,9 @@ span{
 @mixin buildLayout($num: 5) {
   $map: buildLayout($num);
   @each $key, $value in $map {
-    .#{key} {
+    .#{$key} {
       width: $value;
     }
   }
 }
-@include buildLayout();
+@include buildLayout(24); // 24栅格
