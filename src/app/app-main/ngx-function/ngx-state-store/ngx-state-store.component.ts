@@ -36,6 +36,9 @@ export class NgxStateStoreComponent implements OnInit, OnDestroy {
     private store: Store<AppState> // 注入store
   ) { 
     this.count$ = store.pipe(select('count')); // 从app.module.ts中获取count状态流
+    this.countStateSubscription = this.count$.subscribe((num) => {
+      console.log('count数是'+num);
+    });
   }
 
   // 更新store值

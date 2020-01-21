@@ -61,10 +61,18 @@ export class AppComponent implements AfterViewInit {
   initTab(storeTabs) {
     // console.log(storeTabs);
     this.tabs = storeTabs.tab;
-    // console.log(this.tabs);
+    console.log(this.tabs);
     for (let [index, i] of this.tabs.entries()) {
       if (i.isSelect) {
         this.index = index;
+      }
+      // 跳转路由
+      if (i.isSelect && i.url !== '/home') {
+        this.router.navigate([i.url]);
+        break;
+      }
+      if (this.tabs.length === 1 && i.url === '/home') {
+        this.router.navigate([i.url]);
         break;
       }
     }
@@ -72,13 +80,15 @@ export class AppComponent implements AfterViewInit {
 
   activeTab(tab) {
     const rootUri = this.getRootUri(tab);
-    const currentRoutUrRl = `/${rootUri}/${tab}`;
+    let currentRoutUrRl = `/${rootUri}/${tab}`;
+    // console.log(currentRoutUrRl);
     if (rootUri === 'Home') {
+      currentRoutUrRl = '/home';
       this.router.navigate(['home']);
     } else {
       this.router.navigate([currentRoutUrRl]);
     }
-    // update store tab
+    // update store tab, 还是使用保存的url，使用getRootUri生成的与路由不匹配
     const tabName = getNameByUrl(currentRoutUrRl);
     const storeTab = {
       url: currentRoutUrRl,
@@ -86,6 +96,7 @@ export class AppComponent implements AfterViewInit {
       isSelect: true
     };
     this.store.dispatch({ type: addTab, payload: storeTab });
+
   }
 
   getRootUri(tab) {

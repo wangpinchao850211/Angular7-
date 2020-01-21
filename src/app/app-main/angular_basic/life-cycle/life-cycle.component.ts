@@ -17,13 +17,13 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck } from '@an
 
 // （3）DoCheck钩子的调用
 
-
 export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
   @Input() greeting:string; // 组件输入值将触发ngOnChanges() 检测
+
   public user = { // 声明一个对象
     'name':'wangpinchao'
   };
-  message:string="初始化消息"
+
   oldUserName:string;//用来保存user.name变更之前的值
   changeDetected:boolean;//标记当前的user.name属性是否发生变化
   changeCount:number;//标记变更检测机制被调用的次数
@@ -31,13 +31,13 @@ export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
   ngDoCheck(): void {   //触发变更检测机制就是调用DoCheck (实现$watch功能)
      if(this.user.name!==this.oldUserName){
           //user.name发生了变化
-          this.changeDetected=true;
+          this.changeDetected = true;
           console.log("Docheck: user.name 从"+this.oldUserName+"变为"+this.user.name);
-          this.oldUserName=this.user.name;
+          this.oldUserName = this.user.name;
      }
-     if(this.changeDetected){
-       this.changeCount=0
-     }else{
+     if (this.changeDetected) {
+       this.changeCount = 0;
+     } else {
        this.changeCount=this.changeCount+1;
        console.log("DoCheck:user.name没发生变化时，ngDoCheck方法被调用了"+this.changeCount+"次")
      }

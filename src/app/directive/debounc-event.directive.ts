@@ -29,7 +29,9 @@ export class DebouncEventDirective {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   @HostListener('click', ['$event'])
