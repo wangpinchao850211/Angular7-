@@ -30,6 +30,9 @@ import { HistoryComponent } from './components/history/history.component'
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component'
 import { PrivacyStatementPoppageComponent } from './components/privacy-statement-poppage/privacy-statement-poppage.component'
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
+import { WpcTooltipComponent } from './components/wpc-tooltip/wpc-tooltip.component'
+import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-directive.directive'
+
 @NgModule({
   declarations: [
     TextboxComponent,
@@ -51,7 +54,9 @@ import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFo
     NotificationComponent,
     HistoryComponent,
     ToggleButtonComponent,
-    PrivacyStatementPoppageComponent
+    PrivacyStatementPoppageComponent,
+    WpcTooltipComponent,
+    WpcTooltipDirective
   ],
   imports: [
     CommonModule,
@@ -64,7 +69,10 @@ import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFo
     HeaderBarComponent, SafeHtmlPipe, DatepickerComponent, TooltipComponent,
     MultipleDropdownComponent, OnboardProcessCircleComponent, CheckBoxFormatPipe, SideNavComponent,
     BrowserAnimationsModule, NotificationComponent, HistoryComponent, BlankValuePipe, FieldEmptyPipe, ToggleButtonComponent,
-    PrivacyStatementPoppageComponent
+    PrivacyStatementPoppageComponent,
+    WpcTooltipComponent,
+    // 必须导出指令
+    WpcTooltipDirective 
   ],
   providers: [
     DomHandler,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Emoji, Confirmable } from 'src/app/note';
 
 @Component({
   selector: 'app-directive-pipe',
@@ -10,6 +11,14 @@ export class DirectivePipeComponent implements OnInit {
   public clickOutsideInputValue: string;
   public showUl = false;
   public arr = [];
+
+  @Emoji() result = 'hello';
+  // 弹出对话框确认注解
+  @Confirmable('你确定要执行么？')
+  handleClick() {
+    console.log('点击已执行');
+  }
+
   constructor() { }
 
   ngOnInit() {

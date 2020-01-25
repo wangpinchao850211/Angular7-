@@ -1,4 +1,6 @@
 <div #ScrollWrapper class="scrollwrapper" appScrollDirective  [scrollTarget]="ScrollWrapper" (changeHeight)="changecontentHeight($event)">
+  <h2 style="cursor: pointer;" (click)="handleClick()">注解显示：点击测试注解使用confirm</h2>
+  {{result}}
   <div class="clickOutSideWrapper">
       <label for="testSelect">测试select打开关闭</label>
       <br>
