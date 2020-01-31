@@ -111,6 +111,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { EditorComponent } from './app-main/angular_editor/editorLayout';
 import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
+import { CountDownComponent } from './app-main/angular_home/count-down/count-down.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -198,6 +199,7 @@ registerLocaleData(zh);
     UploadFileComponent,
     EditorComponent,
     CkeditorComponent,
+    CountDownComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent

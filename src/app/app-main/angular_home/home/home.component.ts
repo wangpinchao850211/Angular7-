@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   @HostBinding('@routeAnim') state; // 动画路由直接写这个绑定的这个组件类上，不能写在标签的指令上
   public greeting = 'green';
   count$: Rx.Observable<number>;
+  // 倒计时
+  startDate = new Date(2019, 12, 22);
+  futureDate = new Date(2020, 2, 2);
+  
   constructor(
     private store: Store<AppState> // 注入store
   ) {
