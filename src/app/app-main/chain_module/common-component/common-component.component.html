@@ -1,3 +1,12 @@
 <div class="tooltip-demo-wrapper">
   <span wpcTooltip class="parent-tip" *ngFor="let item of tooltipList" >{{item.content}}</span>
 </div>
+
+<!-- 自定义popup -->
+<button type="button" (click)="toggleMesssage()">show message 对话框</button>
+
+<!-- 被插入的位置 -->
+<ng-container >
+  <div id="overlay" class="hidden" (click)="removeDialog($event)"></div>
+  <div id="dialog-container" class="hidden"></div>
+</ng-container>

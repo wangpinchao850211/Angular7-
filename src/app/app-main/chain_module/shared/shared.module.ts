@@ -31,7 +31,9 @@ import { ToggleButtonComponent } from './components/toggle-button/toggle-button.
 import { PrivacyStatementPoppageComponent } from './components/privacy-statement-poppage/privacy-statement-poppage.component'
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 import { WpcTooltipComponent } from './components/wpc-tooltip/wpc-tooltip.component'
-import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-directive.directive'
+import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-directive.directive';
+import { DialogComponent } from './components/wpc-dialog/dialog.component.ts/dialog.component.ts.component';
+import { DialogDirective } from './components/wpc-dialog/dialog.directive'
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-direct
     ToggleButtonComponent,
     PrivacyStatementPoppageComponent,
     WpcTooltipComponent,
-    WpcTooltipDirective
+    WpcTooltipDirective,
+    DialogComponent,
+    DialogDirective
   ],
   imports: [
     CommonModule,
@@ -73,6 +77,9 @@ import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-direct
     WpcTooltipComponent,
     // 必须导出指令
     WpcTooltipDirective 
+  ],
+  entryComponents: [
+    TextboxComponent
   ],
   providers: [
     DomHandler,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from '../shared/components/wpc-dialog/dialog.service';
+import { TextboxComponent } from '../shared/components/textbox/textbox.component';
 
 @Component({
   selector: 'app-common-component',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommonComponentComponent implements OnInit {
 
+  wpc = 'wangpinchao';
   public tooltipList = [
     {
       id: 0,
@@ -29,9 +32,30 @@ export class CommonComponentComponent implements OnInit {
       content: '这是第五tooltip块'
     }
   ];
-  constructor() { }
+  constructor(
+    private dialogService: DialogService
+  ) { }
 
   ngOnInit() {
   }
 
+  toggleMesssage() {
+    this.dialogService.open(TextboxComponent, {
+      inputs: {
+        wpc: this.wpc
+      },
+      outputs: {},
+      position: {
+        top: `50%`,
+        left: `50%`,
+        width: `100px`,
+        height: `50px`
+      }
+    });
+  }
+
+  removeDialog(ev: Event) {
+    console.log(ev);
+    this.dialogService.close();
+  }
 }
