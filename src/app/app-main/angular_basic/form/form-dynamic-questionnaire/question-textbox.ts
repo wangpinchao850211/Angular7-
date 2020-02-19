@@ -7,7 +7,7 @@ export class TextboxQuestion extends QuestionBase<string> {
 
   constructor(options: {} = {}) {
     super(options);
-    console.log(options['type']);
-    this.type = options['type'] || '';
+    // console.log(options['type']);
+    // this.type = options['type'] || '';
   }
 }

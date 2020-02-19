@@ -7,7 +7,7 @@ export class DropdownQuestion extends QuestionBase<string> {
 
   constructor(options: {} = {}) {
     super(options);
-    console.log(options['options']);
+    // console.log(options['options']);
     this.options = options['options'] || [];
   }
 

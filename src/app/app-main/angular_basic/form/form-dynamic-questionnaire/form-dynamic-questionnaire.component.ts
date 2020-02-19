@@ -7,7 +7,9 @@ import { QuestionService } from './question.service';
 @Component({
   selector: 'app-form-dynamic-questionnaire',
   templateUrl: './form-dynamic-questionnaire.component.html',
-  styleUrls: ['./form-dynamic-questionnaire.component.scss']
+  styleUrls: ['./form-dynamic-questionnaire.component.scss'],
+  // 我去，这个问题太溜了！！，将QuestionService只提供到这个组件，不提供到providedIn: 'root'，就解决表单重复加载问题！！！
+  providers: [QuestionService]
 })
 // 是表单的主要容器和入口点。
 export class FormDynamicQuestionnaireComponent implements OnInit {
@@ -20,7 +22,7 @@ export class FormDynamicQuestionnaireComponent implements OnInit {
     private service: QuestionService) { }
 
   ngOnInit() {
-    this.questions = this.service.getQuestions();
+    this.questions = this.service.getFieldType();
     console.log(this.questions); 
     this.form = this.qcs.toFormGroup(this.questions);
   }

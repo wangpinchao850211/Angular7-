@@ -15,7 +15,7 @@ export class FormArrayComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder) {
-    console.log(this.fb);
+    // console.log(this.fb);
   }
 
   ngOnInit() {
@@ -46,7 +46,7 @@ export class FormArrayComponent implements OnInit {
   }
   arrayChange(val) {
     // 可以获取到值
-    console.log(val);
+    // console.log(val);
   }
 
 }

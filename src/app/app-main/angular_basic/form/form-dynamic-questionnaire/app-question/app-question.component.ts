@@ -22,7 +22,9 @@ export class AppQuestionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.question);
   }
+
   choose(val) {
     console.log(val);
     // 手动触发设置form值

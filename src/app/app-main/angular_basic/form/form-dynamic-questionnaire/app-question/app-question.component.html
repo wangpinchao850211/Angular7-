@@ -4,7 +4,7 @@
   <div [ngSwitch]="question.controlType">
  
     <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
-            [id]="question.key" [type]="question.type">
+            [id]="question.key" type="text">
  
     <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
@@ -18,6 +18,12 @@
               [id]="question.key" type="radio" value="女生" name="{{question.key}}" (click)="choose('女生')">
                 
     </ng-container>
+
+    <!-- 添加checkbox到formcontrol -->
+    <ng-container *ngSwitchCase="'CheckBox'">    
+      <p *ngFor="let check of question.checkOption"><input type="checkbox" name="{{question.key}}" value="{{check.OptionResponse.OptionDesc}}" /> {{check.OptionResponse.OptionDesc}}</p>
+    </ng-container>
+    
   </div> 
  
   <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
