@@ -3389,7 +3389,6 @@ export class DataSource {
                 "required": true,
                 "order": 2
             },
-            
             {
                 "key": 'checkIt',
                 "label": 'This could include, but is not limited to, the following (check any boxes that apply):',
@@ -3409,7 +3408,7 @@ export class DataSource {
                         "ResponseId": "00000000-0000-0000-0000-000000000000",
                         "RepeatSectionIdentifier": "",
                         "RepeatQuestionIdentifier": "",
-                        "ResponseTxt": "",
+                        "ResponseCheck": true,
                         "Dependency": []
                     }
                 }, {
@@ -3424,7 +3423,7 @@ export class DataSource {
                         "ResponseId": "00000000-0000-0000-0000-000000000000",
                         "RepeatSectionIdentifier": "",
                         "RepeatQuestionIdentifier": "",
-                        "ResponseTxt": "",
+                        "ResponseCheck": false,
                         "Dependency": []
                     }
                 }, {
@@ -3439,7 +3438,7 @@ export class DataSource {
                         "ResponseId": "00000000-0000-0000-0000-000000000000",
                         "RepeatSectionIdentifier": "",
                         "RepeatQuestionIdentifier": "",
-                        "ResponseTxt": "",
+                        "ResponseCheck": false,
                         "Dependency": []
                     }
                 }, {
@@ -3454,7 +3453,7 @@ export class DataSource {
                         "ResponseId": "00000000-0000-0000-0000-000000000000",
                         "RepeatSectionIdentifier": "",
                         "RepeatQuestionIdentifier": "",
-                        "ResponseTxt": "",
+                        "ResponseCheck": false,
                         "Dependency": []
                     }
                 }, {
@@ -3469,7 +3468,7 @@ export class DataSource {
                         "ResponseId": "00000000-0000-0000-0000-000000000000",
                         "RepeatSectionIdentifier": "",
                         "RepeatQuestionIdentifier": "",
-                        "ResponseTxt": "",
+                        "ResponseCheck": false,
                         "Dependency": []
                     }
                 }, {
@@ -3484,7 +3483,7 @@ export class DataSource {
                         "ResponseId": "00000000-0000-0000-0000-000000000000",
                         "RepeatSectionIdentifier": "",
                         "RepeatQuestionIdentifier": "",
-                        "ResponseTxt": "",
+                        "ResponseCheck": false,
                         "Dependency": []
                     }
                 }],

@@ -8,7 +8,7 @@ export class DropdownQuestion extends QuestionBase<string> {
   constructor(options: {} = {}) {
     super(options);
     // console.log(options['options']);
-    this.options = options['options'] || [];
+    this.options = options['options'] || []; // 传来的数据，用此class变量接一下，方便在组件使用
   }
 
 }

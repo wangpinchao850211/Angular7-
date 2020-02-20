@@ -20,11 +20,14 @@
     </ng-container>
 
     <!-- 添加checkbox到formcontrol -->
-    <ng-container *ngSwitchCase="'CheckBox'">    
-      <p *ngFor="let check of question.checkOption"><input type="checkbox" name="{{question.key}}" value="{{check.OptionResponse.OptionDesc}}" /> {{check.OptionResponse.OptionDesc}}</p>
+    <ng-container *ngSwitchCase="'CheckBox'" >  
+        <p *ngFor="let check of checkboxControl.controls; let i = index;">
+          <input type="checkbox" [formControl]="check" value="{{question.checkOption[i].OptionResponse.OptionDesc}}"/> 
+          {{question.checkOption[i].OptionResponse.OptionDesc}}
+        </p>
     </ng-container>
     
   </div> 
- 
+  
   <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
 </div>

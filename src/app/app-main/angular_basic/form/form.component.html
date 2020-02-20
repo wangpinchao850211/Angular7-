@@ -1,5 +1,14 @@
 <div class="formWarpper">
-  <nz-tabset [nzSize]="size" style=" width: 90%; margin: 10px auto;background: lightgray;">
+  <nz-tabset style=" width: 90%; margin: 10px auto;background: lightgray;">
+    <nz-tab nzTitle="复选框校验">
+      <form [formGroup]="checkBoxForm" style="margin-left: 20px;">
+        <div class="like" *ngFor="let like of likes.controls; let i = index;" >
+          <input type="checkbox" [formControl]="like"> 
+         {{likesArr[i]}}
+        </div>
+        <div class="youselect">{{selects}}</div>
+       </form>
+    </nz-tab>
     <nz-tab nzTitle="表单基础">
       <p style="text-indent: 20px;">
         angular中使用原生的form，会为这个标签自动填上ngForm指令（可使用在form标签以外的其他标签上，添加这个指令后，如同写一个form标签），原生的action，和method属性都会失效。使用type="submit"不好使。意在angular接管form表单提交。如果不想angular接管可在form标签上添加ngNoForm指令。
@@ -67,5 +76,7 @@
     <nz-tab nzTitle="动态表单实战问卷">
       <app-form-dynamic-questionnaire></app-form-dynamic-questionnaire>
     </nz-tab>
+    
   </nz-tabset>
+
 </div>

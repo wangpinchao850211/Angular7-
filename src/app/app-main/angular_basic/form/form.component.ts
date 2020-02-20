@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormArray, FormGroup } from '@angular/forms';
+import { FormControl, FormArray, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -24,9 +24,30 @@ export class FormComponent implements OnInit {
     ])
   });
 
-  constructor() {}
+  // checkbox校验使用
+  checkBoxForm: FormGroup;
+  likesArr: string[] = ['喜欢','不喜欢','非常喜欢','超级喜欢','喜欢得不得了'];
+
+  selects: string[] = ['喜欢'];
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    // checkbox 使用
+    this.checkBoxForm = this.fb.group({
+      likes: this.fb.array([true, false, false, false, false])
+    });
+
+    this.likes.valueChanges.subscribe(values => {
+      let selects: string[] = [];
+      values.forEach((selected: boolean ,i: number) => {
+        selected === true && selects.push(this.likesArr[i])
+      });
+      this.selects = selects;
+    });
+  }
+  get likes () {
+    return this.checkBoxForm.get('likes'); 
   }
   wpcChange(ev) {
     console.log(ev);
@@ -43,5 +64,6 @@ export class FormComponent implements OnInit {
     // this.formModel.get('emails') 这是一个formArray的对象，下面是转成数组的方式
     let emails = this.formModel.get('emails') as FormArray
     emails.push(new FormControl());
+
   }
 }

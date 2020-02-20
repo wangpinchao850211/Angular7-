@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { QuestionBase } from '../question-base';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-question',
@@ -13,16 +13,22 @@ export class AppQuestionComponent implements OnInit {
   radioValue: '';
   @Input() question: QuestionBase<any>;
   @Input() form: FormGroup;
+
   get isValid() { 
-    // console.log(this.question.key);
-    // console.log(this.form);
-    // console.log(this.form.controls[this.question.key].valid);
     return this.form.controls[this.question.key].valid; 
   }
+  get checkboxControl() {
+    return this.form.get(this.question.key) as FormArray;
+  }
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.question);
+    // console.log(this.question);
+
+    // console.log(this.form);
+    // console.log(this.form.controls[this.question.key]);
+    // console.log(this.form.get(this.question.key));
   }
 
   choose(val) {

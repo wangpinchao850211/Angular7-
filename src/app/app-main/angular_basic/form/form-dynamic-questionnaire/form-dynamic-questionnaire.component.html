@@ -2,6 +2,7 @@
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
  
     <div *ngFor="let question of questions" class="form-row">
+      <!-- 需要子组件传递出来有依赖关系的事件值和标识，在外层判断元数据，再动态更改 questions来达到显示隐藏，数据这块要深入考虑！！！-->
       <app-question [question]="question" [form]="form"></app-question>
     </div>
  

@@ -97,13 +97,12 @@ export class QuestionService implements OnInit {
 
   getFieldType() {
     const questionSource = DataSource.simpleQuestionData.sections;
-    console.log(questionSource.length);
     for (let index = 0; index < questionSource.length; index++) {
       const field = questionSource[index];
       this.questionSource.push(this.getQuestion(field));
     }
     
-    console.log(this.questionSource);
+    // console.log(this.questionSource);
     // return this.questionSource;
     return this.questionSource.sort((a, b) => a.order - b.order);
   }
