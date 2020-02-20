@@ -33,7 +33,8 @@ import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFo
 import { WpcTooltipComponent } from './components/wpc-tooltip/wpc-tooltip.component'
 import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-directive.directive';
 import { DialogComponent } from './components/wpc-dialog/dialog.component.ts/dialog.component.ts.component';
-import { DialogDirective } from './components/wpc-dialog/dialog.directive'
+import { DialogDirective } from './components/wpc-dialog/dialog.directive';
+import { WpcMessageComponent } from './components/wpc-message/wpc-message.component'
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { DialogDirective } from './components/wpc-dialog/dialog.directive'
     WpcTooltipComponent,
     WpcTooltipDirective,
     DialogComponent,
-    DialogDirective
+    DialogDirective,
+    WpcMessageComponent
   ],
   imports: [
     CommonModule,
