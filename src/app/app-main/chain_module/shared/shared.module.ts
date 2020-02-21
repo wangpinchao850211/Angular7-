@@ -32,9 +32,11 @@ import { PrivacyStatementPoppageComponent } from './components/privacy-statement
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 import { WpcTooltipComponent } from './components/wpc-tooltip/wpc-tooltip.component'
 import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-directive.directive';
-import { DialogComponent } from './components/wpc-dialog/dialog.component.ts/dialog.component.ts.component';
+import { WpcDialogComponent } from './components/wpc-dialog/dialog.component.ts/dialog.component.ts.component';
 import { DialogDirective } from './components/wpc-dialog/dialog.directive';
-import { WpcMessageComponent } from './components/wpc-message/wpc-message.component'
+import { WpcMessageComponent } from './components/wpc-message/wpc-message.component';
+import { WpcMessageService } from './components/wpc-message/wpcmessage.service'
+import { MessagedomService } from './components/wpc-message/messagedom.service'
 
 @NgModule({
   declarations: [
@@ -60,7 +62,7 @@ import { WpcMessageComponent } from './components/wpc-message/wpc-message.compon
     PrivacyStatementPoppageComponent,
     WpcTooltipComponent,
     WpcTooltipDirective,
-    DialogComponent,
+    WpcDialogComponent,
     DialogDirective,
     WpcMessageComponent
   ],
@@ -68,7 +70,7 @@ import { WpcMessageComponent } from './components/wpc-message/wpc-message.compon
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
   exports: [
     TextboxComponent, DropdownComponent, ButtonComponent, CheckboxComponent,
@@ -81,10 +83,12 @@ import { WpcMessageComponent } from './components/wpc-message/wpc-message.compon
     WpcTooltipDirective 
   ],
   entryComponents: [
-    TextboxComponent
+    TextboxComponent,
+    WpcDialogComponent,
+    WpcMessageComponent // 全局message要再entry里加一下
   ],
   providers: [
-    DomHandler,
+    DomHandler
   ]
 })
 export class SharedModule { }

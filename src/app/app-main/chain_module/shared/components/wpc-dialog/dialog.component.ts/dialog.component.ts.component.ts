@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
     }
   `]
 })
-export class DialogComponent implements OnInit {
+export class WpcDialogComponent implements OnInit {
 
   constructor() { }
 

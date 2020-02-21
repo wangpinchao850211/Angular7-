@@ -10,3 +10,30 @@
   <div id="overlay" class="hidden" (click)="removeDialog($event)"></div>
   <div id="dialog-container" class="hidden"></div>
 </ng-container>
+
+<h2>一、模板表单提交，showMessage</h2>
+<form #myForm="ngForm" (ngSubmit)="ngSubmit(myForm.value)">
+  <ul>
+    <li>
+      <label for="userName">用户名</label>
+      <input type="text" #username="ngModel" ngModel name="userName" id="userName">
+    </li>
+    <li>
+      <label for="phoneNumber">手机号</label>
+      <input type="text" ngModel name="phoneNumber" id="phoneNumber">
+    </li>
+    <div ngModelGroup="passwordsGroup">
+      <li>
+        <label for="password">密码</label>
+        <input type="password" ngModel name="password" id="password">
+      </li>
+      <li>
+        <label for="surePassword">确认密码</label>
+        <input type="password" ngModel name="surePassword" id="surePassword">
+      </li>
+    </div>
+    <li>
+      <button type="submit">提交</button>
+    </li>
+  </ul>
+</form>
