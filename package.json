@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "server": "json-server --watch mock/data.json --port 3002",
-    "start": "ng serve --open --port 4202",
+    "start": "ng serve",
+    "startwo": "ng serve my-other-app --open --port 4203",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
