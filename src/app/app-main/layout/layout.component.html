@@ -1,4 +1,7 @@
 <p id="mainLayout">
-  <router-outlet></router-outlet>
+  <router-outlet 
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+    ></router-outlet>
   <!-- 路由是将渲染的组件显示到上面的插座下面，并不是router-outlet标签里 -->
 </p>

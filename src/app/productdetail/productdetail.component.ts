@@ -21,17 +21,20 @@ export class ProductdetailComponent implements OnInit {
       console.log(params);
     });
 
-    // this.routeInfo.paramMap.subscribe((params) => {
-    //   console.log(params);
-    // });
+    this.routeInfo.paramMap.subscribe((params) => {
+      console.log('第三种传值方法');
+      console.log(params);
+    });
 
-    // this.routeInfo.data.subscribe((params) => {
-    //   console.log(params);
-    // });
+    this.routeInfo.data.subscribe((params) => {
+      console.log('第三种传值方法');
+      console.log(params);
+    });
 
-    // this.routeInfo.queryParamMap.subscribe((params) => {
-    //   console.log(params);
-    // });
+    this.routeInfo.queryParamMap.subscribe((params) => {
+      console.log('第三种传值方法');
+      console.log(params);
+    });
 
     let paramsRouterId = this.routeInfo.snapshot.params["id"]; // 第二种使用params传递参数(挪到product组件里了)
 
