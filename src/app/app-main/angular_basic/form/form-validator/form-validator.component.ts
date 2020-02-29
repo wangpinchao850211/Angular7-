@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import * as Rx from 'rxjs';
+import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap, delay, take, takeUntil, pluck, pairwise, distinct, scan } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-validator',
@@ -15,8 +17,14 @@ export class FormValidatorComponent implements OnInit {
     // console.log(mobileVaild);
     // 校验通过不返回任何值，否则返回一个对象（mobile是hasError返回的key）
     return mobileVaild ? null : {mobile: true};
+  }
+  // 异步校验器
+  mobileAsyncVaild(control: FormControl):any  {
+    let myreq = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+    let mobileVaild = myreq.test(control.value);
+    // console.log(mobileVaild);
     // 校验器可以作为异步校验器，使用如下，然后将新的校验器名填入formValidModel使用对应字段的第三个参数
-    // return of(mobileVaild ? null : {mobile: true}).pipe(delay(1000));
+    return Rx.of(mobileVaild ? null : {mobile: true}).pipe(delay(1000));
   }
   passwordVaild(group: FormGroup): any { // 注意groupVaild使用加入的位置
     let password = group.get('passwordValid') as FormControl;
@@ -36,7 +44,7 @@ export class FormValidatorComponent implements OnInit {
     // 有三个方法,对应三个类 fb.group({})  fb.control({}) fb.array({})
     this.formValidModel = fb.group({
       username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-      mobile: ['', this.mobileVaild],
+      mobile: ['', this.mobileVaild, this.mobileAsyncVaild], // 做为第三个参数
       passwordGroup: fb.group({
         passwordValid: ['', Validators.minLength(8)],
         confirmPasswordValid: [''],
