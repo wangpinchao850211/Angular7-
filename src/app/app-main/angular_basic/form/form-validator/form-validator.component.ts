@@ -64,3 +64,15 @@ export class FormValidatorComponent implements OnInit {
     // console.log(JSON.stringify(error));
   }
 }
+
+/**
+ * 动态设置验证器方法：
+ * 1、设置验证器
+ *    this.loginForm.controls[`${name}`].setValidators([Validators.required, Validators.minLength(8), Validators.maxLength(40)]);
+ * 2、更新验证结果
+      this.loginForm.controls[`${name}`].updateValueAndValidity();
+    3、获取验证校验值
+      const currentUserNameValid = this.loginForm.get(`${name}`).valid;
+  * 
+  * **/ 
+
