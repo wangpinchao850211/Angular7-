@@ -37,7 +37,8 @@ export class HttpServiceService extends HttpClient  {
   }
 
   PostPromise<T>(url, data): Promise<T> {
-    return this.http.post<T>(url, data).toPromise()
+    const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})}
+    return this.http.post<T>(url, data, options).toPromise()
   }
 
   loading(spinnerText?: string) {

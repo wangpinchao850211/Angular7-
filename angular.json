@@ -75,7 +75,8 @@
           "options": {
             "browserTarget": "my-app:build",
             "port": 4202,
-            "open": true
+            "open": true,
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormArray, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { HttpServiceService } from '../../../services/http-service.service';
 
 @Component({
   selector: 'app-form',
@@ -30,7 +31,9 @@ export class FormComponent implements OnInit {
 
   selects: string[] = ['喜欢'];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpServiceService) {}
 
   ngOnInit() {
     // checkbox 使用
@@ -47,7 +50,7 @@ export class FormComponent implements OnInit {
     });
   }
   get likes () {
-    return this.checkBoxForm.get('likes'); 
+    return this.checkBoxForm.get('likes');
   }
   wpcChange(ev) {
     console.log(ev);
@@ -56,6 +59,16 @@ export class FormComponent implements OnInit {
   }
   ngSubmit(value) { // 模板表单提交值
     console.log(value);
+    const param = {
+      username: value.userName,
+      password: value.passwordsGroup.password
+    }
+    console.log(param);
+    // 进行node后台请求
+    this.http.PostPromise('/api/user/login', param)
+              .then((res) => {
+                console.log(res);
+              })
   }
   reativeSubmit() {
     console.log(this.formModel.value);
