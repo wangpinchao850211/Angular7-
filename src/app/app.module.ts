@@ -103,7 +103,7 @@ import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
-// import { FileUploadModule } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -251,7 +251,7 @@ registerLocaleData(zh);
     TimepickerModule.forRoot(),
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
-    // FileUploadModule,
+    FileUploadModule,
     // CKeditor
     CKEditorModule
   ],

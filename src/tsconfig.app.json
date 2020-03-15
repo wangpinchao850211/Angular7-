@@ -4,6 +4,8 @@
     "outDir": "../out-tsc/app",
     "allowJs": true,
     "downlevelIteration": true,
+    "_comment": "skipLibCheck是避免同名module报错",
+    "skipLibCheck": true,
     "types": []
   },
   "exclude": [
