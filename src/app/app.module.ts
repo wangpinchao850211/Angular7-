@@ -7,7 +7,7 @@ import { tabReducer } from './store/tab-reducer';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
-import {CdkTableModule} from '@angular/cdk/table'; 
+import {CdkTableModule} from '@angular/cdk/table';
 
 import { TooltipModule, AccordionModule, CarouselModule, BsDropdownModule, BsDatepickerModule, PaginationModule, TimepickerModule  } from 'ngx-bootstrap';
 import { NzIconModule } from 'ng-zorro-antd';
@@ -103,15 +103,17 @@ import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
+// import { FileUploadModule } from 'ng2-file-upload';
 
 // primeng modle
-import {FileUploadModule} from 'primeng/fileupload';
+// import {FileUploadModule} from 'primeng/fileupload';
 
 // CKeditor
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { EditorComponent } from './app-main/angular_editor/editorLayout';
 import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
 import { CountDownComponent } from './app-main/angular_home/count-down/count-down.component';
+import { WpcNg2FileUploadComponent } from './app-main/angular_basic/wpc-ng2-file-upload/wpc-ng2-file-upload.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -200,22 +202,23 @@ registerLocaleData(zh);
     EditorComponent,
     CkeditorComponent,
     CountDownComponent,
+    WpcNg2FileUploadComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
-    StoreModule.forRoot({ 
+    StoreModule.forRoot({
       count: counterReducer,
-      tab: tabReducer 
+      tab: tabReducer
     }), // 注册store
     AppRoutingModule,
     NgZorroAntdModule,
     FormsModule, // 添加这个可以使用ngModule (模板式表单)
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
-    
+
     MatTabsModule, // 引入tab
     MatExpansionModule, // 引入panel
     MatIconModule, // 引入icon
@@ -248,8 +251,7 @@ registerLocaleData(zh);
     TimepickerModule.forRoot(),
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
-    FileUploadModule,
-
+    // FileUploadModule,
     // CKeditor
     CKEditorModule
   ],

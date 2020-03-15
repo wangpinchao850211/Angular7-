@@ -35,6 +35,7 @@ import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-conte
 import { PeekABooComponent } from './app-main/angular_basic/peek-a-boo/peek-a-boo.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
+import { WpcNg2FileUploadComponent } from './app-main/angular_basic/wpc-ng2-file-upload/wpc-ng2-file-upload.component';
 import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
 import { EditorComponent } from './app-main/angular_editor/editorLayout';
 
@@ -75,9 +76,9 @@ const routes: Routes = [
         children: [
           // {path:'', component: xxxx}, 这种就是子路由的空路径的配置，跳转时a标签[routerLink]="['./']"设置成这样
           { path: 'product/:id', component: ProductComponent },
-          { 
-            path: 'productdetail', 
-            component: ProductdetailComponent, 
+          {
+            path: 'productdetail',
+            component: ProductdetailComponent,
             data: {title: '固定的字符串'} // 第三种传值方法
           }, // 传递参数直接在routerLink增加参数即可
           // 下面配置的是辅助路由，在跳转时添加，aux映射组件即可，无需写跳转路径，即会跳到aux路由插座下
@@ -93,7 +94,10 @@ const routes: Routes = [
       { path: 'directivesOrpip', component: DirectivePipeComponent },
       { path: 'ngContent', component: NgContentComponent },
       { path: 'showWorkMemberList', component: WorkMemberListComponent },
-      { path: 'fileUpload', component: UploadFileComponent }
+      { path: 'fileUpload', component: UploadFileComponent },
+      {
+        path: 'wpcNg2FileUpload', component: WpcNg2FileUploadComponent
+      }
     ]
   },
   {

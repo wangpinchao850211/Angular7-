@@ -10,7 +10,8 @@
       "peekboo",
       "ngContent",
       "showWorkMemberList",
-      "fileUpload"
+      "fileUpload",
+      "wpcNg2FileUpload"
   ],
   "AngularRxjs": [
     "rxjsBasic",
