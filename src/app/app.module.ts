@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'ng2-file-upload';
 // 注册store
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter';
@@ -103,7 +105,6 @@ import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
-import { FileUploadModule } from 'ng2-file-upload';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -214,6 +215,8 @@ registerLocaleData(zh);
       tab: tabReducer
     }), // 注册store
     AppRoutingModule,
+    CommonModule,
+    FileUploadModule,
     NgZorroAntdModule,
     FormsModule, // 添加这个可以使用ngModule (模板式表单)
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
@@ -251,7 +254,6 @@ registerLocaleData(zh);
     TimepickerModule.forRoot(),
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
-    FileUploadModule,
     // CKeditor
     CKEditorModule
   ],

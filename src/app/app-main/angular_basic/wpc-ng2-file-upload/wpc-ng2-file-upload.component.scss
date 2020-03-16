@@ -1,0 +1,33 @@
+.file-upload {
+  border: 1px solid blue;
+  box-sizing: border-box;
+  height: 100px;
+  line-height: 100px;
+  padding: 0 5px;
+  text-align: center;
+}
+.file-item-wrapper{
+  display: inline;
+  box-sizing: border-box;
+  border: 1px solid rebeccapurple;
+  position: relative;
+  background: blue;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.file-item-wrapper > label {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+}
+.file-item-wrapper > input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 20px;
+  display: none;
+}
