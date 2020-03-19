@@ -23,6 +23,10 @@
 @import "../node_modules/primeng/resources/themes/nova-light/theme.css";
 @import "../node_modules/primeng/resources/primeng.min.css";
 
+// import ant-zorro 样式
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.min.css"; /* 引入基本样式 */
+
+
 :host>>>.tooltip-parent{
   position: relative;
   left: 0;

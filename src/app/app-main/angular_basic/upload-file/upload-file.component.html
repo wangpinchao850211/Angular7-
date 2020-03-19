@@ -1,10 +1,12 @@
 <h3 class="first">Advanced</h3>
 <!-- <p-fileUpload
         name="demo[]"
-        url="http://localhost:3000/uploadfiles"
+        url="/api/file/fileupload"
         (onUpload)="onUpload($event)"
         (onBeforeUpload)="onBasicBeforeUpload($event)"
-        multiple="multiple" accept="image/*" maxFileSize="1000000">
+        multiple="multiple"
+        accept="image/*,text/plain,"
+        maxFileSize="1000000">
     <ng-template pTemplate="content">
         <ul *ngIf="uploadedFiles.length">
             <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
@@ -35,6 +37,7 @@
             <div ng2FileDrop
                  [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
                  (fileOver)="fileOverBase($event)"
+                 (onFileDrop)="fileDropOver($event)"
                  [uploader]="uploader"
                  class="well my-drop-zone">
                 Base drop zone
@@ -43,13 +46,14 @@
             <div ng2FileDrop
                  [ngClass]="{'another-file-over-class': hasAnotherDropZoneOver}"
                  (fileOver)="fileOverAnother($event)"
+                 (onFileDrop)="fileAnotherDropOver($event)"
                  [uploader]="uploader"
                  class="well my-drop-zone">
                 Another drop zone
             </div>
 
             Multiple
-            <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+            <input type="file" ng2FileSelect [uploader]="uploaderArray" multiple  /><br/>
 
             Single
             <input type="file" ng2FileSelect [uploader]="uploader" />
@@ -104,7 +108,7 @@
 
             <div>
                 <div>
-                    Queue progress:
+                    进度条 Queue progress:
                     <div class="progress" style="">
                         <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                     </div>
@@ -139,4 +143,16 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="ant-upload-wrapper">
+  <!-- 引入有问题，没引入成功 -->
+  <!-- <nz-upload
+      zAction="/api/file/fileupload"
+      nzMultiple
+      [nzLimit]="2"
+      [nzCustomRequest]="customReq"
+      (nzChange)="handleChange($event)">
+    <button nz-button><i nz-icon nzType="upload"></i><span>Click to Upload</span></button>
+  </nz-upload> -->
 </div>

@@ -41,6 +41,11 @@ export class HttpServiceService extends HttpClient  {
     return this.http.post<T>(url, data, options).toPromise()
   }
 
+  PostFormDataFileUpload<T>(url, data): Promise<T> {
+    const options = { headers: new HttpHeaders({'Content-Type': 'multipart/form-data'})}
+    return this.http.post<T>(url, data, options).toPromise()
+  }
+
   loading(spinnerText?: string) {
     const loaderInterceptor = this.injector.get(LoaderInterceptor).configure(spinnerText);
     console.log(loaderInterceptor);
