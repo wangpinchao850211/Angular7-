@@ -1,0 +1,13 @@
+:host {
+    position: absolute;
+    left: 0;
+    top: 32px;
+    min-width: max-content;
+}
+.promot-message{
+    display: inherit;
+    text-align: left;
+    line-height: 12px;
+    font-size: 10px;
+    color: red;
+}

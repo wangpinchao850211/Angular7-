@@ -1,0 +1,20 @@
+.layout-wrapper{
+    display: flex; 
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+.layout-header, .layout-footer{ 
+    height: 80px;
+    line-height: 80px;
+    background-color: #aaa; 
+    font-size: 16px;
+	font-weight: 600;
+}
+.layout-main{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}

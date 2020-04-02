@@ -38,10 +38,31 @@ import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload
 import { WpcNg2FileUploadComponent } from './app-main/angular_basic/wpc-ng2-file-upload/wpc-ng2-file-upload.component';
 import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
 import { EditorComponent } from './app-main/angular_editor/editorLayout';
+import { LoginComponent } from './login/login/login.component';
+import { SetPasswordComponent } from './login/set-password/set-password.component';
+import { LoginLayoutComponent } from './login/layout/layout.component';
 
 const routes: Routes = [
   // Main redirect
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+  {
+      path: 'wpcL',
+      // canActivate: [ CanRefreshGuard ],
+      component: LoginLayoutComponent,
+      children: [{
+        path: 'login',
+        component: LoginComponent
+      }] 
+  },
+  {
+      path: 'wpcS',
+      component: LoginLayoutComponent,
+      children: [{
+        path: 'setPassword',
+        component: SetPasswordComponent
+      }]
+  },
 
   // App views
   {
