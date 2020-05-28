@@ -37,6 +37,7 @@ export enum MenuToTabMapping {
   AngularScss = '/Angular_Scss/AngularScss',
   CKEditor = '/Angular_Editor/CKEditor',
   MvcUseH5Css3 = '/Mvc_Use_h5_Css3/MvcUseH5Css3',
+  Echart = '/Echart/NgxEchart'
 }
 
 export enum AngularRxjs {

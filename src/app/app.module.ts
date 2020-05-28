@@ -113,6 +113,7 @@ import { LoginLayoutComponent } from './login/layout/layout.component';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
+import {ButtonModule} from 'primeng/button';
 
 // CKeditor
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -120,7 +121,14 @@ import { EditorComponent } from './app-main/angular_editor/editorLayout';
 import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
 import { CountDownComponent } from './app-main/angular_home/count-down/count-down.component';
 import { WpcNg2FileUploadComponent } from './app-main/angular_basic/wpc-ng2-file-upload/wpc-ng2-file-upload.component';
+import { EchartLayoutComponent } from './app-main/echart/echart-layout/echart-layout.component';
+import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.component';
+import { ChartOneComponent } from './app-main/echart/chart-one/chart-one.component';
+import { ChartTwoComponent } from './app-main/echart/chart-two/chart-two.component';
 
+// import NgxEchartsModule
+import { NgxEchartsModule } from 'ngx-echarts';
+import * as echarts from 'echarts';
 
 registerLocaleData(zh);
 
@@ -214,7 +222,11 @@ registerLocaleData(zh);
     LoginComponent,
     SetPasswordComponent,
     PromptMessageComponent,
-    LoginLayoutComponent
+    LoginLayoutComponent,
+    EchartLayoutComponent,
+    NgxEchartComponent,
+    ChartOneComponent,
+    ChartTwoComponent
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,
@@ -267,8 +279,10 @@ registerLocaleData(zh);
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
     NzUploadModule, // ant 文件上传
+    ButtonModule,
     // CKeditor
-    CKEditorModule
+    CKEditorModule,
+    NgxEchartsModule
   ],
   exports: [
     // ScrollingModule // 没有引用CDK到项目中！！！

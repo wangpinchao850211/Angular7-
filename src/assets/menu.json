@@ -22,5 +22,6 @@
   "Angular_Material": ["AngularMaterial"],
   "Angular_Scss": ["AngularScss"],
   "Angular_Editor": ["CKEditor"],
-  "Mvc_Use_h5_Css3": ["MvcUseH5Css3"]
+  "Mvc_Use_h5_Css3": ["MvcUseH5Css3"],
+  "Echart": ["NgxEchart"]
 }

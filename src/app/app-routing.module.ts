@@ -41,6 +41,8 @@ import { EditorComponent } from './app-main/angular_editor/editorLayout';
 import { LoginComponent } from './login/login/login.component';
 import { SetPasswordComponent } from './login/set-password/set-password.component';
 import { LoginLayoutComponent } from './login/layout/layout.component';
+import { EchartLayoutComponent } from './app-main/echart/echart-layout/echart-layout.component';
+import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.component';
 
 const routes: Routes = [
   // Main redirect
@@ -162,6 +164,13 @@ const routes: Routes = [
     component: EditorComponent,
     children: [
       { path: 'CKEditor', component: CkeditorComponent },
+    ]
+  },
+  {
+    path: 'Echart',
+    component: EchartLayoutComponent,
+    children: [
+      { path: 'NgxEchart', component: NgxEchartComponent },
     ]
   },
   {

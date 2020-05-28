@@ -1,0 +1,14 @@
+<section class="main-pages-content">
+  <div class="ib m16">
+      <article>
+          <h5 class="title-border">
+            <a href="https://github.com/xieziyu/ngx-echarts">Ngx-Echarts@4.2.1</a>
+          </h5>
+      </article>
+      <button class="mt16" pButton type="button" (click)="changeWidth($event)" label="Change Width"></button>
+  </div>
+  <div [ngStyle]="{'width': width}">
+      <app-chart-one></app-chart-one>
+      <app-chart-two></app-chart-two>
+  </div>
+</section>

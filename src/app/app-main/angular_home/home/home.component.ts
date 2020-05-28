@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   // 倒计时
   startDate = new Date(2019, 12, 22);
   futureDate = new Date(2020, 2, 2);
+
+  title="向history.pushState push url 并不跳转";
   
   constructor(
     private store: Store<AppState> // 注入store
@@ -39,5 +41,15 @@ export class HomeComponent implements OnInit {
 
   updateGreeting() {
     this.greeting = 'yellow';
+  }
+
+  PushState() {
+    const newState = {
+        url: window.location.origin + '/newhistoryurl',
+        title: document.title,
+        state: 'login'
+    };
+    console.log(newState);
+    window.history.pushState(newState, '', '/newhistoryurl');
   }
 }
