@@ -130,7 +130,7 @@ import { ChartTwoComponent } from './app-main/echart/chart-two/chart-two.compone
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
 import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
-import { WpcMenuComponent } from './app-main/angular_basic/wpc-menu/wpc-menu.component';
+import { WpcMenuComponent } from './app-main/angular_basic/self-cycling/wpc-menu/wpc-menu.component';
 
 registerLocaleData(zh);
 
