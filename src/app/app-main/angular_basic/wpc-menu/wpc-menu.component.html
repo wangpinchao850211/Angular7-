@@ -1,0 +1,9 @@
+<div  [ngClass]="{'MenuName': group.hasChild, 'Menu': !group.hasChild}">
+  <!-- <img src="./assets/images/cd-icons.svg" alt="默认箭头" sizes="" srcset=""> -->
+  {{group.name}}
+</div>
+<ul class="menu-ul" *ngIf="group.hasChild" [ngStyle]="{display: group.isOpen?'block': 'none'}">
+    <li class="menu-li"  *ngFor="let iGroup of group.children">
+      <app-wpc-menu [group]="iGroup"></app-wpc-menu>
+    </li>
+</ul>

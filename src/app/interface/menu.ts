@@ -29,6 +29,7 @@ export enum MenuToTabMapping {
   showWorkMemberList = '/AngularBasic/showWorkMemberList',
   fileUpload = '/AngularBasic/fileUpload',
   wpcNg2FileUpload = '/AngularBasic/wpcNg2FileUpload',
+  selfCyclingComponent = '/AngularBasic/selfCyclingComponent',
   rxjsBasic = '/AngularRxjs/rxjsBasic',
   ngrxStore = '/AngularRxjs/ngrxStore',
   animateBasic = '/AngularAnimate/animateBasic',
@@ -65,5 +66,4 @@ export const menu = { // 导出对象
 };
 
 export enum MenuToTab {
-
 }

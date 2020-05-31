@@ -129,6 +129,8 @@ import { ChartTwoComponent } from './app-main/echart/chart-two/chart-two.compone
 // import NgxEchartsModule
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
+import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
+import { WpcMenuComponent } from './app-main/angular_basic/wpc-menu/wpc-menu.component';
 
 registerLocaleData(zh);
 
@@ -226,11 +228,13 @@ registerLocaleData(zh);
     EchartLayoutComponent,
     NgxEchartComponent,
     ChartOneComponent,
-    ChartTwoComponent
+    ChartTwoComponent,
+    SelfCyclingComponent,
+    WpcMenuComponent
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,
-      PromptMessageComponent
+      PromptMessageComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块

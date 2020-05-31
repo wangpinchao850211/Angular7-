@@ -43,6 +43,7 @@ import { SetPasswordComponent } from './login/set-password/set-password.componen
 import { LoginLayoutComponent } from './login/layout/layout.component';
 import { EchartLayoutComponent } from './app-main/echart/echart-layout/echart-layout.component';
 import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.component';
+import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
 
 const routes: Routes = [
   // Main redirect
@@ -120,6 +121,9 @@ const routes: Routes = [
       { path: 'fileUpload', component: UploadFileComponent },
       {
         path: 'wpcNg2FileUpload', component: WpcNg2FileUploadComponent
+      },
+      {
+        path: 'selfCyclingComponent', component: SelfCyclingComponent
       }
     ]
   },

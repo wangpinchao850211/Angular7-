@@ -1,0 +1,10 @@
+<h2>
+  循环嵌套组件，封装menu!
+</h2>
+
+<!-- menu组件 -->
+<div class="wpc-menu-wrapper">
+  <ng-container *ngFor="let item of treeData">
+    <app-wpc-menu [group]="item"></app-wpc-menu>
+  </ng-container>
+</div>

@@ -11,7 +11,8 @@
       "ngContent",
       "showWorkMemberList",
       "fileUpload",
-      "wpcNg2FileUpload"
+      "wpcNg2FileUpload",
+      "selfCyclingComponent"
   ],
   "AngularRxjs": [
     "rxjsBasic",
