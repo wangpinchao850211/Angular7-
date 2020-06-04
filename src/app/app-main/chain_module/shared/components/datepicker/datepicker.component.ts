@@ -23,7 +23,7 @@ export class DatepickerComponent implements OnInit {
 
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    const tmpDate: any = moment(event.value).utc().toDate()
+    const tmpDate: any = moment(event.value).utc().toDate(); // 处理时间格式
     // this.contentChange.emit(event.value)
     this.contentChange.emit(tmpDate)
     // console.log('date', event)

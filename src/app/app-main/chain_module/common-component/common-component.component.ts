@@ -12,6 +12,9 @@ import { WpcMessageService } from '../shared/components/wpc-message/wpcmessage.s
 export class CommonComponentComponent implements OnInit {
 
   wpc = 'wangpinchao';
+  requestorDetailsInfo = {
+    ContractStatus: ''
+  };
   public tooltipList = [
     {
       id: 0,

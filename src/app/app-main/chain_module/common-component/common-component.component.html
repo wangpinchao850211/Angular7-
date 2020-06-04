@@ -37,3 +37,17 @@
     </li>
   </ul>
 </form>
+
+<h2>二、BC radio</h2>
+<label class="rc-container">
+  YES
+  <input type="radio" [checked]="requestorDetailsInfo.ContractStatus=='Y'"
+    (click)="requestorDetailsInfo.ContractStatus='Y'">
+  <span class="checkmark r"></span>
+</label>
+<label class="rc-container">
+  No
+  <input type="radio" [checked]="requestorDetailsInfo.ContractStatus=='N'"
+    (click)="requestorDetailsInfo.ContractStatus= 'N'">
+  <span class="checkmark r"></span>
+</label>
