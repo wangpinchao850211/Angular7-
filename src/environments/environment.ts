@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  websocketUrl: 'http://localhost:3000',
+  websocketPath: 'api',
   OAuth: {
     clientID: 'c047b90b-07de-45cc-b2e2-cca83ab14163',
     tenant: 'f3211d0e-125b-42c3-86db-322b19a65a22',

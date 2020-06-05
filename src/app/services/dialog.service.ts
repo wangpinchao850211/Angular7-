@@ -6,7 +6,15 @@ export enum DialogType {
   question,
   warning,
   alert,
-  success
+  success,
+  sstReject = 'AP SST Reject',
+  sstTerminate = 'AP SST Terminated',
+  sstApprove = 'AP SST Review Approved',
+  qcReject = 'AP QC Reject',
+  qcTerminate = 'AP QC Terminated',
+  qcApprove = 'AP QC Review Approved',
+  replace = 'Replace Email',
+  sendInvitation = 'Send Invitation'
 }
 
 export enum ButtonCommand {
@@ -56,9 +64,23 @@ export class ConfirmService {
   }
 }
 
+export class APReivewService {
+
+  requireReviewSource = new Subject<Confirmation>()
+  requireReview$ = this.requireReviewSource.asObservable()
+
+  confirm(confirmation: Confirmation) {
+    this.requireReviewSource.next(confirmation)
+    return this
+  }
+}
+
 @Injectable()
 export class DialogService {
-  constructor(private confirmationService: ConfirmService) { }
+  constructor(
+      private confirmationService: ConfirmService,
+      private apReviewService: APReivewService
+    ) { }
 
   async saveConfirm() {
     const dialogType = DialogType.warning
@@ -210,6 +232,88 @@ export class DialogService {
         header,
         options,
         buttons: btns
+      })
+    })
+  }
+
+  async apSstReject(message: string, options = {title: 'Rejection Input'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.sstReject,
+        message,
+        options
+      })
+    })
+  }
+
+  async apSstTerminate(message: string, options = {title: 'Termination Input'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.sstTerminate,
+        message,
+        options
+      })
+    })
+  }
+
+  async apSstApprove(message: string, options = {title: 'Approvement Input'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.sstApprove,
+        message,
+        options
+      })
+    })
+  }
+
+  async apQcReject(message: string, options = {title: 'Rejection Input'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.qcReject,
+        message,
+        options
+      })
+    })
+  }
+
+  async apQcTerminate(message: string, options = {title: 'Termination Input'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.qcTerminate,
+        message,
+        options
+      })
+    })
+  }
+
+  async apQcApprove(message: string, options = {title: 'Approvement Input'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.qcApprove,
+        message,
+        options
+      })
+    })
+  }
+
+  async replaceEmail(message: string, options = {title: 'Send Invitation'}): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.replace,
+        message,
+        options
+      })
+    })
+  }
+
+
+  async sendInvitation(message: string, options = {title: 'Send Invitation'}): Promise<any> {
+    console.log('message-------->',message)
+    return new Promise<any>((resolve, reject) => {
+      this.apReviewService.confirm({
+        dialogType: DialogType.sendInvitation,
+        message,
+        options
       })
     })
   }
