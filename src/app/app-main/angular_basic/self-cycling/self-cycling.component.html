@@ -8,3 +8,244 @@
     <app-wpc-menu [group]="item"></app-wpc-menu>
   </ng-container>
 </div>
+
+
+<!-- theme 定制 -->
+<div style="width: 760px;height: 600px;
+position: absolute;right: 20px;top: 50px;">
+  <h2>
+    动态变化布局
+    <label class="example-margin">change layout:</label>
+    <mat-radio-group [(ngModel)]="layout.config.type" (ngModelChange)="ngModelChange()">
+      <mat-radio-button class="example-margin" value="basic">Basic</mat-radio-button>
+      <mat-radio-button class="example-margin" value="horiz" >Horiz</mat-radio-button>
+    </mat-radio-group>
+  </h2>
+
+  <div class="layout-wrapper">
+    <ng-container [ngSwitch]="layout.config.type">
+      <ng-container *ngSwitchCase="'basic'">
+        <div class="container">
+            <aside class="menu">左侧菜单</aside>
+            <section class="main">
+                <header>页头</header>
+                <main>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                    <p>主要内容</p>
+                </main>
+                <footer>页脚</footer>
+            </section>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'horiz'">
+        <div class="horiz-container">
+          <header>页头</header>
+          <div id="content">
+            <aside class="menu">左侧菜单</aside>
+            <main>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+                <p>主要内容</p>
+            </main>
+          </div>
+          <footer>页脚</footer>
+          </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

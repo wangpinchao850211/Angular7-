@@ -5,7 +5,7 @@ function getStyle(obj, attr) {
     return getComputedStyle(obj, null)[attr];
 }
 
-export function slideUp(elemt, speed) { // 向上滑动  Height ~ 0
+export function slideUp(elemt, speed, falg) { // 向上滑动  Height ~ 0
     // 如果当前高度不为0，则执行上拉动画
     if (elemt.offsetHeight !== 0) {
         speed = speed || 500; // 执行总时间
@@ -57,14 +57,16 @@ export function slideUp(elemt, speed) { // 向上滑动  Height ~ 0
             }
             num += timeSpeed;
             if (num >= speed) {
-                elemt.style.cssText = 'display:none';
+                // elemt.style.cssText = 'display:none';
+                falg.isOpen = !falg.isOpen;
                 clearInterval(timer);
             }
         }, timeSpeed);
     }
 }
+
 // 2）下拉函数
-export function slideDown(elemt, speed) { // 向下滑动 0 ~ Height
+export function slideDown(elemt, speed, falg) { // 向下滑动 0 ~ Height
     speed = speed || 500; // 执行总时间
     const timeSpeed = speed / 50; // 速度
     // console.log(timeSpeed);
@@ -122,7 +124,8 @@ export function slideDown(elemt, speed) { // 向下滑动 0 ~ Height
 
         num += timeSpeed;
         if (num >= speed) {
-            elemt.style.cssText = 'display:block';
+            // elemt.style.cssText = 'display:block';
+            falg.isOpen = !falg.isOpen;
             clearInterval(timer);
         }
     }, timeSpeed);

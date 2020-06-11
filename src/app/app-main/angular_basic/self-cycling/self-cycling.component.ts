@@ -9,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class SelfCyclingComponent implements OnInit {
 
+  layout = {
+    config: {
+      type: 'basic'
+    }
+  }
   treeData: any;
   mockData = [
       { id: 1, pId: 0, name: 'group-1', hasChild: true, isOpen: true },
@@ -43,17 +48,20 @@ export class SelfCyclingComponent implements OnInit {
   }
   
   treeDataParse(list: Array<any>, pId: number) { // recurrence data
-    const res = [];
-    let temp;
-    list.forEach((item, i) => {
-        if (item.pId === pId) {
-            res.push(item);
-            temp = this.treeDataParse(list, item.id);
-            if (temp.length > 0) {
-                item.children = temp;
-            }
-        }
-    });
-    return res;
-}
+      const res = [];
+      let temp;
+      list.forEach((item, i) => {
+          if (item.pId === pId) {
+              res.push(item);
+              temp = this.treeDataParse(list, item.id);
+              if (temp.length > 0) {
+                  item.children = temp;
+              }
+          }
+      });
+      return res;
+  }
+  ngModelChange() { // 单选radio-group change事件，属于事件冒泡，先是上面方法先触发，然后再触发这里
+    console.log(this.layout.config.type);
+  }
 }

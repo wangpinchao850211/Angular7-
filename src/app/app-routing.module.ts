@@ -46,7 +46,7 @@ import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.comp
 import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
 
 const routes: Routes = [
-  // Main redirect
+  // Main redirect。  pathMatch：重定向路由需要一个 pathMatch 属性，来告诉路由器如何用 URL 去匹配路由的路径，否则路由器就会报错。路由器应该只有在完整的 URL等于 '' 时才选择 对应 组件，因此要把 pathMatch 设置为 'full'。
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   {
@@ -98,7 +98,7 @@ const routes: Routes = [
         path: 'routers',
         component: RoutesComponent,
         children: [
-          // {path:'', component: xxxx}, 这种就是子路由的空路径的配置，跳转时a标签[routerLink]="['./']"设置成这样
+          // {path:'', component: xxxx}, //这种就是子路由的空路径的配置，跳转时a标签[routerLink]="['./']"设置成这样
           { path: 'product/:id', component: ProductComponent },
           {
             path: 'productdetail',
