@@ -1,19 +1,25 @@
-<a [routerLink]="['/AngularBasic/routers/product/1']">主页</a>
-<!-- 下面是第一种传参，第二种传参是在路由配置path中声明定义传参，然后直接在下面routerLink中增加参数即可 -->
+<h3>1、路由定义:id, 以/id号传参方式</h3>
+<a [routerLink]="['/AngularBasic/routers/product/1']">路由定义参数传递</a>
+<!-- 上面是第一种传参，是在路由配置path中声明定义传参，然后直接在下面routerLink中增加参数即可 -->
+<!-- 使用navigate进行第一种queryParams的传递参数方法如下： -->
+<button (click)="goToProduct()">navigate方法路由定义参数传递</button>
+
+<h3>2、路由未定义, 以?id号传参方式</h3>
 <!-- 下面是直接在路由传参，问号形式，在跳转组件里接受传递的参数，下面这种传参不需router配置里定义 -->
 <a [routerLink]="['/AngularBasic/routers/productdetail']" [queryParams]="{id:1}">商品详情</a>
-
-<!-- 使用navigate进行queryParams的传递方法如下： -->
-<button (click)="navigateTransQueryParams()">商品详情1</button>
+<!-- 使用navigate进行第二种queryParams的传递参数方法如下： -->
+<input type="button" value="商品详情" (click)="navigateTransQueryParams()">
+<br>
+<strong style="margin: 20px;display: block;color: darkblue;">注意第一种和第二种的区别是，第一种并不改变路径，第二种是改变路径的</strong>
 
 <!-- 下面这种是跳转当前路由的子路由为空路径的表达方式 -->
 <!-- <a [routerLink]="['./']"></a> -->
+<router-outlet></router-outlet>
 
-<input type="button" value="商品详情" (click)="goToProductdetail()">
-<br>
+<h3>3、辅助路由</h3>
 <!-- 辅助路由跳转，aux映射组件即可，无需写跳转路径，即会跳到aux路由插座下 -->
 <a [routerLink]="[{outlets: {aux: ['fuzuluyouO']}}]">辅助路由1</a>
 <a [routerLink]="[{outlets: {aux: ['fuzuluyouT']}}]">辅助路由2</a>
-<router-outlet></router-outlet>
+
 <!-- 辅助路由 -->
 <router-outlet name="aux"></router-outlet>

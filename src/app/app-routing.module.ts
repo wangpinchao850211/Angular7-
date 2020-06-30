@@ -6,10 +6,10 @@ import { HomeComponent } from './app-main/angular_home/home/home.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
 import { HerosComponent } from './app-main/angular_basic/heros/heros.component';
 import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
+import { ProductComponent } from './app-main/angular_basic/route/product/product.component';
+import { ProductdetailComponent } from './app-main/angular_basic/route/productdetail/productdetail.component';
 import { FormComponent } from './app-main/angular_basic/form/form.component';
 import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
-import { ProductComponent } from './product/product.component';
-import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { Code404Component } from './code404/code404.component';
 import { from } from 'rxjs';
 import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
@@ -103,7 +103,7 @@ const routes: Routes = [
           {
             path: 'productdetail',
             component: ProductdetailComponent,
-            data: {title: '固定的字符串'} // 第三种传值方法
+            data: {title: '路由定义传递固定值'} // 第三种传值方法
           }, // 传递参数直接在routerLink增加参数即可
           // 下面配置的是辅助路由，在跳转时添加，aux映射组件即可，无需写跳转路径，即会跳到aux路由插座下
           { path: 'fuzuluyouO', component: FuzuluyouOComponent, outlet: 'aux' },

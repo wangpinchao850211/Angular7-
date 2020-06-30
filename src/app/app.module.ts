@@ -17,19 +17,13 @@ import { NzUploadModule } from 'ng-zorro-antd';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import { ProductComponent } from './product/product.component';
-import { StarsComponent } from './stars/stars.component';
+
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { Code404Component } from './code404/code404.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
@@ -41,6 +35,8 @@ import { LayoutComponent } from './app-main/layout/layout.component';
 import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
 import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
+import { ProductComponent } from './app-main/angular_basic/route/product/product.component';
+import { ProductdetailComponent } from './app-main/angular_basic/route/productdetail/productdetail.component';
 import { HerosmessagesComponent } from './app-main/angular_basic/herosmessages/herosmessages.component';
 import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
 import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
@@ -137,12 +133,7 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [ // 只能声明组件，指令，管道，相当于vue的components（引入组件）
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    SearchComponent,
-    CarouselComponent,
     ProductComponent,
-    StarsComponent,
     ProductdetailComponent,
     Code404Component,
     AppMenuComponent,

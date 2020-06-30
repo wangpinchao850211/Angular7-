@@ -11,6 +11,11 @@ import { HttpServiceService } from '../../../services/http-service.service';
 })
 export class FormComponent implements OnInit {
 
+  /**
+   * 1.在ng2表单中使用ngModel需要注意,必须带有name属性或者使用 [ngModelOptions]=”{standalone: true}”，二选其一。因为ngForm持有通过ngModel指令和name属性为各个元素创建的那些控件，并且监视它们的属性变化，包括有效性。 它还有自己的valid属性，只有当其中所有控件都有效时，它才有效。
+    2.使用button时需要注明type类型,未注明类型的button会默认为submit，当你点击一个非提交表单按钮时也会提交表单，所以要注明type=”button”
+    form表单元素里使用ngModule需要使用name属性绑定到每个标签，或者设置[ngModelOptions]=”{standalone: true}”
+   * */ 
   wpcVar = '';
 
   formModel:FormGroup = new FormGroup({

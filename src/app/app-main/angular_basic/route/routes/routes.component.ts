@@ -17,14 +17,14 @@ export class RoutesComponent implements OnInit {
     this.routerEventDestroy = router.events.pipe(
         filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-        console.log(event);
+        // console.log(event);
         // NavigationEnd 表示当导航成功结束时触发的事件。extends RouterEvent. 
         // 三个参数(id: number, url: string, urlAfterRedirects: string)
-        console.log(event.url);
+        // console.log(event.url);
         const tree: UrlTree = this.router.parseUrl(event.url);
-        console.log(tree);
+        // console.log(tree);
         const fragment = tree.fragment;
-        console.log(fragment);
+        // console.log(fragment);
         const params = this.deSerialize(fragment);
         console.log(params);
 
@@ -47,10 +47,13 @@ export class RoutesComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToProductdetail() {
+  // 路由定义参数传值（第二种）
+  goToProduct() {
     this.router.navigate(['/AngularBasic/routers/product', 2]); // 传递了不同的参数，可在接受组件product进行查看
   }
+  // 查询参数传值（第1种）
   navigateTransQueryParams() {
-    this.router.navigate(['/AngularBasic/routers/productdetail'], {queryParams: {id: 1}, relativeTo: this.routeInfo})
+    this.router.navigate(['/AngularBasic/routers/productdetail'], {queryParams: {id: 2}, relativeTo: this.routeInfo});
   }
+  // （第三种） 路由配置中传递data数据=====》见routeing module配置位置传数据
 }
