@@ -21,6 +21,7 @@ export enum MenuToTabMapping {
   lifecycle = '/AngularBasic/lifecycle',
   peekboo = '/AngularBasic/peekboo',
   heros = '/AngularBasic/heros/dashboard',
+  routers = '/AngularBasic/routers',
   communication = '/AngularBasic/communication',
   form = '/AngularBasic/form',
   dependencyinjection = '/AngularBasic/dependencyinjection',
