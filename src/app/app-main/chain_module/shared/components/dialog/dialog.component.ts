@@ -50,7 +50,8 @@ export class DialogComponent implements AfterViewInit, AfterViewChecked, OnDestr
   constructor(public el: ElementRef,
     public domHandler: DomHandler,
     public zone: NgZone,
-    public renderer: Renderer2, private confirmService: ConfirmService) {
+    public renderer: Renderer2, 
+    private confirmService: ConfirmService) {
 
     this.subscription = confirmService.requireConfirmation$.subscribe(confirmation => {
       if (confirmation.key === this.key) {

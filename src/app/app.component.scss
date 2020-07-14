@@ -38,25 +38,6 @@ body{
   }
 }
 
-// 如何让全局都实现这种自定义滚动条！！！
-.wpc::-webkit-scrollbar-track{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: #F5F5F5;
-}
-
-.wpc::-webkit-scrollbar{
-  width: 4px;
-  height: 4px;
-  background-color: #F5F5F5;
-}
-
-.wpc::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background: rgba(0,0,0,.26);
-}
-
 ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
   padding-right: 0px;
 }

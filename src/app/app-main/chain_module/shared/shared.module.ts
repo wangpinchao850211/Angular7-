@@ -8,8 +8,6 @@ import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 
-import { TextboxComponent } from './components/textbox/textbox.component'
-import { DropdownComponent } from './components/dropdown/dropdown.component'
 import { ButtonComponent } from './components/button/button.component'
 import { CheckboxComponent } from './components/checkbox/checkbox.component'
 import { HeaderBarComponent } from './components/layout/header-bar/header-bar.component'
@@ -17,7 +15,6 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { SupplierCardContentFormatPipe } from './piples/supplier.card.content.format'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { TooltipComponent } from './components/tooltip/tooltip.component'
 import { HeaderComponent } from './components/layout/header/header.component'
 import { DomHandler } from './components/dialog/domHandler'
 import { MultipleDropdownComponent } from '../shared/components/multiple-dropdown/multiple-dropdown.component'
@@ -40,8 +37,6 @@ import { MessagedomService } from './components/wpc-message/messagedom.service'
 
 @NgModule({
   declarations: [
-    TextboxComponent,
-    DropdownComponent,
     ButtonComponent,
     CheckboxComponent,
     HeaderBarComponent,
@@ -52,7 +47,6 @@ import { MessagedomService } from './components/wpc-message/messagedom.service'
     BlankValuePipe,
     FieldEmptyPipe,
     DatepickerComponent,
-    TooltipComponent,
     MultipleDropdownComponent,
     OnboardProcessCircleComponent,
     SideNavComponent,
@@ -73,8 +67,8 @@ import { MessagedomService } from './components/wpc-message/messagedom.service'
     MatDatepickerModule,
   ],
   exports: [
-    TextboxComponent, DropdownComponent, ButtonComponent, CheckboxComponent,
-    HeaderBarComponent, SafeHtmlPipe, DatepickerComponent, TooltipComponent,
+    ButtonComponent, CheckboxComponent,
+    HeaderBarComponent, SafeHtmlPipe, DatepickerComponent, 
     MultipleDropdownComponent, OnboardProcessCircleComponent, CheckBoxFormatPipe, SideNavComponent,
     BrowserAnimationsModule, NotificationComponent, HistoryComponent, BlankValuePipe, FieldEmptyPipe, ToggleButtonComponent,
     PrivacyStatementPoppageComponent,
@@ -83,7 +77,6 @@ import { MessagedomService } from './components/wpc-message/messagedom.service'
     WpcTooltipDirective 
   ],
   entryComponents: [
-    TextboxComponent,
     WpcDialogComponent,
     WpcMessageComponent // 全局message要再entry里加一下
   ],

@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './app-main/layout/layout.component';
 import { HomeComponent } from './app-main/angular_home/home/home.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
-import { HerosComponent } from './app-main/angular_basic/heros/heros.component';
 import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
 import { ProductComponent } from './app-main/angular_basic/route/product/product.component';
 import { ProductdetailComponent } from './app-main/angular_basic/route/productdetail/productdetail.component';
@@ -12,9 +11,6 @@ import { FormComponent } from './app-main/angular_basic/form/form.component';
 import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
 import { Code404Component } from './code404/code404.component';
 import { from } from 'rxjs';
-import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
-import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
-import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
 import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
@@ -79,21 +75,9 @@ const routes: Routes = [
   {
     path: 'AngularBasic',
     component: LayoutComponent,
-    // redirectTo: '/heros',可使用空路径实现默认组件的应用
     children: [
-      { path: '', component: LifeCycleComponent },
       { path: 'lifecycle', component: LifeCycleComponent },
       { path: 'peekboo', component: PeekABooComponent },
-      {
-        path: 'heros',
-        component: HerosComponent,
-        // redirectTo: '/dashboard',
-        children: [
-          { path: 'dashboard', component: HerodashboardComponent },
-          { path: 'herolist', component: HerosEditorComponent },
-          { path: 'detail/:id', component: HeroDetailComponent },
-        ]
-      },
       {
         path: 'routers',
         component: RoutesComponent,

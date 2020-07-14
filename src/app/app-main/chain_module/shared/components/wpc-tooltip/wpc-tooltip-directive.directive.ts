@@ -25,9 +25,9 @@ export class WpcTooltipDirective implements OnInit, OnDestroy{
     private el: ElementRef,
     private render: Renderer2
   ) {
-    console.log(this.el.nativeElement);
-    console.log(this.placement);
-    console.log(this.TooltipContent)
+    // console.log(this.el.nativeElement);
+    // console.log(this.placement);
+    // console.log(this.TooltipContent)
   }
 
   @Input('tooltip') TooltipContent: string;

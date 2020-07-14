@@ -20,7 +20,6 @@ export enum MenuToTabMapping {
   Home = '/home',
   lifecycle = '/AngularBasic/lifecycle',
   peekboo = '/AngularBasic/peekboo',
-  heros = '/AngularBasic/heros/dashboard',
   routers = '/AngularBasic/routers',
   communication = '/AngularBasic/communication',
   form = '/AngularBasic/form',
@@ -52,7 +51,6 @@ export enum AngularAnimate {
 
 export const menu = { // 导出对象
     AngularBasic: [
-        'heros',
         'routers',
         'communication',
         'directivesOrpip',

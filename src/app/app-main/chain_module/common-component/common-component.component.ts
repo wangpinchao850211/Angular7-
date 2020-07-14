@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from '../shared/components/wpc-dialog/dialog.service';
-import { TextboxComponent } from '../shared/components/textbox/textbox.component';
 import { WpcMessageService } from '../shared/components/wpc-message/wpcmessage.service';
+import { WpcDialogComponent } from '../shared/components/wpc-dialog/dialog.component.ts/dialog.component.ts.component';
 
 @Component({
   selector: 'app-common-component',
@@ -58,7 +58,7 @@ export class CommonComponentComponent implements OnInit {
   }
 
   toggleMesssage() {
-    this.dialogService.open(TextboxComponent, {
+    this.dialogService.open(WpcDialogComponent, {
       inputs: {
         wpc: this.wpc
       },

@@ -28,17 +28,12 @@ import { Code404Component } from './code404/code404.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
 import { HomeComponent } from './app-main/angular_home/home/home.component';
-import { HerosComponent } from './app-main/angular_basic/heros/heros.component';
 import { FormComponent } from './app-main/angular_basic/form/form.component';
 import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
 import { LayoutComponent } from './app-main/layout/layout.component';
-import { HerosEditorComponent } from './app-main/angular_basic/heros-editor/heros-editor.component';
-import { HeroDetailComponent } from './app-main/angular_basic/hero-detail/hero-detail.component';
 import { RoutesComponent } from './app-main/angular_basic/route/routes/routes.component';
 import { ProductComponent } from './app-main/angular_basic/route/product/product.component';
 import { ProductdetailComponent } from './app-main/angular_basic/route/productdetail/productdetail.component';
-import { HerosmessagesComponent } from './app-main/angular_basic/herosmessages/herosmessages.component';
-import { HerodashboardComponent } from './app-main/angular_basic/herodashboard/herodashboard.component';
 import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
 import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
@@ -139,15 +134,10 @@ registerLocaleData(zh);
     AppMenuComponent,
     LifeCycleComponent,
     HomeComponent,
-    HerosComponent,
     FormComponent,
     CommunicationComponent,
     LayoutComponent,
-    HerosEditorComponent,
-    HeroDetailComponent,
     RoutesComponent,
-    HerosmessagesComponent,
-    HerodashboardComponent,
     FuzuluyouOComponent,
     FuzuluyouTComponent,
     ChainLayoutComponent,
