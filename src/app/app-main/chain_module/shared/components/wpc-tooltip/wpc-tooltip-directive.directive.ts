@@ -1,5 +1,4 @@
 import { Directive, Renderer2, ElementRef, Input, HostListener, OnInit, OnDestroy } from '@angular/core';
-import { TooltipComponent } from '../tooltip/tooltip.component';
 
 @Directive({
   selector: '[wpcTooltip]'
