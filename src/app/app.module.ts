@@ -213,7 +213,7 @@ registerLocaleData(zh);
     ChartTwoComponent,
     SelfCyclingComponent,
     WpcMenuComponent,
-    ViewContainerRefComponent
+    ViewContainerRefComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,

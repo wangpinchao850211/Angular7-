@@ -2,7 +2,7 @@
   <span>触发父传子,调用ngOnChanges()钩子</span>
   <app-life-cycle [greeting]="greeting"></app-life-cycle>
   <br>
-  <input type="text" name="" id="" (change)="updateGreeting()" placeholder="请更改颜色">
+  <input type="text" [(ngModel)]="currentGeeting" (blur)="updateGreeting()"  placeholder="请更改颜色">
 </p>
 
 <app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down>

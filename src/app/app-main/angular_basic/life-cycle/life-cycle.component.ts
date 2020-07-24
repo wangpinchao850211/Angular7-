@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
+import { Component, ViewChild, OnInit, Input, OnChanges, SimpleChanges, DoCheck, ElementRef, Renderer2 } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-life-cycle',
@@ -19,10 +20,13 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck } from '@an
 
 export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
   @Input() greeting:string; // 组件输入值将触发ngOnChanges() 检测
+  @ViewChild('containerRef') containerRef: ElementRef;
 
   public user = { // 声明一个对象
     'name':'wangpinchao'
   };
+
+  Status: 'N';
 
   oldUserName:string;//用来保存user.name变更之前的值
   changeDetected:boolean;//标记当前的user.name属性是否发生变化
@@ -54,9 +58,20 @@ export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
   // 　　因此OnPush的组件在其内部改变属性值是不会反应在页面上的
   ngOnChanges(changes: SimpleChanges): void { // 检测greeting输入值，亦可用get set来进行设置
      console.log(JSON.stringify(changes,null,2));
+     console.log(this.greeting);
+     const that = this;
+    //  _.debounce(that.setContaineRef(this.greeting), 300);
+    that.setContaineRef(this.greeting);
+  }
+
+  setContaineRef(color) {
+    console.log(color);
+    this.render.setStyle(this.containerRef.nativeElement, 'backgroundColor', color);
   }
  
-  constructor() {
+  constructor(
+    private render: Renderer2
+  ) {
   }
  
   ngOnInit() {

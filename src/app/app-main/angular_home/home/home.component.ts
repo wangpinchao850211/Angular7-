@@ -17,6 +17,7 @@ interface AppState {
 export class HomeComponent implements OnInit {
   @HostBinding('@routeAnim') state; // 动画路由直接写这个绑定的这个组件类上，不能写在标签的指令上
   public greeting = 'green';
+  public currentGeeting = this.greeting;
   count$: Rx.Observable<number>;
   // 倒计时
   startDate = new Date(2019, 12, 22);
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   title="向history.pushState push url 并不跳转";
   myContext = {$implicit: 'World', localSk: 'Svet'}; // ngTemplateOutlet
-  
+
   constructor(
     private store: Store<AppState> // 注入store
   ) {
@@ -41,7 +42,8 @@ export class HomeComponent implements OnInit {
   }
 
   updateGreeting() {
-    this.greeting = 'yellow';
+    this.greeting = this.currentGeeting; // onblur再赋值
+    console.log(this.greeting);
   }
 
   PushState() {

@@ -2,4 +2,19 @@
   <input [(ngModel)]="user.name" type="text" name="" id="input">
 </p>
 
-<app-view-container-ref></app-view-container-ref>
+<label class="rc-container">
+  YES
+  <input type="radio" [checked]="Status=='Y'"
+    (click)="Status='Y'">
+  <span class="checkmark r"></span>
+</label>
+<label class="rc-container">
+  No
+  <input type="radio" [checked]="Status=='N'"
+    (click)="Status= 'N'">
+  <span class="checkmark r"></span>
+</label>
+<br />
+<div class="viewContainerRef" #containerRef>
+  <app-view-container-ref [changeTemRef]="Status"></app-view-container-ref>
+</div>
