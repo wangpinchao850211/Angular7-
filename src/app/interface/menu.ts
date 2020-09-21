@@ -1,4 +1,4 @@
-export interface Menu { // 接口只能作为类型导出使用，而enum是作为值直接使用
+export interface wpcMenu { // 接口只能作为类型导出使用，而enum是作为值直接使用
     AngularBasic?: Array<String>;
     Angular_Rxjs?: Array<String>;
     Angular_Animate?: Array<String>;
@@ -41,14 +41,6 @@ export enum MenuToTabMapping {
   Echart = '/Echart/NgxEchart'
 }
 
-export enum AngularRxjs {
-  AngularRxjs = 'AngularRxjs',
-}
-
-export enum AngularAnimate {
-  AngularAnimate = 'AngularAnimate',
-}
-
 export const menu = { // 导出对象
     AngularBasic: [
         'routers',
@@ -63,6 +55,3 @@ export const menu = { // 导出对象
     Angular_Material: ['AngularMaterial'],
     Angular_Scss: ['AngularScss'],
 };
-
-export enum MenuToTab {
-}

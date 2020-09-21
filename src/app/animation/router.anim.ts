@@ -31,8 +31,8 @@ export const slideToRight = trigger('routeAnim', [
 ]);
 
 export const slideToBottom = trigger('routeAnim', [
-  state('void', style({position: 'fixed', width: '100%', height: '80%'}) ),
-  state('*', style({position: 'fixed', width: '100%', height: '80%'}) ),
+  state('void', style({position: 'fixed', width: '100%', height: '80%', overflow: 'auto'}) ),
+  state('*', style({position: 'fixed', width: '100%', height: '80%', overflow: 'auto'}) ),
   transition(':enter', [
     style({transform: 'translateY(-100%)'}),
     animate('0.5s ease-in-out', style({transform: 'translateY(0%)'}))
@@ -57,3 +57,4 @@ export const slideToTop = trigger('routeAnim', [
 ]);
 
 export const defaultRouteAnim: AnimationTriggerMetadata = slideToRight;
+

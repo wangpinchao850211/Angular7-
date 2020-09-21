@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Menu } from '../interface/menu';
+import { wpcMenu } from '../interface/menu';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuserviceService {
 
-  menuList: Menu;
+  menuList: wpcMenu;
 
   public menu = {
     Angular_Basic: [
@@ -45,6 +45,5 @@ export class MenuserviceService {
       console.log(`${key}:${value}`);
     }
   }
-
-
+  
 }

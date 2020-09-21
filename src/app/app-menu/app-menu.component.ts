@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { Store, select } from '@ngrx/store'; // 导入store并使用
 import { addTab, removeTab } from '../store/tab-reducer';
-import { Menu, menu, MenuTab } from '../interface/Menu';
+import { wpcMenu, MenuTab } from '../interface/Menu';
 import { getNameByUrl } from '../utils/tabNameMapping';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
@@ -42,7 +42,7 @@ export class AppMenuComponent implements OnInit {
     // 通过http请求菜单列表, Menu是定义数据类型（描述返回的数据结构）
     console.log(this.http.configUrl); // 看来全局数据要储存到service里
     this.http.getMenu().subscribe(
-      (data: Menu) => {
+      (data: wpcMenu) => {
         console.log(data);
         this.angularMenu = [...Object.keys(data)];
         this.angularMenuObj = { ...data };
@@ -50,7 +50,6 @@ export class AppMenuComponent implements OnInit {
       },
       (error) => this.error = error // error path
     );
-    console.log(menu); // 导出的是json
   }
 
   toggleCollapsed(): void {

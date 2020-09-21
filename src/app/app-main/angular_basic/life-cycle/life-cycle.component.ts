@@ -26,24 +26,27 @@ export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
     'name':'wangpinchao'
   };
 
-  Status: 'N';
+  Status = 'N';
 
   oldUserName:string;//用来保存user.name变更之前的值
   changeDetected:boolean;//标记当前的user.name属性是否发生变化
-  changeCount:number;//标记变更检测机制被调用的次数
+  changeCount:number = 0;//标记变更检测机制被调用的次数
+
+  nameChangeMsg = '';
  
   ngDoCheck(): void {   //触发变更检测机制就是调用DoCheck (实现$watch功能)
      if(this.user.name!==this.oldUserName){
           //user.name发生了变化
           this.changeDetected = true;
           console.log("Docheck: user.name 从"+this.oldUserName+"变为"+this.user.name);
+          this.nameChangeMsg = "Docheck: user.name 从"+this.oldUserName+"变为"+this.user.name;
           this.oldUserName = this.user.name;
      }
-     if (this.changeDetected) {
+     if (!this.changeDetected) {
        this.changeCount = 0;
      } else {
        this.changeCount=this.changeCount+1;
-       console.log("DoCheck:user.name没发生变化时，ngDoCheck方法被调用了"+this.changeCount+"次")
+       // console.log("DoCheck:user.name没发生变化时，ngDoCheck方法被调用了"+this.changeCount+"次")
      }
   }
   // angular中ngOnChanges与组件变化检测的关系
@@ -57,11 +60,10 @@ export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
 
   // 　　因此OnPush的组件在其内部改变属性值是不会反应在页面上的
   ngOnChanges(changes: SimpleChanges): void { // 检测greeting输入值，亦可用get set来进行设置
-     console.log(JSON.stringify(changes,null,2));
-     console.log(this.greeting);
-     const that = this;
-    //  _.debounce(that.setContaineRef(this.greeting), 300);
-    that.setContaineRef(this.greeting);
+      console.log(JSON.stringify(changes,null,2));
+      console.log(this.greeting);
+      //  _.debounce(that.setContaineRef(this.greeting), 300);
+      this.setContaineRef(this.greeting);
   }
 
   setContaineRef(color) {

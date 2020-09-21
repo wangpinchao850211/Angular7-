@@ -1,22 +1,28 @@
-<p>
-  <span>触发父传子,调用ngOnChanges()钩子</span>
-  <app-life-cycle [greeting]="greeting"></app-life-cycle>
-  <br>
-  <input type="text" [(ngModel)]="currentGeeting" (blur)="updateGreeting()"  placeholder="请更改颜色">
-</p>
+<div class="wrapper">
+  <h3>技术点1：触发父传子,调用ngOnChanges()钩子</h3>
+  <div style="width: 80%;">
+    <label for="changeColor">请输入颜色，更新传入值</label>
+    <input id="changeColor" type="text" [(ngModel)]="currentGeeting" (blur)="updateGreeting()"  placeholder="请更改颜色">
+    <br>
+    <app-life-cycle [greeting]="greeting"></app-life-cycle>  
+  </div>
 
-<app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down>
+  <h3>技术点2：倒计时器(使用rxjs实现)</h3>
+  <app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down>
+  <!-- 变更路由，不跳转 -->
+  <button class="btn btn-primary" (click)="PushState()">historyPushState</button>
 
-<button class="btn btn-primary" (click)="PushState()">historyPushState</button>
+  <h3>技术点3：ngTemplate渲染</h3>
+  <hr>
+  <ng-container *ngTemplateOutlet="greet"></ng-container>
+  <hr>
+  <ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+  <hr>
+  <ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
+  <hr>
 
-<hr>
-<ng-container *ngTemplateOutlet="greet"></ng-container>
-<hr>
-<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
-<hr>
-<ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
-<hr>
+  <ng-template #greet><span>Hello</span></ng-template>
+  <ng-template #eng let-name><span>Hello {{name}}!</span></ng-template>
+  <ng-template #svk let-person="localSk"><span>Ahoj {{person}}!</span></ng-template>
+</div>
 
-<ng-template #greet><span>Hello</span></ng-template>
-<ng-template #eng let-name><span>Hello {{name}}!</span></ng-template>
-<ng-template #svk let-person="localSk"><span>Ahoj {{person}}!</span></ng-template>

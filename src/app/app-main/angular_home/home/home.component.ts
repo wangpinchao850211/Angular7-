@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   futureDate = new Date(2020, 2, 2);
 
   title="向history.pushState push url 并不跳转";
+  
   myContext = {$implicit: 'World', localSk: 'Svet'}; // ngTemplateOutlet
 
   constructor(

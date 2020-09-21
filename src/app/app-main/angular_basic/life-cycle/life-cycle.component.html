@@ -1,20 +1,29 @@
-<p>
-  <input [(ngModel)]="user.name" type="text" name="" id="input">
-</p>
+<div class="wrapper">
+  <h5>动态检测DoCheck调用</h5>
+  <p>
+    <input [(ngModel)]="user.name" type="text" name="" id="input">
+  </p>
+  <h5>show message：</h5>
+  <p>{{nameChangeMsg}}</p>
+  <p>ngDoCheck方法被调用了{{changeCount}}次</p>
 
-<label class="rc-container">
-  YES
-  <input type="radio" [checked]="Status=='Y'"
-    (click)="Status='Y'">
-  <span class="checkmark r"></span>
-</label>
-<label class="rc-container">
-  No
-  <input type="radio" [checked]="Status=='N'"
-    (click)="Status= 'N'">
-  <span class="checkmark r"></span>
-</label>
-<br />
-<div class="viewContainerRef" #containerRef>
-  <app-view-container-ref [changeTemRef]="Status"></app-view-container-ref>
+  <h5>自定义radio: 实现input get set 动态变更值操作</h5>
+  <label class="rc-container">
+    YES
+    <input type="radio" [checked]="Status=='Y'"
+      (click)="Status='Y'">
+    <span class="checkmark r"></span>
+  </label>
+  <label class="rc-container">
+    No
+    <input type="radio" [checked]="Status=='N'"
+      (click)="Status= 'N'">
+    <span class="checkmark r"></span>
+  </label>
+  <br />
+
+  <h5>viewContainerRef动态插入内嵌视图</h5>
+  <div class="viewContainerRef" #containerRef>
+    <app-view-container-ref [changeTemRef]="Status"></app-view-container-ref>
+  </div>
 </div>
