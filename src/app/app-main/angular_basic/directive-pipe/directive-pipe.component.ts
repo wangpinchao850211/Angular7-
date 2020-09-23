@@ -44,6 +44,12 @@ export class DirectivePipeComponent implements OnInit {
     if (!event.value) {
       this.showUl = false; // 实现下拉框关闭（再input fcous时或者click时可以打开，关闭）
     }
+    if (event.target.nodeName === 'LI') {
+      // console.log(event.target.innerHTML);
+      this.clickOutsideInputValue = event.target.innerHTML;
+      this.showUl = false; // 关闭下拉框
+    }
+
   }
   asyncClick() {
     setTimeout(() => {
@@ -52,9 +58,9 @@ export class DirectivePipeComponent implements OnInit {
     })
   }
   changecontentHeight(event) {
-    console.log(event);
+    // console.log(event);
     if (event) { // 如果太大，调小高度, 并去掉滚动条
-      this.arr = this.arr.slice(0, 30);
+      this.arr = this.arr.slice(0, 10);
       console.log(this.arr);
     }
   }
