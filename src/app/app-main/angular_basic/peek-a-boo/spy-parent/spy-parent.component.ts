@@ -5,21 +5,24 @@ import { LoggerService } from '../../logger.service';
 @Component({
   selector: 'app-spy-parent',
   templateUrl: './spy-parent.component.html',
-  styleUrls: ['./spy-parent.component.scss']
+  styleUrls: ['./spy-parent.component.scss'],
+  providers: [ LoggerService ]
 })
 export class SpyParentComponent implements OnInit {
 
   addHero: string;
   heroes = HEROES;
   loggers = [];
+
   constructor(private logger: LoggerService) {
     this.logger.logmsg$.subscribe(msg => {
       // console.log(msg);
-      this.loggers = [...this.loggers, msg];
-    })
+      this.loggers.push(msg);
+    });
   }
 
   ngOnInit() {
+    // console.log(this.loggers);
   }
 
   addhero() {

@@ -5,11 +5,14 @@ import { LoggerService } from '../../logger.service';
 @Component({
   selector: 'app-after-content',
   template: `
-    <div>-- projected content begins --</div>
-      <ng-content></ng-content>
-    <div style="margin-bottom: 100px; ">-- projected content ends --</div>
+    <div style="background-color: lightyellow;">
+      <div>-- projected content begins --</div>
+        <ng-content></ng-content>
+      <div style="margin-bottom: 100px; ">-- projected content ends --</div>
+    </div>
   `,
-  styleUrls: ['./after-content.component.scss']
+  styleUrls: ['./after-content.component.scss'],
+  providers: [ LoggerService ]
 })
 
 export class AfterContentComponent implements AfterContentChecked, AfterContentInit {

@@ -7,10 +7,11 @@
              bsDatepicker
              (bsValueChange)="onValueChange($event)"
              [bsConfig]="{ isAnimated: true, adaptivePosition: true, dateInputFormat: 'YYYY-MM-DD' }">
+  <p></p>
+  <p>当前日期:{{todayDate}}</p>
+  <p>已选日期:{{currentDate}}</p>
+  <p>已选日期工作人员名单:</p>
+  <ul>
+    <li *ngFor="let i of currentWorkList">{{i}}</li>
+  </ul>
 </div>
-<p>当前日期:{{todayDate}}</p>
-<p>已选日期:{{currentDate}}</p>
-<p>已选日期工作人员名单:</p>
-<ul>
-  <li *ngFor="let i of currentWorkList">{{i}}</li>
-</ul>

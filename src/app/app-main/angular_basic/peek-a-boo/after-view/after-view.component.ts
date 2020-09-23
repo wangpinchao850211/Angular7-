@@ -5,11 +5,14 @@ import { LoggerService } from '../../logger.service';
 @Component({
   selector: 'app-after-view',
   template: `
+    <div style="background-color: springgreen;">
     <div>-- child view begins --</div>
     <app-child></app-child>
     <div style="margin-bottom: 100px;">-- child view ends --</div>
+    </div>
   `,
-  styleUrls: ['./after-view.component.scss']
+  styleUrls: ['./after-view.component.scss'],
+  providers: [ LoggerService ]
 })
 export class AfterViewComponent implements AfterViewChecked, AfterViewInit {
 

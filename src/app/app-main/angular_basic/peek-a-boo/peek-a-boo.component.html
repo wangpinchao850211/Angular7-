@@ -1,6 +1,9 @@
-<div>
+<div class="wrapper">
   <h1>peek-a-boo!</h1>
+  <h5>技术点1：spy-parent：每一个heroe通过指令，调取service，通过service调用subject，发射一个log信息，在spy-parent组件订阅这个subject，将信息累加到--Spy Lifecycle Hook Log里</h5>
   <app-spy-parent></app-spy-parent>
+  <h5>技术点2：检测AfterView生命周期</h5>
   <app-after-view></app-after-view>
+  <h5>技术点3：检测AfterContent生命周期</h5>
   <app-after-content-parent></app-after-content-parent>
 </div>
