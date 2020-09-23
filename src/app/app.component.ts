@@ -65,6 +65,20 @@ export class AppComponent implements AfterViewInit {
     // 加载数据
   }
 
+  @HostListener('window:beforeunload', ['$event'])
+  onWindowReload(ev: Event) {
+    // console.log(ev);
+    // 拦截禁止routers刷新
+    if (this.removeCurrentURl.includes('routers')) {
+      // ev.returnValue = false;
+      // ev.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
+
+  }
+
   constructor(
     private ws: WebSocketService,
     private store: Store<{tab: MenuTab}>,
@@ -90,7 +104,11 @@ export class AppComponent implements AfterViewInit {
         this.removeCurrentURl = route['urlAfterRedirects']; // 保存当前路径（刷新在这个位置，可以接受到刷新前的路径，在init中添加store）
         console.log(this.removeCurrentURl);
         // sessionStorage.setItem('currentUrl', this.removeCurrentURl);
-        this.freshInitTab(); // 刷新添加tab
+        if ( !this.removeCurrentURl.includes('product')) {
+          this.freshInitTab(); // 刷新添加tab
+        } else { // routers 不让刷新了，刷新就只跳home页，因为routers里的路由逻辑和刷新冲突
+          // 直接用刷新方法控制，拦截如果是routers路由里
+        }
 
         console.log(route.url);
         const tree: UrlTree = this.router.parseUrl(route.url);
@@ -124,14 +142,15 @@ export class AppComponent implements AfterViewInit {
   }
 
   freshInitTab() {
-    if (this.removeCurrentURl && this.removeCurrentURl !== '/home') {
+    if ( this.removeCurrentURl && this.removeCurrentURl !== '/home') {
       const tabName = getNameByUrl(this.removeCurrentURl);
+      console.log(tabName);
       const storeTab = {
         url: this.removeCurrentURl,
-        title: tabName,
+        title: tabName,// 包括路由里product，就不进行添加tab, 默认添加routers
         isSelect: true
       };
-      // console.log(storeTab);
+      console.log(storeTab);
       this.store.dispatch({ type: addTab, payload: storeTab });
     }
   }

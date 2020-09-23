@@ -15,10 +15,12 @@
         就算名字相同，html属性和dom属性也不是同一样东西 <br>
         html的值指定的是初始的值，Dom属性的值指的是当前的值。
         html属性的值不可改变，Dom属性的值可以改变 <br>
-        模板绑定是通过Dom属性和事件来工作的，而不是html属性
+        模板绑定是通过Dom属性和事件来工作的，而不是html属性<br>
         <input type="text" value="Tom" (input)="doOnInput($event)">
         <!-- 只要加上了disabled属性，html的初始化值就是禁用状态,哪怕设置为false -->
-        <button disabled="false">disabled属性</button>
+        <button disabled="false">disabled属性</button> <br>
+        <span>input html属性值: {{currentHtmlValue}}</span><br>
+        <span>input Dom属性值: {{currentDomValue}}</span>
       </p>
       <div style="margin:0;" *ngIf="i===1">
         <p>管道Demo</p>
