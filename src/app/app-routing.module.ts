@@ -34,34 +34,14 @@ import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload
 import { WpcNg2FileUploadComponent } from './app-main/angular_basic/wpc-ng2-file-upload/wpc-ng2-file-upload.component';
 import { CkeditorComponent } from './app-main/angular_editor/ckeditor/ckeditor.component';
 import { EditorComponent } from './app-main/angular_editor/editorLayout';
-import { LoginComponent } from './login/login/login.component';
-import { SetPasswordComponent } from './login/set-password/set-password.component';
-import { LoginLayoutComponent } from './login/layout/layout.component';
 import { EchartLayoutComponent } from './app-main/echart/echart-layout/echart-layout.component';
 import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.component';
 import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
+import { CanDeactivateGuard } from './services/auth/can-deactivate.guard';
 
 const routes: Routes = [
   // Main redirect。  pathMatch：重定向路由需要一个 pathMatch 属性，来告诉路由器如何用 URL 去匹配路由的路径，否则路由器就会报错。路由器应该只有在完整的 URL等于 '' 时才选择 对应 组件，因此要把 pathMatch 设置为 'full'。
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-
-  {
-      path: 'wpcL',
-      // canActivate: [ CanRefreshGuard ],
-      component: LoginLayoutComponent,
-      children: [{
-        path: 'login',
-        component: LoginComponent
-      }] 
-  },
-  {
-      path: 'wpcS',
-      component: LoginLayoutComponent,
-      children: [{
-        path: 'setPassword',
-        component: SetPasswordComponent
-      }]
-  },
 
   // App views
   {

@@ -11,11 +11,12 @@ import { filter } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { WebSocketService } from './services/websocket.service';
 import * as FileSaver from 'file-saver'; // 下载pdf
+// import { AppReuseStrategy } from './services/RouteReuseStrategy.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
   // tabs
@@ -78,7 +79,6 @@ export class AppComponent implements AfterViewInit {
         // this.loadData()
         // this.loadDataCenter() 执行加载
       });
-
       this.tabs$ = this.store.pipe(select('tab')); // 从app.module.ts中获取tab状态流
       if (sessionStorage.getItem('rem') === 'true') {
         this.remS.showrem = true;
@@ -87,8 +87,11 @@ export class AppComponent implements AfterViewInit {
       }
       // 监听路由变化
       this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((route: NavigationEnd) => {
-        this.removeCurrentURl = route['urlAfterRedirects']; // 保存当前路径
+        this.removeCurrentURl = route['urlAfterRedirects']; // 保存当前路径（刷新在这个位置，可以接受到刷新前的路径，在init中添加store）
         console.log(this.removeCurrentURl);
+        // sessionStorage.setItem('currentUrl', this.removeCurrentURl);
+        this.freshInitTab(); // 刷新添加tab
+
         console.log(route.url);
         const tree: UrlTree = this.router.parseUrl(route.url);
         console.log(tree);
@@ -101,6 +104,10 @@ export class AppComponent implements AfterViewInit {
         const params = this.deSerialize(fragment);
         console.log(params);
       });
+
+      // 刷新页面保留current url (开始用session存储的，后来routerInfo也获取到了(在上部)，原因是authService写法导致了路由的乱套，正常写是会保持原路径的刷新！！！)
+      // const currentUrl = this.routerInfo.snapshot['_routerState'].url;
+      // const currentUrl = sessionStorage.getItem('currentUrl');
   }
 
   deSerialize(query) {
@@ -114,6 +121,19 @@ export class AppComponent implements AfterViewInit {
       match = search.exec(query)
     }
     return obj
+  }
+
+  freshInitTab() {
+    if (this.removeCurrentURl && this.removeCurrentURl !== '/home') {
+      const tabName = getNameByUrl(this.removeCurrentURl);
+      const storeTab = {
+        url: this.removeCurrentURl,
+        title: tabName,
+        isSelect: true
+      };
+      // console.log(storeTab);
+      this.store.dispatch({ type: addTab, payload: storeTab });
+    }
   }
 
   ngOnInit() {
@@ -135,21 +155,26 @@ export class AppComponent implements AfterViewInit {
   initTab(storeTabs) {
     // console.log(storeTabs);
     this.tabs = storeTabs.tab;
-    console.log(this.tabs);
+    // console.log(this.tabs);
+
     for (let [index, i] of this.tabs.entries()) {
       if (i.isSelect) {
         this.index = index;
       }
       // 跳转路由
       if (i.isSelect && i.url !== '/home') {
-        this.router.navigate([i.url]);
+        this.router.navigate([i.url]); // 破坏了路由复用的机制，暂时不用路由复用了，需要整体路由结构重构
         break;
       }
-      if (this.tabs.length === 1 && i.url === '/home') {
-        this.router.navigate([i.url]);
-        break;
-      }
+      // 将下面代码一注销掉，就能正常获取到路由刷新的路径 (原因1：)
+      // close时，省最后一个没跳转路径 （原因2：出现close tab 问题，处理方式在close方法里执行了！！）
+      // if (this.tabs.length === 1 && i.url === '/home') {
+      //   this.router.navigate([i.url]);
+      //   break;
+      // }
     }
+
+    
   }
 
   activeTab(tab) {
@@ -188,10 +213,15 @@ export class AppComponent implements AfterViewInit {
     return rootUri;
   }
 
-  closeTab(tab: string): void {
+  closeTab(tab): void {
     // console.log(tab);
     if (this.tabs.length > 1) {
       this.store.dispatch({ type: removeTab, payload: tab });
+      // AppReuseStrategy.deleteRouteSnapshot(tab.url); 破坏了路由复用的机制，暂时不用路由复用了，需要整体路由结构重构
+      // 将initTab中的close省最后一个跳转路径逻辑放这里，实现不与刷新冲突！！！（最终解决方式）
+      if (this.tabs.length === 1 && this.tabs[0].url === '/home') { // 会走完store，之后才会走到这
+        this.router.navigate(['/home']);
+      }
     }
   }
 

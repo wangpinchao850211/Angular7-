@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
+// 路由缓存
+import { RouteReuseStrategy } from '@angular/router';
+import { AppReuseStrategy } from './services/RouteReuseStrategy.service';
+
 // 注册store
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter';
@@ -97,10 +101,6 @@ import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
-import { LoginComponent } from './login/login/login.component';
-import { SetPasswordComponent } from './login/set-password/set-password.component';
-import { PromptMessageComponent } from './login/prompt-message/prompt-message.component';
-import { LoginLayoutComponent } from './login/layout/layout.component';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -203,10 +203,6 @@ registerLocaleData(zh);
     CkeditorComponent,
     CountDownComponent,
     WpcNg2FileUploadComponent,
-    LoginComponent,
-    SetPasswordComponent,
-    PromptMessageComponent,
-    LoginLayoutComponent,
     EchartLayoutComponent,
     NgxEchartComponent,
     ChartOneComponent,
@@ -217,7 +213,6 @@ registerLocaleData(zh);
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,
-      PromptMessageComponent,
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
@@ -276,7 +271,11 @@ registerLocaleData(zh);
     CdkTableModule,
     // MatTableModule 一直也没引入成功报错
   ],
-  providers: [matDialogConfirmService, { provide: NZ_I18N, useValue: zh_CN }], // 声明服务，依赖注入
+  providers: [
+    matDialogConfirmService, 
+    { provide: NZ_I18N, useValue: zh_CN },
+    // { provide: RouteReuseStrategy, useClass: AppReuseStrategy } //路由复用暂时不用，此项目路由操作破坏了路由复用
+  ], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })
 
