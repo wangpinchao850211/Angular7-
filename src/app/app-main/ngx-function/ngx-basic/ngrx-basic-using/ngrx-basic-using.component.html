@@ -1,21 +1,53 @@
-<h2>去抖请求</h2>
-<button appDebouncEvent type="button" class="btn btn-primary btn-sm" (debounceClick)="sendRequest($event)">去抖点击</button>
+<div class="wrapper">
+    <h5>技术点1：使用指令调用Subject对象进行点击事件的监听和去抖</h5>
+    <button appDebouncEvent type="button" class="btn btn-primary btn-sm" (debounceClick)="sendRequest($event)">去抖点击请求</button>
+    <br/>
+    <h5>技术点2：ngrx方法使用见ts文件</h5>
+    <h4>1、interval计时器的实现{{intervalMsg}}</h4>
+    <h4>2、监听鼠标移入事件</h4>
+    <div style="color: white; margin-top: 20px; width: 300px; height: 200px; line-height: 200px; background-color: maroon; text-align: center;" id="my-element" #mouseEle>
+        {{mousemoveMsg}}
+    </div>
+    <h4><label for="flowControl">3、测试流控制</label></h4>
+    <input type="text" name="" id="flowControl" [(ngModel)]="tabs[0].title" (change)="folwChange()" #flowControl>
 
-<br/>
+    <h5>知识点3：ngrx基本概念</h5>
+    <p><strong>什么是观察者?</strong></p>
+    <ol>
+    <li>观察者是有Observable(可观察对象)发送值的消费者</li>
+    <li>观察者只是一组回调函数的集合,每个回调函数对应一种Observable发送的通知类型:next,error,complete</li>
+    </ol>
+    <p><strong>什么是可观察对象?</strong></p>
+    <ul>
+    <li>可观察对象(Observable)是一个惰性推送集合,即:要调用Observable并看到这些值,需要订阅Observable: <br>
+    <code style="color: white;">observable.subscribe()</code></li>
+    </ul>
+    <ul>
+        <li>当你订阅了 Observable，你会得到一个 Subscription ，它表示进行中的执行。只要调用 unsubscribe()方法就可以取消执行。 <br>
+        </li>
+    </ul>
 
-<label for="flowControl">测试流控制</label>
-<input type="text" name="" id="flowControl" [(ngModel)]="tabs[0].title" (change)="folwChange()">
+    <p><strong>angular中的可观察对象</strong></p>
+    <ul>
+        <li>EventEmitter 类派生自 Observable。class EventEmitter extends Subject
+        </li>
+        <li>HTTP 模块使用可观察对象来处理 AJAX 请求和响应。
+        </li>
+        <li>路由器和表单模块使用可观察对象来监听对用户输入事件的响应。
+        </li>
+        <li>
+            EventEmitter : Angular 提供了一个 EventEmitter 类，它用来从组件的 @Output() 属性中发布一些值。EventEmitter 扩展了 Observable，并添加了一个 emit() 方法，这样它就可以发送任意值了。当你调用 emit() 时，就会把所发送的值传给订阅上来的观察者的 next() 方法。
+        </li>
+        <li>
+            Angular 的 HttpClient 从 HTTP 方法调用中返回了可观察对象。例如，http.get(‘/api’) 就会返回可观察对象。相对于基于承诺（Promise）的 HTTP API，它有一系列优点： <br>
+            优点1、 可观察对象不会修改服务器的响应（和在承诺上串联起来的 .then() 调用一样）。反之，你可以使用一系列操作符来按需转换这些值。 <br>
+            优点2、  HTTP 请求是可以通过 unsubscribe() 方法来取消的。(http请求是通过subscribe调用，并不是http.get/post的方法！！！) <br>
+            优点3、  请求可以进行配置，以获取进度事件的变化。 <br>
+            优点4、  失败的请求很容易重试。 <br>
+            指数化退避 是官网http请求的一个好例子 <br>
+        </li>
+    </ul>
 
-<div style="margin-top: 20px;" id="my-element">
-<p><strong>什么是观察者?</strong></p>
-<ol>
-<li>观察者是有Observable(可观察对象)发送值的消费者</li>
-<li>观察者只是一组回调函数的集合,每个回调函数对应一种Observable发送的通知类型:next,error,complete</li>
-</ol>
-<p><strong>什么是可观察对象?</strong></p>
-<ul>
-<li>可观察对象(Observable)是一个惰性推送集合,即:要调用Observable并看到这些值,需要订阅Observable: <br>
-<code>observable.subscribe()</code></li>
-</ul>
-<p>参阅文档:<a href="http://cn.rx.js.org/manual/index.html" rel="nofollow" data-token="b109fee611b4eac2920a114ac53772d3">http://cn.rx.js.org/manual/index.html</a></p> 
+    <p>参阅文档:<a href="http://cn.rx.js.org/manual/index.html" rel="nofollow" data-token="b109fee611b4eac2920a114ac53772d3">http://cn.rx.js.org/manual/index.html</a></p> 
 </div>
+

@@ -20,7 +20,8 @@ export class NgxStateStoreComponent implements OnInit, OnDestroy {
   public tabs = {
     title: 'menu1'
   }
-  // 2、查看之前使用，多数都是使用在@Input组件传值进行某些操作，使用get，和set就要写原生的实现defineProtype
+  // 底层实现是原生的defineProtype
+  // 监听变化方法1：多数都是使用在@Input组件传值进行某些操作，使用get，和set，通过ngOnChange生命周期监听，方法2：使用ngDoCheck生命周期监听
   get watchObj() {
     return this.tabs;
   }

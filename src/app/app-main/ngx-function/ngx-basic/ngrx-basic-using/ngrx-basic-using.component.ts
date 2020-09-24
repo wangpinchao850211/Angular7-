@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { interval, fromEvent, timer, Subject, throwError, Subscriber, Subscription, BehaviorSubject, forkJoin, of, from, Observable } from 'rxjs';
 import { switchMap, debounceTime, throttleTime, distinctUntilChanged, map, filter, catchError, mergeMap, delay, take, takeUntil, pluck, pairwise, distinct, scan } from 'rxjs/operators';
 // 操作符分为实例操作符（Observable 实例上的方法，方法内部使用this）和静态操作符（内部不使用this），常见的静态操作符如创建操作符Rx.Observable.interval(1000 /* 毫秒数 */);
@@ -14,6 +14,10 @@ import { NavigationStart, Router, ActivatedRoute, NavigationEnd } from '@angular
 })
 export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
 
+  public intervalMsg = '';
+  public mousemoveMsg = '';
+  @ViewChild('mouseEle') mouseEle: ElementRef;
+  @ViewChild('flowControl') flowControl: ElementRef;
   public tabs = [
 		{ id: 1, title: 'menu1', active: true },
 		{ id: 2, title: 'menu2', active: false },
@@ -37,10 +41,6 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
     // ActivatedRoute 是一个可注入的路由器服务，它使用可观察对象来获取关于路由路径和路由参数的信息。比如，ActivateRoute.url 包含一个用于汇报路由路径的可观察对象。
     private activatedRoute: ActivatedRoute
     ) {
-    // 概念: 观察者(Observer) 可观察对象(Observable) Subscription (订阅)
-    // 观察者只是一组回调函数的集合
-    // 可观察对象(Observable)是一个惰性推送集合,即:要调用Observable并看到这些值,需要订阅Observable:observable.subscribe()
-    // 当你订阅了 Observable，你会得到一个 Subscription ，它表示进行中的执行。只要调用 unsubscribe()方法就可以取消执行。
 
     // 创建，转换成 observables
 
@@ -76,7 +76,7 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
     //1、 Create an observable from a counter
     const secondsCounter = interval(1000);
     const CounterSubscription = secondsCounter.subscribe((n) => {
-      console.log(`It's been ${n} seconds since subscribing!`)
+      this.intervalMsg = `It's been ${n} seconds since subscribing!`;
       if (n > 10) { // 没找到关闭方法，有一个timer可使用下(找到了方法,定义一个CounterSubscription订阅者, 方可调用取消执行的方法)
         CounterSubscription.unsubscribe();
       }
@@ -88,22 +88,17 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
     if (this.sss > 0) {
       _timer.unsubscribe();
     }
-    //3、 Create an observable from an event
-    const el = document.getElementById('my-element');
- 
-    // Create an Observable that will publish mouse movements
-    const mouseMoves = fromEvent(el, 'mousemove');
-    
+    //3、 Create an Observable that will publish mouse movements (监听鼠标事件)
+    const mouseMoves = fromEvent(this.mouseEle.nativeElement, 'mousemove');
     // Subscribe to start listening for mouse-move events
     const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
       // 注意: 键盘事件用KeyboardEvent，鼠标事件用MouseEvent
-
       // Log coords of mouse movements
-      // console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
-    
+      this.mousemoveMsg = `开始监听：Coords: ${evt.clientX} X ${evt.clientY}`;
       // When the mouse is over the upper-left of the screen,
       // unsubscribe to stop listening for mouse movements
-      if (evt.clientX < 40 && evt.clientY < 40) {
+      if (evt.clientX < 290 && evt.clientY < 340) {
+        this.mousemoveMsg = '已移除监听';
         subscription.unsubscribe();
       }
     });
@@ -145,37 +140,38 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
 
     //一、 控制流
     // 输入 "hello world"
-    var inputObservables = fromEvent(document.getElementById('flowControl'), 'change');
+    var inputObservables = fromEvent(this.flowControl.nativeElement, 'change');
 
     // 过滤掉小于3个字符长度的目标值
+    // 
     inputObservables.pipe(
-      filter(event => `${event.target}`.length > 3),
-      map(event => event.target)
+      filter(event => `${event['target']}`.length > 3),
+      map(event => event['target'].value)
       )
       .subscribe(value => console.log(value)); // 输入框的值
 
     // 延迟事件
     inputObservables.pipe(
       delay(200),
-      map(event => event.target)
+      map(event => event['target'].value)
     ).subscribe(value => console.log(value)); // "h" -200ms-> "e" -200ms-> "l" ...
 
     // 每200ms只能通过一个事件
     inputObservables.pipe(
       throttleTime(200),
-      map(event => event.target)
+      map(event => event['target'].value)
     ).subscribe(value => console.log(value)); // "h" -200ms-> "w"
 
     // 停止输入后200ms方能通过最新的那个事件
     inputObservables.pipe(
       debounceTime(200),
-      map(event => event.target)
+      map(event => event['target'].value)
     ).subscribe(value => console.log(value)); // "o" -200ms-> "d"
 
     // 在3次事件后停止事件流
     inputObservables.pipe(
       take(3), 
-      map(event => event.target)
+      map(event => event['target'].value)
     ).subscribe(value => console.log(value)); // "hel"
 
     // 直到其他 observable 触发事件才停止事件流
@@ -183,7 +179,7 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
     inputObservables.pipe(
       // takeUtil：该 Observable 第一次发出值会使 takeUntil 的 输出 Observable 停止发出由源 Observable 所发出的值。
       takeUntil(stopStream),
-      map(event => event.target)
+      map(event => event['target'].value)
     ).subscribe(value => console.log(value)); // "hello" (点击才能看到)
     //二、 产生值
     // 通过提取属性传递一个新的值
@@ -227,26 +223,11 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
   sendRequest(evt) {
     //步骤3、 
     this.count++;
-    console.log('ssssssss');
     console.log(evt); // emit传出来了，使用$event接
     console.log(`这是第${this.count}次调用`);
   }
-  folwChange() {}
+  folwChange() {
+    // change时可以调取现Init里的方法
+  }
 
-// angular中的可观察对象
-//1、 EventEmitter 类派生自 Observable。class EventEmitter<T> extends Subject
-//2、 HTTP 模块使用可观察对象来处理 AJAX 请求和响应。
-//3、 路由器和表单模块使用可观察对象来监听对用户输入事件的响应。
-
-//EventEmitter : Angular 提供了一个 EventEmitter 类，它用来从组件的 @Output() 属性中发布一些值。EventEmitter 扩展了 Observable，并添加了一个 emit() 方法，这样它就可以发送任意值了。当你调用 emit() 时，就会把所发送的值传给订阅上来的观察者的 next() 方法。
-
-// Angular 的 HttpClient 从 HTTP 方法调用中返回了可观察对象。例如，http.get(‘/api’) 就会返回可观察对象。相对于基于承诺（Promise）的 HTTP API，它有一系列优点：
-
-//优点1、 可观察对象不会修改服务器的响应（和在承诺上串联起来的 .then() 调用一样）。反之，你可以使用一系列操作符来按需转换这些值。
-//优点2、  HTTP 请求是可以通过 unsubscribe() 方法来取消的。(http请求是通过subscribe调用，并不是http.get/post的方法！！！)
-//优点3、  请求可以进行配置，以获取进度事件的变化。
-//优点4、  失败的请求很容易重试。
-// 指数化退避 是官网http请求的一个好例子
-
-// 路由见上面例子
 }
