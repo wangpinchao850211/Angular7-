@@ -70,7 +70,7 @@ import { BsTooltipComponent } from './app-main/angular_material/bs-tooltip/bs-to
 import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
-import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
+import { AngularAnimateComponent } from './app-main/angular-animate-layout/angular-animate/angular-animate.component';
 import { ScrollDirectiveDirective } from './directive/scroll-directive.directive';
 import { ClickOutsideDirective } from './directive/click-outside.directive';
 import { SliceEmailPipe } from './pipe/slice-email.pipe';
@@ -123,6 +123,7 @@ import * as echarts from 'echarts';
 import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
 import { WpcMenuComponent } from './app-main/angular_basic/self-cycling/wpc-menu/wpc-menu.component';
 import { ViewContainerRefComponent } from './app-main/angular_basic/view-container-ref/view-container-ref.component';
+import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
 
 registerLocaleData(zh);
 
@@ -210,6 +211,7 @@ registerLocaleData(zh);
     SelfCyclingComponent,
     WpcMenuComponent,
     ViewContainerRefComponent,
+    AngularAnimateLayoutComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,

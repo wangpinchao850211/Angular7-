@@ -21,7 +21,7 @@ import { MaterialComcomponentComponent } from './app-main/angular_material/mater
 import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
-import { AngularAnimateComponent } from './app-main/angular-animate/angular-animate.component';
+import { AngularAnimateComponent } from './app-main/angular-animate-layout/angular-animate/angular-animate.component';
 import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
@@ -38,6 +38,7 @@ import { EchartLayoutComponent } from './app-main/echart/echart-layout/echart-la
 import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.component';
 import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
 import { CanDeactivateGuard } from './services/auth/can-deactivate.guard';
+import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
 
 const routes: Routes = [
   // Main redirect。  pathMatch：重定向路由需要一个 pathMatch 属性，来告诉路由器如何用 URL 去匹配路由的路径，否则路由器就会报错。路由器应该只有在完整的 URL等于 '' 时才选择 对应 组件，因此要把 pathMatch 设置为 'full'。
@@ -101,7 +102,7 @@ const routes: Routes = [
   },
   {
     path: 'AngularAnimate',
-    component: AngularAnimateComponent,
+    component: AngularAnimateLayoutComponent,
     children: [
       { path: 'animateBasic', component: AngularAnimateComponent },
     ]

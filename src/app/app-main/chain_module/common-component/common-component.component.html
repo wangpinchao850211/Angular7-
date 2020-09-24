@@ -1,9 +1,37 @@
-<div class="tooltip-demo-wrapper">
-  <span wpcTooltip placement='top' [tooltip]="item.content" class="parent-tip" *ngFor="let item of tooltipList" >{{item.content}}</span>
+<div class="wrapper">
+  <div class="tooltip-demo-wrapper">
+    <h4>1、通过指令实现自定义tooltip</h4>
+    <span wpcTooltip placement='top' [tooltip]="item.content" class="parent-tip" *ngFor="let item of tooltipList" >{{item.content}}</span>
+  </div>
+  <h4>2、自定义popup</h4>
+  <button type="button" (click)="toggleMesssage()">show message 对话框</button>
+  <h4>3、模板表单提交，showMessage使用resolveComponentFactory动态创建组件</h4>
+  <form #myForm="ngForm" (ngSubmit)="ngSubmit(myForm.value)">
+    <ul>
+      <li>
+        <label for="userName">用户名</label>
+        <input type="text" #username="ngModel" ngModel name="userName" id="userName">
+      </li>
+      <li>
+        <label for="phoneNumber">手机号</label>
+        <input type="text" ngModel name="phoneNumber" id="phoneNumber">
+      </li>
+      <div ngModelGroup="passwordsGroup">
+        <li>
+          <label for="password">密码</label>
+          <input type="password" ngModel name="password" id="password">
+        </li>
+        <li>
+          <label for="surePassword">确认密码</label>
+          <input type="password" ngModel name="surePassword" id="surePassword">
+        </li>
+      </div>
+      <li>
+        <button type="submit">提交</button>
+      </li>
+    </ul>
+  </form>
 </div>
-
-<!-- 自定义popup -->
-<button type="button" (click)="toggleMesssage()">show message 对话框</button>
 
 <!-- 被插入的位置 -->
 <ng-container >
@@ -11,43 +39,3 @@
   <div id="dialog-container" class="hidden"></div>
 </ng-container>
 
-<h2>一、模板表单提交，showMessage</h2>
-<form #myForm="ngForm" (ngSubmit)="ngSubmit(myForm.value)">
-  <ul>
-    <li>
-      <label for="userName">用户名</label>
-      <input type="text" #username="ngModel" ngModel name="userName" id="userName">
-    </li>
-    <li>
-      <label for="phoneNumber">手机号</label>
-      <input type="text" ngModel name="phoneNumber" id="phoneNumber">
-    </li>
-    <div ngModelGroup="passwordsGroup">
-      <li>
-        <label for="password">密码</label>
-        <input type="password" ngModel name="password" id="password">
-      </li>
-      <li>
-        <label for="surePassword">确认密码</label>
-        <input type="password" ngModel name="surePassword" id="surePassword">
-      </li>
-    </div>
-    <li>
-      <button type="submit">提交</button>
-    </li>
-  </ul>
-</form>
-
-<h2>二、BC radio</h2>
-<label class="rc-container">
-  YES
-  <input type="radio" [checked]="requestorDetailsInfo.ContractStatus=='Y'"
-    (click)="requestorDetailsInfo.ContractStatus='Y'">
-  <span class="checkmark r"></span>
-</label>
-<label class="rc-container">
-  No
-  <input type="radio" [checked]="requestorDetailsInfo.ContractStatus=='N'"
-    (click)="requestorDetailsInfo.ContractStatus= 'N'">
-  <span class="checkmark r"></span>
-</label>

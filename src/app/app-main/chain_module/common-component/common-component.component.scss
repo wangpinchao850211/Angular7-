@@ -1,3 +1,10 @@
+.wrapper {
+    padding: 14px;
+    li > label {
+        width: 80px;
+        margin-right: 10px;
+    }
+}
 .tooltip-demo-wrapper{
     width: 80%;
     height: 300px;
@@ -6,6 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    h4 {
+        position: absolute;
+        top: 80px;
+        left: 150px;
+    }
     .parent-tip{
         flex: 1;
         // width: 80px;

@@ -12,9 +12,7 @@ import { WpcDialogComponent } from '../shared/components/wpc-dialog/dialog.compo
 export class CommonComponentComponent implements OnInit {
 
   wpc = 'wangpinchao';
-  requestorDetailsInfo = {
-    ContractStatus: ''
-  };
+
   public tooltipList = [
     {
       id: 0,
