@@ -18,8 +18,9 @@
     }
   }
 }
-@debug buildLayout(24);
-@include buildLayout(24);
+
+@debug buildLayout(24); // 控制台debug scss代码数据
+@include buildLayout(24); // 执行代码
 
 // 2、通过份数，设置占用宽度
 @function column-width($col, $total) {

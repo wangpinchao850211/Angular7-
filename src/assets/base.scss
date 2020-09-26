@@ -32,6 +32,7 @@ $color-regular: #4D5D72;
 $color-grey: #65758B;
 // scss应用于rem布局（fe有rem值定义）
 
+// rem 暂注掉code，否则影响全局
 // html{
 //     font-size: 100px;
 // }
@@ -45,6 +46,7 @@ $color-grey: #65758B;
 //     width: 100%;
 //     height: 100%;
 // }
+
 @mixin mixin-min-scroll {
     &::-webkit-scrollbar-track{
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);

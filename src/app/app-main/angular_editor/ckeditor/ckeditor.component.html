@@ -1,17 +1,22 @@
-<div class="ckeditor-wrapper">
-  <ckeditor #editor config="config" [editor]="Editor" [(ngModel)]="model.editorData" (ready)="onReady($event)" (change)="onChange($event)" ></ckeditor>
-  {{model.editorData}}
-
-  <button (click)="toggleDisabled()">
-    {{ isDisabled ? 'Enable editor' : 'Disable editor' }}
-  </button>
-</div>
-
-<div class="js-editor-wrapper">
-  <span *ngIf="!model.showEditer" class="title" (click)="$event.stopPropagation();">{{model.editorData}}</span>
-  <input class="titleInput" *ngIf="model.showEditer" #Input maxlength="50" [style.width.px]="model.Width" type="text"
-                        (input)="modifyContent(Input, model)" value="{{model.editorData}}">
-  <i nz-icon nzType="edit" nzTheme="outline" class="every-con" (click)="TitleEdit($event, model)"></i>
-  <i nz-icon nzType="check" nzTheme="outline" class="every-con" (click)="TitleSave($event, model)"></i>
-  <i nz-icon nzType="close" nzTheme="outline" class="every-con" (click)="TitleCancel($event)"></i>
+<div class="wrapper">
+  <div class="ckeditor-wrapper">
+    <ckeditor #editor config="config" [editor]="Editor" [(ngModel)]="model.editorData" (ready)="onReady($event)" (change)="onChange($event)" ></ckeditor>
+    {{model.editorData}}
+  
+    <button (click)="toggleDisabled()">
+      {{ isDisabled ? 'Enable editor' : 'Disable editor' }}
+    </button>
+  </div>
+  
+  <div class="js-editor-wrapper">
+    <p>
+      <strong>动态获取输入框text长度，变更输入框长度</strong> <br>
+    </p>
+    <span *ngIf="!model.showEditer" class="title" (click)="$event.stopPropagation();">{{model.editorData}}</span>
+    <input class="titleInput" *ngIf="model.showEditer" #Input maxlength="50" [style.width.px]="model.Width" type="text"
+                          (input)="modifyContent(Input, model)" value="{{model.editorData}}">
+    <i nz-icon nzType="edit" nzTheme="outline" class="every-con" (click)="TitleEdit($event, model)"></i>
+    <i nz-icon nzType="check" nzTheme="outline" class="every-con" (click)="TitleSave($event, model)"></i>
+    <i nz-icon nzType="close" nzTheme="outline" class="every-con" (click)="TitleCancel($event)"></i>
+  </div>
 </div>

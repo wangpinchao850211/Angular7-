@@ -71,7 +71,7 @@ export class CkeditorComponent implements OnInit, OnDestroy {
     return ctx.measureText(value).width -20;
   }
   // 使用js控制span和input切换编辑输入
-  modifyContent(input, data) {
+  modifyContent(input, data) { // input事件
     data.editorData = input.value;
     data.Width = this.GetContentWidth(data.editorData);
   }
