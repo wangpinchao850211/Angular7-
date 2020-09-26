@@ -14,6 +14,7 @@ import { tabReducer } from './store/tab-reducer';
 import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
 import {CdkTableModule} from '@angular/cdk/table';
+import {OverlayModule, OverlayContainer, FullscreenOverlayContainer} from "@angular/cdk/overlay";
 
 import { TooltipModule, AccordionModule, CarouselModule, BsDropdownModule, BsDatepickerModule, PaginationModule, TimepickerModule  } from 'ngx-bootstrap';
 import { NzIconModule, } from 'ng-zorro-antd';
@@ -250,6 +251,7 @@ registerLocaleData(zh);
     MatSliderModule, // 引入slider
     MatPaginatorModule, // 引入paginator
     MatTableModule, // 一直也没引入成功报错
+    OverlayModule,
     MatTooltipModule, // 测试mat tooltip
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
@@ -277,6 +279,7 @@ registerLocaleData(zh);
     matDialogConfirmService, 
     { provide: NZ_I18N, useValue: zh_CN },
     // { provide: RouteReuseStrategy, useClass: AppReuseStrategy } //路由复用暂时不用，此项目路由操作破坏了路由复用
+    { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
   ], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })

@@ -9,7 +9,12 @@ export interface StateGroup {
 }
 
 export const _filter = (opt: string[], value: string): string[] => {
+  console.log(opt);
+  console.log(value);
+
   const filterValue = value.toLowerCase();
+  console.log(opt.filter(item => item.toLowerCase().indexOf(filterValue) === 0));
+
   return opt.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
 };
 
@@ -21,7 +26,12 @@ export const _filter = (opt: string[], value: string): string[] => {
 export class MaterialAutocomponentComponent implements OnInit {
 
   public www: boolean = true;
-  myControl = new FormControl();
+  OneStateForm: FormGroup = this._formBuilder.group({
+    myControl: '',
+  });
+
+  // myControl = new FormControl();
+
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
 
@@ -95,7 +105,7 @@ export class MaterialAutocomponentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
+    this.filteredOptions = this.OneStateForm.get('myControl')!.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
@@ -107,8 +117,14 @@ export class MaterialAutocomponentComponent implements OnInit {
     );
   }
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    console.log(value);
+    if (value) {
+      const filterValue = value.toLowerCase();
+      console.log(filterValue);
+      console.log(this.options.filter(option => option.toLowerCase().includes(filterValue)));
+      return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    }
+    return this.options;
   }
   private _filterGroup(value: string): StateGroup[] {
     if (value) {
@@ -123,7 +139,8 @@ export class MaterialAutocomponentComponent implements OnInit {
     console.log(user);
     return user ? user.names : '';
   }
-  selectPat() {
+  selectPat(ev) {
+    console.log(ev);
     console.log('下拉选择');
   }
 

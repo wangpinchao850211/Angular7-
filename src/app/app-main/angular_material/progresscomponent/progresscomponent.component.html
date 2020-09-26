@@ -35,8 +35,8 @@
         <mat-slider class="example-margin" [(ngModel)]="value1"></mat-slider>
       </section>
       <section class="example-section">
-        <!-- 并没有实现动态更改loading的宽度 -->
-          <input matInput type="number" step="10" [formControl]="strokeWidth">
+        <!-- 实现动态更改loading的宽度 -->
+          <input type="number" step="10" [(ngModel)]="strokeWidth" (ngModelChange)="strokeWidthChange($event)">
       </section>
     </mat-card-content>
   </mat-card>

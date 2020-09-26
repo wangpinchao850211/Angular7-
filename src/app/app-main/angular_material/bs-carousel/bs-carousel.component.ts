@@ -10,7 +10,7 @@ export class BsCarouselComponent implements OnInit {
   noWrapSlides = false;
   showIndicator = true;
   myInterval = 2000;
-  activeSlideIndex = 1;
+  activeSlideIndex = 0;
   slideChangeMessage = '';
   showFlagNow: number;
   @Input() get showFlag(): number {

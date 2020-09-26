@@ -65,7 +65,9 @@ export class WpcTooltipDirective implements OnInit, OnDestroy{
     content.className = 'tip-content '+this.placement;
     this.render.appendChild(this._tooltip, content);
     this.render.appendChild(this._tooltip, arrow);
-    content.innerHTML = this.TooltipContent;
+    console.log(this._tooltip);
+    console.log(content.innerHTML);
+    // content.innerHTML = this.TooltipContent;
     this.render.appendChild(this.el.nativeElement, this._tooltip);
   }
 

@@ -46,8 +46,16 @@
     <p>closed关闭折叠面板方法</p>
 
     <mat-action-row>
-      <!-- tooltip一直报positionChanges找不到 -->
-      <button mat-button color="warn" matTooltip="回车或者点击右侧图标确认" (click)="prevStep()">Previous</button>
+      <!-- tooltip一直报positionChanges找不到material7 tooltip 有问题(不适用) -->
+      <!-- <button color="warn" 
+              mat-raised-button 
+              #tooltip="matTooltip"
+              matTooltip="回车或者点击右侧图标确认" 
+              matTooltipPosition="position.value"
+              (click)="prevStep()">
+      Previous</button> -->
+      <!-- 用自己封装的tooltip -->
+      <button color="warn" wpcTooltip placement='top' tooltip="回到上一个panel" (click)="prevStep()">Previous</button>
       <button mat-button color="primary" (click)="nextStep()">Next</button>
     </mat-action-row>
   </mat-expansion-panel>

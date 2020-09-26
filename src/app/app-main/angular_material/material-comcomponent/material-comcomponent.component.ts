@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { matDialogConfirmService } from 'src/app/services/mat-dialog.service';
 import { FormControl } from '@angular/forms';
-import { ThemePalette } from '@angular/material' // 引入主题
+import { ThemePalette, TooltipPosition } from '@angular/material' // 引入主题
+
 
 @Component({
   selector: 'app-material-comcomponent',
@@ -49,11 +50,21 @@ export class MaterialComcomponentComponent implements OnInit {
   emitchildclear: number;
   oneAtATime: boolean = true;
   customClass = 'panel panel-success'; // 可以定义类，自己自定义样式。可选类有panel-primary, panel-info, panel-warning,panel-danger
+
+  // 
+  positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
+  position = new FormControl(this.positionOptions[2]);
+  showDelay = new FormControl(1000);
+  hideDelay = new FormControl(2000);
+
   constructor(public confirm: matDialogConfirmService) { }
 
   ngOnInit() {
   }
 
+  tooltipChange(ev) {
+    console.log(ev);
+  }
   step = -1;
 
   setStep(index: number) {

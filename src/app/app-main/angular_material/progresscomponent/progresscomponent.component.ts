@@ -19,4 +19,8 @@ export class ProgresscomponentComponent implements OnInit {
   ngOnInit() {
   }
 
+  strokeWidthChange(ev) {
+    this.value1 = ev; 
+  }
+
 }
