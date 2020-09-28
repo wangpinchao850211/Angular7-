@@ -15,6 +15,7 @@ import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFo
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
 import {CdkTableModule} from '@angular/cdk/table';
 import {OverlayModule, OverlayContainer, FullscreenOverlayContainer} from "@angular/cdk/overlay";
+import {PortalModule} from "@angular/cdk/portal";
 
 import { TooltipModule, AccordionModule, CarouselModule, BsDropdownModule, BsDatepickerModule, PaginationModule, TimepickerModule  } from 'ngx-bootstrap';
 import { NzIconModule, } from 'ng-zorro-antd';
@@ -125,6 +126,8 @@ import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self
 import { WpcMenuComponent } from './app-main/angular_basic/self-cycling/wpc-menu/wpc-menu.component';
 import { ViewContainerRefComponent } from './app-main/angular_basic/view-container-ref/view-container-ref.component';
 import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
+import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
+import { OverlayPanelComponent } from './app-main/angular_material/overlay/overlay-panel/overlay-panel.component';
 
 registerLocaleData(zh);
 
@@ -213,9 +216,12 @@ registerLocaleData(zh);
     WpcMenuComponent,
     ViewContainerRefComponent,
     AngularAnimateLayoutComponent,
+    MaterialCdkOverlayComponent,
+    OverlayPanelComponent,
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,
+      OverlayPanelComponent
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
@@ -252,6 +258,7 @@ registerLocaleData(zh);
     MatPaginatorModule, // 引入paginator
     MatTableModule, // 一直也没引入成功报错
     OverlayModule,
+    PortalModule,
     MatTooltipModule, // 测试mat tooltip
     // ScrollingModule // 没有引用CDK到项目中！！！
     SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)

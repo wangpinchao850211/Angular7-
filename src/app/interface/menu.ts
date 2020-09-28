@@ -35,6 +35,7 @@ export enum MenuToTabMapping {
   animateBasic = '/AngularAnimate/animateBasic',
   CommonComponent = '/chain_shared/CommonComponent',
   AngularMaterial = '/Angular_Material/AngularMaterial',
+  Overlay = '/Angular_Material/Overlay',
   AngularScss = '/Angular_Scss/AngularScss',
   CKEditor = '/Angular_Editor/CKEditor',
   MvcUseH5Css3 = '/Mvc_Use_h5_Css3/MvcUseH5Css3',
