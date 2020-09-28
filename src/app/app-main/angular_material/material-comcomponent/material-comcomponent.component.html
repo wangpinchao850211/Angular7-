@@ -1,287 +1,285 @@
-<h2>Material introduction to Use:</h2>
-<!-- mat-accordion 多个扩展面板可以组合成一个手风琴。multi=“true”输入允许独立设置扩展状态。当multi=“false”（默认）时，一次只能展开一个面板 （注意下面multi设置为true，全部展开了）-->
-<mat-accordion class="example-headers-align" MatAccordionDisplayMode (openAll)="openAll()" (closeAll)="closeAll()" MatExpansionPanelState>
-  <!-- displayMode面板间无间距；MatAccordionDisplayMode有间距 type MatAccordionDisplayMode = 'default' | 'flat'; panel的是下面的设置
-  type MatExpansionPanelState = 'expanded' | 'collapsed'; 不是写在panel标签上的-->
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-    <!-- hideToggle是否隐藏右侧的三角箭头 multi手风琴是否允许同时扩展多个手风琴项目。（还没研究透在哪使用）-->
-    <mat-expansion-panel-header>
-      <!-- 扩展面板标题是按钮。用户可以使用键盘激活扩展面板标题，在展开状态和折叠状态之间切换。由于标题用作按钮，因此不应将其他交互元素放在标题内。 -->
-      <mat-panel-title>
-          mat-expansion-panel-header => mat-panel-title
-      </mat-panel-title>
-      <mat-panel-description>
-          mat-panel-description
-        <mat-icon>account_circle</mat-icon>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput type="number" min="1" placeholder="Age">
-    </mat-form-field>
-
-    <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-  <!-- 扩展面板动画的时间和时间曲线。const EXPANSION_PANEL_ANIMATION_TIMING: "225ms cubic-bezier(0.4,0.0,0.2,1)"; 还不知如何使用 -->
-  <!-- disabled可以禁用用户切换，但是扔可以实现编程式切换 -->
-  <mat-expansion-panel [disabled]="isDisabled" [expanded]="step === 1" (opened)="setStep(1)" (closed)="closed()" hideToggle="false">
-    <!-- expanded是否折叠显示变量 -->
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          mat-expansion-panel Prop
-      </mat-panel-title>
-        <!-- <mat-icon>map</mat-icon> -->
-    </mat-expansion-panel-header>
-
-    <p>hideToggle是否隐藏右侧的三角箭头</p>
-    <p>expanded是否折叠显示变量</p>
-    <p>opened打开折叠面板方法</p>
-    <p>closed关闭折叠面板方法</p>
-
-    <mat-action-row>
-      <!-- tooltip一直报positionChanges找不到material7 tooltip 有问题(不适用) -->
-      <!-- <button color="warn" 
-              mat-raised-button 
-              #tooltip="matTooltip"
-              matTooltip="回车或者点击右侧图标确认" 
-              matTooltipPosition="position.value"
-              (click)="prevStep()">
-      Previous</button> -->
-      <!-- 用自己封装的tooltip -->
-      <button color="warn" wpcTooltip placement='top' tooltip="回到上一个panel" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="false" multi="true">
-    <!-- 多个扩展面板可以组合成一个手风琴。multi=“true”输入允许独立设置扩展状态。当multi=“false”（默认）时，一次只能展开一个面板： -->
-    <mat-expansion-panel-header >
-      <!-- collapsedHeight, expandedHeight设置折叠展开高度 -->
-      <mat-panel-title>
-        Lazy rendering
-      </mat-panel-title>
-      <mat-panel-description>
-        <!-- <mat-icon>date_range</mat-icon> -->
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
-    </mat-form-field>
-    <mat-datepicker #picker></mat-datepicker>
-
-    <!-- 默认情况下，即使关闭面板，也会初始化扩展面板内容。要将初始化延迟到面板打开，内容应作为ng-template提供 -->
-    <ng-template matExpansionPanelContent>
-        Some deferred content
-    </ng-template>
-    <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">End</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-
-  <mat-expansion-panel  [expanded]="step === 3" (opened)="setStep(3)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        checkBox & Radio
-      </mat-panel-title>
-      <mat-panel-description>
-        checkBox Radio Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <app-material-checkbox></app-material-checkbox>
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Dialog
-      </mat-panel-title>
-      <mat-panel-description>
-        Dialog Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <ol>
-      <li>
-        <mat-form-field>
-          <input matInput [(ngModel)]="name" placeholder="What's your name?">
-        </mat-form-field>
-      </li>
-      <li>
-        <button (click)="openDialog()">Pick one</button>
-      </li>
-      <li *ngIf="animal">
-        You chose: <i>{{animal}}</i>
-      </li>
-    </ol>
-    <!-- panel content end -->
-  </mat-expansion-panel>
-
-  <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Select
-      </mat-panel-title>
-      <mat-panel-description>
-        Select Mat-option Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <app-material-select></app-material-select>
-    <!-- panel content end -->
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)">
+<div class="wrapper">
+  <h2>Material introduction to Use:</h2>
+  <!-- mat-accordion 多个扩展面板可以组合成一个手风琴。multi=“true”输入允许独立设置扩展状态。当multi=“false”（默认）时，一次只能展开一个面板 （注意下面multi设置为true，全部展开了）-->
+  <mat-accordion class="example-headers-align" MatAccordionDisplayMode (openAll)="openAll()" (closeAll)="closeAll()" MatExpansionPanelState>
+    <!-- displayMode面板间无间距；MatAccordionDisplayMode有间距 type MatAccordionDisplayMode = 'default' | 'flat'; panel的是下面的设置
+    type MatExpansionPanelState = 'expanded' | 'collapsed'; 不是写在panel标签上的-->
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <!-- hideToggle是否隐藏右侧的三角箭头 multi手风琴是否允许同时扩展多个手风琴项目。（还没研究透在哪使用）-->
       <mat-expansion-panel-header>
+        <!-- 扩展面板标题是按钮。用户可以使用键盘激活扩展面板标题，在展开状态和折叠状态之间切换。由于标题用作按钮，因此不应将其他交互元素放在标题内。 -->
         <mat-panel-title>
-          Autocomplete
+            mat-expansion-panel-header => mat-panel-title
         </mat-panel-title>
         <mat-panel-description>
-          Autocomplete Used
+            mat-panel-description
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput placeholder="First name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" min="1" placeholder="Age">
+      </mat-form-field>
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <!-- 扩展面板动画的时间和时间曲线。const EXPANSION_PANEL_ANIMATION_TIMING: "225ms cubic-bezier(0.4,0.0,0.2,1)"; 还不知如何使用 -->
+    <!-- disabled可以禁用用户切换，但是扔可以实现编程式切换 -->
+    <mat-expansion-panel [disabled]="isDisabled" [expanded]="step === 1" (opened)="setStep(1)" (closed)="closed()" hideToggle="false">
+      <!-- expanded是否折叠显示变量 -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            mat-expansion-panel Prop
+        </mat-panel-title>
+          <!-- <mat-icon>map</mat-icon> -->
+      </mat-expansion-panel-header>
+
+      <p>hideToggle是否隐藏右侧的三角箭头</p>
+      <p>expanded是否折叠显示变量</p>
+      <p>opened打开折叠面板方法</p>
+      <p>closed关闭折叠面板方法</p>
+
+      <mat-action-row>
+        <!-- tooltip一直报positionChanges找不到material7 tooltip 有问题(不适用) -->
+        <!-- <button color="warn" 
+                mat-raised-button 
+                #tooltip="matTooltip"
+                matTooltip="回车或者点击右侧图标确认" 
+                matTooltipPosition="position.value"
+                (click)="prevStep()">
+        Previous</button> -->
+        <!-- 用自己封装的tooltip -->
+        <button color="warn" wpcTooltip placement='top' tooltip="回到上一个panel" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="false" multi="true">
+      <!-- 多个扩展面板可以组合成一个手风琴。multi=“true”输入允许独立设置扩展状态。当multi=“false”（默认）时，一次只能展开一个面板： -->
+      <mat-expansion-panel-header >
+        <!-- collapsedHeight, expandedHeight设置折叠展开高度 -->
+        <mat-panel-title>
+          Lazy rendering
+        </mat-panel-title>
+        <mat-panel-description>
+          <!-- <mat-icon>date_range</mat-icon> -->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <!-- 默认情况下，即使关闭面板，也会初始化扩展面板内容。要将初始化延迟到面板打开，内容应作为ng-template提供 -->
+      <ng-template matExpansionPanelContent>
+          Some deferred content
+      </ng-template>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">End</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel  [expanded]="step === 3" (opened)="setStep(3)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          checkBox & Radio
+        </mat-panel-title>
+        <mat-panel-description>
+          checkBox Radio Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-material-checkbox></app-material-checkbox>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Dialog
+        </mat-panel-title>
+        <mat-panel-description>
+          Dialog Used
         </mat-panel-description>
       </mat-expansion-panel-header>
       <!-- panel content start -->
-      <app-material-autocomponent></app-material-autocomponent>
+      <ol>
+        <li>
+          <mat-form-field>
+            <input matInput [(ngModel)]="name" placeholder="What's your name?">
+          </mat-form-field>
+        </li>
+        <li>
+          <button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+          You chose: <i>{{animal}}</i>
+        </li>
+      </ol>
       <!-- panel content end -->
     </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 7" (opened)="setStep(7)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Tab
-      </mat-panel-title>
-      <mat-panel-description>
-        Tab Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <mat-form-field>
-      <input matInput type="number" [formControl]="selectedItem">
-      <button mat-raised-button
-            class="example-add-tab-button"
-            (click)="addTab(selectAfterAdding.checked)">
-      Add new tab
-    </button>
-    <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>
-    </mat-form-field>
-    <mat-tab-group [color]="colorToggle" 
-                   [backgroundColor]="backgroundColorToggle"
-                   dynamicHeight headerPosition="above" animationDuration="1000ms" mat-align-tabs="center" [(selectedIndex)]="selectedItem.value" (selectedIndexChange)="tabChange($event)">
-                   <!-- $event传过去的是index -->
-      <!-- <ng-template matTabContent></ng-template> 可实现懒加载 -->
-      <!-- headerPosition: above,  below -->
-      <!-- mat-align-tabs: center, start end -->
-      <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab"
-      [disabled]="disabled">
-        Contents for {{tab}} tab
+
+    <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Select
+        </mat-panel-title>
+        <mat-panel-description>
+          Select Mat-option Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start -->
+      <app-material-select></app-material-select>
+      <!-- panel content end -->
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Autocomplete
+          </mat-panel-title>
+          <mat-panel-description>
+            Autocomplete Used
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- panel content start -->
+        <app-material-autocomponent></app-material-autocomponent>
+        <!-- panel content end -->
+      </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 7" (opened)="setStep(7)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Tab
+        </mat-panel-title>
+        <mat-panel-description>
+          Tab Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start -->
+      <mat-form-field>
+        <input matInput type="number" [formControl]="selectedItem">
         <button mat-raised-button
-              class="example-delete-tab-button"
-              [disabled]="tabs.length === 1"
-              (click)="removeTab(index)">
-        Delete Tab
+              class="example-add-tab-button"
+              (click)="addTab(selectAfterAdding.checked)">
+        Add new tab
       </button>
-      </mat-tab>
-    </mat-tab-group>
-    <!-- panel content end -->
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 8" (opened)="setStep(8)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Grid List
-      </mat-panel-title>
-      <mat-panel-description>
-        Grid List Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <app-material-gridcomponent></app-material-gridcomponent>
-    <!-- panel content end -->
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 9" (opened)="setStep(9)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Progress spinner & bar
-      </mat-panel-title>
-      <mat-panel-description>
-        Progress Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <app-progresscomponent></app-progresscomponent>
-    <!-- panel content end -->
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 10" (opened)="setStep(10)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        paginator
-      </mat-panel-title>
-      <mat-panel-description>
-        paginator Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start -->
-    <app-paginatorcomponent></app-paginatorcomponent>
-    <!-- panel content end -->
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]="step === 11" (opened)="setStep(11)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Table
-      </mat-panel-title>
-      <mat-panel-description>
-        Table Used
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <!-- panel content start 还未实现-->
-    <!-- <app-tablecomponent></app-tablecomponent> -->
-    <!-- panel content end -->
-  </mat-expansion-panel>
-</mat-accordion>
+      <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>
+      </mat-form-field>
+      <mat-tab-group [color]="colorToggle" 
+                    [backgroundColor]="backgroundColorToggle"
+                    dynamicHeight headerPosition="above" animationDuration="1000ms" mat-align-tabs="center" [(selectedIndex)]="selectedItem.value" (selectedIndexChange)="tabChange($event)">
+                    <!-- $event传过去的是index -->
+        <!-- <ng-template matTabContent></ng-template> 可实现懒加载 -->
+        <!-- headerPosition: above,  below -->
+        <!-- mat-align-tabs: center, start end -->
+        <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab"
+        [disabled]="disabled">
+          Contents for {{tab}} tab
+          <button mat-raised-button
+                class="example-delete-tab-button"
+                [disabled]="tabs.length === 1"
+                (click)="removeTab(index)">
+          Delete Tab
+        </button>
+        </mat-tab>
+      </mat-tab-group>
+      <!-- panel content end -->
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 8" (opened)="setStep(8)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Grid List
+        </mat-panel-title>
+        <mat-panel-description>
+          Grid List Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start -->
+      <app-material-gridcomponent></app-material-gridcomponent>
+      <!-- panel content end -->
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 9" (opened)="setStep(9)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Progress spinner & bar
+        </mat-panel-title>
+        <mat-panel-description>
+          Progress Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start -->
+      <app-progresscomponent></app-progresscomponent>
+      <!-- panel content end -->
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 10" (opened)="setStep(10)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          paginator
+        </mat-panel-title>
+        <mat-panel-description>
+          paginator Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start -->
+      <app-paginatorcomponent></app-paginatorcomponent>
+      <!-- panel content end -->
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 11" (opened)="setStep(11)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Table
+        </mat-panel-title>
+        <mat-panel-description>
+          Table Used
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- panel content start 还未实现-->
+      <!-- <app-tablecomponent></app-tablecomponent> -->
+      <!-- panel content end -->
+    </mat-expansion-panel>
+  </mat-accordion>
 
-<!-- ro使用的是 ngx-bootstrap accordion -->
+  <!-- ro使用的是 ngx-bootstrap accordion -->
 
-<h2>ngx-bootstrap introduction to Use:</h2>
-<mat-radio-group [(ngModel)]="bsAccordionDisable" (ngModelChange)="ngModelChange()">
-  <mat-radio-button class="example-margin" value="Disable">Disable</mat-radio-button>
-  <mat-radio-button class="example-margin" value="unDisable">unDisable</mat-radio-button>
-</mat-radio-group>
-<div class="checkbox">
-  <label>
-    <input type="checkbox" [(ngModel)]="oneAtATime">
-    Open only one at a time
-  </label>
+  <h2>ngx-bootstrap introduction to Use:</h2>
+  <mat-radio-group [(ngModel)]="bsAccordionDisable" (change)="ngModelChange($event)">
+    <mat-radio-button class="example-margin" value="Disable">Disable</mat-radio-button>
+    <mat-radio-button class="example-margin" value="unDisable">unDisable</mat-radio-button>
+  </mat-radio-group>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" [(ngModel)]="oneAtATime">
+      Open only one at a time
+    </label>
+  </div>
+  <accordion isAnimated="true" [closeOthers]="oneAtATime">
+    <!-- isAnimated作为输入属性会报错，直接绑定即可 -->
+    <!-- closeOthers是否只能打开一个 -->
+    <accordion-group heading="Group without isOpenChange event listener" [isDisabled]="bsAccordionDisable==='Disable'">
+      <p>Some content</p>
+    </accordion-group>
+    <accordion-group heading="Group with isOpenChange event listener" (isOpenChange)="log($event)" [isOpen]="true" [panelClass]="customClass">
+      <!-- [isOpen]设置开始默认打开accordion -->
+      <button type="button" class="btn btn-primary btn-sm" (click)="addGroupItem()">
+        Add Group Item
+      </button>
+    </accordion-group>
+    <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event, i)" [panelClass]="getCustomClass(i)" [isOpen]="i===6? true: false">
+      <div class="wrapper" [ngSwitch]="i">
+          <!-- <ng-container *ngIf="i===0"> 注意啊，switch下的组件是随父组件同时init的-->
+          <app-bs-carousel *ngSwitchCase="0" [showFlag]="emitchildclear"></app-bs-carousel>
+          <!-- </ng-container> -->
+          <!-- bs-dropdown用处不是特别大，也可以使用api还是比较好用的 -->
+          <app-bs-dropdown *ngSwitchCase="1"></app-bs-dropdown>
+          <app-bs-datepicker *ngSwitchCase="2"></app-bs-datepicker>
+          <app-bs-timepicker *ngSwitchCase="3"></app-bs-timepicker>
+          <!-- 分页还可以可以使用 -->
+          <app-bs-pagination *ngSwitchCase="4"></app-bs-pagination>
+          <!-- tooltip使用[delay]="500" #pop="bs-tooltip" 就卡死了，没查到原因使用tootip就会卡死，这个bs-ui挺垃圾！！！-->
+          <app-bs-tooltip *ngSwitchCase="5"></app-bs-tooltip>
+          <span class="useScss" *ngSwitchDefault>{{ group?.content }}</span>
+      </div>
+    </accordion-group>
+  </accordion>
 </div>
-<accordion isAnimated="true" [closeOthers]="oneAtATime">
-  <!-- isAnimated作为输入属性会报错，直接绑定即可 -->
-  <!-- closeOthers是否只能打开一个 -->
-  <accordion-group heading="Group without isOpenChange event listener" [isDisabled]="bsAccordionDisable==='Disable'">
-    <p>Some content</p>
-  </accordion-group>
-  <accordion-group heading="Group with isOpenChange event listener" (isOpenChange)="log($event)" [isOpen]="true" [panelClass]="customClass">
-    <!-- [isOpen]设置开始默认打开accordion -->
-    <button type="button" class="btn btn-primary btn-sm" (click)="addGroupItem()">
-      Add Group Item
-    </button>
-  </accordion-group>
-  <accordion-group *ngFor="let group of groups; let i = index;" [heading]="group.title" (isOpenChange)="log($event, i)" [panelClass]="getCustomClass(i)" [isOpen]="i===6? true: false">
-    <div class="wrapper" [ngSwitch]="i">
-        <!-- <ng-container *ngIf="i===0"> 注意啊，switch下的组件是随父组件同时init的-->
-         <app-bs-carousel *ngSwitchCase="0" [showFlag]="emitchildclear"></app-bs-carousel>
-        <!-- </ng-container> -->
-        <!-- bs-dropdown用处不是特别大，也可以使用api还是比较好用的 -->
-         <app-bs-dropdown *ngSwitchCase="1"></app-bs-dropdown>
-         <app-bs-datepicker *ngSwitchCase="2"></app-bs-datepicker>
-         <app-bs-timepicker *ngSwitchCase="3"></app-bs-timepicker>
-         <!-- 分页还可以可以使用 -->
-         <app-bs-pagination *ngSwitchCase="4"></app-bs-pagination>
-         <!-- tooltip使用[delay]="500" #pop="bs-tooltip" 就卡死了，没查到原因使用tootip就会卡死，这个bs-ui挺垃圾！！！-->
-         <app-bs-tooltip *ngSwitchCase="5"></app-bs-tooltip>
-         <span class="useScss" *ngSwitchDefault>{{ group?.content }}</span>
-    </div>
-  </accordion-group>
-</accordion>

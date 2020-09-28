@@ -19,6 +19,9 @@ $basic-width: 100%;
 .hiddenWpcSass{
   @include blockOrHidden(false);
 }
+.wrapper {
+  padding: 14px;
+}
 // 直接使用上面变量及好使
 .useScss{
   border: 1px solid red;

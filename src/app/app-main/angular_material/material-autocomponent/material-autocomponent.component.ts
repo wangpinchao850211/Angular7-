@@ -26,11 +26,8 @@ export const _filter = (opt: string[], value: string): string[] => {
 export class MaterialAutocomponentComponent implements OnInit {
 
   public www: boolean = true;
-  OneStateForm: FormGroup = this._formBuilder.group({
-    myControl: '',
-  });
 
-  // myControl = new FormControl();
+  myControl = new FormControl();
 
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
@@ -105,7 +102,7 @@ export class MaterialAutocomponentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredOptions = this.OneStateForm.get('myControl')!.valueChanges
+    this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
@@ -117,11 +114,8 @@ export class MaterialAutocomponentComponent implements OnInit {
     );
   }
   private _filter(value: string): string[] {
-    console.log(value);
     if (value) {
       const filterValue = value.toLowerCase();
-      console.log(filterValue);
-      console.log(this.options.filter(option => option.toLowerCase().includes(filterValue)));
       return this.options.filter(option => option.toLowerCase().includes(filterValue));
     }
     return this.options;
@@ -135,9 +129,9 @@ export class MaterialAutocomponentComponent implements OnInit {
     return this.stateGroups;
   }
 
-  displayUser(user: { letter: string;names:[]}) { // 重点
-    console.log(user);
-    return user ? user.names : '';
+  displayUser(user) { // 重点
+    // console.log(user);
+    return user ? user : '';
   }
   selectPat(ev) {
     console.log(ev);

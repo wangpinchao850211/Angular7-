@@ -146,4 +146,8 @@ export class MaterialComcomponentComponent implements OnInit {
     }
     return classV;
   }
+
+  ngModelChange(ev) {
+    console.log(ev);
+  }
 }
