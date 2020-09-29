@@ -39,10 +39,12 @@ export class LoaderInterceptor implements HttpInterceptor {
 
 export class ShellService {
   isExpanded: boolean;
+  SideNavEvent = null;
   
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { 
+    this.SideNavEvent = new BehaviorSubject(this.isExpanded);
+  }
 
-  SideNavEvent = new BehaviorSubject(this.isExpanded);
   showSpinner = new BehaviorSubject(null);
   spinnerText = new BehaviorSubject("");
 

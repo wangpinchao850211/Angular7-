@@ -57,6 +57,7 @@ export class AppMenuComponent implements OnInit {
   }
 
   goToHomePage() {
+    // 点击左侧，在app.component里的逻辑有个bug，home页会不跳转
     this.router.navigate(['/home']);
   }
 

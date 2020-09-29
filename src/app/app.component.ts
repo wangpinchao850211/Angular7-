@@ -142,6 +142,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   freshInitTab() {
+    // 这种导致有个整体逻辑上的bug，就是点击菜单，路由不会跳转到home页，只能点击tab的home
     if ( this.removeCurrentURl && this.removeCurrentURl !== '/home') {
       const tabName = getNameByUrl(this.removeCurrentURl);
       console.log(tabName);
