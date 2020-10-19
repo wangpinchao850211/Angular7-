@@ -24,5 +24,13 @@
   <ng-template #greet><span>Hello</span></ng-template>
   <ng-template #eng let-name><span>Hello {{name}}!</span></ng-template>
   <ng-template #svk let-person="localSk"><span>Ahoj {{person}}!</span></ng-template>
+
+  <h3>技术点4：监听storage变化使用storage方法(在app-count-down组件内变更storage值，在这里接收变更检测)</h3>
+  <p>1.单页面监听storage事件: 自定义一个事件将localStorage.setItem设置为创建这个事件的母函数，在组件内部监听自定义事件名(可见index.html自定义code，实现home和count组件的storage的监听)</p>
+
+  <p>localStorage 5秒后变化了, 由 oldValue 变成 <mark>{{storageNewVal}}</mark>
+  </p>
+  
+  <p>2.同域名不同页面的监听正常使用onstorage事件即可</p>
 </div>
 

@@ -13,7 +13,15 @@ export class CountDownComponent implements OnInit {
   @Input() futureDate: Date;
   private _MS_PER_SECOND = 1000;
   countDown$: Observable<string>;
-  constructor() { }
+  constructor() { 
+    // 变更storage值，在home组件进行自定义事件的监听
+    setTimeout(() => {
+      const val = window.localStorage.getItem('watchStorage');
+      if (val === 'oldValue') {
+        window.localStorage.setItem('watchStorage', 'newValue');
+      }
+    }, 5000);
+  }
 
   ngOnInit() {
     this.countDown$ = interval(1000).pipe(

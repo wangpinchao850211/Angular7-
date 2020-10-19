@@ -41,5 +41,24 @@
           }
 			})()
   </noscript>
+  <script type="text/javascript">
+    // WindowEventHandlers.onstorage 属性包含一个在storage事件触发时的事件句柄。 
+
+    // 注意：该事件不在导致数据变化的当前页面触发（如果浏览器同时打开一个域名下面的多个页面，当其中的一个页面改变 sessionStorage 或 localStorage 的数据时，其他所有页面的  storage  事件会被触发，而原始页面并不触发 storage 事件）
+    window.onstorage = function(e) {
+      console.log(e);
+    };
+
+    // 自定义事件，并在组件内部监听此事件实现单页面监听storage事件变化
+    var orignalSetItem = localStorage.setItem;
+    localStorage.setItem = function(key,newValue){
+      var setItemEvent = new Event("setItemEvent");
+      setItemEvent.key = key;
+      setItemEvent.newValue = newValue;
+      window.dispatchEvent(setItemEvent);
+      orignalSetItem.apply(this,arguments);
+    }
+ 
+  </script>
 </body>
 </html>

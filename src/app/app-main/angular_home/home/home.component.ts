@@ -27,11 +27,26 @@ export class HomeComponent implements OnInit {
   
   myContext = {$implicit: 'World', localSk: 'Svet'}; // ngTemplateOutlet
 
+  storageNewVal: string = 'oldValue';
+
   constructor(
     private store: Store<AppState> // 注入store
   ) {
     this.count$ = this.store.pipe(select('count'));
     console.log(this.count$); 
+
+    // 初始化一个sessionStorage值,便于检测
+    window.localStorage.setItem('watchStorage', 'oldValue');
+
+    // WindowEventHandlers.onstorage 属性包含一个在storage事件触发时的事件句柄。 
+    // 注意：该事件不在导致数据变化的当前页面触发（如果浏览器同时打开一个域名下面的多个页面，当其中的一个页面改变 sessionStorage 或 localStorage 的数据时，其他所有页面的  storage  事件会被触发，而原始页面并不触发 storage 事件）
+
+    // 单页面实现，监听自定义事件实现！！！
+    window.addEventListener('setItemEvent', (e) => {
+      // console.log(e);
+      this.storageNewVal = e['newValue'];
+    });
+
   }
 
   ngOnInit() {
