@@ -104,6 +104,7 @@ import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
 import { LoginComponent } from './app-main/login/login.component';
+import { GithubCorner } from './github-corner/github-corner';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -206,6 +207,7 @@ registerLocaleData(zh);
     WorkMemberListComponent,
     UploadFileComponent,
     LoginComponent,
+    GithubCorner,
     EditorComponent,
     CkeditorComponent,
     CountDownComponent,
