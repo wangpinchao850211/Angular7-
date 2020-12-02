@@ -103,6 +103,7 @@ import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
+import { LoginComponent } from './app-main/login/login.component';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -204,6 +205,7 @@ registerLocaleData(zh);
     AppQuestionComponent,
     WorkMemberListComponent,
     UploadFileComponent,
+    LoginComponent,
     EditorComponent,
     CkeditorComponent,
     CountDownComponent,
