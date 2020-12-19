@@ -113,7 +113,7 @@ export class ChartTwoComponent implements OnInit {
           }
       ]
   };
-  
+
   constructor() { }
 
   ngOnInit() {
