@@ -113,11 +113,10 @@ export class ChartTwoComponent implements OnInit {
           }
       ]
   };
-  
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   reset() {
       this.echartsIntance.setOption(this.options, true);
