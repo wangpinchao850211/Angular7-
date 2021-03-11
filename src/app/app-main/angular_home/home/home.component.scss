@@ -5,3 +5,49 @@
 #changeColor{
     margin-left: 40px;
 }
+
+
+.spend-part {
+  width: 100%;
+  height: auto;
+  .spend-label {
+      font: normal normal 600 16px/24px Graphik;
+      color: #000000;
+      padding-bottom: 10px;
+  }
+  .FY-item {
+      box-sizing: border-box;
+      display: inline-block;
+      width: 33.33%;
+      padding: 0px 16px;
+      margin: 4px 0px;
+      .ui-float-label-self { // fix float input
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          label {
+              display: inline-block;
+              width: 64px;
+              height: 48px;
+              line-height: 48px;
+              // text-align: center;
+              text-align: left;
+              font-size: 17px;
+              font-family: 'Graphik-Regular';
+              // font: normal normal normal 17px/23px Graphik;
+              letter-spacing: 0px;
+              color: #000000;
+              opacity: 1;
+          }
+          input {
+              display: inline-block;
+              width: calc(100% - 100px);
+              flex: 1;
+              ::ng-deep .ui-inputnumber {
+                  width: 100%;
+                  height: 100%;
+              }
+          }
+      }
+  }
+}
