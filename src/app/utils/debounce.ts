@@ -12,3 +12,4 @@ export function debounce(fn, wait) {
         console.log('timeout', timeout);
     };
 }
+// 见Hbuilder里有xm debounce原理
