@@ -21,7 +21,8 @@
   "chain_shared": ["CommonComponent"],
   "Angular_Material": [
     "AngularMaterial",
-    "Overlay"
+    "Overlay",
+    "ChangeOverlayDefaultContainer"
   ],
   "Angular_Scss": ["AngularScss"],
   "Angular_Editor": ["CKEditor"],

@@ -114,3 +114,19 @@
     border-left-width:0;
     border-right-color:#fff;
 }
+
+#content-container {
+    overflow: hidden;
+    position: relative;
+    flex: 1 1 auto;
+}
+  
+.my-custom-overlay-container-class {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+}

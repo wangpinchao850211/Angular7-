@@ -34,27 +34,21 @@
   <p>2.同域名不同页面的监听正常使用onstorage事件即可</p>
 
   <div class="spend-part">
-    <div class="spend-label">currency style (in 1,000's)</div>
+    <div class="spend-label">Spend (in 1,000's)</div>
     <div class="p-col-12 mt10">
         <span class="FY-item" *ngFor="let item of FYList; let i = index;">
             <span class="ui-float-label-self">
                 <label for="asset-spend-input-{{i}}">{{item.label}}</label>
                 <!-- <span class="inputNumber"> -->
-                  <!-- 1、使用Prime-Ng小数位数自动补充为0，不适用 -->
-                  <!-- <p-inputNumber [(ngModel)]="item.value" inputId="asset-spend-input-{{i}}" mode="decimal" [minFractionDigits]="17" [maxFracionDigits]="20" prefix="$" placeholder="$"></p-inputNumber> -->
-                  <input type="text" pInputText 
+                <!-- <p-inputNumber [(ngModel)]="item.value" inputId="asset-spend-input-{{i}}" mode="decimal" [disabled]="diabledField" [minFractionDigits]="17" [maxFracionDigits]="20" prefix="$" placeholder="$"></p-inputNumber> -->
+                <input type="text" pInputText
                     id="asset-spend-input-{{i}}"
-                    [class.spendValid]="item.spendValid"
-                    [(ngModel)]="item.value" 
-                    (focus)="showOriginData(item, i)"
-                    (blur)="formatOriginData(item, $event, i);"
-                    (input)="disabledChinese(item,$event)" 
-                    (keyup)="onKeyUp(item,$event)"
-                    (keydown)="onKeyDown(item,$event)"
-                    (compositionstart)="compositionstart($event)">
-                  <!--2、使用angular自带过滤器currency，有小数位数限制，约达到15位左右就不进行过滤了  -->
-                  <!-- <input type="text" [ngModel]="testPrice | currency:'USD':'symbol':'2.2-20'" [ngModelOptions]="{updateOn:'blur'}" (ngModelChange)="testPrice=$event"/> -->
-                  <!-- 综上还是使用input type=text的输入，number类型无法显示货币逗号分隔，最终自定义了这种输入框 -->
+                    value="{{item.value | currency:'USD':true}}"
+                    (input)="currentInput(item,$event)"
+                    (change)="currentChange(item,$event)"
+                    (keydown)="onKeyPress(item,$event)">
+                <!-- <input type="text" [ngModel]="testPrice | currency:'USD':'symbol':'2.2'" [ngModelOptions]="{updateOn:'blur'}"
+  (ngModelChange)="testPrice=$event"/> -->
                 <!-- </span> -->
             </span>
         </span>

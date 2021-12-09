@@ -11,7 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter';
 import { tabReducer } from './store/tab-reducer';
 // import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
 import {CdkTableModule} from '@angular/cdk/table';
 import {OverlayModule, OverlayContainer, FullscreenOverlayContainer} from "@angular/cdk/overlay";
@@ -109,6 +109,10 @@ import { GithubCorner } from './github-corner/github-corner';
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
 import {ButtonModule} from 'primeng/button';
+import { DirectExtendComponent } from './app-main/angular_material/overlay/overlayChangeDefaultContainer/direct-extend/direct-extend.component';
+import { CdkOverlayContainer } from './cdk-overlay-container';
+import { AppOverlayContainer } from './cdk-overlay-container2';
+import { CdkOverlayContainerDirective } from './app-main/angular_material/overlay/cdk-overlay-container.directive';
 
 // CKeditor
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -222,6 +226,8 @@ registerLocaleData(zh);
     AngularAnimateLayoutComponent,
     MaterialCdkOverlayComponent,
     OverlayPanelComponent,
+    DirectExtendComponent,
+    CdkOverlayContainerDirective
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
       MarterialDialogComponent,
@@ -262,6 +268,7 @@ registerLocaleData(zh);
     MatPaginatorModule, // 引入paginator
     MatTableModule, // 一直也没引入成功报错
     OverlayModule,
+    MatSnackBarModule,
     PortalModule,
     MatTooltipModule, // 测试mat tooltip
     // ScrollingModule // 没有引用CDK到项目中！！！
@@ -291,6 +298,8 @@ registerLocaleData(zh);
     { provide: NZ_I18N, useValue: zh_CN },
     // { provide: RouteReuseStrategy, useClass: AppReuseStrategy } //路由复用暂时不用，此项目路由操作破坏了路由复用
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
+    { provide: OverlayContainer, useClass: CdkOverlayContainer },
+    // { provide: OverlayContainer, useFactory: () => new AppOverlayContainer(document) },
   ], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })

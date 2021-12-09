@@ -41,6 +41,7 @@ import { CanDeactivateGuard } from './services/auth/can-deactivate.guard';
 import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
 import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
 import { LoginComponent } from './app-main/login/login.component';
+import { DirectExtendComponent } from './app-main/angular_material/overlay/overlayChangeDefaultContainer/direct-extend/direct-extend.component';
 
 const routes: Routes = [
   // Main redirect。  pathMatch：重定向路由需要一个 pathMatch 属性，来告诉路由器如何用 URL 去匹配路由的路径，否则路由器就会报错。路由器应该只有在完整的 URL等于 '' 时才选择 对应 组件，因此要把 pathMatch 设置为 'full'。
@@ -128,7 +129,8 @@ const routes: Routes = [
     component: MaterialLayoutComponent,
     children: [
       { path: 'AngularMaterial', component: MaterialComcomponentComponent },
-      { path: 'Overlay', component: MaterialCdkOverlayComponent }
+      { path: 'Overlay', component: MaterialCdkOverlayComponent },
+      { path: 'ChangeOverlayDefaultContainer', component: DirectExtendComponent }
     ]
   },
   {

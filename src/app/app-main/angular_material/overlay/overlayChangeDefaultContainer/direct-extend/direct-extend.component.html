@@ -1,0 +1,17 @@
+<div class="basic-container">
+  <button mat-button matTooltip="test 1">Tooltip 1</button>
+  <div myCdkOverlayContainer style="background-color:red">Tooltip 1 overlay attached to this div via myCdkOverlayContainer directive</div>
+  <button mat-button matTooltip="test 2">Tooltip 2</button>
+  <div myCdkOverlayContainer style="background-color:red">Tooltip 2 overlay attached to this div via myCdkOverlayContainer directive</div>
+  <button mat-button matTooltip="test 3">Tooltip 3</button>
+  <div myCdkOverlayContainer style="background-color:red">Tooltip 3 overlay attached to this div via myCdkOverlayContainer directive</div>
+  <button mat-button matTooltip="test 4">Tooltip 4</button>
+  <div myCdkOverlayContainer style="background-color:red">Tooltip 4 overlay attached to this div via myCdkOverlayContainer directive</div>
+  </div> 
+
+
+  <div id="content-container">
+    <div class="basic-container">
+      <button mat-button (click)="openSnackBar()">Show snack-bar</button>
+    </div>
+  </div>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HostUseComponent implements OnInit {
 
+  showDiffClass = false;
+  Status = 'Y';
   constructor() { }
 
   ngOnInit() {

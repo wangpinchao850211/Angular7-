@@ -1,7 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Store, select } from '@ngrx/store'; // 导入store并使用
 import * as Rx from 'rxjs';
-import * as _ from 'lodash';
 import { slideToRight, slideToBottom } from '../../../animation/router.anim';
 
 // 使用store
@@ -11,8 +10,27 @@ interface AppState {
 
 interface Spend {
   label: string,
-  value: string,
-  spendValid: boolean
+  value: number
+}
+
+/**
+ * This function coerces a string into a string literal type.
+ * Using tagged union types in TypeScript 2.0, this enables
+ * powerful typechecking of our reducers.
+ *
+ * Since every action label passes through this function it
+ * is a good place to ensure all of our action labels
+ * are unique.
+ * 
+ * 牛XXXXX！！！
+ */
+const typeCache: { [label: string]: boolean } = {};
+export function type<T>(label: T | ''): T {
+  if (typeCache[<string>label]) {
+    throw new Error(`Action type "${label}" is not unique"`);
+  }
+  typeCache[<string>label] = true; // 每次把已存在的状态存储到typeCache里，如果这次传入的label有对应值，抛出错误
+  return <T>label;
 }
 
 @Component({
@@ -33,7 +51,6 @@ export class HomeComponent implements OnInit {
   title="向history.pushState push url 并不跳转";
 
   FYList: Spend[] = [];
-  OriginFyList: Spend[] = [];
 
   myContext = {$implicit: 'World', localSk: 'Svet'}; // ngTemplateOutlet
 
@@ -57,6 +74,49 @@ export class HomeComponent implements OnInit {
       this.storageNewVal = e['newValue'];
     });
 
+
+    // ts 例子1
+    const x = this.extend({ a: 'hello' }, { b: 42 });
+    console.log(x);
+    /**
+     *  { a: "hello", b: 42 }
+     * */ 
+
+    // ts例子2：创建 K: V
+    const Direction = this.strEnum(['North', 'South', 'East', 'West']);
+    console.log(Direction);
+    /**
+     * {
+          East: "East"
+          North: "North"
+          South: "South"
+          West: "West"
+        }
+     * */ 
+
+  }
+
+  // 类型校验合并两个对象
+  extend<T extends object, U extends object>(first: T, second: U): T & U {
+    const result = <T & U>{};
+    for (let id in first) {
+      (<T>result)[id] = first[id];
+    }
+    for (let id in second) {
+      if (!result.hasOwnProperty(id)) {
+        (<U>result)[id] = second[id];
+      }
+    }
+    return result;
+  }
+
+  // example
+  // 用于创建字符串列表映射至 `K: V` 的函数
+  strEnum<T extends string>(o: Array<T>): { [K in T]: K } {
+    return o.reduce((res, key) => {
+      res[key] = key;
+      return res;
+    }, Object.create(null));
   }
 
   ngOnInit() {
@@ -65,201 +125,76 @@ export class HomeComponent implements OnInit {
       console.log(`home页的次数是${count}`);
     })
 
-    for (let index = 10; index < 12; index++) {
+    for (let index = 10; index < 22; index++) {
       this.FYList.push({
         label: `FY${index}`,
-        value: '0.00',
-        spendValid: false
+        value: -96789757.67
       })
     }
-
-    this.OriginFyList = _.cloneDeep(this.FYList);
-    this.FYList.map((item) => {
-      item.value = this.formatToCurrent(item.value)
-    });
   }
 
-  formatToCurrent(str) {
-    // console.log(str);
-    if (str.includes('$')) {
-      str = str.replace('$', '');
-    }
-    let minus = false;
-    if (str.includes('-')) {
-      str = str.replace('-', '');
-      minus = true;
-    }
-    const arr = str.split('.');
-    // remove 0
-    let falg = true;
-    let ind = 0;
-    for (let j = 0; j < arr[0].length; j++) {
-      const item = arr[0][j];
-      if (Number(item) === 0 && falg) {
-        continue
-      } else {
-        ind = j;
-        falg = false;
-        break
-      }
-    }
-    arr[0] = arr[0].substring(ind); // 截取0之后的整数字符
-    // const Formatint = Number(arr[0]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); 有问题会四舍五入
-    const Formatint = arr[0].split('').reverse().reduce((prev, next, index) => {
-      return ((index % 3) ? next : (next + ',')) + prev
-    });
-    // console.log(Formatint);
-    if (arr[1] === undefined) {
-      arr[1] = '00';
-    }
-    str = `${Formatint.split('.')[0]}.${arr[1]}`;
-    if (minus) {
-      str = `-${str}`
-    }
-    str = `$${str}`
-    // console.log(str);
-    return str;
-  }
-
-  changeToNum(str) {
-    const arr = str.split('.');
-    arr[0] = arr[0].replace('$', '').replaceAll(',', '');
-    return `${arr[0]}.${arr[1]}`;
-  }
-
-  // focus
-  showOriginData(item, index) {
-    for (let i = 0; i < this.OriginFyList.length; i++) {
-      const element = this.OriginFyList[i];
-      if (i === index) {
-        item.value = this.changeToNum(element.value);
-      }
-    }
-  }
-
-  // blur
-  formatOriginData(item, event, index) {
-    event.target.value = event.target.value.replace('$', '');
-    const reg = /^\d+(\.\d+)?$/g;
-    const regC = /[\u4E00-\u9FA5]/g;
-    const regEnglish = /[A-Za-z`~!@#$%^&*()_=+|\\\{};:'",<>/?\s]/g;
-    if (!reg.test(event.target.value) && (regC.test(event.target.value) || regEnglish.test(event.target.value))) {
-      item.spendValid = true;
-      event.target.value = `$0.00`;
-      item.value = `$0.00`;
-    } else {
-      item.spendValid = false;
-    }
-
-    if (event.target.value === '0') {
-      event.target.value = `$0.00`;
-      item.value = `$0.00`;
-    } else {
-      event.target.value = this.formatToCurrent(event.target.value);
-      item.value = event.target.value;
-    }
-
-    // save to origindata
-    this.changeToTanf(index, this.changeToNum(item.value));
-  }
-
-  changeToTanf(index, currentData) {
-    for (let i = 0; i < this.OriginFyList.length; i++) {
-      const element = this.OriginFyList[i];
-      if (i === index) {
-        element.value = currentData
-      }
-    }
-  }
-
-  onKeyUp() {
-    if (this.chineseFalg) {
-      this.chineseFalg = false;
-    }
-  }
-
-  chineseFalg = false;
-  compositionstart(event) {
-    this.chineseFalg = true;
-    // event.stopPropagation();
-    // event.preventDefault();
-    // event.returnValue = false;
-    // return false
-  }
-
-  disabledChinese(item, event) {
+  currentChange(item, event) {
     console.log(event);
     console.log(item);
-    if (event.data !== null) {
-      const reg = /[\u4E00-\u9FA5]/g;
-      // console.log(reg.test(event.data));
-      /**
-       * test chinese
-       * */
-      // console.log(this.chineseFalg);
-      if (reg.test(event.data) && this.chineseFalg) {
-        item.spendValid = true;
-        event.target.value = `$0.00`;
-        item.value = `$0.00`;
-      } else {
-        item.spendValid = false;
-      }
-      const reg2 = /^\d+(\.\d+)?$/g;
-      // console.log(reg2.test(event.data));
-      // console.log(event.data.match(reg2));
-      if (!(reg2.test(event.data)) && event.data.match(reg2).length>0 && this.chineseFalg) {
-        const reg = new RegExp(`${event.data}?`, 'g');
-        event.target.value = event.target.value.replace(reg, '');
-        item.value = event.target.value;
-      }
-    }
+    console.log(event.target.value);
   }
 
-  onKeyDown(item, event) {
+  currentInput(item, event) {
+    event.preventDefault();
+
+    console.log(event);
+    console.log(item);
+    // console.log(item.value.includes('$'));
+    // if (!item.value.includes('$')) {
+    //   item.value = `$${item.value}`
+    // }
+
+    console.log(event.target.value);
+    console.log(event.data);
+    // console.log(ev.keyCode);
+
+    // if (ev.keyCode!=32 && ev.keyCode!=13 && ev.keyCode!=0) {
+    //     ev.returnValue=false
+    // }
+
+    const reg = /^[0-9-]/g;
+    console.log(reg.test(event.data));
+    // if (event.target.value.includes('.') && event.data === '.') {
+    //   event.preventDefault();
+    // }
+
+    if (reg.test(event.data)) {
+      item.value = event.target.value;
+    } else {
+      event.preventDefault();
+      // ev.target.value = item.value;
+      console.log(event.target.value);
+    }
+    // ev.target.value = ev.target.value.replace(/\s/g,"");
+    // ev.target.value = ev.target.value.replace(/[^\d\.]/g, '')
+    console.log(item);
+  }
+
+  onKeyPress(item, event) {
     console.log(event.keyCode);
     console.log(item);
-
-    console.log(!(event.keyCode === 190 || event.keyCode === 37 || event.keyCode === 39 ||
-      event.keyCode === 8 || event.keyCode === 57 || event.keyCode === 229 ||
-      event.keyCode === 48 || event.keyCode === 49 || event.keyCode === 50 ||
-      event.keyCode === 51 || event.keyCode === 52 || event.keyCode === 53 ||
-      event.keyCode === 54 || event.keyCode === 55 || event.keyCode === 56 ||
-      event.keyCode === 96 || event.keyCode === 97 || event.keyCode === 98 ||
-      event.keyCode === 99 || event.keyCode === 100 || event.keyCode === 101 ||
-      event.keyCode === 102 || event.keyCode === 103 || event.keyCode === 104 ||
-      event.keyCode === 105 || event.keyCode === 109 || event.keyCode === 110 ||
-      event.keyCode === 189));
     // 48-57
-    if (!(event.keyCode === 190 || event.keyCode === 37 || event.keyCode === 39 ||
-          event.keyCode === 8 || event.keyCode === 57 || event.keyCode === 229 ||
-          event.keyCode === 48 || event.keyCode === 49 || event.keyCode === 50 ||
-          event.keyCode === 51 || event.keyCode === 52 || event.keyCode === 53 ||
-          event.keyCode === 54 || event.keyCode === 55 || event.keyCode === 56 ||
-          event.keyCode === 96 || event.keyCode === 97 || event.keyCode === 98 ||
-          event.keyCode === 99 || event.keyCode === 100 || event.keyCode === 101 ||
-          event.keyCode === 102 || event.keyCode === 103 || event.keyCode === 104 ||
-          event.keyCode === 105 || event.keyCode === 109 || event.keyCode === 110 ||
-          event.keyCode === 189)) {
+    if (event.keyCode!==96 || event.keyCode!==97 || event.keyCode!==98 ||
+        event.keyCode!==99 || event.keyCode!==100 || event.keyCode!==101 ||
+        event.keyCode!==102 || event.keyCode!==103 || event.keyCode!==104 ||
+        event.keyCode!==105 || event.keyCode!==109 || event.keyCode!==110) {
           event.returnValue = false;
-          // event.preventDefault();
-          // return false;
+          event.preventDefault();
+          return false;
     }
 
     if (`${item.value}`.includes('.') && event.key === '.') {
       event.preventDefault();
     }
 
-    if (`${item.value}`.includes('-') && event.key === '-') {
-      event.preventDefault();
-    }
-
     // event.preventDefault();
 
-    console.log(item);
-
   }
-
-
 
   updateGreeting() {
     this.greeting = this.currentGeeting; // onblur再赋值

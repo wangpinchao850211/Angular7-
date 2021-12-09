@@ -2,11 +2,19 @@
     border: 2px dotted red;
 }
 
-:host-context(.styled-component) {
-    border: 1px solid gray;
-    display:block;
+:host-context(.styled-component) { // 是描绘当前组件的样式
+    border: 4px solid gray;
+    display: block;
+    padding: 20px;
+}
+
+:host-context(.basic-component) { // 是描绘当前组件的样式
+    border: 4px solid blue;
+    display: block;
+    padding: 10px;
 }
 
 :host ::ng-deep p {
     background-color: yellow;
+    margin-bottom: 0;
 }
