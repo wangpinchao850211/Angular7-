@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
 // 路由缓存
@@ -10,21 +10,55 @@ import { AppReuseStrategy } from './services/RouteReuseStrategy.service';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter';
 import { tabReducer } from './store/tab-reducer';
-// import { MaterialModule } from '@angular/material'; 已经不支持全部导入了
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatDialogModule, MatInputModule,MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatAutocompleteModule, MatGridListModule, MatProgressSpinnerModule, MatSliderModule, MatProgressBarModule, MatPaginatorModule, MatTableModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
+
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatExpansionModule } from '@angular/material/expansion'
+
+
+
+
 import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
 import {CdkTableModule} from '@angular/cdk/table';
 import {OverlayModule, OverlayContainer, FullscreenOverlayContainer} from "@angular/cdk/overlay";
 import {PortalModule} from "@angular/cdk/portal";
 
-import { TooltipModule, AccordionModule, CarouselModule, BsDropdownModule, BsDatepickerModule, PaginationModule, TimepickerModule  } from 'ngx-bootstrap';
-import { NzIconModule, } from 'ng-zorro-antd';
-import { NzUploadModule } from 'ng-zorro-antd';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+// import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,25 +83,11 @@ import { Product2Component } from './app-main/angular_basic/DependencyInjection/
 import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
 import { MultiplePipe } from './pipe/multiple.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
-import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
-import { MaterialComcomponentComponent } from './app-main/angular_material/material-comcomponent/material-comcomponent.component';
-import { MaterialCheckboxComponent } from './app-main/angular_material/material-checkbox/material-checkbox.component';
 import { SharedModule } from './app-main/chain_module/shared/shared.module';
-import { MaterialSelectComponent } from './app-main/angular_material/material-select/material-select.component';
-import { MarterialDialogComponent } from './app-main/angular_material/marterial-dialog/marterial-dialog.component';
 
 import { matDialogConfirmService } from './services/mat-dialog.service';
 import { SafehtmlPipe } from './pipe/safehtml.pipe';
-import { MaterialAutocomponentComponent } from './app-main/angular_material/material-autocomponent/material-autocomponent.component';
-import { MaterialGridcomponentComponent } from './app-main/angular_material/material-gridcomponent/material-gridcomponent.component';
-import { ProgresscomponentComponent } from './app-main/angular_material/progresscomponent/progresscomponent.component';
-import { PaginatorcomponentComponent } from './app-main/angular_material/paginatorcomponent/paginatorcomponent.component';
-import { TablecomponentComponent } from './app-main/angular_material/tablecomponent/tablecomponent.component';
-import { BsCarouselComponent } from './app-main/angular_material/bs-carousel/bs-carousel.component';
-import { BsDatepickerComponent } from './app-main/angular_material/bs-datepicker/bs-datepicker.component';
-import { BsDropdownComponent } from './app-main/angular_material/bs-dropdown/bs-dropdown.component';
-import { BsPaginationComponent } from './app-main/angular_material/bs-pagination/bs-pagination.component';
-import { BsTimepickerComponent } from './app-main/angular_material/bs-timepicker/bs-timepicker.component';
+
 import { BsTooltipComponent } from './app-main/angular_material/bs-tooltip/bs-tooltip.component';
 import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
@@ -105,6 +125,7 @@ import { WorkMemberListComponent } from './app-main/angular_basic/work-member-li
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
 import { LoginComponent } from './app-main/login/login.component';
 import { GithubCorner } from './github-corner/github-corner';
+import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -134,6 +155,10 @@ import { ViewContainerRefComponent } from './app-main/angular_basic/view-contain
 import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
 import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
 import { OverlayPanelComponent } from './app-main/angular_material/overlay/overlay-panel/overlay-panel.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+// import { MatNativeDateModule } from '@angular/material/core/datetime';
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
+import { MatNativeDateModule } from '@angular/material/core';
 
 registerLocaleData(zh);
 
@@ -159,22 +184,7 @@ registerLocaleData(zh);
     DeplayoutComponent,
     MultiplePipe,
     FilterPipe,
-    MaterialLayoutComponent,
-    MaterialComcomponentComponent,
-    MaterialCheckboxComponent,
-    MarterialDialogComponent,
-    MaterialSelectComponent,
     SafehtmlPipe,
-    MaterialAutocomponentComponent,
-    MaterialGridcomponentComponent,
-    ProgresscomponentComponent,
-    PaginatorcomponentComponent,
-    TablecomponentComponent,
-    BsCarouselComponent,
-    BsDatepickerComponent,
-    BsDropdownComponent,
-    BsPaginationComponent,
-    BsTimepickerComponent,
     BsTooltipComponent,
     AngularScssComponent,
     DirectivePipeComponent,
@@ -227,10 +237,10 @@ registerLocaleData(zh);
     MaterialCdkOverlayComponent,
     OverlayPanelComponent,
     DirectExtendComponent,
+    MaterialLayoutComponent,
     CdkOverlayContainerDirective
   ],
   entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
-      MarterialDialogComponent,
       OverlayPanelComponent
   ],
   imports: [ // 运转需要的依赖模块
@@ -242,7 +252,7 @@ registerLocaleData(zh);
     AppRoutingModule,
     CommonModule,
     FileUploadModule,
-    NgZorroAntdModule,
+    // NgZorroAntdModule,
     FormsModule, // 添加这个可以使用ngModule (模板式表单)
     ReactiveFormsModule, // 添加这个可以使用FormControl(响应式表单)
     HttpClientModule,
@@ -267,12 +277,8 @@ registerLocaleData(zh);
     MatSliderModule, // 引入slider
     MatPaginatorModule, // 引入paginator
     MatTableModule, // 一直也没引入成功报错
-    OverlayModule,
     MatSnackBarModule,
-    PortalModule,
     MatTooltipModule, // 测试mat tooltip
-    // ScrollingModule // 没有引用CDK到项目中！！！
-    SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
     CarouselModule.forRoot(),
@@ -280,10 +286,18 @@ registerLocaleData(zh);
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
+    SharedModule, // shared自己封装的组件要引入使用, (注意要引入SharedModule这个模块，不是单独的小组件！！！！)
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
     NzUploadModule, // ant 文件上传
+    NzButtonModule,
+    NzMenuModule,
+    NzLayoutModule,
+    NzGridModule,
+    // ScrollingModule // 没有引用CDK到项目中！！！
     ButtonModule,
+    OverlayModule,
+    PortalModule,
     // CKeditor
     CKEditorModule,
     NgxEchartsModule
@@ -292,6 +306,9 @@ registerLocaleData(zh);
     // ScrollingModule // 没有引用CDK到项目中！！！
     CdkTableModule,
     // MatTableModule 一直也没引入成功报错
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
     matDialogConfirmService, 

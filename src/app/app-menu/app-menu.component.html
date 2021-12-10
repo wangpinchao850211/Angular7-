@@ -3,7 +3,7 @@
       <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
     </button>
     <ul nz-menu [nzMode]="'inline'" [nzTheme]="theme ? 'light' : 'dark'" [nzInlineCollapsed]="isCollapsed" class="menuUl">
-      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''" (click)="goToHomePage()">
+      <li nz-menu-item nz-tooltip nzPlacement="right" (click)="goToHomePage()">
         <span title>
           <i nz-icon type="mail"></i>
           <span>Navigation One</span>

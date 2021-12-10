@@ -1,6 +1,6 @@
 <!-- NG-ZORRO -->
 <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
-<nz-layout class="layout theme-wrapper" *ngIf="!remS.showrem" id="theme-wrapper" [ngClass]="{'headlight': theme, 'headark': !theme}">
+<nz-layout class="layout theme-wrapper" id="theme-wrapper" [ngClass]="{'headlight': theme, 'headark': !theme}">
   <nz-header style="height: 60px;" >
     <span style="float: right">
       <input #colorSelector type="color">
@@ -32,4 +32,3 @@
 <!-- </cdk-virtual-scroll-viewport> -->
 <!-- 单独跳转到rem布局页面，使用辅助路由(并没有实现，需要深入人研究辅助路由，这里提示辅助路由只可以作为跳转的子路由么？？？ -->
 <!-- <router-outlet name="remaux"></router-outlet> -->
-<app-remlayout *ngIf="remS.showrem"></app-remlayout>

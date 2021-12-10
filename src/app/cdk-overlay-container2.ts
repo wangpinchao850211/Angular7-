@@ -2,8 +2,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 
 export class AppOverlayContainer extends OverlayContainer {
 
-    constructor(d) {
-        super(d);
+    constructor(d, s) {
+        super(d, s);
     }
 
     _createContainer(): void {

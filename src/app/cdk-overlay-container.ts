@@ -1,4 +1,6 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { Injectable } from "@angular/core";
+@Injectable()
 export class CdkOverlayContainer extends OverlayContainer {
    /**
    * Create overlay container and append to ElementRef from directive

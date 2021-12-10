@@ -114,7 +114,8 @@ export class MaterialCdkOverlayComponent implements OnInit {
     overlayRef.attach(new ComponentPortal(OverlayPanelComponent, this.viewContainerRef));
     // 监听overlayRef上的键盘按键事件
     overlayRef.keydownEvents().subscribe((event: KeyboardEvent) => {
-        console.log(overlayRef._keydownEventSubscriptions + ' times');
+        // console.log(overlayRef._keydownEventSubscriptions + ' times');
+        console.log(overlayRef._keydownEvents + ' times');
         console.log(event);
     });
   }

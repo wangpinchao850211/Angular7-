@@ -2,7 +2,7 @@
   <nz-tabset style=" width: 90%; margin: 10px auto;background: lightgray;">
     <nz-tab nzTitle="复选框校验">
       <form [formGroup]="checkBoxForm" style="margin-left: 20px;">
-        <div class="like" *ngFor="let like of likes.controls; let i = index;" >
+        <div class="like" *ngFor="let like of likes['controls']; let i = index;" >
           <input type="checkbox" [formControl]="like"> 
          {{likesArr[i]}}
         </div>
@@ -54,9 +54,9 @@
           <input type="date" name="" id="end-date" formControlName="to">
         </div>
         <ul formArrayName="emails">
-          <li *ngFor="let e of this.formModel.get('emails').controls; let i = index;">
+          <li *ngFor="let e of this.formModel.get('emails')['controls']; let i = index;">
             <label for="email+{{i}}"></label>
-            <input type="text" name="" id="email+{{i}}" [formControlName]="i">
+            <input type="text" name="" id="email+{{i}}" [formControlName]="e">
           </li>
         </ul>
         <button type="button" (click)="addEmail()">增加email</button>

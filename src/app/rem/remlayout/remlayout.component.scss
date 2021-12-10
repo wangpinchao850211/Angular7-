@@ -1,6 +1,26 @@
-@import '~src/assets/base.scss';
-
-// scss混合
+// @import '~src/assets/base.scss';
+/*
+$full-width: 100%;
+$full-height: 100%;
+$menu-width: 3rem;
+$fold-menu-width: .7rem;
+$color-azure-blue: #2473C3;
+$color-white: #fff;
+$color-black: #000;
+$color-grey-blue: #AAC1CE;
+$color-purple: #B894DB;
+$color-aqua: #82D2EB;
+$color-blue-pearl: #98B9E9;
+$color-teal: #77CCCE;
+$color-blush: #FF8D8D;
+$color-honey: #FFD272;
+$color-tangerine: #FFAD75;
+$color-true-blue: #1E5D95;
+$color-powder-blue: #EAF3FA;
+$color-super-light-grey: #F5F6F8;
+$color-regular: #4D5D72;
+$color-grey: #65758B;
+ 
 @mixin menuBase($menuWidth: $menu-width) {
     width: $menuWidth;
     background: $color-grey-blue;
@@ -63,7 +83,6 @@
         color: $color-blush;
     }
     .fold {
-        // 折叠按钮
         position: absolute;
         right: 5%;
         bottom: .5rem;
@@ -86,14 +105,12 @@
     .main {
         @include mainBase;
         @at-root .main-content {
-            // 主要内容区 (跳出选择器嵌套)
             flex: 1;
             background: $color-blue-pearl;
             .content-describe {
                 font-size: .2rem;
                 color: $color-black;
-                // height: calc(#{$full-height} - 2.05rem - 2px); angular项目使用这个
-                height: calc(#{$full-height} - 0.75rem - 2px);
+                height: calc(100%- 0.75rem - 2px)
                 margin: 0 .8rem .25rem;
                 padding: .5rem .6rem .8rem 1rem;
                 border: 1px solid $color-grey;
@@ -115,3 +132,4 @@
         background: $color-super-light-grey;
     }
 }
+*/

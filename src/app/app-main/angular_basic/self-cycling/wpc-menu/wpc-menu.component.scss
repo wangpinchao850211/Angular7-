@@ -37,8 +37,8 @@ $rotateT: 'translateY(-50%) rotate(0deg)';
     color: #ffffff;
     position: relative;
     &::before, &::after {
-        background: url(src/assets/images/cd-icons.svg) no-repeat;
-    }
+        background: url("../../../../../assets/images/cd-icons.svg") no-repeat;
+    }    
     &::before { /* arrow icon */
         left: 18px;
         background-position: 0 0;

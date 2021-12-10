@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { UploadXHRArgs } from 'ng-zorro-antd/upload';
+// import { UploadXHRArgs } from 'ng-zorro-antd/upload';
+import { NzUploadXHRArgs } from 'ng-zorro-antd/upload';
 import { forkJoin } from 'rxjs';
 import { FileUploader } from 'ng2-file-upload';
 import { HttpServiceService } from '../../../services/http-service.service';
@@ -100,7 +101,7 @@ export class UploadFileComponent implements OnInit, OnDestroy {
     console.log(info);
   }
 
-  customReq = (item: UploadXHRArgs) => {
+  customReq = (item: NzUploadXHRArgs) => {
     console.log(item);
     // Create a FormData here to store files and other parameters.
     const formData = new FormData();
@@ -133,7 +134,7 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   };
 
   // A simple sliced upload. 处理大文件的
-  // customBigReq = (item: UploadXHRArgs) => {
+  // customBigReq = (item: NzUploadXHRArgs) => {
   //   const size = item.file.size;
   //   const chunkSize = parseInt(size / 3 + '', 10);
   //   const maxChunk = Math.ceil(size / chunkSize);

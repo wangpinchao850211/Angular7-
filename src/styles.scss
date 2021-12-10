@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/*  @import "src/wpcScss.scss";  引入scss文件进行使用 */
 
-// @import "src/wpcScss.scss"; // 引入scss文件进行使用
 
 @import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
 @import "./assets/css/site.css";
@@ -12,20 +12,21 @@
 @import "./assets/css/dialog.css";
 @import "./assets/css/progress.css";
 
-// 直接在这个里引入，即可，无需再angular.json引入避免混乱
+/* 直接在这个里引入，即可，无需再angular.json引入避免混乱 */ 
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css";
 @import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss";
 @import '~@angular/cdk/overlay-prebuilt.css';
 
-// import Prime-NG 样式
+/*import Prime-NG 样式*/ 
 @import "../node_modules/primeicons/primeicons.css";
-@import "../node_modules/primeng/resources/themes/nova-light/theme.css";
+/*@import "../node_modules/primeng/resources/themes/nova-light/theme.css";*/
 @import "../node_modules/primeng/resources/primeng.min.css";
 
-// import ant-zorro 样式
+/*import ant-zorro 样式*/ 
 @import "../node_modules/ng-zorro-antd/ng-zorro-antd.min.css"; /* 引入基本样式 */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
 
 
 :host>>>.tooltip-parent{

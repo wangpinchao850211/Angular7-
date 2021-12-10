@@ -82,13 +82,13 @@ export class DebounceKeyupEnter implements OnInit, OnDestroy {
   }
 }
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+// import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
 
-@NgModule({
-  imports: [FormsModule, CommonModule],
-  declarations: [DebouncEventDirective, DebounceKeyupEnter],
-  exports: [DebouncEventDirective, DebounceKeyupEnter]
-})
-export class DebounceClickModuel {}
+// @NgModule({
+//   imports: [FormsModule, CommonModule],
+//   declarations: [DebouncEventDirective, DebounceKeyupEnter],
+//   exports: [DebouncEventDirective, DebounceKeyupEnter]
+// })
+// export class DebounceClickModuel {}

@@ -19,12 +19,12 @@ body{
   max-height: calc(100% - 66px);
   overflow: hidden;
 }
-// 主题定制
+/*主题定制*/ 
 .headark{
   .ant-layout-header{
     background-color: myVar(--darkBackgroundColor);
   }
-  #mainlayout{// 这个地方使用var才好使
+  #mainlayout{/*这个地方使用var才好使*/ 
     background-color: var(--mainDarkBackgroundColor);
   }
 }
@@ -33,7 +33,7 @@ body{
   .ant-layout-header{
     background-color: myVar(--lightBackgroundColor);
   }
-  #mainlayout{ // 这个地方使用var才好使
+  #mainlayout{ /*这个地方使用var才好使*/ 
     background-color: var(--mainLightBackgroundColor);
   }
 }

@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
 
-  private routerId: number;
+  public routerId: number;
   constructor(
     private routeInfo: ActivatedRoute
   ) {

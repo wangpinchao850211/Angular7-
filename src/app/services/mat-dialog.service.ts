@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
-import { MatDialog, MatDialogRef, MatDialogConfig, DialogPosition} from '@angular/material';
+// import { DOCUMENT } from "@angular/common";
+import { MatDialog, MatDialogRef, MatDialogConfig} from '@angular/material/dialog';
 import { MarterialDialogComponent } from '../app-main/angular_material/marterial-dialog/marterial-dialog.component';
 import { Observable } from 'rxjs';
 
@@ -10,10 +10,10 @@ export class matDialogConfirmService {
 
     constructor(
         @Inject(MatDialog) public _confirmDialog: MatDialog,
-        @Inject(DOCUMENT) doc: any,
+        // @Inject(DOCUMENT) doc: any,
     ) {
         // 打开dialog，body添加no-scroll样式
-        _confirmDialog.afterOpen.subscribe((ref: MatDialogRef<any>) => {
+        _confirmDialog.afterOpened.subscribe((ref: MatDialogRef<any>) => {
             console.log(ref);
         });
         // 关闭dialog，body移除no-scroll样式

@@ -89,7 +89,7 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
       _timer.unsubscribe();
     }
     //3、 Create an Observable that will publish mouse movements (监听鼠标事件)
-    const mouseMoves = fromEvent(this.mouseEle.nativeElement, 'mousemove');
+    const mouseMoves = fromEvent(this.mouseEle?.nativeElement, 'mousemove');
     // Subscribe to start listening for mouse-move events
     const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
       // 注意: 键盘事件用KeyboardEvent，鼠标事件用MouseEvent
@@ -140,7 +140,7 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
 
     //一、 控制流
     // 输入 "hello world"
-    var inputObservables = fromEvent(this.flowControl.nativeElement, 'change');
+    var inputObservables = fromEvent(this.flowControl?.nativeElement, 'change');
 
     // 过滤掉小于3个字符长度的目标值
     // 

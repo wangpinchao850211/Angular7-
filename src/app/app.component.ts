@@ -3,7 +3,6 @@ import { Store, select } from '@ngrx/store'; // 导入store并使用
 import { addTab, removeTab } from './store/tab-reducer';
 import { MenuTab } from './interface/menu';
 import { getNameByUrl, getUrlByName } from './utils/tabNameMapping';
-import { RemserviceService } from 'src/app/services/remservice.service';
 import { HttpServiceService } from './services/http-service.service';
 import { Router, NavigationEnd, ActivatedRoute, UrlTree } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -84,8 +83,7 @@ export class AppComponent implements AfterViewInit {
     private store: Store<{tab: MenuTab}>,
     private menu: HttpServiceService,
     private router: Router,
-    private routerInfo: ActivatedRoute,
-    private remS: RemserviceService) {
+    private routerInfo: ActivatedRoute) {
       // 下载pdf 
       // FileSaver.saveAs(response, "EID" + this.exportId + ".pdf");
       // socket使用
@@ -94,11 +92,6 @@ export class AppComponent implements AfterViewInit {
         // this.loadDataCenter() 执行加载
       });
       this.tabs$ = this.store.pipe(select('tab')); // 从app.module.ts中获取tab状态流
-      if (sessionStorage.getItem('rem') === 'true') {
-        this.remS.showrem = true;
-      } else {
-        this.remS.showrem = false;
-      }
       // 监听路由变化
       this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((route: NavigationEnd) => {
         this.removeCurrentURl = route['urlAfterRedirects']; // 保存当前路径（刷新在这个位置，可以接受到刷新前的路径，在init中添加store）

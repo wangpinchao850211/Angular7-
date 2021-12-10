@@ -1,11 +1,9 @@
 @import '~src/assets/base.scss';
 #mainLayout{
-    // background: rgba(214, 214, 15, .2);
     height: calc(100vh - 66px);
-    // max-height: calc(100vh - 66px); // 这样就不出滚动条了，还是有问题，需要调整
-    overflow-y: auto; // 使主要内容去产生滚动条
-    overflow-x: hidden; // 横向不出滚动条，出现滚动条会影响height的设置
-    @include mixin-min-scroll; // scss 定制滚动条样式 ！！！
+    overflow-y: auto; /*使主要内容去产生滚动条*/ 
+    overflow-x: hidden; /*横向不出滚动条，出现滚动条会影响height的设置*/ 
+    @include mixin-min-scroll; /*scss 定制滚动条样式 ！！！*/ 
     p{
         color: black;
     }

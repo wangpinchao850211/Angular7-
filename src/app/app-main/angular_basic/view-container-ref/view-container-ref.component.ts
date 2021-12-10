@@ -69,7 +69,7 @@ export class ViewContainerRefComponent implements OnInit, AfterViewInit, OnChang
     // console.log(this.viewContainer.element.nativeElement.contains(this.tp2.elementRef.nativeElement)); 
     // 判断viewContainer是否包括某些template节点: 注意viewContainer是被替换，是个空节点，无法判断永远返回false
     // console.log(this.viewContainer.indexOf(this.view2)); // 最后使用这个判断，为-1就是没有，否则就返回具体的位置
-    console.log(this.tp2.elementRef);
+    console.log(this.tp2?.elementRef);
     console.log(changes);
     if (!changes.changeTemRef.firstChange) { // 保证第一次不执行相应操作
       this.changeRefTemp(); // 动态插入不同的TemplateRef

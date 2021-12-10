@@ -63,12 +63,15 @@ export class LifeCycleComponent implements OnInit,OnChanges,DoCheck {
       console.log(JSON.stringify(changes,null,2));
       console.log(this.greeting);
       //  _.debounce(that.setContaineRef(this.greeting), 300);
-      this.setContaineRef(this.greeting);
+      console.log(changes.greeting.firstChange);
+      if (!changes.greeting.firstChange) {
+        this.setContaineRef(this.greeting);
+      }
   }
 
   setContaineRef(color) {
     console.log(color);
-    this.render.setStyle(this.containerRef.nativeElement, 'backgroundColor', color);
+    this.render.setStyle(this.containerRef?.nativeElement, 'backgroundColor', color);
   }
  
   constructor(

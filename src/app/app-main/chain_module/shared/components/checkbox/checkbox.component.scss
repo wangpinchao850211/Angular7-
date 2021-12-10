@@ -1,10 +1,13 @@
-.disabled
+.disabled {
   opacity: 0.5
   // 注意 .rc-container:hover input ~ .checkmark在css里的写法，写成如下
-.rc-container
-  input:checked ~ .checkmark
+}
+  
+.rc-container >input:checked ~ .checkmark {
     background-color: #2828ff;
-.checkmark  // 全局也可以定义
+}
+  
+.checkmark  {// 全局也可以定义
     position: absolute;
     top: 0;
     left: 0;
@@ -12,3 +15,4 @@
     width: 1.5rem;
     background-color: #fff;
     border: #2828ff 2px solid;
+}

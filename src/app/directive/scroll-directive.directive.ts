@@ -1,11 +1,11 @@
-import { Directive, HostListener, Input, Renderer, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Directive, HostListener, Input, ElementRef, EventEmitter, Output, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appScrollDirective]'
 })
 export class ScrollDirectiveDirective {
 
-  private _renderer: Renderer;
+  private _renderer: Renderer2;
   private rootDom: ElementRef;
   @Input('scrollTarget') scrollTarget: any;
   @Output() changeHeight : EventEmitter<Object> = new EventEmitter<Object>();
@@ -31,14 +31,15 @@ export class ScrollDirectiveDirective {
     console.log(event.target.scrollHeight);
     if (event.target.scrollHeight > 0) {
       // console.log(event.target); // 无法找到滚动条存在的元素
-      this._renderer.setElementClass(this.rootDom.nativeElement, 'wpc', true); // class添加上去了
+      // console.log(event.target); // 无法找到滚动条存在的元素
+this._renderer.addClass(this.rootDom.nativeElement, 'wpc'); // class添加上去了
       // 调用dom方法
       this.changeDom();
     }
   }
   constructor(
     elem: ElementRef, // 引入的是指令使用的dom元素
-    renderer: Renderer
+    renderer: Renderer2
   ) {
     this._renderer = renderer;
     this.rootDom = elem; // 这个注入进来的需要拿变量接一下

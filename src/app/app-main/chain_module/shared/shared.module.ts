@@ -11,7 +11,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ButtonComponent } from './components/button/button.component'
 import { CheckboxComponent } from './components/checkbox/checkbox.component'
 import { HeaderBarComponent } from './components/layout/header-bar/header-bar.component'
-import { DatepickerComponent } from './components/datepicker/datepicker.component'
 import { SupplierCardContentFormatPipe } from './piples/supplier.card.content.format'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -26,7 +25,6 @@ import { NotificationComponent } from './components/notification/notification.co
 import { HistoryComponent } from './components/history/history.component'
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component'
 import { PrivacyStatementPoppageComponent } from './components/privacy-statement-poppage/privacy-statement-poppage.component'
-import { MatTabsModule, MatExpansionModule, MatRadioModule, MatIconModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatCheckboxModule } from '@angular/material';
 import { WpcTooltipComponent } from './components/wpc-tooltip/wpc-tooltip.component'
 import { WpcTooltipDirective } from './components/wpc-tooltip/wpc-tooltip-directive.directive';
 import { WpcDialogComponent } from './components/wpc-dialog/dialog.component.ts/dialog.component.ts.component';
@@ -46,7 +44,6 @@ import { MessagedomService } from './components/wpc-message/messagedom.service'
     CheckBoxFormatPipe,
     BlankValuePipe,
     FieldEmptyPipe,
-    DatepickerComponent,
     MultipleDropdownComponent,
     OnboardProcessCircleComponent,
     SideNavComponent,
@@ -64,11 +61,11 @@ import { MessagedomService } from './components/wpc-message/messagedom.service'
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatDatepickerModule,
+    // MatDatepickerModule,
   ],
   exports: [
     ButtonComponent, CheckboxComponent,
-    HeaderBarComponent, SafeHtmlPipe, DatepickerComponent, 
+    HeaderBarComponent, SafeHtmlPipe, 
     MultipleDropdownComponent, OnboardProcessCircleComponent, CheckBoxFormatPipe, SideNavComponent,
     BrowserAnimationsModule, NotificationComponent, HistoryComponent, BlankValuePipe, FieldEmptyPipe, ToggleButtonComponent,
     PrivacyStatementPoppageComponent,

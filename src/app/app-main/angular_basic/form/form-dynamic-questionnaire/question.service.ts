@@ -18,6 +18,7 @@ import { CheckBoxQuestion } from './question-checkbox';
 //   providedIn: 'root'
 // })
 
+@Injectable()
 export class QuestionService implements OnInit {
 
   public questionSource: any = [];
