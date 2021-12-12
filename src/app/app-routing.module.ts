@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+
 import { LayoutComponent } from './app-main/layout/layout.component';
 import { HomeComponent } from './app-main/angular_home/home/home.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
@@ -9,8 +9,6 @@ import { ProductComponent } from './app-main/angular_basic/route/product/product
 import { ProductdetailComponent } from './app-main/angular_basic/route/productdetail/productdetail.component';
 import { FormComponent } from './app-main/angular_basic/form/form.component';
 import { CommunicationComponent } from './app-main/angular_basic/communication/communication.component';
-import { Code404Component } from './code404/code404.component';
-import { from } from 'rxjs';
 import { FuzuluyouOComponent } from './app-main/angular_basic/route/fuzuluyou-o/fuzuluyou-o.component';
 import { FuzuluyouTComponent } from './app-main/angular_basic/route/fuzuluyou-t/fuzuluyou-t.component';
 import { ChainLayoutComponent } from './app-main/chain_module/chain-layout/chain-layout.component';
@@ -20,7 +18,7 @@ import { AngularScssComponent } from './app-main/angular-scss/angular-scss.compo
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
 import { AngularAnimateComponent } from './app-main/angular-animate-layout/angular-animate/angular-animate.component';
-import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
+// import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
 import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.component';
@@ -35,25 +33,18 @@ import { EditorComponent } from './app-main/angular_editor/editorLayout';
 import { EchartLayoutComponent } from './app-main/echart/echart-layout/echart-layout.component';
 import { NgxEchartComponent } from './app-main/echart/ngx-echart/ngx-echart.component';
 import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
-import { CanDeactivateGuard } from './services/auth/can-deactivate.guard';
 import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
 import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
-import { LoginComponent } from './app-main/login/login.component';
 import { DirectExtendComponent } from './app-main/angular_material/overlay/overlayChangeDefaultContainer/direct-extend/direct-extend.component';
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
+import { Code404Component } from './app-main/code404/code404.component';
+import { CanDeactivateGuard } from './services/auth/can-deactivate.guard';
 
 const routes: Routes = [
   // Main redirect。  pathMatch：重定向路由需要一个 pathMatch 属性，来告诉路由器如何用 URL 去匹配路由的路径，否则路由器就会报错。路由器应该只有在完整的 URL等于 '' 时才选择 对应 组件，因此要把 pathMatch 设置为 'full'。
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   // App views
-  {
-    path: 'login',
-    component: LayoutComponent,
-    children: [
-      { path: '', component: LoginComponent }
-    ]
-  },
   {
     path: '',
     component: LayoutComponent,
@@ -160,11 +151,11 @@ const routes: Routes = [
       { path: 'MvcUseH5Css3', component: HostUseComponent },
     ]
   },
-  { // rem 流式布局页面，使用了一下辅助路由
-    path: 'remlayout',
-    component: RemlayoutComponent,
-    // outlet: 'remaux', 使用了变量控制这个组件的显示隐藏，并且路由跳转
-  },
+  // {
+  //   path: 'remlayout',
+  //   component: RemlayoutComponent,
+  //   outlet: 'remaux', // 使用了变量控制这个组件的显示隐藏，并且路由跳转
+  // },
   // Handle all other routes
   { path: '**', component: Code404Component } // 一定要放在路由的最后面
 ];

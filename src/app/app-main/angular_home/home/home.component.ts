@@ -1,6 +1,7 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, AfterViewInit } from '@angular/core';
 import { Store, select } from '@ngrx/store'; // 导入store并使用
 import * as Rx from 'rxjs';
+import { StarField } from 'src/app/utils/star';
 import { slideToRight, slideToBottom } from '../../../animation/router.anim';
 
 // 使用store
@@ -39,7 +40,7 @@ export function type<T>(label: T | ''): T {
   styleUrls: ['./home.component.scss'],
   animations: [slideToBottom],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   @HostBinding('@routeAnim') state; // 动画路由直接写这个绑定的这个组件类上，不能写在标签的指令上
   public greeting = 'green';
   public currentGeeting = this.greeting;
@@ -48,11 +49,11 @@ export class HomeComponent implements OnInit {
   startDate = new Date(2019, 12, 22);
   futureDate = new Date(2020, 2, 2);
 
-  title="向history.pushState push url 并不跳转";
+  title = "向history.pushState push url 并不跳转";
 
   FYList: Spend[] = [];
 
-  myContext = {$implicit: 'World', localSk: 'Svet'}; // ngTemplateOutlet
+  myContext = { $implicit: 'World', localSk: 'Svet' }; // ngTemplateOutlet
 
   storageNewVal: string = 'oldValue';
 
@@ -80,7 +81,7 @@ export class HomeComponent implements OnInit {
     console.log(x);
     /**
      *  { a: "hello", b: 42 }
-     * */ 
+     * */
 
     // ts例子2：创建 K: V
     const Direction = this.strEnum(['North', 'South', 'East', 'West']);
@@ -92,7 +93,7 @@ export class HomeComponent implements OnInit {
           South: "South"
           West: "West"
         }
-     * */ 
+     * */
 
   }
 
@@ -131,6 +132,11 @@ export class HomeComponent implements OnInit {
         value: -96789757.67
       })
     }
+  }
+
+  ngAfterViewInit() {
+    // const starField = new StarField('fullScreen').render(333, 3);
+    // console.log(starField);
   }
 
   currentChange(item, event) {
@@ -179,13 +185,13 @@ export class HomeComponent implements OnInit {
     console.log(event.keyCode);
     console.log(item);
     // 48-57
-    if (event.keyCode!==96 || event.keyCode!==97 || event.keyCode!==98 ||
-        event.keyCode!==99 || event.keyCode!==100 || event.keyCode!==101 ||
-        event.keyCode!==102 || event.keyCode!==103 || event.keyCode!==104 ||
-        event.keyCode!==105 || event.keyCode!==109 || event.keyCode!==110) {
-          event.returnValue = false;
-          event.preventDefault();
-          return false;
+    if (event.keyCode !== 96 || event.keyCode !== 97 || event.keyCode !== 98 ||
+      event.keyCode !== 99 || event.keyCode !== 100 || event.keyCode !== 101 ||
+      event.keyCode !== 102 || event.keyCode !== 103 || event.keyCode !== 104 ||
+      event.keyCode !== 105 || event.keyCode !== 109 || event.keyCode !== 110) {
+      event.returnValue = false;
+      event.preventDefault();
+      return false;
     }
 
     if (`${item.value}`.includes('.') && event.key === '.') {
@@ -203,9 +209,9 @@ export class HomeComponent implements OnInit {
 
   PushState() {
     const newState = {
-        url: window.location.origin + '/newhistoryurl',
-        title: document.title,
-        state: 'login'
+      url: window.location.origin + '/newhistoryurl',
+      title: document.title,
+      state: 'login'
     };
     console.log(newState);
     window.history.pushState(newState, '', '/newhistoryurl');

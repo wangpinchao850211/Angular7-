@@ -1,11 +1,11 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { Store, select } from '@ngrx/store'; // 导入store并使用
-import { addTab, removeTab } from '../store/tab-reducer';
-import { wpcMenu, MenuTab } from '../interface/Menu';
-import { getNameByUrl } from '../utils/tabNameMapping';
+import { addTab, removeTab } from '../../store/tab-reducer';
+import { wpcMenu, MenuTab } from '../../interface/Menu';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { HttpServiceService } from '../services/http-service.service';
+import { HttpServiceService } from 'src/app/services/http-service.service';
+import { getNameByUrl } from 'src/app/utils/tabNameMapping';
 
 @Component({
   selector: 'app-menu',

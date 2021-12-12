@@ -2,9 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
+// import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
 // 路由缓存
 import { RouteReuseStrategy } from '@angular/router';
 import { AppReuseStrategy } from './services/RouteReuseStrategy.service';
+// cdk
+import { ScrollingModule } from '@angular/cdk/scrolling'; // package安装完了应该可用
+import { CdkTableModule } from '@angular/cdk/table';
+import { OverlayModule, OverlayContainer, FullscreenOverlayContainer } from "@angular/cdk/overlay";
+import { PortalModule } from "@angular/cdk/portal";
 
 // 注册store
 import { StoreModule } from '@ngrx/store';
@@ -32,14 +43,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion'
-
-
-
-
-import {ScrollingModule} from '@angular/cdk/scrolling'; // package安装完了应该可用
-import {CdkTableModule} from '@angular/cdk/table';
-import {OverlayModule, OverlayContainer, FullscreenOverlayContainer} from "@angular/cdk/overlay";
-import {PortalModule} from "@angular/cdk/portal";
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -47,6 +51,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
@@ -54,18 +59,13 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-// import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
-import zh from '@angular/common/locales/zh';
-import { Code404Component } from './code404/code404.component';
-import { AppMenuComponent } from './app-menu/app-menu.component';
+import { GithubCorner } from './app-main/github-corner/github-corner';
+import { Code404Component } from './app-main/code404/code404.component';
+import { AppMenuComponent } from './app-main/app-menu/app-menu.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
 import { HomeComponent } from './app-main/angular_home/home/home.component';
 import { FormComponent } from './app-main/angular_basic/form/form.component';
@@ -81,24 +81,11 @@ import { CommonComponentComponent } from './app-main/chain_module/common-compone
 import { Product1Component } from './app-main/angular_basic/DependencyInjection/product1/product1.component';
 import { Product2Component } from './app-main/angular_basic/DependencyInjection/product2/product2.component';
 import { DeplayoutComponent } from './app-main/angular_basic/DependencyInjection/deplayout/deplayout.component';
-import { MultiplePipe } from './pipe/multiple.pipe';
-import { FilterPipe } from './pipe/filter.pipe';
-import { SharedModule } from './app-main/chain_module/shared/shared.module';
-
-import { matDialogConfirmService } from './services/mat-dialog.service';
-import { SafehtmlPipe } from './pipe/safehtml.pipe';
-
 import { BsTooltipComponent } from './app-main/angular_material/bs-tooltip/bs-tooltip.component';
 import { AngularScssComponent } from './app-main/angular-scss/angular-scss.component';
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
 import { AngularAnimateComponent } from './app-main/angular-animate-layout/angular-animate/angular-animate.component';
-import { ScrollDirectiveDirective } from './directive/scroll-directive.directive';
-import { ClickOutsideDirective } from './directive/click-outside.directive';
-import { SliceEmailPipe } from './pipe/slice-email.pipe';
-import { DateFormatPipe } from './pipe/date-format.pipe';
-import { EmailvalidDirective } from './directive/emailvalid.directive';
-import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 import { DebouncEventDirective } from './directive/debounc-event.directive';
 import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
@@ -123,17 +110,33 @@ import { AfterContentComponent } from './app-main/angular_basic/peek-a-boo/after
 import { AppQuestionComponent } from './app-main/angular_basic/form/form-dynamic-questionnaire/app-question/app-question.component';
 import { WorkMemberListComponent } from './app-main/angular_basic/work-member-list/work-member-list.component';
 import { UploadFileComponent } from './app-main/angular_basic/upload-file/upload-file.component';
-import { LoginComponent } from './app-main/login/login.component';
-import { GithubCorner } from './github-corner/github-corner';
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
+import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
+import { WpcMenuComponent } from './app-main/angular_basic/self-cycling/wpc-menu/wpc-menu.component';
+import { ViewContainerRefComponent } from './app-main/angular_basic/view-container-ref/view-container-ref.component';
+import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
+import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
+import { OverlayPanelComponent } from './app-main/angular_material/overlay/overlay-panel/overlay-panel.component';
+import { RemlayoutComponent } from './app-main/rem/remlayout/remlayout.component';
 
-// primeng modle
-// import {FileUploadModule} from 'primeng/fileupload';
-import {ButtonModule} from 'primeng/button';
+import { SharedModule } from './app-main/chain_module/shared/shared.module';
+import { MultiplePipe } from './pipe/multiple.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
+import { matDialogConfirmService } from './services/mat-dialog.service';
+import { SafehtmlPipe } from './pipe/safehtml.pipe';
+import { ScrollDirectiveDirective } from './directive/scroll-directive.directive';
+import { ClickOutsideDirective } from './directive/click-outside.directive';
+import { SliceEmailPipe } from './pipe/slice-email.pipe';
+import { DateFormatPipe } from './pipe/date-format.pipe';
+import { EmailvalidDirective } from './directive/emailvalid.directive';
 import { DirectExtendComponent } from './app-main/angular_material/overlay/overlayChangeDefaultContainer/direct-extend/direct-extend.component';
 import { CdkOverlayContainer } from './cdk-overlay-container';
 import { AppOverlayContainer } from './cdk-overlay-container2';
 import { CdkOverlayContainerDirective } from './app-main/angular_material/overlay/cdk-overlay-container.directive';
+
+// primeng modle
+// import {FileUploadModule} from 'primeng/fileupload';
+import { ButtonModule } from 'primeng/button';
 
 // CKeditor
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -149,16 +152,6 @@ import { ChartTwoComponent } from './app-main/echart/chart-two/chart-two.compone
 // import NgxEchartsModule
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
-import { SelfCyclingComponent } from './app-main/angular_basic/self-cycling/self-cycling.component';
-import { WpcMenuComponent } from './app-main/angular_basic/self-cycling/wpc-menu/wpc-menu.component';
-import { ViewContainerRefComponent } from './app-main/angular_basic/view-container-ref/view-container-ref.component';
-import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout/angular-animate-layout.component';
-import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
-import { OverlayPanelComponent } from './app-main/angular_material/overlay/overlay-panel/overlay-panel.component';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-// import { MatNativeDateModule } from '@angular/material/core/datetime';
-import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
-import { MatNativeDateModule } from '@angular/material/core';
 
 registerLocaleData(zh);
 
@@ -220,7 +213,6 @@ registerLocaleData(zh);
     AppQuestionComponent,
     WorkMemberListComponent,
     UploadFileComponent,
-    LoginComponent,
     GithubCorner,
     EditorComponent,
     CkeditorComponent,
@@ -240,8 +232,8 @@ registerLocaleData(zh);
     MaterialLayoutComponent,
     CdkOverlayContainerDirective
   ],
-  entryComponents:[ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
-      OverlayPanelComponent
+  entryComponents: [ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
+    OverlayPanelComponent
   ],
   imports: [ // 运转需要的依赖模块
     BrowserModule, // 必选的浏览器模块
@@ -311,7 +303,7 @@ registerLocaleData(zh);
     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
-    matDialogConfirmService, 
+    matDialogConfirmService,
     { provide: NZ_I18N, useValue: zh_CN },
     // { provide: RouteReuseStrategy, useClass: AppReuseStrategy } //路由复用暂时不用，此项目路由操作破坏了路由复用
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
