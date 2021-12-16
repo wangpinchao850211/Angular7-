@@ -1,0 +1,29 @@
+<div class="contenteditable-wrapper">
+  <p #editP class="edit-p" contenteditable="true"
+      [id]="opts.id" 
+      [style.min-height.px]="row * 30"  
+      [attr.data-placeholder]="opts.placeholder"
+      [innerHTML]="bindData | safehtml" 
+      (focus)="focus($event)" 
+      (blur)="outEmitter()" 
+      (paste)="paste($event)">
+  </p>
+  <i class="t-icon-link t-add-link" [class.dis]="addLinkbtnDis" (click)="isVisible = true;"></i>
+  <i class="t-icon-link t-remove-link" [class.dis]="removeLinkbtnDis" (click)="removeLink()"></i>
+</div>
+
+<div *ngIf="isVisible" class="edit-set-link">
+  <div class="content-wrapper">
+    <div class="content-header">Create Link</div>
+    <div class="content">
+      <p class="sub-title">Address <span style="color: #E32739;">*</span></p>
+      <input class="link-area" [(ngModel)]="linkText" nz-input aria-label="Free Text" autoResize="false" />
+      <p *ngIf="linkTextDis" class="error-msg">Please enter the correct URL</p>
+    </div>
+    <div class="content-footer">
+      <button class="ant-btn" (click)="handleCancel()">Cancel</button>
+      <button class="ant-btn" [class.ant-disabled]="linkText=='' || linkTextDis" [disabled]="linkText=='' || linkTextDis" (click)="handleOk()">Add</button>
+    </div>
+  </div>
+</div>
+

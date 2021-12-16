@@ -24,6 +24,8 @@ export class CkeditorComponent implements OnInit, OnDestroy {
       toolbar: [ 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote' ]
   };
 
+  // text link start
+  content = '';
   constructor() {
     
   }
@@ -89,4 +91,14 @@ export class CkeditorComponent implements OnInit, OnDestroy {
     this.model = _.cloneDeep(this.sourceData);
     event.stopPropagation();
   }
+
+  // text link start
+  blurInput(ev) {
+    // console.log(ev);
+  }
+
+  focusEmitter() {
+    // console.log('focus');
+  }
+
 }

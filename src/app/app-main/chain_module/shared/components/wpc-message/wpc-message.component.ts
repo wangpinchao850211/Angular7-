@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
   `,
   styles: [`
-    :host>>>.container{
+    :host .container{
       width: 200px;
       height: 42px;
       line-height: 42px;
@@ -20,10 +20,10 @@ import { Component, OnInit } from '@angular/core';
       border-radius: 6px;
       text-align: center;
     }
-    :host>>>.show {
+    :host .show {
       display: block;
     }
-    :host>>>.hidden {
+    :host .hidden {
       display: none;
     }
   `]

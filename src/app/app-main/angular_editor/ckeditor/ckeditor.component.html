@@ -19,4 +19,13 @@
     <i nz-icon nzType="check" nzTheme="outline" class="every-con" (click)="TitleSave($event, model)"></i>
     <i nz-icon nzType="close" nzTheme="outline" class="every-con" (click)="TitleCancel($event)"></i>
   </div>
+
+  <div class="text-link-wrapper">
+    <app-text-link 
+          [data]="content" 
+          [option]="{ id: 'create_new_discussion', row: 3, maxLength: 2000, autoResize: false, placeholder: 'Write a reply', focusEvent: true, expandNum: 4 }"
+          (blurEmitter)="blurInput($event)" 
+          (focusEmitter)="focusEmitter()">
+    </app-text-link>
+  </div>
 </div>

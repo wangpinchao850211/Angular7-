@@ -152,6 +152,7 @@ import { ChartTwoComponent } from './app-main/echart/chart-two/chart-two.compone
 // import NgxEchartsModule
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
+import { TextLinkComponent } from './app-main/angular_editor/text-link/text-link.component';
 
 registerLocaleData(zh);
 
@@ -215,6 +216,7 @@ registerLocaleData(zh);
     UploadFileComponent,
     GithubCorner,
     EditorComponent,
+    TextLinkComponent,
     CkeditorComponent,
     CountDownComponent,
     WpcNg2FileUploadComponent,
