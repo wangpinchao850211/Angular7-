@@ -1,25 +1,21 @@
 <div style="width: 100%;">
-    <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
-      <i nz-icon [type]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
-    </button>
-    <ul nz-menu [nzMode]="'inline'" [nzTheme]="theme ? 'light' : 'dark'" [nzInlineCollapsed]="isCollapsed" class="menuUl">
-      <li nz-menu-item nz-tooltip nzPlacement="right" (click)="goToHomePage()">
-        <span title>
-          <i nz-icon type="mail"></i>
-          <span>Navigation One</span>
-        </span>
-      </li>
-      <li nz-submenu *ngFor="let item of angularMenu">
-        <span title>
-          <i nz-icon type="appstore"></i>
-          <span>{{item}}</span>
-        </span>
-        <ul>
-          <li nz-menu-item *ngFor="let i of angularMenuObj[item]">
-            <!-- <a [routerLink]="[`/item/i`]">{{i}}</a> 没找到写法 routerLink应用在a标签上-->
-            <a (click)="menuClick(item, i)">{{i}}</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <button nz-button [nzType]="'primary'" (click)="toggleCollapsed()" style="margin-bottom: 10px;">
+    <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+  </button>
+  <!-- 使用material引入自定义icon -->
+  <!-- <mat-icon svgIcon="accentureIconnName"></mat-icon> -->
+  <ul nz-menu nzMode="inline" [nzTheme]="theme ? 'light' : 'dark'" [nzInlineCollapsed]="isCollapsed" class="menuUl">
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="(isCollapsed ? 'Navigation One' : '')"
+      nzSelected (click)="goToHomePage()">
+      <i nz-icon nzType="mail"></i>
+      <span>Navigation One</span>
+    </li>
+    <li nz-submenu *ngFor="let item of angularMenu" [nzTitle]="item" nzIcon="appstore">
+      <ul>
+        <li nz-menu-item *ngFor="let i of angularMenuObj[item]">
+          <a (click)="menuClick(item, i)">{{i}}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>

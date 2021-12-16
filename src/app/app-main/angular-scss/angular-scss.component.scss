@@ -1,8 +1,10 @@
 // @use 'sass:math';
 /*1、简单应用栅格不布局（使用自定义函数和@each）*/ 
+@use "sass:math";
+
 @function buildLayout($num: 5) {
   $map: (defaultValue: 0);
-  $rate: percentage(1 / $num); /*percentage()转成百分数方法*/ 
+  $rate: percentage(math.div(1, $num)); /*percentage()转成百分数方法*/ 
   // math.div(1, $num);
   @for $i from 1 through $num {
     $tmpMap: (col#{$i}: $rate * $i);
@@ -26,7 +28,7 @@
 
 /*2、通过份数，设置占用宽度*/ 
 @function column-width($col, $total) {
-    @return percentage($col/$total);
+    @return percentage(math.div($col, $total));
 }
 
 .wrapper{

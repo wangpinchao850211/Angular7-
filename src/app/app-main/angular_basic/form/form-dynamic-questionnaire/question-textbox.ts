@@ -11,7 +11,7 @@ export class TextboxQuestion extends QuestionBase<string> {
     // console.log(options);
     // this.type = options['type'] || ''; input type类型可以通过数据来进一步控制
     if (options['Dependency']) {
-      console.log(options['Dependency'][0]['FrontFormula']);
+      // console.log(options['Dependency'][0]['FrontFormula']);
       this.textDependency = options['Dependency'];
     }
   }

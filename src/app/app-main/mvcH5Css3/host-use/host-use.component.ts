@@ -14,4 +14,8 @@ export class HostUseComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkedChange(ev) {
+    console.log(ev);
+  }
+
 }

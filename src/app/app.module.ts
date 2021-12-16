@@ -53,6 +53,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -91,6 +92,7 @@ import { DebouncEventDirective } from './directive/debounc-event.directive';
 import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
 import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.component';
 import { HostChildComponent } from './app-main/mvcH5Css3/host-use/host-child/host-child.component';
+import { StarCheckboxComponent } from './app-main/mvcH5Css3/host-use/star-checkbox/star-checkbox.component';
 import { H5Css3LayoutComponent } from './app-main/mvcH5Css3/h5-css3-layout/h5-css3-layout.component';
 import { NgContentComponent } from './app-main/angular_basic/ng-content/ng-content.component';
 import { NgContentChildrenComponent } from './app-main/angular_basic/ng-content/ng-content-children/ng-content-children.component';
@@ -195,6 +197,7 @@ registerLocaleData(zh);
     NgxStateStoreComponent,
     HostUseComponent,
     HostChildComponent,
+    StarCheckboxComponent,
     H5Css3LayoutComponent,
     NgContentComponent,
     NgContentChildrenComponent,
@@ -284,6 +287,7 @@ registerLocaleData(zh);
     BrowserAnimationsModule, // 动画模块,引入动画,放入最后，避免出现异常
     NzIconModule, // ant icon
     NzUploadModule, // ant 文件上传
+    NzTabsModule,
     NzButtonModule,
     NzMenuModule,
     NzLayoutModule,

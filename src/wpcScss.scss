@@ -80,7 +80,7 @@ body {
   }
   div{
     /*有round函数*/ 
-    width: round($width/2)
+    width: round($width*0.5)
   }
 }
 header{
@@ -173,7 +173,7 @@ span{
 /*简单应用栅格不布局（使用自定义函数和@each）*/ 
 @function buildLayout($num: 5) {
   $map: (defaultValue: 0);
-  $rate: percentage(1 / $num); /*percentage()转成百分数方法*/ 
+  $rate: percentage(math.div(1, $num)); /*percentage()转成百分数方法*/ 
   @for $i from 1 through $num {
     $tmpMap: (col#{$i}: $rate * $i);
     $map: map-merge($map, $tmpMap);

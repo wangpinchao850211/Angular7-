@@ -6,6 +6,9 @@ import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { getNameByUrl } from 'src/app/utils/tabNameMapping';
+// 使用material自定义方式引入svg icon实现！
+import { MatIconRegistry } from '@angular/material/icon'; 
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-menu',
@@ -33,9 +36,12 @@ export class AppMenuComponent implements OnInit {
   constructor(
     private store: Store<{tab: MenuTab}>,
     private router: Router,
-    private http: HttpServiceService
+    private http: HttpServiceService,
+    private MatIconRegistry: MatIconRegistry,
+    private DomSanitizer: DomSanitizer
   ) {
     this.tabs$ = this.store.pipe(select('tab')); // 从app.module.ts中获取tab状态流
+    MatIconRegistry.addSvgIcon('accentureIconnName', DomSanitizer.bypassSecurityTrustResourceUrl('assets/images/menu.svg'));
   }
 
   ngOnInit() {

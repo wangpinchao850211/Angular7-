@@ -1,0 +1,12 @@
+<label class="sc-container">
+  {{title}}
+  <input [disabled]="disabled" type="checkbox" 
+    [checked]="checked"
+    (click)="check_change()"
+    aria-label="sc-container"
+    [ngClass]="{'invalid': invalid}">
+  <span class="checkmark" [ngClass]="{'disabled': disabled}">
+    <i *ngIf="checked" nz-icon nzType="star" nzTheme="outline" class="checkcolor"></i>
+    <i *ngIf="!checked" nz-icon nzType="star" nzTheme="outline" class="uncheckcolor"></i>
+  </span>
+</label>

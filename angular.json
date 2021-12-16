@@ -24,6 +24,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "angularclass",
+              "minimatch",
+              "echarts",
+              "lodash",
+              "socket.io-client"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets",
