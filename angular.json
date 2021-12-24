@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -29,14 +32,20 @@
               "minimatch",
               "echarts",
               "lodash",
-              "socket.io-client"
+              "socket.io-client",
+              "@ckeditor/ckeditor5-build-classic"
             ],
             "assets": [
               "src/favicon.ico",
-              "src/assets",
               {
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "ignore": ["**/*.scss"],
                 "output": "/assets/"
               }
             ],

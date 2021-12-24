@@ -1,7 +1,10 @@
 <!-- NG-ZORRO -->
 <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
-<nz-layout class="layout theme-wrapper" id="theme-wrapper" [ngClass]="{'headlight': theme, 'headark': !theme}">
+<nz-layout class="layout theme-wrapper" id="theme-wrapper" *ngIf="isShowQuestion === 'oldValue'" [ngClass]="{'headlight': theme, 'headark': !theme}">
   <nz-header style="height: 60px;" >
+    <span style="display: inline-block;">
+      <button class="btn btn-primary" (click)="goToQuestionnaire()">questionnaire</button>
+    </span>
     <span style="float: right">
       <input #colorSelector type="color">
       <button class="btn btn-primary" (click)="changeToRed(colorSelector.value)">切换主题</button>
@@ -32,3 +35,4 @@
 <!-- </cdk-virtual-scroll-viewport> -->
 <!-- 单独跳转到rem布局页面，使用辅助路由(并没有实现，需要深入人研究辅助路由，这里提示辅助路由只可以作为跳转的子路由么？？？ -->
 <!-- <router-outlet name="remaux"></router-outlet> -->
+<app-simpleQuestionnaire *ngIf="isShowQuestion === 'newValue'"></app-simpleQuestionnaire>

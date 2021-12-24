@@ -1,5 +1,5 @@
-// @import '~src/assets/base.scss';
-/*
+@import '~src/assets/base.scss';
+
 $full-width: 100%;
 $full-height: 100%;
 $menu-width: 3rem;
@@ -110,7 +110,7 @@ $color-grey: #65758B;
             .content-describe {
                 font-size: .2rem;
                 color: $color-black;
-                height: calc(100%- 0.75rem - 2px)
+                height: calc(100%- 0.75rem - 2px);
                 margin: 0 .8rem .25rem;
                 padding: .5rem .6rem .8rem 1rem;
                 border: 1px solid $color-grey;
@@ -132,4 +132,3 @@ $color-grey: #65758B;
         background: $color-super-light-grey;
     }
 }
-*/

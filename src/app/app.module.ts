@@ -61,6 +61,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -155,6 +156,7 @@ import { ChartTwoComponent } from './app-main/echart/chart-two/chart-two.compone
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
 import { TextLinkComponent } from './app-main/angular_editor/text-link/text-link.component';
+import { SimpleQuestionnaireComponent } from './app-main/simpleConvenientImplementQuestion/simpleQuestionnaire/simpleQuestionnaire.component';
 
 registerLocaleData(zh);
 
@@ -235,7 +237,8 @@ registerLocaleData(zh);
     OverlayPanelComponent,
     DirectExtendComponent,
     MaterialLayoutComponent,
-    CdkOverlayContainerDirective
+    CdkOverlayContainerDirective,
+    SimpleQuestionnaireComponent
   ],
   entryComponents: [ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
     OverlayPanelComponent

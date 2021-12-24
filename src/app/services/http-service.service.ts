@@ -32,6 +32,12 @@ export class HttpServiceService extends HttpClient  {
       this.menulist = {...d}; // tap 代替 do操作符，存一下数据
     }));
   }
+  getQuestionnaireSection() {
+    return this.http.get('assets/switchSection.json');
+  }
+  getQuestionnaireList() {
+    return this.http.get('assets/switchQuestionnaire.json');
+  }
   GetPromise<T>(url): Promise<T> {
     return this.http.get<T>(url).toPromise()
   }

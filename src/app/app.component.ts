@@ -28,6 +28,7 @@ export class AppComponent implements AfterViewInit {
   title = 'My First Angular App!';
   theme = false;
 
+  isShowQuestion: string = 'newValue';
   // 监听滚动条滚动
   disabledScrollLoading = false;
   scrollLoading = false;
@@ -119,6 +120,12 @@ export class AppComponent implements AfterViewInit {
       // 刷新页面保留current url (开始用session存储的，后来routerInfo也获取到了(在上部)，原因是authService写法导致了路由的乱套，正常写是会保持原路径的刷新！！！)
       // const currentUrl = this.routerInfo.snapshot['_routerState'].url;
       // const currentUrl = sessionStorage.getItem('currentUrl');
+
+      // 监听questionnaire组件跳转出来，实现模拟路由切换
+      window.localStorage.setItem('questionnaireStorage', this.isShowQuestion);
+      window.addEventListener('setItemEvent', (e) => {
+        this.isShowQuestion = e['newValue'];
+      })
   }
 
   deSerialize(query) {
@@ -236,6 +243,20 @@ export class AppComponent implements AfterViewInit {
         this.router.navigate(['/home']);
       }
     }
+  }
+
+  goToQuestionnaire() {
+    // 注意必须要使用localStorage实现，sessionStoreage不好使
+    this.isShowQuestion = 'newValue';
+    window.localStorage.setItem('questionnaireStorage', this.isShowQuestion);
+    // 模拟路由跳转
+    const newState = {
+      url: window.location.origin + '/simpleQuestionnaire',
+      title: document.title,
+      state: 'question'
+    };
+    console.log(newState);
+    window.history.pushState(newState, '', '/simpleQuestionnaire');
   }
 
 }

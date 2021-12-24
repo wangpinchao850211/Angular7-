@@ -2,20 +2,19 @@
 :root {
     --height-primary: 9.37rem;  /*--width-primary  ：变量名，css3有规则*/
 }
-/*$full-height: var(--height-primary); 用var来盛放变量名, 并未生效要深研究var()*/ 
+$full-height: var(--height-primary); /*用var来盛放变量名, 并未生效要深研究var()*/ 
 /*link1: https:blog.csdn.net/weixin_44392565/article/details/85755592*/
 /*link2: https:codepen.io/jakealbaugh/post/css4-variables-and-sass*/
 
 /*container width height*/ 
-/*
+
 $full-width: 100%;
 $full-height: 100%;
 $menu-width: 3rem;
 $fold-menu-width: .7rem;
-*/ 
 
 /*Color variable*/ 
-/*
+
 $color-azure-blue: #2473C3;
 $color-white: #fff;
 $color-black: #000;
@@ -32,7 +31,6 @@ $color-powder-blue: #EAF3FA;
 $color-super-light-grey: #F5F6F8;
 $color-regular: #4D5D72;
 $color-grey: #65758B;
-*/ 
 
 
 

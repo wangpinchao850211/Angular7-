@@ -1,0 +1,59 @@
+<div class="questionnaire-wrapper">
+  <div class="question-nav-left">
+    <ul nz-menu nzMode="inline" nzTheme="dark" *ngFor="let tab of sectionList; let i = index">
+      <li nz-submenu [nzTitle]="tab.sectionNm" [id]="'FatherSec_'+i" nzOpen="true" [nzDisabled]="tab.disabled">
+        <ng-container *ngFor="let item of tab.sectionDTO; let secIndex = index">
+          <ul class="menu-sub" [class.menu-close]="!item.open" *ngIf="item.permissionDisplay == 'Y'">
+            <ng-template #childTitle>
+              <div class="single-section">
+                  <div class="single-section-name-out">
+                      <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle1" [nzTooltipColor]="'#FFFFFF'">{{item.sectionNm}}</span>
+                      <ng-template #sectiontooltipTitle1>
+                          <div class="tooltip-title">{{item.sectionNm}}</div>
+                      </ng-template>
+                  </div>
+              </div>
+            </ng-template>
+            <ng-template #singleSection>
+              <div class="single-section">
+                  <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle2" [nzTooltipColor]="'#FFFFFF'">
+                      {{ item.sectionNm }}
+                  </span>
+                  <ng-template #sectiontooltipTitle2>
+                      <div class="tooltip-title">{{item.sectionNm}}</div>
+                  </ng-template>
+              </div>
+            </ng-template>
+            <!-- wpcTooltip placement='top' [tooltip]="item.content" -->
+            <li nz-submenu [nzTitle]="item.stepID >= 99 ? singleSection : childTitle" [(nzOpen)]="item.open"
+              [nzDisabled]="item.disabled" [id]="'Sec-' + secIndex"
+              [class.root-child-section]="item.subSectionDTOs == null" 
+              [class.step-complete]="item.completed"
+              (click)="clickSection(item)">
+                <ng-container *ngFor="let subchild of item.subSectionDTOs; let childSecIndex = index">
+                  <ul *ngIf="subchild.permissionDisplay === 'Y'" class="sec-subsection">
+                      <li nz-menu-item class="menu-sub-item" (click)="clickMenu(subchild)"
+                          [nzSelected]=subchild.selected [id]="'Sec-' +secIndex +'ChildSec-' + childSecIndex">
+                          <i *ngIf="subchild.hasRequiredEmpty != null || subchild.selected"
+                              class="select-icon" [class.selected]="subchild.selected"
+                              [ngClass]="{'warning': subchild.hasRequiredEmpty, 'completed': !subchild.hasRequiredEmpty }"></i>
+                          <span [class.unselected]="!subchild.selected && subchild.hasRequiredEmpty == null" class="subsection-menu" aria-hidden="true" tabindex="-1">
+                              <div class="single-section-name-out">
+                                  <span class="single-section-name" aria-hidden="true" tabindex="-1" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle3" [nzTooltipColor]="'#FFFFFF'">{{ subchild.sectionNm }}</span>
+                                  <ng-template #sectiontooltipTitle3>
+                                      <div class="tooltip-title">{{subchild.sectionNm}}</div>
+                                  </ng-template>
+                              </div>
+                          </span>
+                      </li>
+                  </ul>
+                </ng-container>
+            </li>
+          </ul>
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  <div class="question-main"></div>
+</div>
+<button class="btn btn-primary goToHome" (click)="goToHome()">Home</button>
