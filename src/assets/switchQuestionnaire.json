@@ -72,8 +72,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -176,8 +176,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -222,8 +222,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -268,8 +268,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -286,7 +286,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "123"
+                        "value": "wpc-btn2"
                     }
                 ],
                 "uploadValue": [],
@@ -311,8 +311,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -330,6 +330,10 @@
                     {
                         "responseId": 0,
                         "value": "Accenture"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Accenture AFS"
                     }
                 ],
                 "uploadValue": [],
@@ -376,8 +380,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -394,7 +398,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "CIO"
+                        "value": "Geographic Services"
                     }
                 ],
                 "uploadValue": [],
@@ -474,8 +478,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -520,8 +524,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -535,19 +539,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "Office of the CIO"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": "tower",
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 2,
                 "sectionNm": "Basic information",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "3.3",
@@ -736,8 +735,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -751,19 +750,14 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "1"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "Airid",
                 "questionType": "Number Free Text",
                 "sectionId": 2,
                 "sectionNm": "Basic information",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "3.1",
@@ -808,8 +802,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -823,19 +817,14 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "1"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "Aimid",
                 "questionType": "Free Text",
                 "sectionId": 2,
                 "sectionNm": "Basic information",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "3.2",
@@ -880,8 +869,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -895,19 +884,14 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "1"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Free Text",
                 "sectionId": 2,
                 "sectionNm": "Basic information",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "27",
@@ -938,8 +922,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -956,7 +940,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "T135542.DS.002"
+                        "value": "T135542.DS.120"
                     }
                 ],
                 "uploadValue": [],
@@ -981,8 +965,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -999,7 +983,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "T135542.DS.001"
+                        "value": "T135542.DS.110"
                     }
                 ],
                 "uploadValue": [],
@@ -1024,8 +1008,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1078,8 +1062,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1116,8 +1100,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1173,8 +1157,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1452,8 +1436,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1498,8 +1482,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1516,7 +1500,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "No DPIA initiated nor completed"
+                        "value": "DPIA has been initiated"
                     }
                 ],
                 "uploadValue": [],
@@ -1544,7 +1528,7 @@
                         "questionAttrValue": "DPIA has been initiated",
                         "questionAutoResponse": "Provide a DPIA/OneTrust reference number in below field",
                         "questionAutoResponseType": "Free Text",
-                        "questionAutoResponseValue": "",
+                        "questionAutoResponseValue": null,
                         "caseCloseInd": "",
                         "questionRiskScore": "W-0",
                         "onlyChoice": false,
@@ -1563,8 +1547,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1581,7 +1565,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "It is both for internal and client work"
+                        "value": "No"
                     }
                 ],
                 "uploadValue": [],
@@ -1628,8 +1612,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1646,7 +1630,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Changes to an existing technology application"
+                        "value": "Migration from an existing technology to a new one"
                     }
                 ],
                 "uploadValue": [],
@@ -1752,8 +1736,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1770,7 +1754,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "No"
+                        "value": "Yes, by a legal team other than the GLR"
                     }
                 ],
                 "uploadValue": [],
@@ -1813,7 +1797,7 @@
                         "questionAttrValue": "Yes, by a legal team other than the GLR",
                         "questionAutoResponse": "Provide relevant details, including your legal contact in below input field",
                         "questionAutoResponseType": "Free Text",
-                        "questionAutoResponseValue": "",
+                        "questionAutoResponseValue": null,
                         "caseCloseInd": "",
                         "questionRiskScore": "W-0",
                         "onlyChoice": false,
@@ -1843,8 +1827,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1889,8 +1873,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -1935,8 +1919,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2032,8 +2016,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2050,7 +2034,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Communication and audiovisual data (e.g. emails, conversation, transcripts, recordings)"
+                        "value": "Sensitive personal data (e.g. health/medical, sexual orientation, race or ethnicity, minority flag)"
                     },
                     {
                         "responseId": 0,
@@ -2175,8 +2159,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2193,7 +2177,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Creating content via broadcast and videoconferencing tools (do not select if simply streaming or facilitating the broadcast)"
+                        "value": "Security tools monitoring user's credentials"
                     }
                 ],
                 "uploadValue": [],
@@ -2328,8 +2312,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2346,7 +2330,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "dfs"
+                        "value": "xc"
                     }
                 ],
                 "uploadValue": [],
@@ -2371,8 +2355,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2389,7 +2373,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "sfd"
+                        "value": "xcv"
                     }
                 ],
                 "uploadValue": [],
@@ -2414,8 +2398,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2432,7 +2416,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "sdf"
+                        "value": "bcv"
                     }
                 ],
                 "uploadValue": [],
@@ -2457,8 +2441,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2495,8 +2479,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2510,14 +2494,19 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Voluntary / Can opt in"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 4,
                 "sectionNm": "Case details",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -2544,8 +2533,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2559,14 +2548,19 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "No"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 4,
                 "sectionNm": "Case details",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -2593,8 +2587,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2608,14 +2602,19 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "No"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 4,
                 "sectionNm": "Case details",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -2642,8 +2641,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2699,8 +2698,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2799,8 +2798,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2817,7 +2816,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "sdf"
+                        "value": "xcv"
                     }
                 ],
                 "uploadValue": [],
@@ -2857,8 +2856,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2875,7 +2874,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Countries can be excluded"
+                        "value": "Countries cannot be excluded"
                     }
                 ],
                 "uploadValue": [],
@@ -2884,7 +2883,7 @@
                 "questionType": "Single Choice",
                 "sectionId": 4,
                 "sectionNm": "Case details",
-                "flag": "W-0",
+                "flag": "R-5",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -2911,8 +2910,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2926,14 +2925,19 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "No"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 4,
                 "sectionNm": "Case details",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -2960,8 +2964,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -2975,14 +2979,19 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Suspend any routine purging or archiving (if any data or metadata is being modified as part of the archiving routine)"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": "E-Discovery Summary",
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 4,
                 "sectionNm": "Case details",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "27.1",
@@ -3099,8 +3108,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3145,8 +3154,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3191,8 +3200,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3237,8 +3246,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3283,8 +3292,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3348,8 +3357,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3401,8 +3410,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3419,7 +3428,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Pilot with non-production data (mockup data)"
+                        "value": "Business pilot only, with production data"
                     }
                 ],
                 "uploadValue": [],
@@ -3428,7 +3437,7 @@
                 "questionType": "Single Choice",
                 "sectionId": 5,
                 "sectionNm": "Pilot",
-                "flag": "W-0",
+                "flag": "R-5",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -3488,8 +3497,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3503,14 +3512,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "2021-12-24"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": "casesummary for icon six",
                 "assigncolumn": "",
                 "questionType": "Calendar",
                 "sectionId": 5,
                 "sectionNm": "Pilot",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "29.1",
@@ -3548,8 +3562,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3563,14 +3577,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "2022-01-08"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": "casesummary for icon seven",
                 "assigncolumn": "",
                 "questionType": "Calendar",
                 "sectionId": 5,
                 "sectionNm": "Pilot",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "29.2",
@@ -3608,8 +3627,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3623,14 +3642,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Yes, immediately"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 5,
                 "sectionNm": "Pilot",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "29.3.1",
@@ -3690,8 +3714,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3736,8 +3760,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3751,14 +3775,247 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Andorra"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Mauritius"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Mexico"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Morocco"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Netherlands"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "New Zealand"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Nigeria"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Norway"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Peru"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Philippines"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Poland"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Portugal"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Qatar"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Romania"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Russian Federation"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Saudi Arabia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Singapore"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Slovakia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "South Africa"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Spain"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Sri Lanka"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Sweden"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Switzerland"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Thailand"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Turkey"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "United Arab Emirates"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Malaysia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Luxembourg"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Latvia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Kazakhstan"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Argentina"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Australia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Austria"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Belgium"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Brazil"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Bulgaria"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Canada"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Chile"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "China/Hong Kong SAR"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "China/Mainland"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "China/Taiwan"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Colombia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "United Kingdom"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Costa Rica"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Denmark"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Finland"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "France"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Germany"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Greece"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Hungary"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "India"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Indonesia"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Ireland"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Israel"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Italy"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Japan"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "Czech Republic"
+                    },
+                    {
+                        "responseId": 0,
+                        "value": "United States"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": "pilot countries",
                 "assigncolumn": "",
                 "questionType": "Country Type Select",
                 "sectionId": 5,
                 "sectionNm": "Pilot",
-                "flag": "",
+                "flag": "R-5",
                 "dependancy": [
                     {
                         "questionNbr": "29.4",
@@ -3796,8 +4053,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3811,14 +4068,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "xcv"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Free Text",
                 "sectionId": 5,
                 "sectionNm": "Pilot",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "29.5",
@@ -3856,8 +4118,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3894,8 +4156,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3937,8 +4199,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -3975,8 +4237,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4084,8 +4346,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4170,8 +4432,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4337,8 +4599,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4482,8 +4744,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4497,14 +4759,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Political opinion"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 7,
                 "sectionNm": "Personal data in scope",
-                "flag": "",
+                "flag": "R-5",
                 "dependancy": [
                     {
                         "questionNbr": "36",
@@ -4627,8 +4894,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4717,8 +4984,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4732,19 +4999,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "Instant messaging metadata"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 7,
                 "sectionNm": "Personal data in scope",
-                "flag": "R-5",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "39",
@@ -4867,8 +5129,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4957,8 +5219,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -4975,7 +5237,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Position, employment and contractual information, including hiring, promotion, retirement information, management records."
+                        "value": "Immigration and/or mobility information"
                     }
                 ],
                 "uploadValue": [],
@@ -5052,8 +5314,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -5067,19 +5329,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "Local transfer information"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 7,
                 "sectionNm": "Personal data in scope",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "38.1",
@@ -5224,8 +5481,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -5369,8 +5626,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -5547,8 +5804,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -5659,8 +5916,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -5674,14 +5931,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Nationality and/or citizenship"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 7,
                 "sectionNm": "Personal data in scope",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "38.4",
@@ -5782,8 +6044,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -5960,8 +6222,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6006,8 +6268,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6096,8 +6358,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6175,8 +6437,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6221,8 +6483,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6333,8 +6595,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6456,8 +6718,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6494,8 +6756,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6512,7 +6774,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Directly from the individuals"
+                        "value": "From another internal Accenture system"
                     }
                 ],
                 "uploadValue": [],
@@ -6570,8 +6832,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6623,8 +6885,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6676,8 +6938,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6722,8 +6984,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6768,8 +7030,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6817,8 +7079,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6866,8 +7128,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -6962,8 +7224,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7008,8 +7270,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7026,7 +7288,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Diagnostic analytics (“Why did it happen”:  A look at past performance to determine what happened and why)"
+                        "value": "Predictive analytics (“What is likely to happen”:  Use data to identify past patterns to predict the future)"
                     }
                 ],
                 "uploadValue": [],
@@ -7095,8 +7357,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7150,8 +7412,8 @@
                 ],
                 "questionAttribute": [],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7215,8 +7477,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7233,7 +7495,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Other innovative technology"
+                        "value": "Blockchain"
                     }
                 ],
                 "uploadValue": [],
@@ -7302,8 +7564,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7348,8 +7610,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7394,8 +7656,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7409,14 +7671,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Private"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 8,
                 "sectionNm": "Processing of personal data",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "51.3",
@@ -7484,8 +7751,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7499,14 +7766,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "xcv"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Free Text",
                 "sectionId": 8,
                 "sectionNm": "Processing of personal data",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "51.4",
@@ -7530,8 +7802,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7545,14 +7817,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "cvx"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Free Text",
                 "sectionId": 8,
                 "sectionNm": "Processing of personal data",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "51.5",
@@ -7576,8 +7853,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7622,8 +7899,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7668,8 +7945,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7683,19 +7960,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "df"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Free Text",
                 "sectionId": 8,
                 "sectionNm": "Processing of personal data",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "51.8",
@@ -7719,8 +7991,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7773,8 +8045,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7819,8 +8091,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7865,8 +8137,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7911,8 +8183,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -7990,8 +8262,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8047,8 +8319,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8101,8 +8373,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8147,8 +8419,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8193,8 +8465,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8306,8 +8578,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8363,8 +8635,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8381,7 +8653,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "fds"
+                        "value": "vc"
                     }
                 ],
                 "uploadValue": [],
@@ -8406,8 +8678,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8424,7 +8696,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "fds"
+                        "value": "xcv"
                     }
                 ],
                 "uploadValue": [],
@@ -8449,8 +8721,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8720,8 +8992,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8738,7 +9010,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "df"
+                        "value": "cvb"
                     }
                 ],
                 "uploadValue": [],
@@ -8763,8 +9035,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8846,8 +9118,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8914,8 +9186,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -8960,8 +9232,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9061,8 +9333,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9115,8 +9387,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9133,7 +9405,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "fd"
+                        "value": "vcb"
                     }
                 ],
                 "uploadValue": [],
@@ -9158,8 +9430,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9243,8 +9515,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9258,14 +9530,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "Yes, a third party's notice is prompted/available in the solution"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 11,
                 "sectionNm": "Transparency",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "65",
@@ -9354,8 +9631,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9414,8 +9691,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9429,14 +9706,19 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "No, we do not ask for consent"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 11,
                 "sectionNm": "Transparency",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": [
                     {
                         "questionNbr": "66",
@@ -9492,8 +9774,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9538,8 +9820,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9605,8 +9887,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9658,8 +9940,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9673,19 +9955,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "Yes, a new/updated third party's notice is prompted/available in the solution"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 11,
                 "sectionNm": "Transparency",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "66.2.1",
@@ -9764,8 +10041,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9779,19 +10056,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "No, we are not going to ask for consent again. We rely in their existing consent."
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 11,
                 "sectionNm": "Transparency",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "66.2.2",
@@ -9837,8 +10109,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9897,8 +10169,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9915,7 +10187,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "fd"
+                        "value": "cvb"
                     }
                 ],
                 "uploadValue": [],
@@ -9940,8 +10212,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -9958,7 +10230,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Automatic purge/deletion of personal data"
+                        "value": "Anonymization"
                     }
                 ],
                 "uploadValue": [],
@@ -10148,8 +10420,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10213,8 +10485,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10228,14 +10500,19 @@
                     "questionMandInd": "N"
                 },
                 "questionCollectionInfo": null,
-                "value": [],
+                "value": [
+                    {
+                        "responseId": 0,
+                        "value": "No"
+                    }
+                ],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 12,
                 "sectionNm": "Technical and organizational measures",
-                "flag": "",
+                "flag": "W-0",
                 "dependancy": null,
                 "questionAttribute": [
                     {
@@ -10262,8 +10539,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10333,8 +10610,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10412,8 +10689,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10438,8 +10715,8 @@
                 "dependancy": null,
                 "questionAttribute": [],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10528,8 +10805,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10603,8 +10880,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10644,8 +10921,8 @@
                 ],
                 "questionAttribute": [],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10685,8 +10962,8 @@
                 ],
                 "questionAttribute": [],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10734,8 +11011,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10808,8 +11085,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10903,8 +11180,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10960,8 +11237,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -10978,7 +11255,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Accenture and Avanade own environment"
+                        "value": "Avanade owned environment"
                     }
                 ],
                 "uploadValue": [],
@@ -11042,7 +11319,7 @@
                         "questionAttrValue": "Avanade owned environment",
                         "questionAutoResponse": "You can provide additional details here",
                         "questionAutoResponseType": "Free Text",
-                        "questionAutoResponseValue": "",
+                        "questionAutoResponseValue": null,
                         "caseCloseInd": "",
                         "questionRiskScore": "W-0",
                         "onlyChoice": false,
@@ -11053,7 +11330,7 @@
                         "questionAttrValue": "Accenture and Avanade own environment",
                         "questionAutoResponse": "You can provide additional details here",
                         "questionAutoResponseType": "Free Text",
-                        "questionAutoResponseValue": null,
+                        "questionAutoResponseValue": "",
                         "caseCloseInd": "",
                         "questionRiskScore": "W-0",
                         "onlyChoice": false,
@@ -11083,8 +11360,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -11098,19 +11375,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "Processing of the existing personal data for new purpose(s) (i.e. 'new use case')"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Multiple Choice",
                 "sectionId": 2,
                 "sectionNm": "Basic information",
-                "flag": "W-0",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "14.3",
@@ -11218,8 +11490,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -11292,8 +11564,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -11310,7 +11582,7 @@
                 "value": [
                     {
                         "responseId": 0,
-                        "value": "Yes"
+                        "value": "No"
                     }
                 ],
                 "uploadValue": [],
@@ -11354,8 +11626,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             },
             {
@@ -11369,19 +11641,14 @@
                     "questionMandInd": "Y"
                 },
                 "questionCollectionInfo": null,
-                "value": [
-                    {
-                        "responseId": 0,
-                        "value": "No, the third countries are outside of this list"
-                    }
-                ],
+                "value": [],
                 "uploadValue": [],
                 "identification": null,
                 "assigncolumn": "",
                 "questionType": "Single Choice",
                 "sectionId": 2,
                 "sectionNm": "Basic information",
-                "flag": "R-5",
+                "flag": "",
                 "dependancy": [
                     {
                         "questionNbr": "14.5.1",
@@ -11427,8 +11694,8 @@
                     }
                 ],
                 "isSelectDiscussion": true,
-                "isAssignee": false,
-                "discussionDisplay": false,
+                "isAssignee": true,
+                "discussionDisplay": true,
                 "discussionHasActived": false
             }
         ],

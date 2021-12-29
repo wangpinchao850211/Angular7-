@@ -7,7 +7,10 @@
             <ng-template #childTitle>
               <div class="single-section">
                   <div class="single-section-name-out">
-                      <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle1" [nzTooltipColor]="'#FFFFFF'">{{item.sectionNm}}</span>
+                      <!-- <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle1" [nzTooltipColor]="'#FFFFFF'"> -->
+                      <span class="single-section-name">
+                        {{item.sectionNm}}
+                      </span>
                       <ng-template #sectiontooltipTitle1>
                           <div class="tooltip-title">{{item.sectionNm}}</div>
                       </ng-template>
@@ -16,7 +19,8 @@
             </ng-template>
             <ng-template #singleSection>
               <div class="single-section">
-                  <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle2" [nzTooltipColor]="'#FFFFFF'">
+                  <!-- <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle2" [nzTooltipColor]="'#FFFFFF'"> -->
+                  <span class="single-section-name">
                       {{ item.sectionNm }}
                   </span>
                   <ng-template #sectiontooltipTitle2>
@@ -39,7 +43,10 @@
                               [ngClass]="{'warning': subchild.hasRequiredEmpty, 'completed': !subchild.hasRequiredEmpty }"></i>
                           <span [class.unselected]="!subchild.selected && subchild.hasRequiredEmpty == null" class="subsection-menu" aria-hidden="true" tabindex="-1">
                               <div class="single-section-name-out">
-                                  <span class="single-section-name" aria-hidden="true" tabindex="-1" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle3" [nzTooltipColor]="'#FFFFFF'">{{ subchild.sectionNm }}</span>
+                                  <!-- <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle3" [nzTooltipColor]="'#FFFFFF'"> -->
+                                  <span class="single-section-name">
+                                    {{ subchild.sectionNm }}
+                                  </span>
                                   <ng-template #sectiontooltipTitle3>
                                       <div class="tooltip-title">{{subchild.sectionNm}}</div>
                                   </ng-template>
@@ -54,6 +61,181 @@
       </li>
     </ul>
   </div>
-  <div class="question-main"></div>
+  <div class="question-main">
+    <ng-container *ngFor="let question of questionListApi;let key = index">
+      <div class="question" *ngIf="question.displayedQuestion;" [class.required]="question.requiredAlert && !question.disabled">
+        <div class="question-stems">
+          <div class="question-dec">
+            <span [class.highlight-question]="question.highlightQue"
+                [innerHTML]="question.questionDesc"></span>
+            <nz-form-label *ngIf="question.validation.questionMandInd === 'Y'" style="display: inline;"
+                [nzRequired]="question.validation.questionMandInd === 'Y'">
+            </nz-form-label>
+        </div>
+        </div>
+        <nz-form-control [ngSwitch]="question.questionType">
+          <!-- input -->
+          <ng-container *ngSwitchCase="'Free Text'">
+              <textarea [maxlength]="question.questionNbr==='1' ? 200 : 8000" class="textarea" rows="1"
+                  (blur)="triggerReanswer(question);freeTextAutoSave(question)"
+                  [disabled]="question.disabled" [class.highlight]="question.required"
+                  [class.free-text-disable]="question.disabled" [required]="question.required"
+                  name="questionItem" [id]="question.questionNbr" #questionItem="ngModel" nz-input
+                  [(ngModel)]="question.value[0].value" [ngModelOptions]="{standalone: true}"
+                  aria-label="Free Text">
+              </textarea>
+          </ng-container>
+          <!-- radio -->
+          <ng-container *ngSwitchCase="'Single Choice'" class="single-choice">
+              <nz-radio-group [required]="question.required" name="questionItem"
+                  [id]="question.questionNbr" #questionItem="ngModel"
+                  [(ngModel)]="question.value[0].value" [nzDisabled]="question.disabled"
+                  [ngModelOptions]="{standalone: true}" (ngModelChange)="changeRadio(question, $event)">
+                  <ng-container *ngFor="let opt of question.questionAttribute">
+                      <table>
+                          <tr>
+                              <td>
+                                  <label nz-radio class="question-radio"
+                                      aria-label="Single Choice radio group"
+                                      [nzValue]="opt.questionAttrValue">{{opt.questionAttrValue}}</label>
+                              </td>
+                          </tr>
+                      </table>
+                  </ng-container>
+              </nz-radio-group>
+          </ng-container>
+          <!-- date-picker -->
+          <ng-container *ngSwitchCase="'Calendar'">
+              <ng-container>
+                  <nz-date-picker [nzFormat]="yyyy-mm-dd" [required]="question.required"
+                      name="questionItem" [id]="question.questionNbr" [nzSuffixIcon]="suffixIconSearch"
+                      class="calendar" #questionItem="ngModel" [(ngModel)]="question.value[0].value"
+                      nzPlaceHolder=" " [nzDisabled]="question.disabled"
+                      [ngModelOptions]="{standalone: true}"
+                      (ngModelChange)="triggerReanswer();freeTextAutoSave(question)">
+                      <ng-template #suffixIconSearch>
+                          <img src="./assets/images/event-24px.svg" class="people-icon"
+                              alt="people-icon" />
+                          <i class="people-icon"></i>
+                      </ng-template>
+                  </nz-date-picker>
+              </ng-container>
+              <!-- <ng-container *ngIf="isShowDisabled(question)">
+                  <nz-date-picker [nzFormat]="yyyy-mm-dd" [required]="question.required"
+                      name="questionItem" [id]="question.questionNbr" [nzSuffixIcon]="suffixIconSearch"
+                      class="calendar" #questionItem="ngModel" [(ngModel)]="question.value[0].value"
+                      nzPlaceHolder=" " [nzDisabled]="question.disabled"
+                      [ngModelOptions]="{standalone: true}"
+                      (ngModelChange)="triggerReanswer();freeTextAutoSave(question)"
+                      (nzOnPanelChange)="nzOnPanelChange($event)"
+                      (nzOnOpenChange)="nzOnOpenChange($event, question.questionNbr)">
+                      <ng-template #suffixIconSearch>
+                          <i class="people-icon"></i>
+                      </ng-template>
+                  </nz-date-picker>
+              </ng-container> -->
+          </ng-container>
+          <!-- peoplepicker -->
+          <ng-container *ngSwitchCase="'People Picker'">
+              <!-- <glr-people-picker [ques]="question" [type]="'question'"
+                  (autoSave)="triggerReanswer();AutoSave(question)">
+              </glr-people-picker> -->
+          </ng-container>
+          <!-- Lead Requestor -->
+          <ng-container *ngSwitchCase="'Single Role'">
+              <nz-input-group nz-input class="people-picker" [nzSuffix]="peopleIcon">
+                  <input nz-input [(ngModel)]="question.value[0].value" readonly
+                      [disabled]="question.disabled" aria-label="Single Role people picker">
+                  <!-- icon here -->
+                  <ng-template #peopleIcon>
+                      <i class="edit-icon" (click)="assignLR()" id="edit-lr-icon"
+                          *ngIf="editRoleIcon"></i>
+                  </ng-template>
+                  <!-- icon here -->
+              </nz-input-group>
+              <ng-container *ngIf="showAssignLRPop">
+                  <!-- <app-assign-lr [questionListApi]="questionListApi" [caseRole]="caseRole"
+                      (lrData)="getLRData($event)"></app-assign-lr> -->
+              </ng-container>
+          </ng-container>
+          <!-- Supporting Requestor -->
+          <ng-container *ngSwitchCase="'Multiple Role'">
+              <button id="add-sr-btn" *ngIf="editRoleIcon" class="view-button btn_basic_circle"
+                  [disabled]="question.disabled" (click)="assignSR()" nzType="primary" nzSize="size"
+                  nzShape="round">Add/Edit Supporting Requestor</button>
+              <div *ngIf="showInput" class="support-request"
+                  [class.support-request-disabled]="question.disabled"
+                  [class.max-width-sr]="srList.length > 4">
+                  <div id="{{sr}}" *ngFor="let sr of srList">
+                      <span class="each-sr">
+                          {{ sr }}
+                      </span>
+                  </div>
+              </div>
+              <ng-container *ngIf="showAssignSRPop">
+                  <!-- <app-assign-role [srList]="srList" [questionListApi]="questionListApi"
+                      (srData)="getSRData($event)"></app-assign-role> -->
+              </ng-container>
+          </ng-container>
+          <!-- Country picker -->
+          <ng-container *ngSwitchCase="'Country Type Select'">
+              <p-multiSelect class="mutiple-select country-type-select" [showToggleAll]="false"
+                  [id]="question.questionNbr" [disabled]="question.disabled"
+                  [options]="question.countryDataSource" defaultLabel=" " [ngModel]="question.value"
+                  (onChange)="triggerReanswer();countryChange($event, question)"
+                  (onPanelHide)="multiPanalHide(question)" (onPanelShow)="doAccessibility()" optionLabel="countryNm">
+                  <ng-template let-value pTemplate="selectedItems">
+                      <div class="country-item country-item-value" nz-tooltip nzTooltipPlacement="top"
+                          [nzTooltipTitle]="countriesNameTemp" [nzTooltipColor]="'#fff'"
+                          nzTooltipOverlayClassName="country-tooltip-pree">
+                          <ng-container *ngFor="let country of value;let idx = index">
+                              <span aria-hidden="true" tabindex="-1" *ngIf="country.countryNm !== 'Global'">
+                                  {{country.countryNm + (idx === value.length-1 ? '' : ', ')}}</span>
+                          </ng-container>
+                      </div>
+                      <ng-template #countriesNameTemp>
+                          <div>
+                              <ng-container *ngFor="let country of value;let idx = index">
+                                  <span aria-hidden="true" tabindex="-1" class="tooltip-title" *ngIf="country.countryNm !== 'Global'">
+                                      {{country.countryNm + (idx === value.length-1 ? '' : ', ')}}</span>
+                              </ng-container>
+                          </div>
+                      </ng-template>
+                  </ng-template>
+              </p-multiSelect>
+          </ng-container>
+          <!-- multiple checkbox -->
+          <ng-container *ngSwitchCase="'Multiple Choice'">
+              <nz-checkbox-wrapper [id]="question.questionNbr"
+                  (nzOnChange)="triggerReanswer();multipleChange($event, question)">
+                  <div nz-row *ngFor="let opt of question.questionAttribute">
+                      <label nz-checkbox [nzDisabled]="question.disabled || opt.disabled"
+                          [(ngModel)]="opt.checked" [nzValue]="opt.questionAttrValue">{{
+                          opt.questionAttrValue }}</label>
+                  </div>
+              </nz-checkbox-wrapper>
+          </ng-container>
+          <!-- Number Free Text -->
+          <ng-container *ngSwitchCase="'Number Free Text'">
+              <input class="textarea number"
+                  onpaste="return( /[\d]/.test(String.fromCharCode(event.keyCode)))" nz-input
+                  onkeypress="return( /[\d]/.test(String.fromCharCode(event.keyCode)))"
+                  (blur)="triggerReanswer(question);AutoSave(question)"
+                  oninput="if(value.length>6)value=value.replace('e','').slice(0,6)"
+                  [class.free-text-disable]="question.disabled" [id]="question.questionNbr"
+                  [(ngModel)]="question.value[0].value" [disabled]="question.disabled"
+                  aria-label="Number Free Text" />
+          </ng-container>
+          <!-- file upload -->
+          <ng-container *ngSwitchCase="'Upload'">
+              <!-- <app-upload-to-azure [caseId]="caseId" [question]="question" [type]="'questionUpload'"
+                  (uploadFileChange)="uploadFileChange($event)"></app-upload-to-azure> -->
+          </ng-container>
+        </nz-form-control>
+      </div>
+    </ng-container>
+  </div>
 </div>
 <button class="btn btn-primary goToHome" (click)="goToHome()">Home</button>
+<button class="btn btn-primary downloadQuestionnaire" (click)="downloadQuestionnaire()">Download Questionnaire</button>
+<button class="btn btn-primary downloadAssessment" (click)="downloadAssessment()">Download Assessment</button>

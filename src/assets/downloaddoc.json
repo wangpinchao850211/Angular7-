@@ -1,0 +1,308 @@
+{
+    "status": 200,
+    "success": true,
+    "msg": "successful",
+    "response": {
+        "version": "V1.1",
+        "caseNbr": "22-026",
+        "caseNm": "wpc-t",
+        "caseCorporateFunc": "CIO",
+        "priority": "Standard",
+        "pilot": {
+            "isPilot": false,
+            "startDate": null,
+            "endDate": null,
+            "geoScope": []
+        },
+        "deployment": {
+            "targetDate": "2022-01-08",
+            "abilityToExcludeCountries": "Countries can be excluded",
+            "geoScopeForACN": [
+                {
+                    "countryName": "Andorra"
+                },
+                {
+                    "countryName": "Mauritius"
+                },
+                {
+                    "countryName": "Mexico"
+                },
+                {
+                    "countryName": "Morocco"
+                },
+                {
+                    "countryName": "Netherlands"
+                },
+                {
+                    "countryName": "New Zealand"
+                },
+                {
+                    "countryName": "Nigeria"
+                },
+                {
+                    "countryName": "Norway"
+                },
+                {
+                    "countryName": "Peru"
+                },
+                {
+                    "countryName": "Philippines"
+                },
+                {
+                    "countryName": "Poland"
+                },
+                {
+                    "countryName": "Portugal"
+                },
+                {
+                    "countryName": "Qatar"
+                },
+                {
+                    "countryName": "Romania"
+                },
+                {
+                    "countryName": "Russian Federation"
+                },
+                {
+                    "countryName": "Saudi Arabia"
+                },
+                {
+                    "countryName": "Singapore"
+                },
+                {
+                    "countryName": "Slovakia"
+                },
+                {
+                    "countryName": "South Africa"
+                },
+                {
+                    "countryName": "Spain"
+                },
+                {
+                    "countryName": "Sri Lanka"
+                },
+                {
+                    "countryName": "Sweden"
+                },
+                {
+                    "countryName": "Switzerland"
+                },
+                {
+                    "countryName": "Thailand"
+                },
+                {
+                    "countryName": "Turkey"
+                },
+                {
+                    "countryName": "United Arab Emirates"
+                },
+                {
+                    "countryName": "Malaysia"
+                },
+                {
+                    "countryName": "Luxembourg"
+                },
+                {
+                    "countryName": "Latvia"
+                },
+                {
+                    "countryName": "Kazakhstan"
+                },
+                {
+                    "countryName": "Argentina"
+                },
+                {
+                    "countryName": "Australia"
+                },
+                {
+                    "countryName": "Austria"
+                },
+                {
+                    "countryName": "Belgium"
+                },
+                {
+                    "countryName": "Brazil"
+                },
+                {
+                    "countryName": "Bulgaria"
+                },
+                {
+                    "countryName": "Canada"
+                },
+                {
+                    "countryName": "Chile"
+                },
+                {
+                    "countryName": "China/Hong Kong SAR"
+                },
+                {
+                    "countryName": "China/Mainland"
+                },
+                {
+                    "countryName": "China/Taiwan"
+                },
+                {
+                    "countryName": "Colombia"
+                },
+                {
+                    "countryName": "United Kingdom"
+                },
+                {
+                    "countryName": "Costa Rica"
+                },
+                {
+                    "countryName": "Denmark"
+                },
+                {
+                    "countryName": "Finland"
+                },
+                {
+                    "countryName": "France"
+                },
+                {
+                    "countryName": "Germany"
+                },
+                {
+                    "countryName": "Greece"
+                },
+                {
+                    "countryName": "Hungary"
+                },
+                {
+                    "countryName": "India"
+                },
+                {
+                    "countryName": "Indonesia"
+                },
+                {
+                    "countryName": "Ireland"
+                },
+                {
+                    "countryName": "Israel"
+                },
+                {
+                    "countryName": "Italy"
+                },
+                {
+                    "countryName": "Japan"
+                },
+                {
+                    "countryName": "Czech Republic"
+                },
+                {
+                    "countryName": "United States"
+                }
+            ],
+            "geoScopeForAVA": [
+                {
+                    "countryName": "Australia"
+                },
+                {
+                    "countryName": "United Arab Emirates"
+                },
+                {
+                    "countryName": "Switzerland"
+                },
+                {
+                    "countryName": "Sweden"
+                },
+                {
+                    "countryName": "Spain"
+                },
+                {
+                    "countryName": "Singapore"
+                },
+                {
+                    "countryName": "Portugal"
+                },
+                {
+                    "countryName": "Poland"
+                },
+                {
+                    "countryName": "Norway"
+                },
+                {
+                    "countryName": "Netherlands"
+                },
+                {
+                    "countryName": "Malaysia"
+                },
+                {
+                    "countryName": "Japan"
+                },
+                {
+                    "countryName": "Italy"
+                },
+                {
+                    "countryName": "Ireland"
+                },
+                {
+                    "countryName": "Germany"
+                },
+                {
+                    "countryName": "France"
+                },
+                {
+                    "countryName": "Finland"
+                },
+                {
+                    "countryName": "Denmark"
+                },
+                {
+                    "countryName": "China/Mainland"
+                },
+                {
+                    "countryName": "China/Hong Kong SAR"
+                },
+                {
+                    "countryName": "Canada"
+                },
+                {
+                    "countryName": "Brazil"
+                },
+                {
+                    "countryName": "Belgium"
+                },
+                {
+                    "countryName": "Austria"
+                },
+                {
+                    "countryName": "United Kingdom"
+                },
+                {
+                    "countryName": "United States"
+                }
+            ]
+        },
+        "leaderRequest": "T135542.DS.110",
+        "projectSponsors": [],
+        "sponsoringMD": [
+            {
+                "enterId": "T135542.DS.120"
+            }
+        ],
+        "legalAreaCoordinator": [
+            {
+                "enterId": "T135542.DS.144"
+            },
+            {
+                "enterId": "T135542.DS.143"
+            },
+            {
+                "enterId": "T135542.DS.131"
+            }
+        ],
+        "globalDataPrivacy": [
+            {
+                "enterId": "T135542.DS.151"
+            }
+        ],
+        "globalEmploymentLaw": [],
+        "eDiscovery": [],
+        "tradeCompliance": [],
+        "ipTeam": [],
+        "corporateInvestigationsOrLitigation": [],
+        "localEmploymentLegal": [],
+        "avanadeLegal": []
+    }
+}

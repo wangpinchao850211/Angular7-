@@ -1,3 +1,4 @@
+@use "sass:math";
 /*容器宽度，高度，内外边距rem值变量*/ 
 :root {
     --height-primary: 9.37rem;  /*--width-primary  ：变量名，css3有规则*/
@@ -52,3 +53,79 @@ $color-grey: #65758B;
     }
 }
 
+// layput color
+$primary-color: #8c44a3;
+$paimary-color-hover: rgba(140, 68, 163, 0.6);
+$menu-bg-color: rgba(0, 0, 0, 0.87);
+$header-footer-bg-color: #fff;
+$hamburger-icon: aliceblue;
+
+//common color
+$corePurple-color-one: #a100ff;
+$corePurple-color-two: #7500c0;
+$corePurple-color-three: #460073;
+$action-color-one: #a100ff;
+$action-color-two: #0041f0;
+$accentPurple-color-one: #b455aa;
+$accentPurple-color-two: #a055f5;
+$accentPurple-color-three: #be82ff;
+$accentPurple-color-four: #dcafff;
+$accentPurple-color-five: #e6dcff;
+$greyUI-color-white: #ffffff;
+$greyUI-color-black: #000000;
+$greyUI-color-alabaster: #fafafa;
+$greyUI-color-whiteSmoke: #f2f2f2;
+$greyUI-color-gainsboro: #e5e5e5;
+$greyUI-color-ghost: #cccbce;
+$greyUI-color-frenchGrey: #b3b2b5;
+$greyUI-color-topaz: #837f89;
+$greyUI-color-gravel: #4f4b53;
+$greyUI-color-shipGrey: #3b3944;
+$greyUI-color-bastille: #1d1823;
+$brandNeutralGreys-color-one: #e6e6dc;
+$brandNeutralGreys-color-two: #96968c;
+
+$secondary-color-one: #0041f0;
+$secondary-color-two: #00ffff;
+$secondary-color-three: #64ff50;
+$secondary-color-four: #05f0a5;
+$secondary-color-five: #ff3246;
+$secondary-color-six: #ff50a0;
+$secondary-color-seven: #ff7800;
+$secondary-color-eight: #ffeb32;
+
+@function px2rem($px, $base : 14px) {
+    @return math.div($px, $base) * 1rem;
+}
+$font-14: 1rem;
+$font-16: px2rem(16px);
+$font-24: 1.71rem;
+
+
+@mixin glr-common-button {
+    button {
+        background-color: none;
+        border: 1px solid rgba(0,0,0,0);
+        box-shadow: none;
+        color: $corePurple-color-one;
+        height: px2rem(36px);
+        display: flex;
+        align-items: center;
+        font-size: px2rem(14px);
+        display: flex;
+        align-items: center;
+        font-family: "graphik";
+        box-sizing: border-box;
+        font-weight: 600;
+        &:first-of-type:hover {
+            border: 1px solid #7500
+        }
+    }
+
+    button + button {
+        font-family: "graphik";
+        box-sizing: border-box;
+        font-weight: 600;
+        margin-left: 0.8rem;
+    }
+}

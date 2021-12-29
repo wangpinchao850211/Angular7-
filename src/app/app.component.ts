@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit {
   title = 'My First Angular App!';
   theme = false;
 
-  isShowQuestion: string = 'newValue';
+  isShowQuestion: string = 'oldValue';
   // 监听滚动条滚动
   disabledScrollLoading = false;
   scrollLoading = false;

@@ -1,0 +1,671 @@
+{
+    "status": 200,
+    "success": true,
+    "msg": "successful",
+    "response": {
+        "isCompleted": false,
+        "isReopen": "N",
+        "reviewCompletionDate": null,
+        "isEdit": true,
+        "reviewButton": true,
+        "caseSummary": "-- sdf\n-- fdg\n-- dfg\n-- Pilot with non-production data (mockup data)\n-- Migration from an existing technology to a new one\n-- Accenture and Avanade own environment",
+        "downloadButton": true,
+        "deploymentDate": "2022-01-08",
+        "caseScope": "Accenture(FYI)",
+        "sideType": "FYI",
+        "principleConclusion": "dsf",
+        "summaryDiscussion": true,
+        "conclusionDiscussion": true,
+        "summaryDiscussionHasActived": false,
+        "conclusionDiscussionHasActived": false,
+        "summaryUnRead": 0,
+        "conclusionUnRead": 0,
+        "unRead": 0,
+        "updateInfo": null,
+        "updateCount": 0,
+        "assignTODTOs": [
+            {
+                "roleId": 0,
+                "roleNm": "Lead Requestor",
+                "checkSelect": true,
+                "roleValue": "Lead Requestor",
+                "getAssignTOGroupDTOs": []
+            },
+            {
+                "roleId": 1,
+                "roleNm": "Legal Area Coordinator",
+                "checkSelect": true,
+                "roleValue": "Legal Area Coordinator",
+                "getAssignTOGroupDTOs": []
+            },
+            {
+                "roleId": 2,
+                "roleNm": "Global Review",
+                "checkSelect": false,
+                "roleValue": "Global Reviewer",
+                "getAssignTOGroupDTOs": [
+                    {
+                        "groupId": 11,
+                        "groupNm": "Global Data Privacy",
+                        "roleId": 2,
+                        "checkSelect": false
+                    },
+                    {
+                        "groupId": 12,
+                        "groupNm": "Global Employment Law",
+                        "roleId": 2,
+                        "checkSelect": false
+                    },
+                    {
+                        "groupId": 13,
+                        "groupNm": "E-Discovery",
+                        "roleId": 2,
+                        "checkSelect": false
+                    },
+                    {
+                        "groupId": 14,
+                        "groupNm": "Trade Compliance",
+                        "roleId": 2,
+                        "checkSelect": false
+                    },
+                    {
+                        "groupId": 15,
+                        "groupNm": "IP Team",
+                        "roleId": 2,
+                        "checkSelect": false
+                    },
+                    {
+                        "groupId": 16,
+                        "groupNm": "Corporate Investigations/Litigation",
+                        "roleId": 2,
+                        "checkSelect": false
+                    }
+                ]
+            },
+            {
+                "roleId": 4,
+                "roleNm": "Local Review",
+                "checkSelect": true,
+                "roleValue": "Local Reviewer",
+                "getAssignTOGroupDTOs": [
+                    {
+                        "groupId": 0,
+                        "groupNm": "Andorra",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Argentina",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Australia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Austria",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Belgium",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Brazil",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Bulgaria",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Canada",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Chile",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "China/Hong Kong SAR",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "China/Mainland",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "China/Taiwan",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Colombia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Costa Rica",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Czech Republic",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Denmark",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Finland",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "France",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Germany",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Greece",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Hungary",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "India",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Indonesia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Ireland",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Israel",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Italy",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Japan",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Kazakhstan",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Latvia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Luxembourg",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Malaysia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Mauritius",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Mexico",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Morocco",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Netherlands",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "New Zealand",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Nigeria",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Norway",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Peru",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Philippines",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Poland",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Portugal",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Qatar",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Romania",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Russian Federation",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Saudi Arabia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Singapore",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Slovakia",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "South Africa",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Spain",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Sri Lanka",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Sweden",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Switzerland",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Thailand",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "Turkey",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "United Arab Emirates",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "United Kingdom",
+                        "roleId": 4,
+                        "checkSelect": true
+                    },
+                    {
+                        "groupId": 0,
+                        "groupNm": "United States",
+                        "roleId": 4,
+                        "checkSelect": true
+                    }
+                ]
+            }
+        ],
+        "viewGCC": [
+            {
+                "gccName": "Austria",
+                "isCompleted": "N",
+                "unRead": 0,
+                "reviewCompletionDate": "17-Dec-2021",
+                "reviewCompletedDate": ""
+            }
+        ],
+        "copyGCC": [
+            {
+                "gccName": "Austria",
+                "isCompleted": "N",
+                "unRead": 0,
+                "reviewCompletionDate": null,
+                "reviewCompletedDate": null
+            }
+        ],
+        "globalDto": {
+            "globalDataPrivacy": {
+                "title": "Global Data Privacy",
+                "order": 1,
+                "privacies": [
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Lawful And Fair Processing & Purpose Limitation",
+                        "relevantFact": "-- sdf\n-- dfg\n-- Other innovative technology",
+                        "isDisplay": true,
+                        "isEdit": false,
+                        "dataPrivacyParentId": 1008,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1008,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Sensitive Data",
+                        "relevantFact": "sdf",
+                        "isDisplay": true,
+                        "isEdit": false,
+                        "dataPrivacyParentId": 1009,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1009,
+                        "getActionDTOs": [
+                            {
+                                "actionId": 22,
+                                "dataPrivacyId": 1009,
+                                "actionNbr": null,
+                                "actionDetails": "fds",
+                                "assignTo": "Lead Requestor",
+                                "assignToValue": "Lead Requestor",
+                                "completionDate": "2022-01-08",
+                                "caseId": 52,
+                                "assignToGroupNm": null,
+                                "unRead": 0,
+                                "actionStage": "Draft",
+                                "createdAt": "2021-12-03T03:28:35.607"
+                            }
+                        ],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Transparency",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1010,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1010,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Data Minimization, Proportionality And Necessity",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1011,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1011,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Security, Confidentiality And Integrity",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1012,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1012,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Storage Location, Access & International Transfer Of Data Within Accenture",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1013,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1013,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Storage Location, Third Party Access & International Transfer Of Data To Third Parties",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1014,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1014,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Retention, Deletion & Storage Limitation",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1015,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1015,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Individual Rights Requests",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1016,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1016,
+                        "getActionDTOs": [],
+                        "local": null
+                    },
+                    {
+                        "dataPrivacyId": 0,
+                        "caseId": 52,
+                        "dataPrivacyTitle": "Additional Privacy By Design Principles And Protection of Personal Data",
+                        "relevantFact": "",
+                        "isDisplay": false,
+                        "isEdit": true,
+                        "dataPrivacyParentId": 1017,
+                        "unRead": 0,
+                        "discussionDisplay": true,
+                        "discussionHasActived": false,
+                        "actionParentId": 1017,
+                        "getActionDTOs": [],
+                        "local": null
+                    }
+                ],
+                "unRead": 0
+            },
+            "globalEmploymentLaw": null,
+            "eDiscovery": null,
+            "tradeCompliance": null,
+            "ipTeam": null,
+            "corporateInLi": null,
+            "localOther": {
+                "title": "Other Local Legal & Regulatory Requirements",
+                "order": 7,
+                "otherTrigger": {
+                    "dataPrivacyId": 1056,
+                    "otherId": 17,
+                    "date": "2021-12-17",
+                    "isTriggered": false,
+                    "isShow": false,
+                    "applicableNm": null
+                },
+                "dataPrivacyId": 1056,
+                "caseId": 52,
+                "dataPrivacyTitle": "Other Local Legal & Regulatory Requirements",
+                "relevantFact": "fsd",
+                "isDisplay": true,
+                "isEdit": true,
+                "discussionDisplay": true,
+                "discussionHasActived": false,
+                "unRead": 0,
+                "remarks": "N",
+                "getActionDTOs": [],
+                "erbActions": [],
+                "entities": "Accenture"
+            }
+        },
+        "uploadAttachmentDTO": [],
+        "deployInd": {
+            "dataPrivacyId": 1076,
+            "isDisplay": false
+        },
+        "isAvanda": "Y"
+    }
+}

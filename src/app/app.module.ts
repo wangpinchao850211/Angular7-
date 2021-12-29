@@ -62,6 +62,11 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -140,6 +145,7 @@ import { CdkOverlayContainerDirective } from './app-main/angular_material/overla
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 // CKeditor
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -291,12 +297,19 @@ registerLocaleData(zh);
     NzIconModule, // ant icon
     NzUploadModule, // ant 文件上传
     NzTabsModule,
+    NzToolTipModule,
+    NzFormModule,
+    NzRadioModule,
+    NzCheckboxModule,
+    NzDatePickerModule,
+    NzInputModule,
     NzButtonModule,
     NzMenuModule,
     NzLayoutModule,
     NzGridModule,
     // ScrollingModule // 没有引用CDK到项目中！！！
     ButtonModule,
+    MultiSelectModule,
     OverlayModule,
     PortalModule,
     // CKeditor

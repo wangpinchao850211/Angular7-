@@ -1,5 +1,6 @@
 
 @import "~src/assets/base.scss";
+
 @mixin menu-styles {
     //Menu style
     .qnr-menu {
@@ -298,11 +299,43 @@
     }
     .question-main {
         flex: 1;
+        overflow-x: hidden;
+        margin-bottom: 40px;
+        .question {
+            box-sizing: border-box;
+            border: 0.4px solid #d8d8d8;
+            background-color: #ffffff;
+            margin-left: 40px;
+            margin-top: px2rem(14px);
+            margin-right: 40px;
+            padding-left: 1.14rem;
+            padding-top: 8px;
+            padding-bottom: 16px;
+            border-radius: 6px;
+            // margin-right: 40px;
+            .question-stems {
+                display: flex;
+                .question-dec {
+                    flex: 1;
+                }
+            }
+        }
     }
 }
 .goToHome {
     position: fixed;
     right: 20px;
+    bottom: 20px;
+}
+.downloadQuestionnaire {
+    position: fixed;
+    right: 100px;
+    bottom: 20px;
+}
+
+.downloadAssessment {
+    position: fixed;
+    right: 300px;
     bottom: 20px;
 }
 
@@ -431,4 +464,16 @@
     margin-top:-7px;
     border-left-width:0;
     border-right-color:#fff;
+}
+
+.highlight-question {
+    background-color: #F8E809;
+}
+
+.edit-icon {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background: url(../../../../assets/images/pen.svg) no-repeat;
 }
