@@ -42,7 +42,7 @@ export function type<T>(label: T | ''): T {
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   @HostBinding('@routeAnim') state; // 动画路由直接写这个绑定的这个组件类上，不能写在标签的指令上
-  public greeting = 'green';
+  public greeting = 'green'; // 传入子组件的值，失去焦点再赋值能够看出来效果
   public currentGeeting = this.greeting;
   count$: Rx.Observable<number>;
   // 倒计时

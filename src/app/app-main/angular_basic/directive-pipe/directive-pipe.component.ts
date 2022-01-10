@@ -46,7 +46,7 @@ export class DirectivePipeComponent implements OnInit {
     }
     if (event.target.nodeName === 'LI') {
       // console.log(event.target.innerHTML);
-      this.clickOutsideInputValue = event.target.innerHTML;
+      this.clickOutsideInputValue = event.target.innerHTML; // 这个位置是赋值
       this.showUl = false; // 关闭下拉框
     }
 

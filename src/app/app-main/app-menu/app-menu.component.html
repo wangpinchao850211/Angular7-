@@ -5,7 +5,7 @@
   <!-- 使用material引入自定义icon -->
   <!-- <mat-icon svgIcon="accentureIconnName"></mat-icon> -->
   <ul nz-menu nzMode="inline" [nzTheme]="theme ? 'light' : 'dark'" [nzInlineCollapsed]="isCollapsed" class="menuUl">
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="(isCollapsed ? 'Navigation One' : '')"
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="!isCollapsed ? 'Navigation One' : '' "
       nzSelected (click)="goToHomePage()">
       <i nz-icon nzType="mail"></i>
       <span>Navigation One</span>

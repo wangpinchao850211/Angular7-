@@ -34,7 +34,6 @@ export enum MenuToTabMapping {
   ngrxStore = '/AngularRxjs/ngrxStore',
   animateBasic = '/AngularAnimate/animateBasic',
   CommonComponent = '/chain_shared/CommonComponent',
-  AngularMaterial = '/Angular_Material/AngularMaterial',
   Overlay = '/Angular_Material/Overlay',
   ChangeOverlayDefaultContainer = '/Angular_Material/ChangeOverlayDefaultContainer',
   AngularScss = '/Angular_Scss/AngularScss',

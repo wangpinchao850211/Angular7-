@@ -6,3 +6,10 @@
 .viewContainerRef{
     background: green;
 }
+
+// host-context的第一个实际使用：根据是否存在home的class来判断，如果是隐藏description子元素
+:host-context(.home-life-cycle) {
+    .description {
+        display: none;
+    }
+}

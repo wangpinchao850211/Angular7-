@@ -7,8 +7,7 @@
             <ng-template #childTitle>
               <div class="single-section">
                   <div class="single-section-name-out">
-                      <!-- <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle1" [nzTooltipColor]="'#FFFFFF'"> -->
-                      <span class="single-section-name">
+                      <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle1" [nzTooltipColor]="'#FFFFFF'">
                         {{item.sectionNm}}
                       </span>
                       <ng-template #sectiontooltipTitle1>
@@ -19,8 +18,7 @@
             </ng-template>
             <ng-template #singleSection>
               <div class="single-section">
-                  <!-- <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle2" [nzTooltipColor]="'#FFFFFF'"> -->
-                  <span class="single-section-name">
+                  <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle2" [nzTooltipColor]="'#FFFFFF'">
                       {{ item.sectionNm }}
                   </span>
                   <ng-template #sectiontooltipTitle2>
@@ -43,8 +41,7 @@
                               [ngClass]="{'warning': subchild.hasRequiredEmpty, 'completed': !subchild.hasRequiredEmpty }"></i>
                           <span [class.unselected]="!subchild.selected && subchild.hasRequiredEmpty == null" class="subsection-menu" aria-hidden="true" tabindex="-1">
                               <div class="single-section-name-out">
-                                  <!-- <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle3" [nzTooltipColor]="'#FFFFFF'"> -->
-                                  <span class="single-section-name">
+                                  <span class="single-section-name" nz-tooltip [nzTooltipTitle]="sectiontooltipTitle3" [nzTooltipColor]="'#FFFFFF'">
                                     {{ subchild.sectionNm }}
                                   </span>
                                   <ng-template #sectiontooltipTitle3>

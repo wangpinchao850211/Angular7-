@@ -25,9 +25,8 @@ export class AppComponent implements AfterViewInit {
   tabsSubscript: Subscription;
   removeCurrentURl: string = '';
   // 主题
-  title = 'My First Angular App!';
   theme = false;
-
+  // 显示questionnaire，使用了一下localStorage的自定义事件监听
   isShowQuestion: string = 'oldValue';
   // 监听滚动条滚动
   disabledScrollLoading = false;
@@ -36,7 +35,6 @@ export class AppComponent implements AfterViewInit {
   @HostListener('mousewheel', ['$event']) public onScroll = _.debounce(this.dealScroll, 50);
 
   dealScroll(event: any) {
-    if (sessionStorage.getItem('openFilterDialogFlag') == 'true') { return; }
     if (!this.disabledScrollLoading) { // loading whole pages should be disabled
       const clientH = document.documentElement.clientHeight;
       const bodyH = document.documentElement.scrollHeight;
@@ -128,6 +126,7 @@ export class AppComponent implements AfterViewInit {
       })
   }
 
+  // 用空格替换加法符号的正则表达式
   deSerialize(query) {
     const pl = /\+/g  // Regex for replacing addition symbol with a space
     const search = /([^&=]+)=?([^&]*)/g

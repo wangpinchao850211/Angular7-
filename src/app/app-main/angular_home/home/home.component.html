@@ -1,6 +1,6 @@
 <div class="wrapper">
   <h3>技术点1：触发父传子,调用ngOnChanges()钩子</h3>
-  <div style="width: 80%;">
+  <div style="width: 80%;" class="home-life-cycle">
     <label for="changeColor">请输入颜色，更新传入值</label>
     <input id="changeColor" type="text" [(ngModel)]="currentGeeting" (blur)="updateGreeting()"  placeholder="请更改颜色">
     <br>
@@ -8,7 +8,7 @@
   </div>
 
   <h3>技术点2：倒计时器(使用rxjs实现)</h3>
-  <!-- <app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down> -->
+  <app-count-down [startDate]="startDate" [futureDate]="futureDate"></app-count-down>
   <!-- 变更路由，不跳转 -->
   <button class="btn btn-primary" (click)="PushState()">historyPushState</button>
 

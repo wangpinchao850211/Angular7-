@@ -32,7 +32,7 @@ export class ScrollDirectiveDirective {
     if (event.target.scrollHeight > 0) {
       // console.log(event.target); // 无法找到滚动条存在的元素
       // console.log(event.target); // 无法找到滚动条存在的元素
-this._renderer.addClass(this.rootDom.nativeElement, 'wpc'); // class添加上去了
+      this._renderer.addClass(this.rootDom.nativeElement, 'wpc'); // class添加上去了
       // 调用dom方法
       this.changeDom();
     }

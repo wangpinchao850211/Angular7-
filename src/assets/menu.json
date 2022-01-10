@@ -20,7 +20,6 @@
   "AngularAnimate": ["animateBasic"],
   "chain_shared": ["CommonComponent"],
   "Angular_Material": [
-    "AngularMaterial",
     "Overlay",
     "ChangeOverlayDefaultContainer"
   ],

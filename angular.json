@@ -63,14 +63,14 @@
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
-            "sourceMap": true,
+            "sourceMap": false,
             "optimization": {
-              "scripts": true,
+              "scripts": false,
               "styles": {
-                "minify": true,
+                "minify": false,
                 "inlineCritical": false
               },
-              "fonts": true
+              "fonts": false
             },
             "namedChunks": true
           },

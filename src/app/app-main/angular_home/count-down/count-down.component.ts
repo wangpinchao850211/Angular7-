@@ -18,7 +18,7 @@ export class CountDownComponent implements OnInit {
     setTimeout(() => {
       const val = window.localStorage.getItem('watchStorage');
       if (val === 'oldValue') {
-        window.localStorage.setItem('watchStorage', 'newValue');
+        // window.localStorage.setItem('watchStorage', 'newValue');
       }
     }, 5000);
   }

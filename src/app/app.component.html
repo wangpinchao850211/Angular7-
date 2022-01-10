@@ -1,5 +1,4 @@
 <!-- NG-ZORRO -->
-<!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
 <nz-layout class="layout theme-wrapper" id="theme-wrapper" *ngIf="isShowQuestion === 'oldValue'" [ngClass]="{'headlight': theme, 'headark': !theme}">
   <nz-header style="height: 60px;" >
     <span style="display: inline-block;">
@@ -26,13 +25,13 @@
               </span>
             </div>
           </ng-template>
+          <!-- <app-github-corner></app-github-corner> -->
           <app-layout></app-layout>
         </nz-tab>
       </nz-tabset>
     </div>
   </div>
 </nz-layout>
-<!-- </cdk-virtual-scroll-viewport> -->
 <!-- 单独跳转到rem布局页面，使用辅助路由(并没有实现，需要深入人研究辅助路由，这里提示辅助路由只可以作为跳转的子路由么？？？ -->
 <!-- <router-outlet name="remaux"></router-outlet> -->
 <app-simpleQuestionnaire *ngIf="isShowQuestion === 'newValue'"></app-simpleQuestionnaire>

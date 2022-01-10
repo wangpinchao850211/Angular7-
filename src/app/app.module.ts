@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
 // import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,10 +12,13 @@ import zh from '@angular/common/locales/zh';
 import { RouteReuseStrategy } from '@angular/router';
 import { AppReuseStrategy } from './services/RouteReuseStrategy.service';
 // cdk
-import { ScrollingModule } from '@angular/cdk/scrolling'; // package安装完了应该可用
-import { CdkTableModule } from '@angular/cdk/table';
+import { DirectExtendComponent } from './app-main/angular_material/overlay/overlayChangeDefaultContainer/direct-extend/direct-extend.component';
+import { CdkOverlayContainerDirective } from './app-main/angular_material/overlay/cdk-overlay-container.directive';
 import { OverlayModule, OverlayContainer, FullscreenOverlayContainer } from "@angular/cdk/overlay";
 import { PortalModule } from "@angular/cdk/portal";
+import { CdkOverlayContainer } from './cdk-overlay-container';
+import { AppOverlayContainer } from './cdk-overlay-container2';
+import { Platform } from '@angular/cdk/platform';
 
 // 注册store
 import { StoreModule } from '@ngrx/store';
@@ -67,10 +70,11 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GithubCorner } from './app-main/github-corner/github-corner';
+import { GithubCorner } from './app-main/github-corner/github-corner'; // gitHub 小logo
 import { Code404Component } from './app-main/code404/code404.component';
 import { AppMenuComponent } from './app-main/app-menu/app-menu.component';
 import { LifeCycleComponent } from './app-main/angular_basic/life-cycle/life-cycle.component';
@@ -137,10 +141,6 @@ import { ClickOutsideDirective } from './directive/click-outside.directive';
 import { SliceEmailPipe } from './pipe/slice-email.pipe';
 import { DateFormatPipe } from './pipe/date-format.pipe';
 import { EmailvalidDirective } from './directive/emailvalid.directive';
-import { DirectExtendComponent } from './app-main/angular_material/overlay/overlayChangeDefaultContainer/direct-extend/direct-extend.component';
-import { CdkOverlayContainer } from './cdk-overlay-container';
-import { AppOverlayContainer } from './cdk-overlay-container2';
-import { CdkOverlayContainerDirective } from './app-main/angular_material/overlay/cdk-overlay-container.directive';
 
 // primeng modle
 // import {FileUploadModule} from 'primeng/fileupload';
@@ -303,11 +303,11 @@ registerLocaleData(zh);
     NzCheckboxModule,
     NzDatePickerModule,
     NzInputModule,
+    NzCollapseModule,
     NzButtonModule,
     NzMenuModule,
     NzLayoutModule,
     NzGridModule,
-    // ScrollingModule // 没有引用CDK到项目中！！！
     ButtonModule,
     MultiSelectModule,
     OverlayModule,
@@ -317,20 +317,19 @@ registerLocaleData(zh);
     NgxEchartsModule
   ],
   exports: [
-    // ScrollingModule // 没有引用CDK到项目中！！！
-    CdkTableModule,
     // MatTableModule 一直也没引入成功报错
   ],
   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    // CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [
     matDialogConfirmService,
     { provide: NZ_I18N, useValue: zh_CN },
     // { provide: RouteReuseStrategy, useClass: AppReuseStrategy } //路由复用暂时不用，此项目路由操作破坏了路由复用
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
-    { provide: OverlayContainer, useClass: CdkOverlayContainer },
-    // { provide: OverlayContainer, useFactory: () => new AppOverlayContainer(document) },
+    // { provide: OverlayContainer, useClass: CdkOverlayContainer }, // 注销掉，否则overlay不好用, 使用下面也没好用，最后直接在指令里 providers了这个类，就ok了
+    // { provide: OverlayContainer, useFactory: () => new CdkOverlayContainer(DOCUMENT, new Platform({})) }, 
+    // { provide: OverlayContainer, useFactory: () => new AppOverlayContainer(document, Platform) },
   ], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })

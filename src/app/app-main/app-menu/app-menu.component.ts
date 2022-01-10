@@ -29,10 +29,6 @@ export class AppMenuComponent implements OnInit {
 
   @Input() theme: boolean;
 
-  @HostListener('scroll', ['$event'])
-  onscroll(event: any) {
-    console.log(event);
-  }
   constructor(
     private store: Store<{tab: MenuTab}>,
     private router: Router,
@@ -63,7 +59,7 @@ export class AppMenuComponent implements OnInit {
   }
 
   goToHomePage() {
-    // 点击左侧，在app.component里的逻辑有个bug，home页会不跳转
+    // 点击左侧，在app.component里的逻辑有个bug，home页会不跳转(其实执行逻辑有问题，需要触发store来实现)
     this.router.navigate(['/home']);
   }
 

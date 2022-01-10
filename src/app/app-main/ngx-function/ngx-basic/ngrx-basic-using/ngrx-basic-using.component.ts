@@ -16,8 +16,8 @@ export class NgrxBasicUsingComponent implements OnInit, OnDestroy {
 
   public intervalMsg = '';
   public mousemoveMsg = '';
-  @ViewChild('mouseEle') mouseEle: ElementRef;
-  @ViewChild('flowControl') flowControl: ElementRef;
+  @ViewChild('mouseEle', {static: true}) mouseEle: ElementRef;
+  @ViewChild('flowControl', {static: true}) flowControl: ElementRef;
   public tabs = [
 		{ id: 1, title: 'menu1', active: true },
 		{ id: 2, title: 'menu2', active: false },

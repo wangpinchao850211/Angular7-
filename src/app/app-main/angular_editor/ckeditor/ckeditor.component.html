@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="ckeditor-wrapper">
+    <h3>技术点1：Ckeditor的引入及基础使用</h3>
     <ckeditor #editor config="config" [editor]="Editor" [(ngModel)]="model.editorData" (ready)="onReady($event)" (change)="onChange($event)" ></ckeditor>
     {{model.editorData}}
   
@@ -9,6 +10,7 @@
   </div>
   
   <div class="js-editor-wrapper">
+    <h3>技术点2：动态获取输入框text长度，变更输入框长度</h3>
     <p>
       <strong>动态获取输入框text长度，变更输入框长度</strong> <br>
     </p>
@@ -19,7 +21,7 @@
     <i nz-icon nzType="check" nzTheme="outline" class="every-con" (click)="TitleSave($event, model)"></i>
     <i nz-icon nzType="close" nzTheme="outline" class="every-con" (click)="TitleCancel($event)"></i>
   </div>
-
+  <h3>技术点3：可编辑元素文本添加link</h3>
   <div class="text-link-wrapper">
     <app-text-link 
           [data]="content" 

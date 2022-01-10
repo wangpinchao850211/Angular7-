@@ -18,7 +18,7 @@ import { AngularScssComponent } from './app-main/angular-scss/angular-scss.compo
 import { DirectivePipeComponent } from './app-main/angular_basic/directive-pipe/directive-pipe.component';
 import { NgxFunctionComponent } from './app-main/ngx-function/ngx-function.component';
 import { AngularAnimateComponent } from './app-main/angular-animate-layout/angular-animate/angular-animate.component';
-// import { RemlayoutComponent } from './rem/remlayout/remlayout.component';
+import { RemlayoutComponent } from './app-main/rem/remlayout/remlayout.component';
 import { NgrxBasicUsingComponent } from './app-main/ngx-function/ngx-basic/ngrx-basic-using/ngrx-basic-using.component';
 import { NgxStateStoreComponent } from './app-main/ngx-function/ngx-state-store/ngx-state-store.component';
 import { HostUseComponent } from './app-main/mvcH5Css3/host-use/host-use.component';
@@ -118,7 +118,6 @@ const routes: Routes = [
     path: 'Angular_Material',
     component: MaterialLayoutComponent,
     children: [
-      // { path: 'AngularMaterial', component: MaterialComcomponentComponent },
       { path: 'Overlay', component: MaterialCdkOverlayComponent },
       { path: 'ChangeOverlayDefaultContainer', component: DirectExtendComponent }
     ]
@@ -151,11 +150,11 @@ const routes: Routes = [
       { path: 'MvcUseH5Css3', component: HostUseComponent },
     ]
   },
-  // {
-  //   path: 'remlayout',
-  //   component: RemlayoutComponent,
-  //   outlet: 'remaux', // 使用了变量控制这个组件的显示隐藏，并且路由跳转
-  // },
+  {
+    path: 'remlayout',
+    component: RemlayoutComponent,
+    // outlet: 'remaux', // 使用了变量控制这个组件的显示隐藏，并且路由跳转
+  },
   // Handle all other routes
   { path: '**', component: Code404Component } // 一定要放在路由的最后面
 ];
