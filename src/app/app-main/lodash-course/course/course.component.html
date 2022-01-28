@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <nz-tabset style=" width: 90%; margin: 10px auto;background: lightgray;" (nzSelectChange)="nzSelect($event)">
+        <nz-tab nzTitle="数组">
+            <pre>
+                <code id="javascript1" class="javascript" [innerHTML]="highlightStr1"></code>
+            </pre>
+        </nz-tab>
+        <nz-tab nzTitle="集合" >
+            <pre>
+                <code id="javascript2" class="javascript" [innerHTML]="highlightStr"></code>
+            </pre>
+        </nz-tab>
+        <nz-tab nzTitle="对象">
+            <pre>
+                <code id="javascript3" class="javascript" [innerHTML]="highlightStr3"></code>
+            </pre>
+        </nz-tab>
+        <nz-tab nzTitle="字符串">
+            <pre>
+                <code id="javascript4" class="javascript" [innerHTML]="highlightStr4"></code>
+            </pre>
+        </nz-tab>
+        <nz-tab nzTitle="Lodash示例">
+            <h4>1、集合</h4>
+            <pre>
+                <code class="javascript javascript_5" [innerHTML]="collectionStr"></code>
+            </pre>
+            <h4>2、函数</h4>
+            <pre>
+                <code class="javascript javascript_5" [innerHTML]="FunctionStr"></code>
+            </pre>
+            <h4>3、其他</h4>
+            <pre>
+                <code class="javascript javascript_5" [innerHTML]="otherStr"></code>
+            </pre>
+        </nz-tab>
+    </nz-tabset>
+    
+</div>

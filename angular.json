@@ -13,7 +13,7 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "_comment": "json文件中加注释方法:命令生成组件自动生成scss文件",
+          "_comment": "json文件中加注释方法:命令生成组件自动生成scss文件（加这个_comment命令生成组件就报错了）",
           "style": "scss"
         }
       },
@@ -45,7 +45,9 @@
               {
                 "glob": "**/*",
                 "input": "src/assets/",
-                "ignore": ["**/*.scss"],
+                "ignore": [
+                  "**/*.scss"
+                ],
                 "output": "/assets/"
               }
             ],
@@ -63,7 +65,7 @@
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
-            "sourceMap": false,
+            "sourceMap": true,
             "optimization": {
               "scripts": false,
               "styles": {

@@ -2,12 +2,12 @@
   <nz-tabset style=" width: 90%; margin: 10px auto;background: lightgray;">
     <nz-tab nzTitle="复选框校验">
       <form [formGroup]="checkBoxForm" style="margin-left: 20px;">
-        <div class="like" *ngFor="let like of likes['controls']; let i = index;" >
-          <input type="checkbox" [formControl]="like"> 
-         {{likesArr[i]}}
+        <div class="like" *ngFor="let like of likes['controls']; let i = index;">
+          <input type="checkbox" [formControl]="like">
+          {{likesArr[i]}}
         </div>
         <div class="youselect">{{selects}}</div>
-       </form>
+      </form>
     </nz-tab>
     <nz-tab nzTitle="表单基础">
       <p style="text-indent: 20px;">
@@ -63,8 +63,8 @@
         <p>
           <button type="submit">保存</button>
         </p>
-      </form>   
-      <h2>解决input和ngModelChange事件比ngModel双向绑定快的问题</h2> 
+      </form>
+      <h2>解决input和ngModelChange事件比ngModel双向绑定快的问题</h2>
       <input style="margin-bottom: 100px;" type="text" [(ngModel)]="wpcVar" (keypress)="wpcChange($event)">
     </nz-tab>
     <nz-tab nzTitle="formArray应用">
@@ -76,7 +76,12 @@
     <nz-tab nzTitle="动态表单实战问卷">
       <app-form-dynamic-questionnaire></app-form-dynamic-questionnaire>
     </nz-tab>
-    
+    <nz-tab nzTitle="不重复添加key">
+      <app-unique-key></app-unique-key>
+    </nz-tab>
+    <nz-tab nzTitle="table使用及原生字符串拼接">
+      <app-native-table></app-native-table>
+    </nz-tab>
   </nz-tabset>
 
 </div>

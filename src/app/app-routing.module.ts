@@ -39,6 +39,8 @@ import { DirectExtendComponent } from './app-main/angular_material/overlay/overl
 import { MaterialLayoutComponent } from './app-main/angular_material/material-layout/material-layout.component';
 import { Code404Component } from './app-main/code404/code404.component';
 import { CanDeactivateGuard } from './services/auth/can-deactivate.guard';
+import { LodashCourseComponent } from './app-main/lodash-course/lodash-course.component';
+import { CourseComponent } from './app-main/lodash-course/course/course.component';
 
 const routes: Routes = [
   // Main redirect。  pathMatch：重定向路由需要一个 pathMatch 属性，来告诉路由器如何用 URL 去匹配路由的路径，否则路由器就会报错。路由器应该只有在完整的 URL等于 '' 时才选择 对应 组件，因此要把 pathMatch 设置为 'full'。
@@ -68,7 +70,7 @@ const routes: Routes = [
           {
             path: 'productdetail',
             component: ProductdetailComponent,
-            data: {title: '路由定义传递固定值'} // 第三种传值方法
+            data: { title: '路由定义传递固定值' } // 第三种传值方法
           }, // 传递参数直接在routerLink增加参数即可
           // 下面配置的是辅助路由，在跳转时添加，aux映射组件即可，无需写跳转路径，即会跳到aux路由插座下
           { path: 'fuzuluyouO', component: FuzuluyouOComponent, outlet: 'aux' },
@@ -151,6 +153,13 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'LodashCourse',
+    component: LodashCourseComponent,
+    children: [
+      { path: 'Course', component: CourseComponent }
+    ]
+  },
+  {
     path: 'remlayout',
     component: RemlayoutComponent,
     // outlet: 'remaux', // 使用了变量控制这个组件的显示隐藏，并且路由跳转
@@ -164,8 +173,8 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
       { enableTracing: false, relativeLinkResolution: 'legacy' } // <-- debugging purposes only，打印路由跳转变化
- // <-- debugging purposes only，打印路由跳转变化
-      )
+      // <-- debugging purposes only，打印路由跳转变化
+    )
   ],
   exports: [RouterModule]
 })

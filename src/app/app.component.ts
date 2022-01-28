@@ -96,23 +96,23 @@ export class AppComponent implements AfterViewInit {
         this.removeCurrentURl = route['urlAfterRedirects']; // 保存当前路径（刷新在这个位置，可以接受到刷新前的路径，在init中添加store）
         console.log(this.removeCurrentURl);
         // sessionStorage.setItem('currentUrl', this.removeCurrentURl);
-        if ( !this.removeCurrentURl.includes('product')) {
+        if ( !(this.removeCurrentURl.includes('product') || this.removeCurrentURl.includes('LodashCourse'))) {
           this.freshInitTab(); // 刷新添加tab
         } else { // routers 不让刷新了，刷新就只跳home页，因为routers里的路由逻辑和刷新冲突
           // 直接用刷新方法控制，拦截如果是routers路由里
         }
 
-        console.log(route.url);
+        // console.log(route.url);
         const tree: UrlTree = this.router.parseUrl(route.url);
-        console.log(tree);
+        // console.log(tree);
         // root: UrlSegmentGroup: URL树的根段组
         // queryParams: Params: URL的查询参数
         // fragment: string | null: URL的片段
         // queryParamMap: ParamMap
         const fragment = tree.fragment;
-        console.log(fragment);
+        // console.log(fragment);
         const params = this.deSerialize(fragment);
-        console.log(params);
+        // console.log(params);
       });
 
       // 刷新页面保留current url (开始用session存储的，后来routerInfo也获取到了(在上部)，原因是authService写法导致了路由的乱套，正常写是会保持原路径的刷新！！！)
@@ -182,7 +182,7 @@ export class AppComponent implements AfterViewInit {
       }
       // 跳转路由
       if (i.isSelect && i.url !== '/home') {
-        this.router.navigate([i.url]); // 破坏了路由复用的机制，暂时不用路由复用了，需要整体路由结构重构
+        // this.router.navigate([i.url]); // 破坏了路由复用的机制，暂时不用路由复用了，需要整体路由结构重构
         break;
       }
       // 将下面代码一注销掉，就能正常获取到路由刷新的路径 (原因1：)

@@ -130,6 +130,8 @@ import { AngularAnimateLayoutComponent } from './app-main/angular-animate-layout
 import { MaterialCdkOverlayComponent } from './app-main/angular_material/overlay/material-cdk-overlay/material-cdk-overlay.component';
 import { OverlayPanelComponent } from './app-main/angular_material/overlay/overlay-panel/overlay-panel.component';
 import { RemlayoutComponent } from './app-main/rem/remlayout/remlayout.component';
+import { LodashCourseComponent } from './app-main/lodash-course/lodash-course.component';
+import { CourseComponent } from './app-main/lodash-course/course/course.component';
 
 import { SharedModule } from './app-main/chain_module/shared/shared.module';
 import { MultiplePipe } from './pipe/multiple.pipe';
@@ -163,6 +165,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
 import { TextLinkComponent } from './app-main/angular_editor/text-link/text-link.component';
 import { SimpleQuestionnaireComponent } from './app-main/simpleConvenientImplementQuestion/simpleQuestionnaire/simpleQuestionnaire.component';
+import { UniqueKeyComponent } from './app-main/angular_basic/form/unique-key/unique-key.component';
+import { NativeTableComponent } from './app-main/angular_basic/form/native-table/native-table.component';
 
 registerLocaleData(zh);
 
@@ -244,7 +248,11 @@ registerLocaleData(zh);
     DirectExtendComponent,
     MaterialLayoutComponent,
     CdkOverlayContainerDirective,
-    SimpleQuestionnaireComponent
+    SimpleQuestionnaireComponent,
+    UniqueKeyComponent,
+    NativeTableComponent,
+    LodashCourseComponent,
+    CourseComponent
   ],
   entryComponents: [ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
     OverlayPanelComponent
