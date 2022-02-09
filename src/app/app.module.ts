@@ -71,6 +71,8 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -308,6 +310,8 @@ registerLocaleData(zh);
     NzToolTipModule,
     NzFormModule,
     NzRadioModule,
+    NzModalModule,
+    NzMessageModule,
     NzCheckboxModule,
     NzDatePickerModule,
     NzInputModule,

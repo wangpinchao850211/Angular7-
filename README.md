@@ -96,7 +96,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 23、host-use组件：css-host深入研究
     ①、host实战比较实用(`要深入看，一定得研究透，才能实用`)：在life-cycle组件的scss文件有使用了一下，根据不同父组件实现不同的子组件样式！！！
     ②、star-checkbox得封装
-24、echart的引入和实用(`在glr项目有详细实用，和动态引入`)
+24、echart的引入和实用(`在glr项目有详细实用，和动态引入;vue中比较全可多学习参阅,重点!!!; 这里使用了echarts的组件形式`)
 25、layout组件里有个路由监听事件绑定在router-outlet上(`onActivate,onDeactivate`)
 26、simpleQuestionnaire.module是整个questionnaire的封装(`可结合9项form表达深入实战和实用`; 还有download excel 和 download doc)
 

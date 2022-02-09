@@ -1,1 +1,52 @@
-<p>unique-key works!</p>
+<div class="unique-wrapper">
+    <h5>添加要求</h5>
+    <p>创建组、选择、移除操作demo效果要求:</p>
+    <p id="wpcyyy" [innerHtml]="titleMsg"></p>
+    <div class="basic-choose-group">
+        <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)" >
+            <div class="every-check" nz-row *ngFor="let item of basicChooseArray">
+                <label 
+                    nz-checkbox 
+                    [(ngModel)]="item.required"  
+                    [nzDisabled]="item.disabled"
+                    [nzValue]="item.key"
+                    (ngModelChange)="basicGroupChange(item, $event)">
+                    {{item.credentialLable}}
+                </label>
+            </div>
+        </nz-checkbox-wrapper>
+    </div>
+    <div class="create-choose-group">
+        <nz-checkbox-wrapper style="width: 100%;">
+            <div class="every-check" nz-row *ngFor="let item of creatGroupArray; let i = index;">
+                <label 
+                    nz-checkbox 
+                    [(ngModel)]="item.required"  
+                    [nzDisabled]="item.disabled"
+                    (ngModelChange)="createGroupChange(item, i, $event)">
+                    {{item.credentialLable}}
+                </label>
+                <i nz-icon nzType="close" nzTheme="outline" (click)="removeCreatGroup(item, i)"></i>
+            </div>
+        </nz-checkbox-wrapper>
+    </div>
+    <div class="creat-button">
+        <button class="btn btn-primary" (click)="createGroup()">createGroup</button>
+    </div>
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="创建组" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="popUpNzOnChange($event)" >
+            <div class="every-check" nz-row *ngFor="let item of createChooseArray">
+                <label 
+                    nz-checkbox 
+                    [(ngModel)]="item.required"  
+                    [nzDisabled]="item.disabled"
+                    [nzValue]="item.key">
+                    {{item.credentialLable}}
+                </label>
+            </div>
+        </nz-checkbox-wrapper>
+    </ng-container>
+  </nz-modal>

@@ -2,9 +2,17 @@
   <div class="ib m16">
       <article>
           <h5 class="title-border">
-            <a href="https://github.com/xieziyu/ngx-echarts">Ngx-Echarts@4.2.1</a>
+            <a href="https://github.com/xieziyu/ngx-echarts" style="color: #073c6c;">Ngx-Echarts@4.2.1</a>
           </h5>
       </article>
+      <section>
+        <h3>
+          1、vue中使用echart: 使用echart官网初始化方式: echarts.init(元素id);setOption()来进行初始化 <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注: vue中有echart的各个配置项的使用，比较全，可详细观摩学习!!! <br>
+          2、angular中使用echart(目前有两种方式): 项目中使用的是ngx-echarts封装的指令方式来实现的option输入; <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这个里面使用了echarts组件的方式实现
+        </h3>
+      </section>
       <button class="mt16" pButton type="button" (click)="changeWidth($event)" label="Change Width"></button>
   </div>
   <div [ngStyle]="{'width': width}">
