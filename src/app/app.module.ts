@@ -169,6 +169,8 @@ import { TextLinkComponent } from './app-main/angular_editor/text-link/text-link
 import { SimpleQuestionnaireComponent } from './app-main/simpleConvenientImplementQuestion/simpleQuestionnaire/simpleQuestionnaire.component';
 import { UniqueKeyComponent } from './app-main/angular_basic/form/unique-key/unique-key.component';
 import { NativeTableComponent } from './app-main/angular_basic/form/native-table/native-table.component';
+import { FormTableComponent } from './app-main/angular_basic/form/form-table/form-table.component';
+import { PreviewDialogComponent } from './app-main/angular_basic/form/form-table/preview-dialog/preview-dialog.component';
 
 registerLocaleData(zh);
 
@@ -254,7 +256,9 @@ registerLocaleData(zh);
     UniqueKeyComponent,
     NativeTableComponent,
     LodashCourseComponent,
-    CourseComponent
+    CourseComponent,
+    FormTableComponent,
+    PreviewDialogComponent
   ],
   entryComponents: [ // 自己封装dialog组件要使用一下这个，否则报错！！！！通过这个配置dialog得对话框内容
     OverlayPanelComponent
