@@ -34,7 +34,7 @@ export class NativeTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetTableData();
-    console.log(this.tableStr);
+    // console.log(this.tableStr);
     for (const key in this.tableDataMap) {
       this.tableStr.forEach((s) => {
         if (s[key]) {
@@ -42,7 +42,7 @@ export class NativeTableComponent implements OnInit {
         }
       });
     }
-    console.log(this.previewHtml);
+    // console.log(this.previewHtml);
   }
 
   GetTableData() {

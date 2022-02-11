@@ -6,7 +6,7 @@ export function DrawTable(data, rootKey, tableTitle) {
   const {rowObj, colArr, rowTypeArr, rowArr, A} = handleTabelInfo(data, tableDataKeys);
   const { str, TableTit, c } = drawTable(rowObj, colArr, rowTypeArr, rowArr, A, tableDataKeys);
   let tableStr = `<table border="1px" id="${rootKey}" contenteditable="false" style="cursor:pointer"><tbody><tr class="firstRow"><th colspan="${c.length + 2}">${tableTitle}</th></tr><tr><td width="100" valign="top">行分组分类</td><td width="100" valign="top">行分组</td>${TableTit}</tr>${str}</tbody></table>`;
-  console.log(tableStr); // 最终生成的字符串
+  // console.log(tableStr); // 最终生成的字符串
   return tableStr;
 }
 
@@ -29,7 +29,7 @@ function handleTabelInfo(data, tableDataKeys) { // 处理表格数据
           const i = rowType.findIndex(ite => ite === k);
           rowkey = `空${i}`;
         }
-        console.log(rowkey);
+        // console.log(rowkey);
         O[`${rowkey}`] = arr;
         // Vue.set(O, rowkey, arr);
         A.push(O);
@@ -169,8 +169,8 @@ function drawTable(r, c, wrapArr, rArr, A, tableDataKeys) {
   });
 
   // 输出值
-  console.log(str);
-  console.log(TableTit);
+  // console.log(str);
+  // console.log(TableTit);
   return { str, TableTit, c }
   
 }

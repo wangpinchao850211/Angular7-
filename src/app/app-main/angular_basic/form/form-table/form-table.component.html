@@ -1,1 +1,95 @@
-<p>form-table works!</p>
+<div class="form-table-wrapper">
+    <div class="send-request">
+        <button
+            nz-button
+            nzType="primary"
+            [disabled]="setOfCheckedId.size === 0"
+            [nzLoading]="loading"
+            (click)="sendRequest()"
+        >
+            Send Request
+        </button>
+        <span>Selected {{ setOfCheckedId.size }} items</span>
+    </div>
+    <nz-table
+        #rowSelectionTable
+        nzSize="middle"
+        nzTableLayout="fixed"
+        nzShowPagination
+        nzShowSizeChanger
+        [nzData]="listOfDisplayData"
+        (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+        >
+        <thead>
+            <tr>
+                <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)" nzWidth="4%"></th>
+                <th
+                    *ngFor="let column of listOfColumns"
+                    [nzSortOrder]="column.sortOrder"
+                    [nzSortFn]="column.sortFn"
+                    [nzSortPriority]="column.priority"
+                    [nzSortDirections]="column.sortDirections"
+                    [nzFilterMultiple]="column.filterMultiple"
+                    [nzFilters]="column.listOfFilter"
+                    [nzFilterFn]="column.filterFn"
+                    [nzWidth]="column.width"
+                    [nzEllipsis]="true"
+                >
+                {{ column.name }} 
+                </th>
+                <th nzWidth="60%">
+                    picture
+                    <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                        <i nz-icon nzType="search"></i>
+                    </nz-filter-trigger>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of rowSelectionTable.data">
+            <td
+                [nzChecked]="setOfCheckedId.has(data.id)"
+                [nzDisabled]="data.disabled"
+                (nzCheckedChange)="onItemChecked(data.id, $event)"
+            ></td>
+            <td nzBreakWord >{{ data.name }}</td>
+            <td>{{ data.age }}</td>
+            <td nzEllipsis >{{ data.address }}</td>
+            <td class="img-td">
+                <!-- <nz-carousel nzAutoPlay> -->
+                <div class="nz-carousel-content" *ngFor="let url of data.imgsArray; let i = index;" [ngStyle]="getImgStyle(url)" (click)="imgClick(data, i)">
+                </div>
+                <!-- </nz-carousel> -->
+            </td>
+            </tr>
+        </tbody>
+    </nz-table>
+
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+          <div class="search-box">
+            <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+            <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+            <button nz-button nzSize="small" (click)="reset()">Reset</button>
+          </div>
+        </div>
+    </nz-dropdown-menu>
+
+    <h2>nz-zorro走马灯有问题:</h2>
+    <div style="width: 500px; height: 300px; border: 1px solid black; position: relative;">
+        <nz-carousel nzAutoPlay nzEffect="scrollx">
+            <div class="carousel" nz-carousel-content *ngFor="let url of imgsArray; let i = index;" >
+                <h3>{{i}}</h3>
+            </div>
+        </nz-carousel>
+    </div>
+    <!-- 图片遮罩显示 -->
+    <ng-container *ngIf="imgPreview">
+        <app-preview-dialog 
+            [imgs]="showImgs" 
+            [showIndex]="theIngdex" 
+            [showPreview]="imgPreview"
+            (close)="closePreview($event)">
+        </app-preview-dialog>
+    </ng-container>
+</div>

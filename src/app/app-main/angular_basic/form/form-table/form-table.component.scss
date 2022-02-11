@@ -1,0 +1,71 @@
+.form-table-wrapper{
+    width: 90%;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    .send-request {
+        margin-bottom: 16px;
+    }
+
+    .send-request span {
+        margin-left: 8px;
+    }
+
+    .img-td {
+        .nz-carousel-content { 
+            display: inline-block;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            color: #fff;
+            overflow: hidden;
+            cursor: pointer;
+        }
+    }
+}
+// 走马灯样式有问题
+.carousel[nz-carousel-content] {
+    display: inline-block!important;
+    text-align: center;
+    width: 300px!important;
+    height: 300px!important;
+    line-height: 300px!important;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+    position: absolute!important;
+}
+
+h3 {
+    color: #fff;
+    margin-bottom: 0;
+    user-select: none;
+}
+::ng-deep {
+    .ant-table-filter-dropdown {
+        .search-box {
+            padding: 8px;
+        }
+    
+        .search-box input {
+            width: 188px;
+            margin-bottom: 8px;
+            display: block;
+        }
+    
+        .search-box button {
+            width: 90px;
+        }
+    
+        .search-button {
+            margin-right: 8px;
+        }
+    }
+    // 走马灯样式有问题
+    .ant-carousel .slick-dots {
+        top: 280px;
+    }
+    .ant-carousel .slick-slider .slick-list, .ant-carousel .slick-track{
+        width: 100px!important;
+        height: 60px!important;
+    }
+}
