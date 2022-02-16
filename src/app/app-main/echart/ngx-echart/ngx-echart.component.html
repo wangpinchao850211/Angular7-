@@ -15,8 +15,11 @@
       </section>
       <button class="mt16" pButton type="button" (click)="changeWidth($event)" label="Change Width"></button>
   </div>
-  <div [ngStyle]="{'width': width}">
-      <app-chart-one></app-chart-one>
-      <app-chart-two></app-chart-two>
+  <div [ngStyle]="{'width': width}" id="echart">
+      <app-chart-one (echartsInstance)="echartsInstance($event)"></app-chart-one>
+      <app-chart-two (echartsInstance)="echartsInstanceTwo($event)"></app-chart-two>
+  </div>
+  <div class="down-load-PDF">
+    <button nzType="primary" (click)="downLoadPDF()"> Down Load PDF </button>
   </div>
 </section>

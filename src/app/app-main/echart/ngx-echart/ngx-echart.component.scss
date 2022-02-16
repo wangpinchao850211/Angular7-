@@ -2,4 +2,10 @@
 // background-color: var(--mainDarkBackgroundColor);
 .main-pages-content {
     padding: 14px;
+    .down-load-PDF {
+        margin-bottom: 100px;
+        button {
+            float: right;
+        }
+    }
 }

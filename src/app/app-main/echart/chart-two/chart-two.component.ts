@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
@@ -35,6 +35,7 @@ import * as _ from 'lodash';
 })
 export class ChartTwoComponent implements OnInit {
 
+  @Output() echartsInstance = new EventEmitter<any>();
   echartsIntance: any;
   newOption: any;
 
@@ -130,5 +131,6 @@ export class ChartTwoComponent implements OnInit {
 
   onChartInit(ec) {
       this.echartsIntance = ec;
+      this.echartsInstance.emit(ec);
   }
 }

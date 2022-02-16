@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chart-one',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     <button pButton type="button" class="mr12" (click)="isLoading = !isLoading" label="Toggle Loading"></button>
     <button pButton type="button" class="mr12" (click)="setOption()" label="Merge Option"></button>
     <button pButton type="button" (click)="reset()" label="Reset"></button>
-    <echarts [options]="options" [loading]="isLoading" [merge]="mergeOption" [autoResize]="true" class="charts-layout"></echarts>
+    <echarts [options]="options" [loading]="isLoading" [merge]="mergeOption" [autoResize]="true" class="charts-layout" (chartInit)="onChartInit($event)"></echarts>
   </div>
   `,
   styles: [`
@@ -31,6 +31,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartOneComponent implements OnInit {
 
+  @Output() echartsInstance = new EventEmitter<any>();
   isLoading = false;
 
   mergeOption: any;
@@ -72,6 +73,10 @@ export class ChartOneComponent implements OnInit {
 
   ngOnInit() {
     this.reset();
+  }
+
+  onChartInit(ev) {
+    this.echartsInstance.emit(ev);
   }
 
   setSeriesData(param: any) {
