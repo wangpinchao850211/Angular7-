@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { jsPDF } from 'jspdf';
-
+import domtoimage from 'dom-to-image'
 @Component({
   selector: 'app-ngx-echart',
   templateUrl: './ngx-echart.component.html',
@@ -8,10 +8,15 @@ import { jsPDF } from 'jspdf';
 })
 export class NgxEchartComponent implements OnInit {
 
+  @ViewChild('mainEcharts') mainEcharts: ElementRef;
+  @ViewChild('screeshot', {static: false}) screeshot: ElementRef;
+  showScreeShot = false;
   public echartInstance: any;
   public echartInstanceTwo: any;
   width = '100%';
-  constructor() { }
+  constructor(
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit() {
   }
@@ -285,5 +290,29 @@ export class NgxEchartComponent implements OnInit {
     // Output as Data URI
     // doc.output('datauri');
     doc.save("wpc_obrz.pdf");
+  }
+
+  // screenShots
+  screenShots() {
+    this.showScreeShot = true;
+    setTimeout(() => {
+      const that = this;
+      domtoimage.toPng(this.mainEcharts.nativeElement)
+        .then(function (dataUrl) {
+          const img = new Image();
+          img.src = dataUrl;
+          img.style.display = 'block';
+          img.style.width = '80%';
+          img.style.margin = '0 auto';
+          that.renderer.appendChild(that.screeshot.nativeElement, img);
+        })
+        .catch(function (error) {
+          console.log('something went wrong!', error);
+        })
+    }, 100)
+  }
+
+  closeDialog() {
+      this.showScreeShot = false;
   }
 }

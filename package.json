@@ -34,6 +34,7 @@
     "date-fns": "^2.6.0",
     "document-register-element": "^1.7.2",
     "docx": "^6.0.3",
+    "dom-to-image": "^2.6.0",
     "echarts": "^4.8.0",
     "exceljs": "^4.3.0",
     "file-saver": "^2.0.2",
