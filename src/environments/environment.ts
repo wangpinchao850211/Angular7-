@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  mock: false,
   websocketUrl: 'http://localhost:3000',
   websocketPath: 'api',
   OAuth: {
@@ -19,6 +20,8 @@ export const environment = {
       USERNAME: 'thirdpart_username',
     }
   },
+  host: 'http://localhost:3000',
+  nestApiUrl: 'http://localhost:3000/api/upload'
 };
 
 /*

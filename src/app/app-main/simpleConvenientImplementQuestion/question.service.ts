@@ -59,7 +59,7 @@ export class QuestionsService {
         return questionList;
     }
 
-    // 校验所有question的题
+    // 校验所有question的题；处理所有题得validation
     public handleQnrValidation(questions: any, sections: any): any {
         const obj = {
             nextDisable: false,
@@ -109,7 +109,7 @@ export class QuestionsService {
         return obj;
     }
 
-    // 切换menu，显示相应的题
+    // 切换menu，显示相应的题；显示当前section得题
     public showCurSecQues(secNum: number, quesList: any) {
         quesList.forEach(ques => {
             const { value: val } = ques;
@@ -135,6 +135,7 @@ export class QuestionsService {
         });
     }
 
+    // 初始化dependency 包括autoResponce 和 所有得dependency
     private initDependency(val, ques, questions) {
         if (ques.questionType === 'Single Choice' || ques.questionType === 'Free Text' || ques.questionType === 'Calendar' ) {
             for (const v of val) {
@@ -150,7 +151,7 @@ export class QuestionsService {
     /**
      * // dealing with the questions that contains autoResponse：处理包含autoResponse的问题
      */
-     public dealQuestionCommets(val: any, ques: any) {
+     public dealQuestionCommets(val: any, ques: any) {// 处理题autoResponce
         if (ques.questionType === 'Multiple Choice') {
             const textOpt = filter(ques.questionAttribute, opt => opt.checked && !!opt.questionAutoResponse);
             const typeOpt = filter(ques.questionAttribute, opt => opt.checked && !!opt.questionAutoResponseType);
@@ -270,7 +271,7 @@ export class QuestionsService {
      * If the input parameter has secNum, judge all the questions; Otherwise judge the questions in current section：如果输入参数有secNum，判断所有的问题;否则判断当前部分的问题
      * initial dependency
      */
-     public initQuestionDependency(ques: any, quesList: any): void {
+     public initQuestionDependency(ques: any, quesList: any): void { // 初始化，翻页哪些题显示
         if (this.handleExtraDependency(ques, quesList, true)) {
             return;
         }
@@ -393,7 +394,7 @@ export class QuestionsService {
      * Deal denpendency with changing questions：用不断变化的问题处理依赖性：使用递归函数，重点逻辑
      * @returns Array<number>: The questionId of Hidden questions through dependency：通过依赖隐藏问题的questionId
      */
-     public dealQuestionDependency(val: any, ques: any, quesList: any, secNum: number): any {
+     public dealQuestionDependency(val: any, ques: any, quesList: any, secNum: number): any {//题得dependency
         let arr = [];
         for (const item of quesList) {
             const isCurrSec = secNum === item.sectionId;
@@ -544,7 +545,7 @@ export class QuestionsService {
      * @param quesList all questions
      * @returns A boolean flag: Is this dependency equal to the answer to the related question ?
      */
-     private compareValWithDec(dec: any, quesList: any): any {
+     private compareValWithDec(dec: any, quesList: any): any { // 每道题该不该显示
         let res: boolean;
         // console.log(dec);
         // console.log(quesList);
@@ -617,7 +618,7 @@ export class QuestionsService {
      * Handling for multi questions' selected options mutually exclusive: 处理多题选择的互斥选项
      * @param val question dto
      */
-     public handleNoneVal(ques) {
+     public handleNoneVal(ques) { // 处理多选题，选项互斥
         const hasNoneVal = some(ques.value, e => e.onlyChoice);
         ques.questionAttribute.forEach(e => {
             if (e.onlyChoice) {
@@ -632,7 +633,7 @@ export class QuestionsService {
      * (It's no use at the moment)
      * Getting all questions that should be displayed：得到所有应该显示的问题
      */
-     public handleAllShouldDisplayQuestion(quesList: any, secNumArr: Array<number>) {
+     public handleAllShouldDisplayQuestion(quesList: any, secNumArr: Array<number>) { // 处理所有应该显示得题
         for (const q of quesList) {
             if (secNumArr.indexOf(q.sectionId) !== -1) {
                 continue;

@@ -1,4 +1,4 @@
-<h3 class="first">Advanced</h3>
+<h3 class="first">1、prime-Ng: fileupload可以使用</h3>
 <!-- <p-fileUpload
         name="demo[]"
         url="/api/file/fileupload"
@@ -14,14 +14,15 @@
     </ng-template>
 </p-fileUpload> -->
 
-<h3>Basic</h3>
+<h3>2、Basic: 原生实现</h3>
+<div class="basic-upload-wrapper">
+    <i nz-icon nzType="upload" nzTheme="outline"></i>
+    <input #fileForm type="file" accept="image/jpeg, image/jpg, image/png, image/gif" multiple="multiple" style="display: none;" />
+	<button nz-button nzType="primary" style="padding: 0 16px" nzGhost (click)="clickInputFile()">Upload</button>
+</div>
 
-<!-- <p-fileUpload mode="basic" name="demo[]" url="http://localhost:3000/uploadfiles" accept="image/*" maxFileSize="1000000"  (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
 
-<!-- <h3>Basic with Auto</h3> -->
-<!-- <p-fileUpload #fubauto mode="basic" name="demo[]" url="http://localhost:3000/uploadfiles" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUploadAuto($event)" [auto]="true" chooseLabel="Browse"></p-fileUpload> -->
-
-<h3>ng2-file-upload 官方demo</h3>
+<h3>3、ng2-file-upload 官方demo</h3>
 
 <div class="container">
 
@@ -145,6 +146,7 @@
     </div>
 </div>
 
+<h3>4、ng-zorro 官方使用</h3>
 <div class="ant-upload-wrapper">
   <!-- 引入有问题，没引入成功 -->
   <!-- <nz-upload

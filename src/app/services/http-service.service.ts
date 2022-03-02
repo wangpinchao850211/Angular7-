@@ -5,6 +5,7 @@ import { LoaderInterceptor } from './loadingInterceptor';
 export const HTTP_DYNAMIC_INTERCEPTORS = new InjectionToken<HttpInterceptor>('HTTP_DYNAMIC_INTERCEPTORS');
 import { tap } from 'rxjs/operators';
 
+// HttpServiceService注入到root会影响到文件上传接口！！！
 @Injectable({
   providedIn: 'root'
 })

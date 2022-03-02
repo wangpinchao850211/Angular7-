@@ -1,17 +1,36 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpResponse, HttpHeaders } from '@angular/common/http';
 // import { UploadXHRArgs } from 'ng-zorro-antd/upload';
 import { NzUploadXHRArgs } from 'ng-zorro-antd/upload';
 import { forkJoin } from 'rxjs';
 import { FileUploader } from 'ng2-file-upload';
 import { HttpServiceService } from '../../../services/http-service.service';
+import * as _ from 'lodash';
+import { environment } from 'src/environments/environment';
+
+export const errFileType = (fileName: string, regexp: string): boolean => {
+	if (fileName.lastIndexOf(".") != -1) {
+		const fileType = (fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length)).toLowerCase();
+		return !regexp.includes(fileType);
+	} else {
+		return false;
+	}
+}
+
+interface UpItem {
+	name: string;
+	src: string;
+	progress: number;
+	group: string;
+	checked: boolean;
+}
 
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
   styleUrls: ['./upload-file.component.scss']
 })
-export class UploadFileComponent implements OnInit, OnDestroy {
+export class UploadFileComponent implements OnInit, AfterViewInit, OnDestroy {
 
   uploadedFiles: any[] = []; // prime-Ng 文件上传
 
@@ -21,6 +40,14 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   hasBaseDropZoneOver:boolean;
   hasAnotherDropZoneOver:boolean;
   response:string;
+
+  // pic - upload
+  @ViewChild('fileForm') fileForm: ElementRef;
+  upList: Array<UpItem> = [];
+  curGroup: string = '';
+  get showList(): Array<UpItem> {
+		return (this.curGroup === '' || this.curGroup === '-1') ? this.upList : this.upList.filter(e => e.group === this.curGroup);
+	}
 
   constructor(
     private http: HttpServiceService,
@@ -61,7 +88,9 @@ export class UploadFileComponent implements OnInit, OnDestroy {
       headers: [{name: 'Content-Type', value: 'multipart/form-data'}],
     })
   }
-  ngOnInit() {
+  ngOnInit() {}
+  ngAfterViewInit() {
+    this.uploadListen();
   }
   ngOnDestroy() {
 
@@ -165,4 +194,68 @@ export class UploadFileComponent implements OnInit, OnDestroy {
   //     }
   //   );
   // };
+
+  // ------------------------------------- basic start file upload ---------------------------------------------------
+	uploadListen() {
+		const { nativeElement: f } = this.fileForm;
+		f.addEventListener('change', (ev) => {
+			let files = ev.target.files;
+			if (files.length > 5) { // check
+				ev.target.value = null;
+				return;
+			}
+			let upSize = false, errType = false;
+			for (let i = 0; i < files.length; i++) {
+				if (files[i].size > 3120000) { upSize  = true; break; }
+				if (errFileType(files[i].name, 'jpg|jpeg|png|bmp|gif')) { errType = true; break; }
+			}
+			if (upSize || errType) {
+				ev.target.value = null;
+				return;
+			}
+			this.uploadPic(files);
+			ev.target.value = null;
+		});
+	}
+
+	uploadPic(files: FileList) {
+		for (let i = 0; i < files.length; i++) {
+			const formData = new FormData();
+			formData.append('file', files[i]);
+			const f: UpItem = { name: files[i].name, src: '', progress: 0, group: this.curGroup, checked: false };
+			this.upList.push(f);
+      // formData.append('file', files[i] as any);
+      const req = new HttpRequest('POST', 'http://localhost:3000/api/upload', formData, {
+        reportProgress: true,
+        // withCredentials: true, 1、注释调这个解决跨域报错问题
+        headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
+      });
+      // console.log(req);
+      this.antHttp.request(req).subscribe(ev => {
+        console.log(ev);
+				if (ev.type === HttpEventType.UploadProgress) {
+					f.progress = Math.round(100 * ev.loaded / ev.total);
+				} else if (ev.type === HttpEventType.DownloadProgress) {
+
+				} else if (ev.type === HttpEventType.Sent) {
+
+				} else if (ev.type === HttpEventType.User) {
+
+				} else if (ev.type === HttpEventType.ResponseHeader) {
+
+				} else if (ev instanceof HttpResponse) {
+					f.progress = 100;
+					setTimeout(() => { f.progress += 1; }, 800);
+					if (ev.ok) {
+						// f.src = `${ environment.host }${ ev.body['fileUrl'] }`;
+					}
+				}
+			});
+		}
+	}
+
+	clickInputFile() {
+		this.fileForm.nativeElement.click();
+	}
+	// ------------------------------------- file upload end------------------------------------------------
 }

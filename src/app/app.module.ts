@@ -175,6 +175,10 @@ import { NativeTableComponent } from './app-main/angular_basic/form/native-table
 import { FormTableComponent } from './app-main/angular_basic/form/form-table/form-table.component';
 import { PreviewDialogComponent } from './app-main/angular_basic/form/form-table/preview-dialog/preview-dialog.component';
 
+import { environment } from 'src/environments/environment';
+import { httpInterceptorProviders } from './services/http-interceptors';
+// !environment.mock && require('../mock'); // 可用来判断是否引入mock
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -352,6 +356,7 @@ registerLocaleData(zh);
     // { provide: OverlayContainer, useClass: CdkOverlayContainer }, // 注销掉，否则overlay不好用, 使用下面也没好用，最后直接在指令里 providers了这个类，就ok了
     // { provide: OverlayContainer, useFactory: () => new CdkOverlayContainer(DOCUMENT, new Platform({})) }, 
     // { provide: OverlayContainer, useFactory: () => new AppOverlayContainer(document, Platform) },
+    httpInterceptorProviders // 项目中http拦截添加文件上传就好了！！！；
   ], // 声明服务，依赖注入
   bootstrap: [AppComponent] // 声明主组件
 })
